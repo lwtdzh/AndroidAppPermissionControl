@@ -1,0 +1,24 @@
+{
+  "module_version": "0.1.3",
+  "detector_version": "0.1.1",
+  "signature_verified": true,
+  "same_signer_as_previous_releases": true,
+  "four_native_abis": true,
+  "lint": {
+    "module_errors": 0,
+    "detector_errors": 0
+  },
+  "vivo_upgrade": "installed_and_notification_clipboard_tested_2026-11-08",
+  "files": [
+    {
+      "name": "ScreenshotShield-0.1.3.apk",
+      "bytes": 1545248,
+      "sha256": "6d30db77ed195f67bfb8299744fe86beade9359b4091375284a5abd0278d4b63"
+    },
+    {
+      "name": "ScreenshotDetector-0.1.1.apk",
+      "bytes": 1246176,
+      "sha256": "43f85af7457a694034b80714813860406b6a6bcc272fc1b18c21c03c66e69312"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "protected": false,
+      "fixture": "screenshot",
+      "genuine_picker_grant": true,
+      "checks": {
+        "check_document_query": true,
+        "check_name_query": true,
+        "check_stream": true,
+        "check_asset": true,
+        "check_client_fd": true,
+        "check_fd": true,
+        "check_native_open": false,
+        "check_native_stat": true,
+        "check_native_read": true,
+        "check_native_pread": true,
+        "check_native_readv": true,
+        "check_native_mmap": true,
+        "check_native_fcntl": true,
+        "check_native_fstat": true,
+        "check_native_statx": true,
+        "check_thumbnail": true
+      }
+    },
+    {
+      "protected": false,
+      "fixture": "normal",
+      "genuine_picker_grant": true,
+      "checks": {
+        "check_document_query": true,
+        "check_name_query": true,
+        "check_stream": true,
+        "check_asset": true,
+        "check_client_fd": true,
+        "check_fd": true,
+        "check_native_open": false,
+        "check_native_stat": true,
+        "check_native_read": true,
+        "check_native_pread": true,
+        "check_native_readv": true,
+        "check_native_mmap": true,
+        "check_native_fcntl": true,
+        "check_native_fstat": true,
+        "check_native_statx": true,
+        "check_thumbnail": true
+      }
+    },
+    {
+      "protected": true,
+      "fixture": "screenshot",
+      "genuine_picker_grant": true,
+      "checks": {
+        "check_document_query": false,
+        "check_name_query": false,
+        "check_stream": false,
+        "check_asset": false,
+        "check_client_fd": false,
+        "check_fd": false,
+        "check_native_open": false,
+        "check_native_stat": false,
+        "check_native_read": false,
+        "check_native_pread": false,
+        "check_native_readv": false,
+        "check_native_mmap": false,
+        "check_native_fcntl": false,
+        "check_native_fstat": false,
+        "check_native_statx": false,
+        "check_thumbnail": false
+      }
+    },
+    {
+      "protected": true,
+      "fixture": "normal",
+      "genuine_picker_grant": true,
+      "checks": {
+        "check_document_query": true,
+        "check_name_query": true,
+        "check_stream": true,
+        "check_asset": true,
+        "check_client_fd": true,
+        "check_fd": true,
+        "check_native_open": false,
+        "check_native_stat": true,
+        "check_native_read": true,
+        "check_native_pread": true,
+        "check_native_readv": true,
+        "check_native_mmap": true,
+        "check_native_fcntl": true,
+        "check_native_fstat": true,
+        "check_native_statx": true,
+        "check_thumbnail": true
+      }
+    }
+  ]
+}

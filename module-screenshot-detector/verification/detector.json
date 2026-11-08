@@ -1,0 +1,30 @@
+{
+  "module_version": "0.1.2",
+  "passed": true,
+  "cases": [
+    {
+      "protected": false,
+      "mode": "official",
+      "systemui_saved_screenshot": true,
+      "visible_log_entries": 1
+    },
+    {
+      "protected": false,
+      "mode": "gallery",
+      "systemui_saved_screenshot": true,
+      "visible_log_entries": 1
+    },
+    {
+      "protected": true,
+      "mode": "official",
+      "systemui_saved_screenshot": true,
+      "visible_log_entries": 0
+    },
+    {
+      "protected": true,
+      "mode": "gallery",
+      "systemui_saved_screenshot": true,
+      "visible_log_entries": 0
+    }
+  ]
+}

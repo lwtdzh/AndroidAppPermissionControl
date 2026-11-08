@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "locales": [
+    {
+      "locale": "zh-Hans",
+      "rendered": true
+    },
+    {
+      "locale": "zh-Hant",
+      "rendered": true
+    },
+    {
+      "locale": "zh-Hant-TW",
+      "rendered": true
+    },
+    {
+      "locale": "zh-Hant-HK",
+      "rendered": true
+    },
+    {
+      "locale": "zh-Hant-MO",
+      "rendered": true
+    },
+    {
+      "locale": "en",
+      "rendered": true
+    },
+    {
+      "locale": "ja",
+      "rendered": true
+    }
+  ],
+  "missing_permissions_displayed": true
+}

@@ -1,0 +1,35 @@
+{
+  "module_version": "0.1.3",
+  "detector_version": "0.1.1",
+  "device": {
+    "model": "vivo V2419A",
+    "android": "16",
+    "sdk": 36,
+    "abi": "arm64-v8a"
+  },
+  "passed": true,
+  "ordinary_system_screenshot": {
+    "official_and_file_detection_received": true,
+    "clipboard_image_produced": false,
+    "new_recognizable_screenshot_notification_produced": false
+  },
+  "fixtures": {
+    "system_notification": "real Binder delivery, clearly labeled screenshot test notification",
+    "clipboard": "actual image ClipData referencing this test's saved system screenshot",
+    "unprotected_counts": {
+      "notification_event": 2,
+      "notification_list": 2,
+      "clipboard": 1
+    },
+    "protected_counts": {},
+    "os_delivery_verified": true
+  },
+  "hidden_api_policy": "null",
+  "cleanup": {
+    "clipboard_restored": true,
+    "test_notification_removed": true,
+    "original_scope_restored": true,
+    "original_notification_and_accessibility_settings_preserved": true,
+    "device_temporary_files_removed": true
+  }
+}

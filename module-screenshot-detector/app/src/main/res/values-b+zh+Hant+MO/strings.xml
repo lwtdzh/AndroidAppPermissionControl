@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">截圖偵測日誌</string>
+    <string name="event_count">%1$d 條截圖訊號</string>
+    <string name="source_official">官方回呼</string>
+    <string name="source_gallery">相簿監察</string>
+    <string name="monitoring">正在監察：%1$s</string>
+    <string name="intro">請保持頁面在前景。每種入口分別記錄；一次截圖可能產生多條訊號。無需開啟全部權限。</string>
+    <string name="gallery_notice">相簿模式需要允許存取所有相片，只查詢新圖片的名稱及目錄，不讀取圖片內容。</string>
+    <string name="test_instructions">先不要將本軟件加入 Vector 作用範圍，確認截圖會產生日誌；再加入作用範圍，強制停止並重新開啟本軟件後作比較。</string>
+    <string name="clear_log">清除日誌</string>
+    <string name="empty_log">尚未偵測到截圖</string>
+    <string name="detected_line">%1$s　截圖訊號 · %2$s</string>
+    <string name="permissions_notice">相片：允許所有相片。檔案：允許存取所有檔案。通知、無障礙：在系統設定開啟本程式的服務。只查詢中繼資料，不掃描圖片內容。</string>
+    <string name="grant_photos">相片權限</string>
+    <string name="state_photos">需要允許所有相片</string>
+    <string name="need_photos">相簿模式需要「允許所有相片」權限。</string>
+    <string name="preparing_gallery">正在準備相簿監察…</string>
+    <string name="permission_denied">未授予所有相片權限，已切回官方回呼模式。</string>
+    <string name="monitor_error">暫時無法啟動監察，請重新開啟軟件或切換偵測模式。</string>
+</resources>

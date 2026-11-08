@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(detector)
+add_library(detector SHARED detector.cpp)
+target_link_libraries(detector dl)
+target_compile_options(detector PRIVATE -Wall -Wextra -Werror)
