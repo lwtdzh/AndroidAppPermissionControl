@@ -10,7 +10,7 @@ Whenever two or more subprojects are created with a relationship, add that relat
 
 | Project | Role | Current version |
 | --- | --- | --- |
-| [module-screenshot-shield](module-screenshot-shield/README.md) | The Vector/Xposed module that blocks screenshot observation in selected app processes | `0.1.3` |
+| [module-screenshot-shield](module-screenshot-shield/README.md) | The Vector/Xposed module that blocks screenshot observation in selected app processes | `0.1.4` |
 | [module-screenshot-detector](module-screenshot-detector/README.md) | A standalone app that displays screenshot signals and manual image-read checks before and after protection | `0.1.1` |
 | [module-screenshot-probe](module-screenshot-probe/README.md) | A standalone app and emulator tools that verify protection and ordinary-operation controls | `0.1.0` |
 
@@ -32,7 +32,9 @@ The detector requires Android 14 or later. The shield and probe support installa
 
 - [Probe integration runner](module-screenshot-probe/scripts/emulator-test.py) installs the probe debug APK and a selected shield APK. Its default shield path is the sibling shield project's `app/build/outputs/apk/debug/app-debug.apk`; `--module-apk` selects another APK. Preserve compatibility with any already installed signing identity.
 - [Official callback runner](module-screenshot-probe/scripts/official-callback-test.py) uses installed shield and probe APKs and a real SystemUI screenshot. It does not build or install those APKs itself.
-- [Visible detector runner](module-screenshot-detector/scripts/detector-test.py) uses installed shield and detector APKs. It currently checks shield version `0.1.3` and detector version `0.1.1`; update its version checks and recorded expectations when changing either release.
+- [Visible detector runner](module-screenshot-detector/scripts/detector-test.py) uses installed shield and detector APKs. It currently checks shield version `0.1.4` and detector version `0.1.1`; update its version checks and recorded expectations when changing either release.
+- The probe's native compatibility controls exercise a raw `clone` with a new child stack, an unrelated `getpid`, and all six arguments of a file-backed `mmap`. They must succeed with protection disabled, enabled, and outside scope. These controls accompany the syscall dispatcher in shield `0.1.4`.
+- [Application compatibility runner](module-screenshot-probe/scripts/app-compatibility-test.py) accepts an installed application activity and observes scoped cold starts. It restores the original module scope and status, tracks the main zygote child separately from short-lived clones, and records only module status and process liveness.
 - [Detector read runner](module-screenshot-detector/scripts/detector-read-test.py) uses fixtures created by the probe integration runner. It selects `Screenshot_probe.png` and `ordinary_probe.png` through the system picker, and imports helpers from its neighboring `detector-test.py`. Changes to fixture names or helper locations must be reflected in both producers and consumers.
 - All runners identify packages by their application IDs. Package renames require reviewing companion-script constants, Vector scope entries, installation commands, and documentation.
 - Notification and clipboard tests need the relevant access and foreground conditions. Zero signals caused by absent permissions or absent platform events do not prove shield behavior.

@@ -1,0 +1,757 @@
+{
+  "package": "com.smzdm.client.android",
+  "seconds_per_start": 60,
+  "cases": [
+    {
+      "attempt": 1,
+      "samples": [
+        {
+          "seconds": 0.09,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 1.12,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 2.15,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 3.18,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 4.22,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 5.25,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 6.28,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 7.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 8.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 9.38,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 10.41,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 11.44,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 12.48,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 13.51,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 14.55,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 15.58,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 16.62,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 17.65,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 18.68,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 19.71,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 20.74,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 21.77,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 22.8,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 23.83,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 24.86,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 25.89,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 26.93,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 27.97,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 29.0,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 30.04,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 31.07,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 32.11,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 33.14,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 34.17,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 35.2,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 36.23,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 37.27,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 38.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 39.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 40.37,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 41.4,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 42.43,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 43.46,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 44.49,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 45.53,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 46.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 47.58,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 48.62,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 49.65,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 50.68,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 51.71,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 52.74,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 53.78,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 54.8,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 55.83,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 56.86,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 57.89,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 58.92,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 59.95,
+          "same_process_alive": true
+        }
+      ],
+      "foreground": true,
+      "linker_file_view_absent": true,
+      "module_status": [
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34",
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34"
+      ],
+      "passed": true
+    },
+    {
+      "attempt": 2,
+      "samples": [
+        {
+          "seconds": 0.09,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 1.12,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 2.16,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 3.2,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 4.23,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 5.26,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 6.28,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 7.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 8.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 9.37,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 10.4,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 11.43,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 12.47,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 13.5,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 14.53,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 15.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 16.59,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 17.62,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 18.65,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 19.67,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 20.71,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 21.74,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 22.77,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 23.81,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 24.84,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 25.86,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 26.89,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 27.92,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 28.94,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 29.97,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 31.01,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 32.04,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 33.07,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 34.09,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 35.12,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 36.15,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 37.18,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 38.2,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 39.23,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 40.27,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 41.3,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 42.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 43.37,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 44.41,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 45.45,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 46.48,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 47.52,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 48.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 49.6,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 50.63,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 51.66,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 52.69,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 53.72,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 54.75,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 55.78,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 56.8,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 57.84,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 58.89,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 59.92,
+          "same_process_alive": true
+        }
+      ],
+      "foreground": true,
+      "linker_file_view_absent": true,
+      "module_status": [
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34",
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34"
+      ],
+      "passed": true
+    },
+    {
+      "attempt": 3,
+      "samples": [
+        {
+          "seconds": 0.11,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 1.14,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 2.17,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 3.2,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 4.23,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 5.26,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 6.29,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 7.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 8.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 9.37,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 10.4,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 11.42,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 12.45,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 13.48,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 14.51,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 15.53,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 16.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 17.59,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 18.62,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 19.66,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 20.69,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 21.72,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 22.76,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 23.79,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 24.81,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 25.84,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 26.88,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 27.91,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 28.95,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 30.0,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 31.04,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 32.08,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 33.1,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 34.14,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 35.17,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 36.21,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 37.24,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 38.27,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 39.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 40.34,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 41.37,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 42.41,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 43.49,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 44.52,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 45.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 46.59,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 47.63,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 48.67,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 49.7,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 50.73,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 51.76,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 52.79,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 53.82,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 54.86,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 55.89,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 56.92,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 57.95,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 58.98,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 60.01,
+          "same_process_alive": true
+        }
+      ],
+      "foreground": true,
+      "linker_file_view_absent": true,
+      "module_status": [
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34",
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true
+}

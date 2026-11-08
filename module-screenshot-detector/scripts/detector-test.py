@@ -95,7 +95,7 @@ def restore_setting(key, value):
 if __name__ == "__main__":
     assert "emulator-5584" in adb("devices")
     assert shell("settings", "get", "global", "hidden_api_policy") == "null"
-    assert "versionName=0.1.3" in shell("dumpsys", "package", M)
+    assert "versionName=0.1.4" in shell("dumpsys", "package", M)
     assert "versionName=0.1.1" in shell("dumpsys", "package", P)
     # This test requires granted photo/all-file/notification permissions on the dedicated AVD.
     original_scope = json.loads(cli("--json", "scope", "ls", M))["data"]
@@ -127,7 +127,7 @@ if __name__ == "__main__":
                 assert f"{sum(signals.values())} 条截图信号" in texts, texts
             results.append({
                 "protected": protected, "systemui_saved_screenshot": True,
-                "detector_version": "0.1.1", "module_version": "0.1.3",
+                "detector_version": "0.1.1", "module_version": "0.1.4",
                 "hidden_api_policy": shell("settings", "get", "global", "hidden_api_policy"),
                 "signal_counts": dict(signals),
             })

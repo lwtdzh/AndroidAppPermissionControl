@@ -84,7 +84,7 @@ For release signing, run the shared helper with an explicit input and output:
 ```sh
 python3 scripts/sign-apk.py \
   module-screenshot-shield/app/build/outputs/apk/release/app-release-unsigned.apk \
-  /tmp/ScreenshotShield-0.1.3.apk
+  /tmp/ScreenshotShield-0.1.4.apk
 ```
 
 The established signing state stays outside this workspace in `~/Library/Application Support/ScreenshotShield/signing/`. Keep that key when updating the existing apps.

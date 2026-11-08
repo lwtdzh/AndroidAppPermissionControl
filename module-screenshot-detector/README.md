@@ -16,7 +16,9 @@
 
 使用 JDK 17、SDK 36、NDK `29.0.14206865` 和 CMake `3.22.1`。APK 输出到 `app/build/outputs/apk/release/app-release-unsigned.apk`。共享签名脚本为 `../scripts/sign-apk.py`；原包名、版本与签名身份保持不变。
 
-模块安装包：`ScreenshotShield-0.1.3.apk`。检测安装包：`ScreenshotDetector-0.1.1.apk`。
+模块安装包：`ScreenshotShield-0.1.4.apk`。检测安装包：`ScreenshotDetector-0.1.1.apk`。
+
+模块 0.1.4 的 native 兼容性修复后，已重新通过 [13 类真实截图信号检查](verification/detector-expanded-0.1.4.json) 和 [真实选图授权读取检查](verification/detector-read-0.1.4.json)。截图信号被拦截，普通图片读取保留；实测环境为 Android 16 ARM64 模拟器与 Vector 2.2。
 
 模块继续隐藏桌面图标，说明页可从 Vector/Xposed 进入。检测软件保留桌面图标。
 
@@ -93,7 +95,7 @@
 ```sh
 ../module-screenshot-probe/gradlew -p ../module-screenshot-probe :app:assembleDebug
 python3 ../module-screenshot-probe/scripts/emulator-test.py --serial emulator-5584 \
-  --module-apk /path/to/ScreenshotShield-0.1.3.apk --output /tmp/integration.json
+  --module-apk /path/to/ScreenshotShield-0.1.4.apk --output /tmp/integration.json
 python3 scripts/detector-test.py
 python3 scripts/detector-read-test.py
 ```

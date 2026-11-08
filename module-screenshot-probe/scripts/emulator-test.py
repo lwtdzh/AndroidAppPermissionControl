@@ -156,6 +156,10 @@ def main():
     for case in values:
         hidden = case is protected
         initial, events = case["initial"], case["after_events"]
+        assert initial["native"]["syscall_getpid_ok"] is True, (case["label"], initial["native"])
+        assert initial["native"]["syscall_six_arguments_ok"] is True, (case["label"], initial["native"])
+        if initial["native"]["clone_new_stack_supported"]:
+            assert initial["native"]["clone_new_stack_ok"] is True, (case["label"], initial["native"])
         assert initial.get("raw_binder_registered") is True, (case["label"], initial)
         for key in ["java_screenshot_exists", "java_screenshot_open", "nio_screenshot_exists"]:
             assert initial[key] is not hidden, (case["label"], key, initial)

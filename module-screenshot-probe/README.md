@@ -24,7 +24,7 @@ The prepared `ScreenshotShield_API36` emulator uses port `5584`, Magisk/Zygisk, 
 scripts/start-emulator.sh -no-window
 python3 scripts/emulator-test.py \
   --serial emulator-5584 \
-  --module-apk /path/to/ScreenshotShield-0.1.3.apk \
+  --module-apk /path/to/ScreenshotShield-0.1.4.apk \
   --output /tmp/screenshot-integration.json
 python3 scripts/official-callback-test.py \
   --serial emulator-5584 \
@@ -35,8 +35,22 @@ python3 scripts/official-callback-test.py \
 
 The integration test checks module-disabled, protected, and outside-scope behavior for Java/native files, MediaStore, actual URI grants, file events, and broadcasts. It also checks ordinary file, image, broadcast, and text controls. Notification and accessibility callback fixtures are labeled test content.
 
+Native compatibility controls also check `syscall(getpid)`, a six-argument file-backed `syscall(mmap)` with a nonzero offset, and `syscall(clone)` returning on an empty child stack before exiting directly through the kernel. The clone control is implemented for ARM64 and x86_64. Runtime results must state the architecture actually tested.
+
+To observe an installed app inside module scope:
+
+```sh
+python3 scripts/app-compatibility-test.py --serial emulator-5584 \
+  --activity com.smzdm.client.android/.app.WelComeActivity \
+  --seconds 60 --attempts 3 --scroll --output /tmp/app-compatibility.json
+```
+
+This runner tracks the main zygote child, checks that the linker analysis file view is absent after startup, and requires native hook initialization and a foreground activity. `--scroll` sends an upward and downward swipe during each observation. It records no application logs or UI content. It force-stops the selected app between attempts and restores the original scope and module enablement on exit.
+
 The official callback test uses a real SystemUI screenshot and requires baseline receipt before testing interception. ADB `screencap` is used only for image fixtures. These scripts reject non-emulator serials.
 
 The visible detector's tests live in the sibling detector project's `scripts/` directory. Maintained protection verification records are in `../module-screenshot-shield/verification/`; detector records are in `../module-screenshot-detector/verification/`.
 
 The relocated integration runner was executed successfully after this project split. Its record is [verification/layout-integration.json](verification/layout-integration.json).
+
+Shield `0.1.4` passes the extended native compatibility controls and existing integration assertions. SMZDM `11.2.3` passes [three 60-second cold starts](verification/smzdm-cold-starts-0.1.4.json) and an [additional 60-second start with scroll gestures](verification/smzdm-scroll-0.1.4.json) on Android 16 ARM64 with Vector 2.2. Full results are in [the release record](../module-screenshot-shield/verification/release-0.1.4.json).

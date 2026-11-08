@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "protected": false,
+      "systemui_saved_screenshot": true,
+      "detector_version": "0.1.1",
+      "module_version": "0.1.4",
+      "hidden_api_policy": "null",
+      "signal_counts": {
+        "file_observer": 2,
+        "media_observer": 1,
+        "accessibility_event": 2,
+        "accessibility_nodes": 1,
+        "media_poll": 1,
+        "media_legacy": 1,
+        "media_client": 1,
+        "file_poll": 1,
+        "native_files": 1,
+        "native_syscall": 1,
+        "native_inotify": 2,
+        "binder": 1,
+        "official": 1
+      }
+    },
+    {
+      "protected": true,
+      "systemui_saved_screenshot": true,
+      "detector_version": "0.1.1",
+      "module_version": "0.1.4",
+      "hidden_api_policy": "null",
+      "signal_counts": {}
+    },
+    {
+      "protected": false,
+      "fixture": "delivered_broadcast",
+      "signal_counts": {
+        "broadcast_dynamic": 1,
+        "broadcast_manifest": 2
+      },
+      "real_rom_action": false
+    },
+    {
+      "protected": true,
+      "fixture": "delivered_broadcast",
+      "signal_counts": {},
+      "real_rom_action": false
+    }
+  ]
+}

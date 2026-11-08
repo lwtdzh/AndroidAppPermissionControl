@@ -1,0 +1,73 @@
+{
+  "date": "2026-11-08",
+  "module_version": "0.1.4",
+  "version_code": 5,
+  "apk_sha256": "bae7697d898da1682910916607b05fe9bfc2eb930950c58ed04be3718a86564d",
+  "compiled_abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64",
+    "x86"
+  ],
+  "runtime_environment": {
+    "android": 16,
+    "abi": "arm64-v8a",
+    "vector": "2.2",
+    "application": "SMZDM 11.2.3",
+    "device": "emulator-5584"
+  },
+  "native_hooks": 34,
+  "individual_hooks_disabled": [],
+  "ptrace_or_runtime_memory_patches_used_for_fixed_tests": false,
+  "original_0_1_3_clone_control": {
+    "clone_new_stack_supported": true,
+    "clone_new_stack_ok": false,
+    "syscall_getpid_ok": true
+  },
+  "fixed_syscall_controls": [
+    {
+      "state": "module_disabled",
+      "clone_new_stack_ok": true,
+      "syscall_getpid_ok": true,
+      "syscall_six_arguments_ok": true
+    },
+    {
+      "state": "module_enabled_scoped",
+      "clone_new_stack_ok": true,
+      "syscall_getpid_ok": true,
+      "syscall_six_arguments_ok": true
+    },
+    {
+      "state": "module_enabled_outside_scope",
+      "clone_new_stack_ok": true,
+      "syscall_getpid_ok": true,
+      "syscall_six_arguments_ok": true
+    }
+  ],
+  "app_compatibility": {
+    "cold_starts": 3,
+    "seconds_per_start": 60,
+    "additional_scroll_start_seconds": 60,
+    "scroll_gestures": 2
+  },
+  "checks": {
+    "integration": true,
+    "systemui_official_and_binder_callbacks": true,
+    "detector_13_real_screenshot_routes": true,
+    "detector_real_picker_uri_reads": true,
+    "release_signature": true,
+    "apk_16k_alignment": true,
+    "independent_builds": true
+  },
+  "restoration": {
+    "scope_restored": true,
+    "module_enabled": true,
+    "service_settings_restored": true,
+    "hidden_api_policy_restored": true,
+    "detector_locale_restored": true,
+    "original_screenshot_rows_retained": true,
+    "probe_media_fixtures_removed": true,
+    "passed": true
+  },
+  "passed": true
+}

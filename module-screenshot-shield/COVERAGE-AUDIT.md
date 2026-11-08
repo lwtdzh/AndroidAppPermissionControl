@@ -1,6 +1,6 @@
 # Android 截图检测调查与防护记录
 
-调查开始日期：2026-11-06。初始记录针对 ScreenshotShield 0.1.2；当前模块为 0.1.3，新增独立检测软件为 0.1.1，更新验证见文末补充。调查对象是被 Vector 注入的应用进程；文件识别使用名称、路径和元数据，不扫描相册图片的像素或做内容分析。
+调查开始日期：2026-11-06。初始记录针对 ScreenshotShield 0.1.2；当前模块为 0.1.4，独立检测软件为 0.1.1，更新验证见文末补充。调查对象是被 Vector 注入的应用进程；文件识别使用名称、路径和元数据，不扫描相册图片的像素或做内容分析。
 
 ## 截图信息可以从哪些地方取得
 
@@ -105,6 +105,20 @@ ARM64 测试夹具用内联系统调用打开已存在的文件，以获得一�
 本次 ROM 截图没有生成可识别的新通知或截图剪贴板，故未将这两个入口的零信号算成真实截图验证。完整说明见 `../module-screenshot-detector/README.md`，新增记录见 `../module-screenshot-detector/verification/detector-expanded.json`。0.1.2 的既有记录保留历史版本标注。
 
 2026-11-08 在 vivo V2419A、Android 16 真机安装 0.1.3 / 0.1.1。系统实际投递的测试通知在保护前触发通知回调 2 条、列表 2 条，图片剪贴板触发 1 条；加入模块作用域并重启后均为 0，系统里的测试内容仍存在。普通截图没有自动产生这两类新信号，故真机通知/剪贴板对照明确使用测试内容。原剪贴板、作用域和通知授权已恢复，原有通知监听与无障碍设置未被改动，详情见 `../module-screenshot-detector/verification/vivo-notification-clipboard.json`。
+
+## 0.1.4 native 兼容性修复
+
+2026-11-08，在 Android 16 ARM64 专用模拟器与 Vector 2.2 上，什么值得买官方版 11.2.3 已通过三次作用域内冷启动，每次观察 60 秒。另一次冷启动观察 60 秒并发送上、下滑手势，主进程与前台保持正常；每次均启用 34 个 native hook。
+
+Vector 的符号缓存保留了一份完整的 linker 磁盘文件映射，OAID SDK 会误把这份文件视图当成运行中的加载器。模块初始化现在将符合完整文件长度、只读共享权限和 ELF 条件的副本原位替换为匿名只读映射；`mremap` 保留缓存使用的地址和内容，真正运行的 linker 映射保持原样。
+
+原 C++ `syscall` 包装也存在换栈问题：新增的原始 `clone` 测试中，旧版子进程不能正常退出。0.1.4 通过四种 ABI 的汇编入口，只让已实现的文件访问和 fd 跟踪调用进入原过滤函数；其他调用直接跳回 libc，保留原栈和返回地址。换栈、`getpid` 与六参数非零偏移 `mmap` 在模块关闭、作用域内、作用域外三种状态下均通过。这证明了已复现的换栈缺陷得到修复；本次没有把应用内部全部 `syscall` 使用情况作为已逐条确认的事实。
+
+完整拦截对照通过：Java/NIO、libc、已实现 syscall、既有 fd、inotify、MediaStore、真实 SAF URI 授权、广播、剪贴板及构造回调测试保留原效果，普通文件和图片可用。真实 SystemUI 截图仍保存；官方 API 与直接 Binder 的基线回调各 1 次，保护后均为 0。独立检测软件真实截图的 13 类入口从有信号变为全部零；真实选图授权后的可用读取入口隐藏截图、保留普通图片。`/proc` 重开 fd 的一个入口在基线已经失败，未计作拦截证据。
+
+本次测试没有使用 ptrace 或进程内存补丁。完成后恢复原作用域、服务设置、隐藏 API 策略与语言设置，并删除新增测试截图。实际运行验证只涉及 Android 16 ARM64 模拟器；其他三种 ABI 已编译，不作为实测。匿名副本会使用私有页，本模拟器 linker 文件约 2.15 MiB。
+
+记录：[发布汇总](verification/release-0.1.4.json)、[拦截与普通操作](verification/integration-0.1.4.json)、[真实系统回调](verification/official-callback-0.1.4.json)、[冷启动](../module-screenshot-probe/verification/smzdm-cold-starts-0.1.4.json)、[手势操作](../module-screenshot-probe/verification/smzdm-scroll-0.1.4.json)、[检测软件截图信号](../module-screenshot-detector/verification/detector-expanded-0.1.4.json)、[真实选图读取](../module-screenshot-detector/verification/detector-read-0.1.4.json)。
 
 ## 资料来源
 

@@ -6,6 +6,7 @@
 #include <sys/syscall.h>
 #include <sys/uio.h>
 #include <sys/mman.h>
+#include <sys/wait.h>
 #include <dlfcn.h>
 #include <unistd.h>
 #include <cerrno>
@@ -14,6 +15,10 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+
+#if defined(__aarch64__) || defined(__x86_64__)
+extern "C" long probe_clone_new_stack(void *stackTop);
+#endif
 
 namespace {
 int watchFd = -1;
@@ -47,6 +52,39 @@ int fixtureFd(const char *path) {
 }
 struct LinuxDirent64 { uint64_t ino; int64_t off; uint16_t size; uint8_t type; char name[]; };
 std::string boolean(bool value) { return value ? "true" : "false"; }
+bool cloneNewStack() {
+#if defined(__aarch64__) || defined(__x86_64__)
+    constexpr size_t size = 65536;
+    void *stack = mmap(nullptr, size, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+    if (stack == MAP_FAILED) return false;
+    long child = probe_clone_new_stack(static_cast<char *>(stack) + size);
+    int status = 0;
+    pid_t waited;
+    do { waited = child > 0 ? waitpid(static_cast<pid_t>(child), &status, 0) : -1; }
+    while (waited < 0 && errno == EINTR);
+    munmap(stack, size);
+    return waited == child && child > 0 && WIFEXITED(status) && WEXITSTATUS(status) == 0;
+#else
+    return false;
+#endif
+}
+bool syscallSixArguments() {
+    const long page = sysconf(_SC_PAGESIZE);
+    if (page <= 0) return false;
+    char filename[] = "/data/data/io.github.lwtdzh.screenshotprobe/cache/mmap-XXXXXX";
+    int fd = mkstemp(filename);
+    if (fd < 0) return false;
+    unlink(filename);
+    const char first = 'A', second = 'B';
+    bool prepared = ftruncate(fd, page * 2) == 0
+        && pwrite(fd, &first, 1, 0) == 1 && pwrite(fd, &second, 1, page) == 1;
+    // A nonzero file offset exercises argument six of the filtered mmap syscall.
+    long result = prepared ? syscall(SYS_mmap, nullptr, page, PROT_READ, MAP_PRIVATE, fd, page) : -1;
+    bool okay = result != -1 && *reinterpret_cast<const char *>(result) == second;
+    if (result != -1) munmap(reinterpret_cast<void *>(result), page);
+    close(fd);
+    return okay;
+}
 }
 extern "C" JNIEXPORT jstring JNICALL
 Java_io_github_lwtdzh_screenshotprobe_ProbeActivity_nativeChecks(
@@ -55,7 +93,16 @@ Java_io_github_lwtdzh_screenshotprobe_ProbeActivity_nativeChecks(
     const char *shot = env->GetStringUTFChars(screenshot, nullptr);
     const char *photo = env->GetStringUTFChars(ordinary, nullptr);
     struct stat metadata;
-    std::string json = "{\"open_screenshot\":" + boolean(readable(shot, false))
+    std::string json = "{\"clone_new_stack_supported\":"
+#if defined(__aarch64__) || defined(__x86_64__)
+        + boolean(true)
+#else
+        + boolean(false)
+#endif
+        + ",\"clone_new_stack_ok\":" + boolean(cloneNewStack())
+        + ",\"syscall_getpid_ok\":" + boolean(syscall(SYS_getpid) == getpid())
+        + ",\"syscall_six_arguments_ok\":" + boolean(syscallSixArguments())
+        + ",\"open_screenshot\":" + boolean(readable(shot, false))
         + ",\"open_normal\":" + boolean(readable(photo, false))
         + ",\"syscall_open_screenshot\":" + boolean(readable(shot, true))
         + ",\"syscall_open_normal\":" + boolean(readable(photo, true))

@@ -17,6 +17,7 @@
 #include <cstdarg>
 #include <cstdio>
 #include <cstdint>
+#include <cinttypes>
 #include <cstring>
 #include <algorithm>
 #include <atomic>
@@ -31,6 +32,11 @@
 using Hook = int (*)(void *, void *, void **);
 using OnLoad = void (*)(const char *, void *);
 struct NativeAPIEntries { uint32_t version; Hook hookFunc; int (*unhookFunc)(void *); };
+
+extern "C" {
+__attribute__((visibility("hidden"))) long (*shield_original_syscall)(long, ...) = nullptr;
+__attribute__((visibility("hidden"))) long shield_syscall_dispatch(long, ...);
+}
 
 namespace {
 std::atomic<int> hookCount{0};
@@ -89,7 +95,7 @@ int (*real_close)(int) = nullptr;
 int (*real_dup)(int) = nullptr;
 int (*real_dup2)(int, int) = nullptr;
 int (*real_dup3)(int, int, int) = nullptr;
-long (*real_syscall)(long, ...) = nullptr;
+auto &real_syscall = shield_original_syscall;
 
 void blocked() {
     if (blockCount.fetch_add(1, std::memory_order_relaxed) < 40)
@@ -491,8 +497,8 @@ long filterDirents(int fd, void *buffer, long length) {
     }
     return dst;
 }
-// Android's libc syscall trampoline takes up to six kernel arguments. Preserve all six
-// machine-word arguments; only inspect the documented syscalls below.
+// The assembly dispatcher sends only the filesystem/tracking calls here. Preserve
+// all six machine-word arguments; stack-switching calls tail-jump straight to libc.
 long h_syscall(long number, long a1, long a2, long a3, long a4, long a5, long a6) {
     if (!internal) {
         bool fdRead = number == SYS_read || number == SYS_readv || number == SYS_pread64;
@@ -584,6 +590,67 @@ long h_syscall(long number, long a1, long a2, long a3, long a4, long a5, long a6
 #endif
     return result;
 }
+
+// Vector's symbol cache maps the complete on-disk linker as read-only MAP_SHARED.
+// Some SDKs mistake that file view for the running linker when scanning /proc/maps.
+// Replace only the complete shared file view, never executable/private PT_LOADs.
+// mremap preserves every cached pointer and installs already-populated pages atomically.
+void anonymizeLinkerFileViews() {
+    struct View { uintptr_t start; size_t size; };
+    std::vector<View> views;
+    FILE *maps = fopen("/proc/self/maps", "r");
+    if (!maps) return;
+    char line[PATH_MAX + 256];
+    const long pageSize = sysconf(_SC_PAGESIZE);
+    while (pageSize > 0 && fgets(line, sizeof(line), maps)) {
+        uintptr_t start = 0, end = 0;
+        unsigned long offset = 0;
+        char permissions[5]{}, path[PATH_MAX]{};
+        if (sscanf(line, "%" SCNxPTR "-%" SCNxPTR " %4s %lx %*s %*s %4095s",
+            &start, &end, permissions, &offset, path) != 5) continue;
+        if (strcmp(permissions, "r--s") || offset || end <= start) continue;
+#ifdef __LP64__
+        const char *apexPath = "/apex/com.android.runtime/bin/linker64";
+        const char *systemPath = "/system/bin/linker64";
+#else
+        const char *apexPath = "/apex/com.android.runtime/bin/linker";
+        const char *systemPath = "/system/bin/linker";
+#endif
+        if (strcmp(path, apexPath) && strcmp(path, systemPath)) continue;
+        struct stat metadata{};
+        if (stat(path, &metadata) || metadata.st_size <= 0) continue;
+        const size_t fileSize = static_cast<size_t>(metadata.st_size);
+        const size_t rounded = (fileSize + pageSize - 1) / pageSize * pageSize;
+        if (end - start != rounded || fileSize < sizeof(ElfW(Ehdr))) continue;
+        const auto *header = reinterpret_cast<const ElfW(Ehdr) *>(start);
+        if (memcmp(header->e_ident, ELFMAG, SELFMAG) || header->e_type != ET_DYN
+            || header->e_phentsize != sizeof(ElfW(Phdr))
+            || header->e_phoff > fileSize
+            || header->e_phnum > (fileSize - header->e_phoff) / sizeof(ElfW(Phdr))) continue;
+        const auto *programs = reinterpret_cast<const ElfW(Phdr) *>(start + header->e_phoff);
+        bool executable = false;
+        for (size_t i = 0; i < header->e_phnum; ++i)
+            executable |= programs[i].p_type == PT_LOAD && (programs[i].p_flags & PF_X);
+        if (executable) views.push_back({start, rounded});
+    }
+    fclose(maps);
+    for (const auto &view : views) {
+        void *copy = mmap(nullptr, view.size, PROT_READ | PROT_WRITE,
+            MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+        if (copy == MAP_FAILED) continue;
+        memcpy(copy, reinterpret_cast<const void *>(view.start), view.size);
+        if (mprotect(copy, view.size, PROT_READ) == 0
+            && mremap(copy, view.size, view.size, MREMAP_MAYMOVE | MREMAP_FIXED,
+                reinterpret_cast<void *>(view.start)) != MAP_FAILED) {
+            __android_log_print(ANDROID_LOG_INFO, "ScreenshotShield",
+                "linker analysis file view anonymized; address and contents retained");
+        } else {
+            munmap(copy, view.size);
+            __android_log_print(ANDROID_LOG_WARN, "ScreenshotShield",
+                "linker analysis file view replacement failed");
+        }
+    }
+}
 size_t symbolSize(void *address, const char *name) {
     Dl_info info{};
     if (!dladdr(address, &info) || !info.dli_fbase) return 0;
@@ -648,9 +715,15 @@ template <class R, class O> void install(const NativeAPIEntries *api, void *lib,
 }
 } // namespace
 
+extern "C" __attribute__((visibility("hidden"))) long shield_filtered_syscall(
+    long number, long a1, long a2, long a3, long a4, long a5, long a6) {
+    return h_syscall(number, a1, a2, a3, a4, a5, a6);
+}
+
 extern "C" __attribute__((visibility("default"))) OnLoad native_init(const NativeAPIEntries *api) {
     if (!api || api->version < 1 || !api->hookFunc) return nullptr;
     internal = true;
+    anonymizeLinkerFileViews();
     // Vector invokes native_init while holding its dlopen registry mutex.
     // libc is already loaded; calling dlopen here would re-enter and deadlock that mutex.
     void *lib = RTLD_DEFAULT;
@@ -704,7 +777,7 @@ extern "C" __attribute__((visibility("default"))) OnLoad native_init(const Nativ
     INSTALL("dup3", h_dup3, real_dup3);
     INSTALL("fcntl", h_fcntl, real_fcntl);
     INSTALL("fcntl64", h_fcntl, real_fcntl);
-    INSTALL("syscall", h_syscall, real_syscall);
+    INSTALL("syscall", shield_syscall_dispatch, real_syscall);
 #undef INSTALL
     internal = false;
     __android_log_print(ANDROID_LOG_INFO, "ScreenshotShield", "native ready api=%u hooks=%d",

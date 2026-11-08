@@ -10,7 +10,7 @@
 
 ## 安装
 
-1. 安装提供的 `ScreenshotShield-0.1.3.apk`。
+1. 安装提供的 `ScreenshotShield-0.1.4.apk`。
 2. 在 Vector 中启用“阻止软件检测截图”，勾选需要保护的应用。
 3. 结束并重新打开这些应用。修改作用域后，也需要重新启动目标应用进程。
 
@@ -60,6 +60,10 @@ Android 13 及以上也可在系统的“应用语言”设置中单独选择本
 
 native 代码使用 Vector 的公开 `native_init` ABI 和框架提供的 inline hook。读取 libc 内存中的 ELF 符号长度后，跳过小于 16 字节的入口，避免覆盖相邻函数。短包装入口通过其底层函数处理，例如 `inotify_init` 通过 `inotify_init1` 和 `inotify_add_watch` 处理。初始化期间直接使用已经加载的 libc，不再次调用 dlopen。
 
+0.1.4 修复两处 native 兼容性问题。`syscall` 的汇编入口只把已实现的文件访问和 fd 跟踪调用交给原有过滤函数，其他调用直接跳回 libc，保留调用者的栈和返回地址。这使 `clone` 换栈后可以正常返回，截图文件与 inotify 的过滤继续生效。
+
+初始化时，把 Vector 用于符号解析的完整、只读共享 linker 文件映射替换为内容相同的匿名只读映射。只处理符合路径、文件长度、权限和 ELF 条件的文件分析副本；真正运行中的 linker 映射保持原样。替换通过 `mremap` 一次完成，原地址和内容不变，框架缓存的符号指针仍然有效，应用内 SDK 扫描加载器时也不会误选这个副本。
+
 ## 使用效果与限制
 
 选中的应用看不到已识别的已有或新增截图，因此其相册选择、上传截图、读取截图等功能也会受影响。直接写入截图的只写文件句柄保留，读写模式可能受到拦截。集合/null 相册通知缺少具体图片身份，屏蔽这类通知也可能延迟目标应用刷新普通图片。
@@ -100,19 +104,21 @@ adb -s emulator-5584 shell /data/adb/modules/zygisk_vector/cli --json status
 ```sh
 ../module-screenshot-probe/gradlew -p ../module-screenshot-probe :app:assembleDebug
 python3 ../module-screenshot-probe/scripts/emulator-test.py --serial emulator-5584 \
-  --module-apk /path/to/ScreenshotShield-0.1.3.apk --output /tmp/integration.json
+  --module-apk /path/to/ScreenshotShield-0.1.4.apk --output /tmp/integration.json
 python3 ../module-screenshot-probe/scripts/official-callback-test.py \
   --serial emulator-5584 --output /tmp/official.json
 python3 ../module-screenshot-detector/scripts/detector-test.py
 ```
 
-若模拟器中已经安装签名 release 包，给第一个脚本追加 `--module-apk /path/to/ScreenshotShield-0.1.3.apk`。不同签名的 debug/release 包不能直接相互覆盖安装。
+若模拟器中已经安装签名 release 包，给第一个脚本追加 `--module-apk /path/to/ScreenshotShield-0.1.4.apk`。不同签名的 debug/release 包不能直接相互覆盖安装。
 
 第一个脚本依次测试模块关闭、模块开启且作用域包含测试 App、模块开启但作用域排除测试 App。它从独立进程写入文件、通过真实 provider 触发通知，并检查普通文件没有一起被隐藏。
 
 文档测试从系统文件选择器实际选择夹具、取得 URI 授权后执行，检查只请求 `document_id` 时的行数、列数和内容打开。夹具先通过 MediaProvider 完成索引，避免将选择器不显示空元数据文件误认为模块效果。
 
 native 检查包括 libc 与 syscall 的文件打开、相对 openat、stdio、元数据、getdents64 目录枚举，以及“先 fcntl 复制再添加 watch、关闭原 fd 后从副本读取”的 inotify 场景。ARM64 测试代码用直接内核 open 获得文件描述符，以模拟来自未注入进程的 fd，再验证 libc 的 read/pread/readv/fstat/mmap 拦截；这个夹具明确展示了内联系统调用本身仍能绕过 libc hook。
+
+兼容性检查还包含新栈上的 `clone` 子进程退出、普通 `syscall(getpid)`，以及通过第六个参数读取非零文件偏移的 `syscall(mmap)`。旧版在 ARM64 换栈测试中失败，0.1.4 要求这些普通操作在三种保护状态下都成功。
 
 通知和无障碍回调使用构造的元数据做前后对照，不能据此声称已经测试所有 ROM 的真实截图通知和截图浮层。剪贴板测试等 App 获得窗口焦点后执行，避免把系统拒绝后台读取当作模块效果。
 
@@ -121,6 +127,8 @@ native 检查包括 libc 与 syscall 的文件打开、相对 openat、stdio、�
 `--trigger console-chord` 可以测试老式模拟器 console 的电源键和音量减键组合。当前 virtio-input 模拟器没有由该路径触发截图，不能把它记录为成功。
 
 `detector-test.py` 只使用专用 `emulator-5584` 上已安装的两个 release APK，检查 13 个实际截图入口在保护前后的日志和界面计数，并单独验证动态、静态广播夹具。运行前需在该专用 AVD 授予照片、所有文件及通知权限；脚本临时连接无障碍服务，完成后恢复原来的无障碍配置和检测 App 作用域。结果保存到 `/tmp/screenshot-detector-work/detector-expanded.json`。直接 Binder 使用当前系统的 AIDL 常量，全程不修改隐藏 API 策略。
+
+0.1.4 已通过上述拦截、真实系统截图及真实选图读取检查，普通操作对照通过。什么值得买 11.2.3 在作用域内完成三次 60 秒冷启动检查，额外一次 60 秒手势操作检查也通过。详情见 [发布汇总](verification/release-0.1.4.json) 和 [调查记录](COVERAGE-AUDIT.md)。本次实测使用 Android 16 ARM64 模拟器。
 
 ## 官方接口资料
 

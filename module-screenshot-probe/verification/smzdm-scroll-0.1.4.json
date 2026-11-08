@@ -1,0 +1,254 @@
+{
+  "package": "com.smzdm.client.android",
+  "seconds_per_start": 60,
+  "cases": [
+    {
+      "attempt": 1,
+      "samples": [
+        {
+          "seconds": 0.08,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 1.12,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 2.15,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 3.18,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 4.22,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 5.25,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 6.28,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 7.31,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 8.35,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 9.38,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 10.41,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 11.44,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 12.48,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 13.5,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 14.53,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 15.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 16.6,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 17.63,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 18.66,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 19.69,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 20.72,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 22.18,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 23.21,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 24.24,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 25.27,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 26.3,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 27.33,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 28.36,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 29.39,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 30.42,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 31.45,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 32.47,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 33.5,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 34.53,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 35.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 36.59,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 37.61,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 38.64,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 39.67,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 40.7,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 42.13,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 43.16,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 44.19,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 45.22,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 46.25,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 47.27,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 48.33,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 49.36,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 50.39,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 51.42,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 52.45,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 53.48,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 54.51,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 55.54,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 56.56,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 57.59,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 58.62,
+          "same_process_alive": true
+        },
+        {
+          "seconds": 59.64,
+          "same_process_alive": true
+        }
+      ],
+      "foreground": true,
+      "scroll_gestures": 2,
+      "linker_file_view_absent": true,
+      "module_status": [
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34",
+        "linker analysis file view anonymized; address and contents retained",
+        "native ready api=2 hooks=34"
+      ],
+      "passed": true
+    }
+  ],
+  "passed": true
+}
