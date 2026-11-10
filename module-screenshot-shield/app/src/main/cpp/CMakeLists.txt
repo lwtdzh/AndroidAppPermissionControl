@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.22.1)
-project(shield LANGUAGES CXX ASM)
-add_library(shield SHARED shield.cpp syscall-dispatch.S)
-target_compile_features(shield PRIVATE cxx_std_17)
-target_compile_options(shield PRIVATE -fvisibility=hidden -fno-omit-frame-pointer)
-target_link_libraries(shield PRIVATE log dl)
-target_link_options(shield PRIVATE "-Wl,-z,max-page-size=16384")

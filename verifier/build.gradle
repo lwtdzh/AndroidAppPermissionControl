@@ -1,0 +1,34 @@
+plugins { id "com.android.application" }
+android {
+    namespace "io.github.lwtdzh.screenshotdetector"
+    compileSdk 36
+    ndkVersion "29.0.14206865"
+    defaultConfig {
+        applicationId "io.github.lwtdzh.screenshotdetector"
+        minSdk 28
+        // Diagnostic APK keeps legacy file access for JNI/NIO controls.
+        // Production module targets 36. API 34 capture registration is guarded.
+        targetSdk 28
+        versionCode 6
+        versionName "0.2.0"
+        ndk { abiFilters "arm64-v8a", "armeabi-v7a", "x86_64", "x86" }
+        externalNativeBuild { cmake { cppFlags "-std=c++17" } }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    buildTypes { release { minifyEnabled false } }
+    // This sideloaded diagnostic app intentionally checks legacy filesystem paths.
+    // It is not published to Play; all other lint checks remain active.
+    lint { disable "ExpiredTargetSdkVersion" }
+    flavorDimensions "target"
+    productFlavors {
+        primary { dimension "target" }
+        sampleA { dimension "target"; applicationIdSuffix ".samplea" }
+        // Screenshot services recognize trusted sender names ending in .screenshot.
+        // This temporary flavor can post real notifications through that same route.
+        sampleB { dimension "target"; applicationIdSuffix ".sampleb.screenshot" }
+    }
+    externalNativeBuild { cmake { path "src/main/cpp/CMakeLists.txt"; version "3.22.1" } }
+}

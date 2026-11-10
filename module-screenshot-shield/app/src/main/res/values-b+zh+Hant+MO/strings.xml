@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">阻止軟件偵測截圖</string>
-    <string name="module_description">封鎖截圖回呼、相簿偵測及檔案監察；所有攔截功能預設啟用，應用程式範圍由 Vector 管理。</string>
-    <string name="status_enabled">所有攔截功能已預設啟用</string>
-    <string name="setup_instructions">在 Vector 啟用此模組，並勾選需要保護的應用程式。更改作用範圍後，強制停止並重新開啟目標應用程式。</string>
-    <string name="coverage_summary">攔截官方截圖回呼、相簿查詢及變更通知、檔案存取及目錄監察，以及可識別的截圖廣播、剪貼簿、通知和無障礙資訊。</string>
-    <string name="visibility_notice">所選的應用程式將無法看到已有及新增的截圖，可能影響在該應用程式選取或上載截圖。一般圖片仍然可見。</string>
-    <string name="scope_notice">模組只在 Vector 載入的應用程式處理程序內執行。系統仍會正常儲存截圖。</string>
-</resources>

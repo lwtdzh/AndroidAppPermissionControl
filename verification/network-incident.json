@@ -1,0 +1,22 @@
+{
+  "case": "M11001",
+  "initial": {
+    "injected": true,
+    "enabled": ["screenshot", "vpn", "debug"],
+    "internet": "ERROR:UnknownHostException",
+    "actualProxyResponse": 204
+  },
+  "control": {
+    "injected": false,
+    "internet": 204,
+    "actualProxyResponse": 204
+  },
+  "controlLaunchFix": "Use activity-clear-top to enter the requested probe when an old fixture sits above the task root.",
+  "rerun": {
+    "caseStatus": "passed",
+    "internet": 204,
+    "actualProxyResponse": 204,
+    "screenshotChecks": "passed"
+  },
+  "conclusion": "Same-policy rerun passed. Initial DNS failure retained; its underlying cause was not established."
+}

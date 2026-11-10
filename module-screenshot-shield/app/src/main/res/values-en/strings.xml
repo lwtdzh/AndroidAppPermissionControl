@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Block Screenshot Detection</string>
-    <string name="module_description">Blocks screenshot callbacks, gallery detection and file monitoring. All protections are enabled by default; Vector manages which apps are protected.</string>
-    <string name="status_enabled">All protections are enabled by default</string>
-    <string name="setup_instructions">Enable this module in Vector and select the apps to protect. After changing its scope, force stop and reopen the selected apps.</string>
-    <string name="coverage_summary">Blocks official screenshot callbacks, media queries and change notifications, file access and directory monitoring, plus identifiable screenshot broadcasts, clipboard data, notifications and accessibility metadata.</string>
-    <string name="visibility_notice">Selected apps will no longer see existing or new screenshots. This may affect selecting or uploading screenshots in those apps. Other images remain visible.</string>
-    <string name="scope_notice">The module runs inside app processes where Vector loads it. The system continues to save screenshots normally.</string>
-</resources>

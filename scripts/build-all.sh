@@ -2,18 +2,8 @@
 set -euo pipefail
 
 WORKSPACE_ROOT="$(dirname "$(dirname "$(realpath "$0")")")"
-projects=0
-for project in "$WORKSPACE_ROOT"/module-*; do
-    if [[ ! -d "$project" || ! -x "$project/gradlew" ]]; then
-        continue
-    fi
-    printf 'Building %s\n' "$(basename "$project")"
-    "$project/gradlew" -p "$project" "$@" --console=plain
-    projects=$((projects + 1))
-done
-
-if [[ $projects -eq 0 ]]; then
-    printf '%s\n' 'No independent Android projects with Gradle wrappers were found.' >&2
-    exit 1
-fi
-printf 'Built %d independent Android projects.\n' "$projects"
+export JAVA_HOME="${JAVA_HOME:-/opt/homebrew/opt/openjdk@17}"
+export ANDROID_HOME="${ANDROID_HOME:-/opt/homebrew/share/android-commandlinetools}"
+exec "$WORKSPACE_ROOT/gradlew" -p "$WORKSPACE_ROOT" \
+    :app:assembleRelease :verifier:assemblePrimaryRelease \
+    :verifier:assembleSampleADebug :verifier:assembleSampleBDebug "$@" --console=plain

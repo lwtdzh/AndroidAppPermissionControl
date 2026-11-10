@@ -1,0 +1,355 @@
+{
+  "build": "passed",
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86",
+    "x86_64"
+  ],
+  "releaseLint": {
+    "app": [
+      {
+        "id": "OldTargetApi",
+        "severity": "Warning",
+        "message": "Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+      },
+      {
+        "id": "SdCardPath",
+        "severity": "Warning",
+        "message": "Do not hardcode \"/sdcard/\"; use `Environment.getExternalStorageDirectory().getPath()` instead"
+      },
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning",
+        "message": "Attribute `forceQueryable` is only used in API level 30 and higher (current min is 27)"
+      },
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning",
+        "message": "Attribute `localeConfig` is only used in API level 33 and higher (current min is 27)"
+      },
+      {
+        "id": "AndroidGradlePluginVersion",
+        "severity": "Warning",
+        "message": "A newer version of Gradle than 8.14 is available: 8.14.6"
+      },
+      {
+        "id": "ExportedContentProvider",
+        "severity": "Warning",
+        "message": "Exported content providers can provide access to potentially sensitive data"
+      },
+      {
+        "id": "DataExtractionRules",
+        "severity": "Warning",
+        "message": "The attribute `android:allowBackup` is deprecated from Android 12 and higher and may be removed in future versions. Consider adding the attribute `android:dataExtractionRules` specifying an `@xml` resource which configures cloud backups and device transfers on Android 12 and higher."
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.status_enabled` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.setup_instructions` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.coverage_summary` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.visibility_notice` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.scope_notice` appears to be unused"
+      },
+      {
+        "id": "MissingApplicationIcon",
+        "severity": "Warning",
+        "message": "Should explicitly set `android:icon`, there is no default"
+      }
+    ],
+    "verifier": [
+      {
+        "id": "ScopedStorage",
+        "severity": "Warning",
+        "message": "The Google Play store has a policy that limits usage of MANAGE_EXTERNAL_STORAGE"
+      },
+      {
+        "id": "DiscouragedPrivateApi",
+        "severity": "Warning",
+        "message": "Reflective access to getService, which is not part of the public SDK and therefore likely to change in future Android releases"
+      },
+      {
+        "id": "DiscouragedPrivateApi",
+        "severity": "Warning",
+        "message": "Reflective access to getActivityToken, which is not part of the public SDK and therefore likely to change in future Android releases"
+      },
+      {
+        "id": "PrivateApi",
+        "severity": "Warning",
+        "message": "Accessing internal APIs via reflection is not supported and may not work on all devices or in the future"
+      },
+      {
+        "id": "PrivateApi",
+        "severity": "Warning",
+        "message": "Accessing internal APIs via reflection is not supported and may not work on all devices or in the future"
+      },
+      {
+        "id": "PrivateApi",
+        "severity": "Warning",
+        "message": "Accessing internal APIs via reflection is not supported and may not work on all devices or in the future"
+      },
+      {
+        "id": "SdCardPath",
+        "severity": "Warning",
+        "message": "Do not hardcode \"/sdcard/\"; use `Environment.getExternalStorageDirectory().getPath()` instead"
+      },
+      {
+        "id": "SdCardPath",
+        "severity": "Warning",
+        "message": "Do not hardcode \"/sdcard/\"; use `Environment.getExternalStorageDirectory().getPath()` instead"
+      },
+      {
+        "id": "UnusedAttribute",
+        "severity": "Warning",
+        "message": "Attribute `localeConfig` is only used in API level 33 and higher (current min is 28)"
+      },
+      {
+        "id": "UnspecifiedRegisterReceiverFlag",
+        "severity": "Warning",
+        "message": "`receiver` is missing `RECEIVER_EXPORTED` or `RECEIVER_NOT_EXPORTED` flag for unprotected broadcasts registered for shieldprobe.SCREENSHOT, shieldprobe.NORMAL"
+      },
+      {
+        "id": "DiscouragedApi",
+        "severity": "Warning",
+        "message": "Use of this function is discouraged because resource reflection makes it harder to perform build optimizations and compile-time verification of code. It is much more efficient to retrieve resources by identifier (e.g. `R.foo.bar`) than by name (e.g. `getIdentifier(\"bar\", \"foo\", null)`)."
+      },
+      {
+        "id": "UseRequiresApi",
+        "severity": "Warning",
+        "message": "Use `@RequiresApi(34) instead of `@TargetApi` to propagate the requirement to users of `Detector`"
+      },
+      {
+        "id": "UseRequiresApi",
+        "severity": "Warning",
+        "message": "Use `@RequiresApi(34) instead of `@TargetApi` to propagate the requirement to callers of `checkDocument`"
+      },
+      {
+        "id": "UseRequiresApi",
+        "severity": "Warning",
+        "message": "Use `@RequiresApi(34) instead of `@TargetApi` to propagate the requirement to users of `RawCapture`"
+      },
+      {
+        "id": "ExportedReceiver",
+        "severity": "Warning",
+        "message": "Exported receiver does not require permission"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "Recycle",
+        "severity": "Warning",
+        "message": "This `Cursor` should be freed up after use with `#close()`"
+      },
+      {
+        "id": "ObsoleteSdkInt",
+        "severity": "Warning",
+        "message": "Unnecessary; `SDK_INT` is always >= 28"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_official` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_gallery` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.monitoring` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.gallery_notice` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_binder` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_media_observer` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_media_poll` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_media_legacy` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_media_client` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_file_observer` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_file_poll` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_native_inotify` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_native_files` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_native_syscall` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_broadcast_dynamic` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_broadcast_manifest` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_clipboard` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_notification_event` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_notification_list` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_accessibility_event` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.source_accessibility_nodes` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.need_photos` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.preparing_gallery` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.permission_denied` appears to be unused"
+      },
+      {
+        "id": "UnusedResources",
+        "severity": "Warning",
+        "message": "The resource `R.string.monitor_error` appears to be unused"
+      },
+      {
+        "id": "MissingApplicationIcon",
+        "severity": "Warning",
+        "message": "Should explicitly set `android:icon`, there is no default"
+      },
+      {
+        "id": "SetTextI18n",
+        "severity": "Warning",
+        "message": "String literal in `setText` can not be translated. Use Android resources instead."
+      },
+      {
+        "id": "SetTextI18n",
+        "severity": "Warning",
+        "message": "Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+      },
+      {
+        "id": "SetTextI18n",
+        "severity": "Warning",
+        "message": "Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+      },
+      {
+        "id": "SetTextI18n",
+        "severity": "Warning",
+        "message": "String literal in `setText` can not be translated. Use Android resources instead."
+      }
+    ]
+  },
+  "validatedAt": "2026-11-10T03:08:32.134569+00:00",
+  "apkSha256": {
+    "AppStateShield-0.2.0.apk": "d7e58ec8e4c9f9ed03b59b694fed65c488eeaae243983fbf94014c68919a9db0",
+    "AppStateVerifier-0.2.0.apk": "e8a8f7776afb9a7db69d7eced0832be34d8cd7dab38d42d59c01359c2b0a1e83"
+  }
+}

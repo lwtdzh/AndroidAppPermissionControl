@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-09",
+  "module": "VpnStateShield",
+  "version": "0.1.1",
+  "model": "vivo V2419A",
+  "application": "com.citiccard.mobilebank",
+  "previousVersion": "0.1.0",
+  "previousWarning": "网络代理",
+  "observedDetectorMethods": [
+    "com.citiccard.dkkj.util.NetworkUtils.g",
+    "com.citiccard.fps.risk.DeviceHelper.checkProxy"
+  ],
+  "observedPropertyKeys": [
+    "http.proxyHost",
+    "http.proxyPort"
+  ],
+  "final": {
+    "moduleEnabled": true,
+    "scopePreserved": true,
+    "systemVpnPresent": true,
+    "coldStartHomeVisible": true,
+    "proxyWarningAbsent": true,
+    "temporaryTracingRemoved": true,
+    "traceSwitchRestored": true
+  },
+  "notTested": [
+    "Login",
+    "Payment",
+    "Other financial operations"
+  ],
+  "apkSha256": "74ea751b9bab057178d428ce1e3265fadfb8973abc8df79e01d21bc8d9e8b3ca",
+  "passed": true
+}

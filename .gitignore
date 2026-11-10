@@ -11,3 +11,9 @@
 .env.*
 .DS_Store
 **/__pycache__/
+*.apk
+*.idsig
+verification/build.log
+verification/pretest-state.json
+verification/integration-preservation.json
+verification/*.png

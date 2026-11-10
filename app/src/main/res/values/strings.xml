@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">应用状态屏蔽</string>
+    <string name="module_description">按应用屏蔽截图、VPN、代理、开发者选项与调试状态。默认全部开启，作用域由 Vector 管理。</string>
+    <string name="status_enabled">全部拦截已默认开启</string>
+    <string name="setup_instructions">在 Vector 中启用本模块，并勾选需要保护的应用。修改作用域后，强行停止并重新打开目标应用。</string>
+    <string name="coverage_summary">拦截官方截图回调、相册查询与变更通知、文件访问与目录监听，以及可识别的截图广播、剪贴板、通知和无障碍信息。</string>
+    <string name="visibility_notice">选中的应用将看不到已有和新增的截图，可能影响该应用选择或上传截图。普通图片保持可见。</string>
+    <string name="scope_notice">模块只在 Vector 注入的应用进程中运行。系统截图保存照常进行。</string>
+</resources>

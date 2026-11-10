@@ -1,0 +1,898 @@
+{
+  "P01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P01-P02/P04"
+    ],
+    "checks": "四 ABI APK、签名、已安装版本及专用 AVD。"
+  },
+  "P02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P01-P02/P04"
+    ],
+    "checks": "四 ABI APK、签名、已安装版本及专用 AVD。"
+  },
+  "P04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P01-P02/P04"
+    ],
+    "checks": "四 ABI APK、签名、已安装版本及专用 AVD。"
+  },
+  "P03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P03-P07/V01/D01",
+      "P03-capture-script"
+    ],
+    "checks": "原始备份保持；实际只读采集、600 权限和拒绝覆盖另经验证。"
+  },
+  "P06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P03-P07/V01/D01"
+    ],
+    "checks": "独立模块作用域；旧模块对三个目标不重复注入。"
+  },
+  "P07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P03-P07/V01/D01",
+      "P07-clipboard-backup"
+    ],
+    "checks": "真实授权；未注入的 C 在矩阵测试前保存剪贴板。"
+  },
+  "P05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P05"
+    ],
+    "checks": "实际桌面应用列表与 Vector 模块设置入口。"
+  },
+  "U01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U01"
+    ],
+    "checks": "空定制列表、默认全开和 SELinux 待开发说明。"
+  },
+  "U02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U02-U04"
+    ],
+    "checks": "按名称/包名搜索、大小写、无匹配、清空和系统筛选。"
+  },
+  "U03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U02-U04"
+    ],
+    "checks": "按名称/包名搜索、大小写、无匹配、清空和系统筛选。"
+  },
+  "U04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U02-U04"
+    ],
+    "checks": "按名称/包名搜索、大小写、无匹配、清空和系统筛选。"
+  },
+  "U05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23"
+    ],
+    "checks": "取消、继续编辑、丢弃、保存全开和重复选择。"
+  },
+  "U06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23"
+    ],
+    "checks": "取消、继续编辑、丢弃、保存全开和重复选择。"
+  },
+  "U07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23"
+    ],
+    "checks": "取消、继续编辑、丢弃、保存全开和重复选择。"
+  },
+  "U08": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23"
+    ],
+    "checks": "取消、继续编辑、丢弃、保存全开和重复选择。"
+  },
+  "U09": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23"
+    ],
+    "checks": "取消、继续编辑、丢弃、保存全开和重复选择。"
+  },
+  "U10": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U10-U13"
+    ],
+    "checks": "替换旧配置、全部开启和关闭已实现方法。"
+  },
+  "U11": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U10-U13"
+    ],
+    "checks": "替换旧配置、全部开启和关闭已实现方法。"
+  },
+  "U12": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U10-U13"
+    ],
+    "checks": "替换旧配置、全部开启和关闭已实现方法。"
+  },
+  "U13": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U10-U13"
+    ],
+    "checks": "替换旧配置、全部开启和关闭已实现方法。"
+  },
+  "U14": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U14-U16"
+    ],
+    "checks": "编辑草稿和选择器在横竖屏重建后保持。"
+  },
+  "U15": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U14-U16"
+    ],
+    "checks": "编辑草稿和选择器在横竖屏重建后保持。"
+  },
+  "U16": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U14-U16",
+      "U16-recents"
+    ],
+    "checks": "后台进程结束、实际最近任务返回与强行停止后的差别。"
+  },
+  "U17": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U17-U20"
+    ],
+    "checks": "取消/确认恢复默认、多个应用独立保存、卸载条目删除。"
+  },
+  "U18": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U17-U20"
+    ],
+    "checks": "取消/确认恢复默认、多个应用独立保存、卸载条目删除。"
+  },
+  "U19": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U17-U20"
+    ],
+    "checks": "取消/确认恢复默认、多个应用独立保存、卸载条目删除。"
+  },
+  "U20": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U17-U20",
+      "U20-reinstalled-default"
+    ],
+    "checks": "删除已卸载条目；重装后重新关联 Vector 作用域，实际读取使用全开默认。"
+  },
+  "U21": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U21",
+      "U21-top-layout",
+      "U21-gesture"
+    ],
+    "checks": "大字体横竖屏上下部、长包名、实际手势返回；截图人工检查。"
+  },
+  "U22": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U22",
+      "U22-labels"
+    ],
+    "checks": "六种语言的标题、五项开关与保存/取消文字；配置保持。"
+  },
+  "U23": {
+    "status": "passed",
+    "evidenceKeys": [
+      "U05-U09/U23",
+      "U23-repeat"
+    ],
+    "checks": "重复选取和连续保存/返回，无重复条目。"
+  },
+  "S01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S01"
+    ],
+    "checks": "模块禁用但有作用域，读取真实系统状态。"
+  },
+  "S02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S02/S07-S08"
+    ],
+    "checks": "模块启用但目标不在作用域，无注入。"
+  },
+  "S03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S03",
+      "S04",
+      "S05"
+    ],
+    "checks": "无定制、全开定制和全部关闭分别核对实际读取。"
+  },
+  "S04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S03",
+      "S04",
+      "S05"
+    ],
+    "checks": "无定制、全开定制和全部关闭分别核对实际读取。"
+  },
+  "S05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S03",
+      "S04",
+      "S05"
+    ],
+    "checks": "无定制、全开定制和全部关闭分别核对实际读取。"
+  },
+  "S06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S06/S09"
+    ],
+    "checks": "运行中策略不变、冷启动采用新策略；三个早期生命周期。"
+  },
+  "S09": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S06/S09"
+    ],
+    "checks": "运行中策略不变、冷启动采用新策略；三个早期生命周期。"
+  },
+  "S07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S07-S08"
+    ],
+    "checks": "作用域外创建定制、加入作用域生效、移出恢复且定制保留。"
+  },
+  "S08": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S07-S08"
+    ],
+    "checks": "作用域外创建定制、加入作用域生效、移出恢复且定制保留。"
+  },
+  "S10": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S10-S11",
+      "M33/S10"
+    ],
+    "checks": "不同 UID 独立配置、:vpn 独立进程及模拟器重启。"
+  },
+  "S11": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S10-S11",
+      "M33/S10"
+    ],
+    "checks": "不同 UID 独立配置、:vpn 独立进程及模拟器重启。"
+  },
+  "M00000": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00001": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00001"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00010": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00010"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00011": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00011"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00100": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00100"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00101": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00101"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00110": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00110"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M00111": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00111"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01000": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01000"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01001": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01001"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01010": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01010"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01011": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01011"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01100": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01100"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01101": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01101"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01110": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01110"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M01111": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M01111"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10000": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10000"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10001": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10001"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10010": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10010"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10011": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10011"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10100": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10100"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10101": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10101"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10110": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10110"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M10111": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M10111"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11000": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11000"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11001": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11001"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11010": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11010"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11011": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11011"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11100": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11100"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11101": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11101"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11110": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11110"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M11111": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M11111"
+    ],
+    "checks": "真实界面保存后冷启动；状态、低层截图读取及普通操作。"
+  },
+  "M33": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M33/S10"
+    ],
+    "checks": "A=10101，B=01010，C 默认全开。"
+  },
+  "M34": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M34"
+    ],
+    "checks": "只改变 A，B/C 保持原有结果。"
+  },
+  "M35": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M35"
+    ],
+    "checks": "删除 A 定制恢复全开，B 定制保持。"
+  },
+  "D01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "D01-system-ui"
+    ],
+    "checks": "实际开发者选项页面与 USB 调试开关、shell 真实开启值。"
+  },
+  "D02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M00010",
+      "M00001",
+      "M00011"
+    ],
+    "checks": "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。"
+  },
+  "D08": {
+    "status": "platform-limited",
+    "evidenceKeys": [
+      "D08"
+    ],
+    "checks": "无线调试真实开启基线；平台恢复为零时单独标为未验证。"
+  },
+  "V01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "P03-P07/V01/D01"
+    ],
+    "checks": "实际 VpnService 同意与 TUN 建立。"
+  },
+  "V02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M01000",
+      "M00100",
+      "M11111"
+    ],
+    "checks": "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。"
+  },
+  "V03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M01000",
+      "M00100",
+      "M11111"
+    ],
+    "checks": "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。"
+  },
+  "V05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M01000",
+      "M00100",
+      "M11111"
+    ],
+    "checks": "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。"
+  },
+  "V06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M01000",
+      "M00100",
+      "M11111"
+    ],
+    "checks": "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。"
+  },
+  "V07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "M00000",
+      "M01000",
+      "M00100",
+      "M11111"
+    ],
+    "checks": "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。"
+  },
+  "V04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "V02-V07/V04-ten-cold-starts/D02-D07"
+    ],
+    "checks": "真实网络回调和十次冷启动 native 列表成对释放。"
+  },
+  "V08": {
+    "status": "passed",
+    "evidenceKeys": [
+      "V08"
+    ],
+    "checks": "停止 VPN、无 VPN 基线、重新开启及再次保护。"
+  },
+  "X01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "S01",
+      "S02/S07-S08"
+    ],
+    "checks": "无注入基线同时读取截图与普通图片，排除权限造成的假成功。"
+  },
+  "X02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored",
+      "X07-media-disabled",
+      "X07-media-enabled",
+      "X07-media-disabled-restored"
+    ],
+    "checks": "普通/截图文件事件；真实 MediaStore insert/update/delete，集合通知的普通变化保留。"
+  },
+  "X08": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X09": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X10": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X11": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X02-X11-disabled",
+      "X02-X11-enabled",
+      "X02-X11-disabled-restored"
+    ],
+    "checks": "关闭→开启→恢复：已有 FD、syscall、媒体、真实事件、真实选图授权及 SystemUI 截图。"
+  },
+  "X12": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X12-disabled",
+      "X12-enabled",
+      "X12-disabled-restored"
+    ],
+    "checks": "真实通知/无障碍服务和前台剪贴板传递；构造内容与系统截图分开记录。"
+  },
+  "X13": {
+    "status": "passed",
+    "evidenceKeys": [
+      "X13"
+    ],
+    "checks": "全部 19 种源选择、重启监听、清空、旋转、后台、选图与授权页面返回。"
+  },
+  "I01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I01-I02/I06"
+    ],
+    "checks": "同 UID 自读、跨 UID/写拒绝、按方法加载 native 库和同签名升级。"
+  },
+  "I02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I01-I02/I06"
+    ],
+    "checks": "同 UID 自读、跨 UID/写拒绝、按方法加载 native 库和同签名升级。"
+  },
+  "I06": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I01-I02/I06",
+      "I06-final-upgrade"
+    ],
+    "checks": "按方法加载 native 库；最终签名 APK 覆盖安装保留定制。"
+  },
+  "I03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I03"
+    ],
+    "checks": "损坏配置 JSON：页面与目标不崩溃，默认全开；恢复备份。"
+  },
+  "I04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I04"
+    ],
+    "checks": "页面保存保留未知关闭 ID；其他将来方法默认开启。"
+  },
+  "I05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I05"
+    ],
+    "checks": "强行停止后 provider 自启动；禁用 provider 时 policyLoaded=false 并全开回退。"
+  },
+  "I07": {
+    "status": "passed",
+    "evidenceKeys": [
+      "I07",
+      "U01"
+    ],
+    "checks": "SELinux 保持真实状态；设置标注待开发，本版没有该方法。"
+  },
+  "R01": {
+    "status": "passed",
+    "evidenceKeys": [
+      "R01-R04"
+    ],
+    "checks": "恢复原设置、作用域、权限和服务，只删除本次新增图片/夹具。"
+  },
+  "R02": {
+    "status": "passed",
+    "evidenceKeys": [
+      "R01-R04"
+    ],
+    "checks": "恢复原设置、作用域、权限和服务，只删除本次新增图片/夹具。"
+  },
+  "R03": {
+    "status": "passed",
+    "evidenceKeys": [
+      "R01-R04"
+    ],
+    "checks": "恢复原设置、作用域、权限和服务，只删除本次新增图片/夹具。"
+  },
+  "R04": {
+    "status": "passed",
+    "evidenceKeys": [
+      "R01-R04"
+    ],
+    "checks": "恢复原设置、作用域、权限和服务，只删除本次新增图片/夹具。"
+  },
+  "R05": {
+    "status": "passed",
+    "evidenceKeys": [
+      "R05"
+    ],
+    "checks": "仅关闭 emulator-5584，其他设备保持原状。"
+  }
+}

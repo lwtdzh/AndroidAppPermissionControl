@@ -1,0 +1,2363 @@
+{
+  "updated": "2026-11-10T13:02:38.758420+00:00",
+  "artifacts": {
+    "AppStateShield-0.2.1.apk": "6fa0aa56fe3abe67f61b80fdfe7ef5594187683c37e82e80e3633a28a735bbf3",
+    "AppStateVerifier-0.2.0.apk": "e8a8f7776afb9a7db69d7eced0832be34d8cd7dab38d42d59c01359c2b0a1e83"
+  },
+  "vivoEnvironment": {
+    "model": "V2419A",
+    "sdk": 36,
+    "abi": "arm64-v8a",
+    "Vector": "2.2",
+    "target": "com.citiccard.mobilebank",
+    "targetVersion": "11.22.6"
+  },
+  "vivo": {
+    "moduleSha256": "6fa0aa56fe3abe67f61b80fdfe7ef5594187683c37e82e80e3633a28a735bbf3",
+    "coldStarts": [
+      {
+        "attempt": 1,
+        "homepage": true,
+        "seconds": 6.88,
+        "warnings": {
+          "正在使用网络代理": false,
+          "VPN": false,
+          "开发者": false
+        },
+        "retainedSymbols": [
+          "__open_2",
+          "__openat_2",
+          "mmap",
+          "mmap64",
+          "open",
+          "open64",
+          "openat",
+          "openat64",
+          "pread",
+          "pread64",
+          "read"
+        ],
+        "moduleLogs": [
+          "W/ScreenshotShield(22492): existing native redirect retained: open",
+          "W/ScreenshotShield(22492): existing native redirect retained: open64",
+          "W/ScreenshotShield(22492): existing native redirect retained: openat",
+          "W/ScreenshotShield(22492): existing native redirect retained: openat64",
+          "W/ScreenshotShield(22492): existing native redirect retained: __open_2",
+          "W/ScreenshotShield(22492): existing native redirect retained: __openat_2",
+          "W/ScreenshotShield(22492): existing native redirect retained: pread",
+          "W/ScreenshotShield(22492): existing native redirect retained: pread64",
+          "W/ScreenshotShield(22492): existing native redirect retained: mmap",
+          "W/ScreenshotShield(22492): existing native redirect retained: mmap64",
+          "W/ScreenshotShield(22492): existing native redirect retained: read",
+          "I/ScreenshotShield(22492): native ready api=2 hooks=27",
+          "I/ScreenshotShield(22492): native library loaded",
+          "I/VpnStateShield(22492): native ready hooks=2",
+          "I/VpnStateShield(22492): Java hooks installed",
+          "I/DeveloperStateShield(22492): native ready hooks=3",
+          "I/DeveloperStateShield(22492): Java hooks installed",
+          "I/AppStateShield(22492): Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug]"
+        ]
+      },
+      {
+        "attempt": 2,
+        "homepage": true,
+        "seconds": 6.24,
+        "warnings": {
+          "正在使用网络代理": false,
+          "VPN": false,
+          "开发者": false
+        },
+        "retainedSymbols": [
+          "__open_2",
+          "__openat_2",
+          "mmap",
+          "mmap64",
+          "open",
+          "open64",
+          "openat",
+          "openat64",
+          "pread",
+          "pread64",
+          "read"
+        ],
+        "moduleLogs": [
+          "W/ScreenshotShield(23926): existing native redirect retained: open",
+          "W/ScreenshotShield(23926): existing native redirect retained: open64",
+          "W/ScreenshotShield(23926): existing native redirect retained: openat",
+          "W/ScreenshotShield(23926): existing native redirect retained: openat64",
+          "W/ScreenshotShield(23926): existing native redirect retained: __open_2",
+          "W/ScreenshotShield(23926): existing native redirect retained: __openat_2",
+          "W/ScreenshotShield(23926): existing native redirect retained: pread",
+          "W/ScreenshotShield(23926): existing native redirect retained: pread64",
+          "W/ScreenshotShield(23926): existing native redirect retained: mmap",
+          "W/ScreenshotShield(23926): existing native redirect retained: mmap64",
+          "W/ScreenshotShield(23926): existing native redirect retained: read",
+          "I/ScreenshotShield(23926): native ready api=2 hooks=27",
+          "I/ScreenshotShield(23926): native library loaded",
+          "I/VpnStateShield(23926): native ready hooks=2",
+          "I/VpnStateShield(23926): Java hooks installed",
+          "I/DeveloperStateShield(23926): native ready hooks=3",
+          "I/DeveloperStateShield(23926): Java hooks installed",
+          "I/AppStateShield(23926): Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug]"
+        ]
+      },
+      {
+        "attempt": 3,
+        "homepage": true,
+        "seconds": 6.43,
+        "warnings": {
+          "正在使用网络代理": false,
+          "VPN": false,
+          "开发者": false
+        },
+        "retainedSymbols": [
+          "__open_2",
+          "__openat_2",
+          "mmap",
+          "mmap64",
+          "open",
+          "open64",
+          "openat",
+          "openat64",
+          "pread",
+          "pread64",
+          "read"
+        ],
+        "moduleLogs": [
+          "W/ScreenshotShield(25260): existing native redirect retained: open",
+          "W/ScreenshotShield(25260): existing native redirect retained: open64",
+          "W/ScreenshotShield(25260): existing native redirect retained: openat",
+          "W/ScreenshotShield(25260): existing native redirect retained: openat64",
+          "W/ScreenshotShield(25260): existing native redirect retained: __open_2",
+          "W/ScreenshotShield(25260): existing native redirect retained: __openat_2",
+          "W/ScreenshotShield(25260): existing native redirect retained: pread",
+          "W/ScreenshotShield(25260): existing native redirect retained: pread64",
+          "W/ScreenshotShield(25260): existing native redirect retained: mmap",
+          "W/ScreenshotShield(25260): existing native redirect retained: mmap64",
+          "W/ScreenshotShield(25260): existing native redirect retained: read",
+          "I/ScreenshotShield(25260): native ready api=2 hooks=27",
+          "I/ScreenshotShield(25260): native library loaded",
+          "I/VpnStateShield(25260): native ready hooks=2",
+          "I/VpnStateShield(25260): Java hooks installed",
+          "I/DeveloperStateShield(25260): native ready hooks=3",
+          "I/DeveloperStateShield(25260): Java hooks installed",
+          "I/AppStateShield(25260): Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug]"
+        ]
+      }
+    ],
+    "otherPoliciesAndScopesUnchanged": true
+  },
+  "screenshotToggle": {
+    "off": {
+      "skip": "none",
+      "observations": [
+        {
+          "processes": [],
+          "foreground": [],
+          "moduleLogs": [],
+          "policyFinished": false
+        },
+        {
+          "processes": [
+            {
+              "pid": "19206",
+              "ppid": "1038",
+              "state": "S<L",
+              "name": "com.citiccard.mobilebank"
+            },
+            {
+              "pid": "19251",
+              "ppid": "19206",
+              "state": "S",
+              "name": "com.citiccard.mobilebank"
+            }
+          ],
+          "foreground": [
+            "topResumedActivity=ActivityRecord{254390371 u0 com.citiccard.mobilebank/com.citiccard.mobilebankapp.WelcomeActivity t1500 d0}"
+          ],
+          "moduleLogs": [
+            "I/VpnStateShield(19206): native ready hooks=2",
+            "I/VpnStateShield(19206): Java hooks installed",
+            "I/DeveloperStateShield(19206): native ready hooks=3",
+            "I/DeveloperStateShield(19206): Java hooks installed",
+            "I/AppStateShield(19206): Policy loaded=true enabled=[vpn, proxy, developer, debug]"
+          ],
+          "policyFinished": true
+        }
+      ],
+      "startupResumed": true,
+      "homepageLabels": {
+        "首页": true,
+        "我的": false,
+        "金融": false,
+        "生活": false,
+        "权益": false,
+        "服务": false
+      },
+      "warnings": {
+        "正在使用网络代理": false,
+        "VPN": false,
+        "开发者": false
+      }
+    },
+    "on": {
+      "skip": "none",
+      "observations": [
+        {
+          "processes": [],
+          "foreground": [],
+          "moduleLogs": [],
+          "policyFinished": false
+        },
+        {
+          "processes": [
+            {
+              "pid": "20751",
+              "ppid": "1038",
+              "state": "R<",
+              "name": "com.citiccard.mobilebank"
+            },
+            {
+              "pid": "20779",
+              "ppid": "20751",
+              "state": "S",
+              "name": "com.citiccard.mobilebank"
+            }
+          ],
+          "foreground": [],
+          "moduleLogs": [
+            "W/ScreenshotShield(20751): existing native redirect retained: open",
+            "W/ScreenshotShield(20751): existing native redirect retained: open64",
+            "W/ScreenshotShield(20751): existing native redirect retained: openat",
+            "W/ScreenshotShield(20751): existing native redirect retained: openat64",
+            "W/ScreenshotShield(20751): existing native redirect retained: __open_2",
+            "W/ScreenshotShield(20751): existing native redirect retained: __openat_2",
+            "W/ScreenshotShield(20751): existing native redirect retained: pread",
+            "W/ScreenshotShield(20751): existing native redirect retained: pread64",
+            "W/ScreenshotShield(20751): existing native redirect retained: mmap",
+            "W/ScreenshotShield(20751): existing native redirect retained: mmap64",
+            "W/ScreenshotShield(20751): existing native redirect retained: read",
+            "I/ScreenshotShield(20751): native ready api=2 hooks=27",
+            "I/ScreenshotShield(20751): native library loaded",
+            "I/VpnStateShield(20751): native ready hooks=2",
+            "I/VpnStateShield(20751): Java hooks installed",
+            "I/DeveloperStateShield(20751): native ready hooks=3",
+            "I/DeveloperStateShield(20751): Java hooks installed",
+            "I/AppStateShield(20751): Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug]"
+          ],
+          "policyFinished": true
+        },
+        {
+          "processes": [
+            {
+              "pid": "20751",
+              "ppid": "1038",
+              "state": "R<L",
+              "name": "com.citiccard.mobilebank"
+            },
+            {
+              "pid": "20779",
+              "ppid": "20751",
+              "state": "S",
+              "name": "com.citiccard.mobilebank"
+            },
+            {
+              "pid": "21028",
+              "ppid": "1038",
+              "state": "R",
+              "name": "com.citiccard.mobilebank:pushcore"
+            },
+            {
+              "pid": "21145",
+              "ppid": "1038",
+              "state": "R",
+              "name": "com.citiccard.mobilebank:remote"
+            },
+            {
+              "pid": "21223",
+              "ppid": "21028",
+              "state": "S",
+              "name": "com.citiccard.mobilebank:pushcore"
+            },
+            {
+              "pid": "21259",
+              "ppid": "21145",
+              "state": "S",
+              "name": "com.citiccard.mobilebank:remote"
+            }
+          ],
+          "foreground": [
+            "topResumedActivity=ActivityRecord{178397225 u0 com.citiccard.mobilebank/.newconfig.appconstruct.TabsAppHomeActivity t1502 d0}"
+          ],
+          "moduleLogs": [
+            "W/ScreenshotShield(20751): existing native redirect retained: open",
+            "W/ScreenshotShield(20751): existing native redirect retained: open64",
+            "W/ScreenshotShield(20751): existing native redirect retained: openat",
+            "W/ScreenshotShield(20751): existing native redirect retained: openat64",
+            "W/ScreenshotShield(20751): existing native redirect retained: __open_2",
+            "W/ScreenshotShield(20751): existing native redirect retained: __openat_2",
+            "W/ScreenshotShield(20751): existing native redirect retained: pread",
+            "W/ScreenshotShield(20751): existing native redirect retained: pread64",
+            "W/ScreenshotShield(20751): existing native redirect retained: mmap",
+            "W/ScreenshotShield(20751): existing native redirect retained: mmap64",
+            "W/ScreenshotShield(20751): existing native redirect retained: read",
+            "I/ScreenshotShield(20751): native ready api=2 hooks=27",
+            "I/ScreenshotShield(20751): native library loaded",
+            "I/VpnStateShield(20751): native ready hooks=2",
+            "I/VpnStateShield(20751): Java hooks installed",
+            "I/DeveloperStateShield(20751): native ready hooks=3",
+            "I/DeveloperStateShield(20751): Java hooks installed",
+            "I/AppStateShield(20751): Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug]"
+          ],
+          "policyFinished": true
+        }
+      ],
+      "startupResumed": true,
+      "homepageLabels": {
+        "首页": true,
+        "我的": false,
+        "金融": false,
+        "生活": false,
+        "权益": false,
+        "服务": false
+      },
+      "warnings": {
+        "正在使用网络代理": false,
+        "VPN": false,
+        "开发者": false
+      }
+    }
+  },
+  "emulator": {
+    "avd": "ScreenshotShield_API36",
+    "sdk": 36,
+    "abi": "arm64-v8a",
+    "cases": {
+      "candidate-policy-00000": {
+        "status": "passed",
+        "started": "2026-11-10T12:57:49.011432+00:00",
+        "evidence": {
+          "state": {
+            "lifecycle": {
+              "attachBaseContext": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              },
+              "providerOnCreate": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              },
+              "applicationOnCreate": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              }
+            },
+            "module": {
+              "injected": true,
+              "policyLoaded": true,
+              "enabled": [],
+              "futureMethodEnabled": true
+            },
+            "storedPolicy": {
+              "disabled": [
+                "debug",
+                "developer",
+                "proxy",
+                "screenshot",
+                "vpn"
+              ],
+              "custom": true
+            },
+            "foreignReadDenied": true,
+            "writeDenied": true,
+            "otherPackageDenied": true,
+            "insertDenied": true,
+            "updateDenied": true,
+            "deleteDenied": true,
+            "queryDenied": true,
+            "development_settings_enabled.global": 1,
+            "development_settings_enabled.secure": "1",
+            "development_settings_enabled.system": null,
+            "development_settings_enabled.float": 1,
+            "development_settings_enabled.long": 1,
+            "development_settings_enabled.call": "1",
+            "development_settings_enabled.clientCall": "1",
+            "development_settings_enabled.query": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "development_settings_enabled.valueOnly": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "development_settings_enabled.bundleQuery": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.global": 1,
+            "adb_enabled.secure": "1",
+            "adb_enabled.system": "1",
+            "adb_enabled.float": 1,
+            "adb_enabled.long": 1,
+            "adb_enabled.call": "1",
+            "adb_enabled.clientCall": "1",
+            "adb_enabled.query": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_enabled.valueOnly": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.bundleQuery": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.global": 0,
+            "adb_wifi_enabled.secure": null,
+            "adb_wifi_enabled.system": null,
+            "adb_wifi_enabled.float": 0,
+            "adb_wifi_enabled.long": 0,
+            "adb_wifi_enabled.call": "0",
+            "adb_wifi_enabled.clientCall": "0",
+            "adb_wifi_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.global": 0,
+            "airplane_mode_on.secure": null,
+            "airplane_mode_on.system": "0",
+            "airplane_mode_on.float": 0,
+            "airplane_mode_on.long": 0,
+            "airplane_mode_on.call": "0",
+            "airplane_mode_on.clientCall": "0",
+            "airplane_mode_on.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "airplane_mode_on.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "native": {
+              "init.svc.adbd.get": "running",
+              "init.svc.adbd.read": "running",
+              "init.svc.adbd.callback": "running",
+              "sys.usb.config.get": "adb",
+              "sys.usb.config.read": "adb",
+              "sys.usb.config.callback": "adb",
+              "sys.usb.state.get": "adb",
+              "sys.usb.state.read": "adb",
+              "sys.usb.state.callback": "adb",
+              "service.adb.tcp.port.get": "",
+              "ro.build.version.sdk.get": "36",
+              "ro.build.version.sdk.read": "36",
+              "ro.build.version.sdk.callback": "36",
+              "interfaces": [
+                "dummy0",
+                "lo",
+                "tun0",
+                "wlan0"
+              ],
+              "listLifetimeOk": true,
+              "getpidOk": true,
+              "protectionLibraries": []
+            },
+            "init.svc.adbd.java": "running",
+            "sys.usb.config.java": "adb",
+            "sys.usb.state.java": "adb",
+            "service.adb.tcp.port.java": "",
+            "ro.build.version.sdk.java": "36",
+            "vpnNetworks": 1,
+            "activeVpn": true,
+            "activeNotVpn": false,
+            "legacyVpn": true,
+            "interfaces": [
+              "dummy0",
+              "wlan0",
+              "lo",
+              "tun0"
+            ],
+            "tunByName": true,
+            "linkInterface": "tun0",
+            "linkTextTunnel": true,
+            "activeInfoConnected": true,
+            "networks": [
+              "100",
+              "101"
+            ],
+            "wifiTransport": true,
+            "parcelVpn": true,
+            "callbackVpn": true,
+            "internet": 204,
+            "proxyFixture": {
+              "hostVisible": true,
+              "portVisible": true,
+              "bulkHostVisible": true,
+              "ordinaryProperty": "Dalvik",
+              "configurator": "setHttpProxySystemProperty",
+              "selectedProxyTypes": [
+                "HTTP"
+              ],
+              "response": 204,
+              "actualHttpProxyUsed": true
+            }
+          },
+          "screenshot": {
+            "pid": 6799,
+            "sdk": 36,
+            "raw_register_code": 97,
+            "raw_unregister_code": 98,
+            "raw_binder_registered": true,
+            "java_screenshot_exists": true,
+            "java_normal_exists": true,
+            "java_list": [
+              "ordinary_probe.png",
+              "Screenshot_probe.png"
+            ],
+            "java_screenshot_open": true,
+            "java_normal_open": true,
+            "nio_screenshot_exists": true,
+            "nio_normal_exists": true,
+            "media_legacy_count": 2,
+            "media_bundle_count": 2,
+            "media_client_count": 2,
+            "media_id_only_count": 2,
+            "native": {
+              "clone_new_stack_supported": true,
+              "clone_new_stack_ok": true,
+              "syscall_getpid_ok": true,
+              "syscall_six_arguments_ok": true,
+              "open_screenshot": true,
+              "open_normal": true,
+              "syscall_open_screenshot": true,
+              "syscall_open_normal": true,
+              "stat_screenshot": true,
+              "stat_normal": true,
+              "access_screenshot": true,
+              "access_normal": true,
+              "fopen_screenshot": true,
+              "fopen_normal": true,
+              "fixture_fd_screenshot": true,
+              "fd_read_screenshot": true,
+              "fd_pread_screenshot": true,
+              "fd_readv_screenshot": true,
+              "fd_preadv_screenshot": true,
+              "fd_fstat_screenshot": true,
+              "fd_syscall_read_screenshot": true,
+              "fd_mmap_screenshot": true,
+              "fd_dup_pread_screenshot": true,
+              "procfd_syscall_readlink_screenshot": true,
+              "procfd_open_screenshot": true,
+              "procfd_realpath_screenshot": true,
+              "procroot_open_screenshot": true,
+              "symlink_open_screenshot": true,
+              "libc_statx_screenshot": true,
+              "fd_syscall_statx_screenshot": true,
+              "fixture_fd_normal": true,
+              "fd_read_normal": true,
+              "fd_pread_normal": true,
+              "fd_readv_normal": true,
+              "fd_preadv_normal": true,
+              "fd_fstat_normal": true,
+              "fd_syscall_read_normal": true,
+              "fd_mmap_normal": true,
+              "fd_dup_pread_normal": true,
+              "procfd_syscall_readlink_normal": true,
+              "procfd_open_normal": true,
+              "procfd_realpath_normal": true,
+              "procroot_open_normal": true,
+              "symlink_open_normal": true,
+              "libc_statx_normal": true,
+              "fd_syscall_statx_normal": true,
+              "openat_screenshot": true,
+              "openat_normal": true,
+              "syscall_getdents_screenshot": true,
+              "syscall_getdents_normal": true,
+              "syscall_stat_screenshot": true,
+              "syscall_stat_normal": true,
+              "readdir_screenshot": true,
+              "readdir_normal": true
+            },
+            "screen_capture_callbacks": 0,
+            "raw_screen_capture_callbacks": 0,
+            "media_callbacks": 0,
+            "file_screenshot_events": 0,
+            "file_normal_events": 0,
+            "broadcast_screenshot_events": 0,
+            "broadcast_normal_events": 0,
+            "manifest_screenshot_events": 0,
+            "manifest_normal_events": 0,
+            "notification_screenshot": 1,
+            "notification_normal": 1,
+            "accessibility_screenshot": 1,
+            "accessibility_normal": 1,
+            "accessibility_package_name_control": 1,
+            "clipboard_screenshot_visible": true,
+            "clipboard_screenshot_description": true,
+            "clipboard_screenshot_has": true,
+            "clipboard_normal_visible": true
+          }
+        }
+      },
+      "candidate-policy-10000": {
+        "status": "passed",
+        "started": "2026-11-10T12:58:09.684518+00:00",
+        "evidence": {
+          "state": {
+            "lifecycle": {
+              "attachBaseContext": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              },
+              "providerOnCreate": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              },
+              "applicationOnCreate": {
+                "injected": true,
+                "developer": 1,
+                "debug": 1
+              }
+            },
+            "module": {
+              "injected": true,
+              "policyLoaded": true,
+              "enabled": [
+                "screenshot"
+              ],
+              "futureMethodEnabled": true
+            },
+            "storedPolicy": {
+              "disabled": [
+                "debug",
+                "developer",
+                "proxy",
+                "vpn"
+              ],
+              "custom": true
+            },
+            "foreignReadDenied": true,
+            "writeDenied": true,
+            "otherPackageDenied": true,
+            "insertDenied": true,
+            "updateDenied": true,
+            "deleteDenied": true,
+            "queryDenied": true,
+            "development_settings_enabled.global": 1,
+            "development_settings_enabled.secure": "1",
+            "development_settings_enabled.system": null,
+            "development_settings_enabled.float": 1,
+            "development_settings_enabled.long": 1,
+            "development_settings_enabled.call": "1",
+            "development_settings_enabled.clientCall": "1",
+            "development_settings_enabled.query": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "development_settings_enabled.valueOnly": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "development_settings_enabled.bundleQuery": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.global": 1,
+            "adb_enabled.secure": "1",
+            "adb_enabled.system": "1",
+            "adb_enabled.float": 1,
+            "adb_enabled.long": 1,
+            "adb_enabled.call": "1",
+            "adb_enabled.clientCall": "1",
+            "adb_enabled.query": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_enabled.valueOnly": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.bundleQuery": {
+              "value": "1",
+              "int": 1,
+              "long": 1,
+              "float": 1,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.global": 0,
+            "adb_wifi_enabled.secure": null,
+            "adb_wifi_enabled.system": null,
+            "adb_wifi_enabled.float": 0,
+            "adb_wifi_enabled.long": 0,
+            "adb_wifi_enabled.call": "0",
+            "adb_wifi_enabled.clientCall": "0",
+            "adb_wifi_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.global": 0,
+            "airplane_mode_on.secure": null,
+            "airplane_mode_on.system": "0",
+            "airplane_mode_on.float": 0,
+            "airplane_mode_on.long": 0,
+            "airplane_mode_on.call": "0",
+            "airplane_mode_on.clientCall": "0",
+            "airplane_mode_on.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "airplane_mode_on.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "native": {
+              "init.svc.adbd.get": "running",
+              "init.svc.adbd.read": "running",
+              "init.svc.adbd.callback": "running",
+              "sys.usb.config.get": "adb",
+              "sys.usb.config.read": "adb",
+              "sys.usb.config.callback": "adb",
+              "sys.usb.state.get": "adb",
+              "sys.usb.state.read": "adb",
+              "sys.usb.state.callback": "adb",
+              "service.adb.tcp.port.get": "",
+              "ro.build.version.sdk.get": "36",
+              "ro.build.version.sdk.read": "36",
+              "ro.build.version.sdk.callback": "36",
+              "interfaces": [
+                "dummy0",
+                "lo",
+                "tun0",
+                "wlan0"
+              ],
+              "listLifetimeOk": true,
+              "getpidOk": true,
+              "protectionLibraries": [
+                "libshield.so"
+              ]
+            },
+            "init.svc.adbd.java": "running",
+            "sys.usb.config.java": "adb",
+            "sys.usb.state.java": "adb",
+            "service.adb.tcp.port.java": "",
+            "ro.build.version.sdk.java": "36",
+            "vpnNetworks": 1,
+            "activeVpn": true,
+            "activeNotVpn": false,
+            "legacyVpn": true,
+            "interfaces": [
+              "dummy0",
+              "wlan0",
+              "lo",
+              "tun0"
+            ],
+            "tunByName": true,
+            "linkInterface": "tun0",
+            "linkTextTunnel": true,
+            "activeInfoConnected": true,
+            "networks": [
+              "100",
+              "101"
+            ],
+            "wifiTransport": true,
+            "parcelVpn": true,
+            "callbackVpn": true,
+            "internet": 204,
+            "proxyFixture": {
+              "hostVisible": true,
+              "portVisible": true,
+              "bulkHostVisible": true,
+              "ordinaryProperty": "Dalvik",
+              "configurator": "setHttpProxySystemProperty",
+              "selectedProxyTypes": [
+                "HTTP"
+              ],
+              "response": 204,
+              "actualHttpProxyUsed": true
+            }
+          },
+          "screenshot": {
+            "pid": 7217,
+            "sdk": 36,
+            "raw_register_code": 97,
+            "raw_unregister_code": 98,
+            "raw_binder_registered": true,
+            "java_screenshot_exists": false,
+            "java_normal_exists": true,
+            "java_list": [
+              "ordinary_probe.png"
+            ],
+            "java_screenshot_open": false,
+            "java_normal_open": true,
+            "nio_screenshot_exists": false,
+            "nio_normal_exists": true,
+            "media_legacy_count": 1,
+            "media_bundle_count": 1,
+            "media_client_count": 1,
+            "media_id_only_count": 1,
+            "native": {
+              "clone_new_stack_supported": true,
+              "clone_new_stack_ok": true,
+              "syscall_getpid_ok": true,
+              "syscall_six_arguments_ok": true,
+              "open_screenshot": false,
+              "open_normal": true,
+              "syscall_open_screenshot": false,
+              "syscall_open_normal": true,
+              "stat_screenshot": false,
+              "stat_normal": true,
+              "access_screenshot": false,
+              "access_normal": true,
+              "fopen_screenshot": false,
+              "fopen_normal": true,
+              "fixture_fd_screenshot": true,
+              "fd_read_screenshot": false,
+              "fd_pread_screenshot": false,
+              "fd_readv_screenshot": false,
+              "fd_preadv_screenshot": false,
+              "fd_fstat_screenshot": false,
+              "fd_syscall_read_screenshot": false,
+              "fd_mmap_screenshot": false,
+              "fd_dup_pread_screenshot": false,
+              "procfd_syscall_readlink_screenshot": false,
+              "procfd_open_screenshot": false,
+              "procfd_realpath_screenshot": false,
+              "procroot_open_screenshot": false,
+              "symlink_open_screenshot": false,
+              "libc_statx_screenshot": false,
+              "fd_syscall_statx_screenshot": false,
+              "fixture_fd_normal": true,
+              "fd_read_normal": true,
+              "fd_pread_normal": true,
+              "fd_readv_normal": true,
+              "fd_preadv_normal": true,
+              "fd_fstat_normal": true,
+              "fd_syscall_read_normal": true,
+              "fd_mmap_normal": true,
+              "fd_dup_pread_normal": true,
+              "procfd_syscall_readlink_normal": true,
+              "procfd_open_normal": true,
+              "procfd_realpath_normal": true,
+              "procroot_open_normal": true,
+              "symlink_open_normal": true,
+              "libc_statx_normal": true,
+              "fd_syscall_statx_normal": true,
+              "openat_screenshot": false,
+              "openat_normal": true,
+              "syscall_getdents_screenshot": false,
+              "syscall_getdents_normal": true,
+              "syscall_stat_screenshot": false,
+              "syscall_stat_normal": true,
+              "readdir_screenshot": false,
+              "readdir_normal": true
+            },
+            "screen_capture_callbacks": 0,
+            "raw_screen_capture_callbacks": 0,
+            "media_callbacks": 0,
+            "file_screenshot_events": 0,
+            "file_normal_events": 0,
+            "broadcast_screenshot_events": 0,
+            "broadcast_normal_events": 0,
+            "manifest_screenshot_events": 0,
+            "manifest_normal_events": 0,
+            "notification_screenshot": 0,
+            "notification_normal": 1,
+            "accessibility_screenshot": 0,
+            "accessibility_normal": 1,
+            "accessibility_package_name_control": 1,
+            "clipboard_screenshot_visible": false,
+            "clipboard_screenshot_description": false,
+            "clipboard_screenshot_has": false,
+            "clipboard_normal_visible": true
+          }
+        }
+      },
+      "candidate-policy-01111": {
+        "status": "passed",
+        "started": "2026-11-10T12:58:31.236300+00:00",
+        "evidence": {
+          "state": {
+            "lifecycle": {
+              "attachBaseContext": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              },
+              "providerOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              },
+              "applicationOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              }
+            },
+            "module": {
+              "injected": true,
+              "policyLoaded": true,
+              "enabled": [
+                "vpn",
+                "proxy",
+                "developer",
+                "debug"
+              ],
+              "futureMethodEnabled": true
+            },
+            "storedPolicy": {
+              "disabled": [
+                "screenshot"
+              ],
+              "custom": true
+            },
+            "foreignReadDenied": true,
+            "writeDenied": true,
+            "otherPackageDenied": true,
+            "insertDenied": true,
+            "updateDenied": true,
+            "deleteDenied": true,
+            "queryDenied": true,
+            "development_settings_enabled.global": 0,
+            "development_settings_enabled.secure": "0",
+            "development_settings_enabled.system": "0",
+            "development_settings_enabled.float": 0,
+            "development_settings_enabled.long": 0,
+            "development_settings_enabled.call": "0",
+            "development_settings_enabled.clientCall": "0",
+            "development_settings_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "development_settings_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "development_settings_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.global": 0,
+            "adb_enabled.secure": "0",
+            "adb_enabled.system": "0",
+            "adb_enabled.float": 0,
+            "adb_enabled.long": 0,
+            "adb_enabled.call": "0",
+            "adb_enabled.clientCall": "0",
+            "adb_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.global": 0,
+            "adb_wifi_enabled.secure": "0",
+            "adb_wifi_enabled.system": "0",
+            "adb_wifi_enabled.float": 0,
+            "adb_wifi_enabled.long": 0,
+            "adb_wifi_enabled.call": "0",
+            "adb_wifi_enabled.clientCall": "0",
+            "adb_wifi_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.global": 0,
+            "airplane_mode_on.secure": null,
+            "airplane_mode_on.system": "0",
+            "airplane_mode_on.float": 0,
+            "airplane_mode_on.long": 0,
+            "airplane_mode_on.call": "0",
+            "airplane_mode_on.clientCall": "0",
+            "airplane_mode_on.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "airplane_mode_on.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "native": {
+              "init.svc.adbd.get": "stopped",
+              "init.svc.adbd.read": "stopped",
+              "init.svc.adbd.callback": "stopped",
+              "sys.usb.config.get": "none",
+              "sys.usb.config.read": "none",
+              "sys.usb.config.callback": "none",
+              "sys.usb.state.get": "none",
+              "sys.usb.state.read": "none",
+              "sys.usb.state.callback": "none",
+              "service.adb.tcp.port.get": "-1",
+              "ro.build.version.sdk.get": "36",
+              "ro.build.version.sdk.read": "36",
+              "ro.build.version.sdk.callback": "36",
+              "interfaces": [
+                "dummy0",
+                "lo",
+                "wlan0"
+              ],
+              "listLifetimeOk": true,
+              "getpidOk": true,
+              "protectionLibraries": [
+                "libdeveloperstate.so",
+                "libvpnstate.so"
+              ]
+            },
+            "init.svc.adbd.java": "stopped",
+            "sys.usb.config.java": "none",
+            "sys.usb.state.java": "none",
+            "service.adb.tcp.port.java": "-1",
+            "ro.build.version.sdk.java": "36",
+            "vpnNetworks": 0,
+            "activeVpn": false,
+            "activeNotVpn": true,
+            "legacyVpn": false,
+            "interfaces": [
+              "dummy0",
+              "wlan0",
+              "lo"
+            ],
+            "tunByName": false,
+            "linkInterface": null,
+            "linkTextTunnel": false,
+            "activeInfoConnected": true,
+            "networks": [
+              "100",
+              "101"
+            ],
+            "wifiTransport": true,
+            "parcelVpn": false,
+            "callbackVpn": false,
+            "internet": 204,
+            "proxyFixture": {
+              "hostVisible": false,
+              "portVisible": false,
+              "bulkHostVisible": false,
+              "ordinaryProperty": "Dalvik",
+              "configurator": "setHttpProxySystemProperty",
+              "selectedProxyTypes": [
+                "HTTP"
+              ],
+              "response": 204,
+              "actualHttpProxyUsed": true
+            }
+          },
+          "screenshot": {
+            "pid": 7641,
+            "sdk": 36,
+            "raw_register_code": 97,
+            "raw_unregister_code": 98,
+            "raw_binder_registered": true,
+            "java_screenshot_exists": true,
+            "java_normal_exists": true,
+            "java_list": [
+              "ordinary_probe.png",
+              "Screenshot_probe.png"
+            ],
+            "java_screenshot_open": true,
+            "java_normal_open": true,
+            "nio_screenshot_exists": true,
+            "nio_normal_exists": true,
+            "media_legacy_count": 2,
+            "media_bundle_count": 2,
+            "media_client_count": 2,
+            "media_id_only_count": 2,
+            "native": {
+              "clone_new_stack_supported": true,
+              "clone_new_stack_ok": true,
+              "syscall_getpid_ok": true,
+              "syscall_six_arguments_ok": true,
+              "open_screenshot": true,
+              "open_normal": true,
+              "syscall_open_screenshot": true,
+              "syscall_open_normal": true,
+              "stat_screenshot": true,
+              "stat_normal": true,
+              "access_screenshot": true,
+              "access_normal": true,
+              "fopen_screenshot": true,
+              "fopen_normal": true,
+              "fixture_fd_screenshot": true,
+              "fd_read_screenshot": true,
+              "fd_pread_screenshot": true,
+              "fd_readv_screenshot": true,
+              "fd_preadv_screenshot": true,
+              "fd_fstat_screenshot": true,
+              "fd_syscall_read_screenshot": true,
+              "fd_mmap_screenshot": true,
+              "fd_dup_pread_screenshot": true,
+              "procfd_syscall_readlink_screenshot": true,
+              "procfd_open_screenshot": true,
+              "procfd_realpath_screenshot": true,
+              "procroot_open_screenshot": true,
+              "symlink_open_screenshot": true,
+              "libc_statx_screenshot": true,
+              "fd_syscall_statx_screenshot": true,
+              "fixture_fd_normal": true,
+              "fd_read_normal": true,
+              "fd_pread_normal": true,
+              "fd_readv_normal": true,
+              "fd_preadv_normal": true,
+              "fd_fstat_normal": true,
+              "fd_syscall_read_normal": true,
+              "fd_mmap_normal": true,
+              "fd_dup_pread_normal": true,
+              "procfd_syscall_readlink_normal": true,
+              "procfd_open_normal": true,
+              "procfd_realpath_normal": true,
+              "procroot_open_normal": true,
+              "symlink_open_normal": true,
+              "libc_statx_normal": true,
+              "fd_syscall_statx_normal": true,
+              "openat_screenshot": true,
+              "openat_normal": true,
+              "syscall_getdents_screenshot": true,
+              "syscall_getdents_normal": true,
+              "syscall_stat_screenshot": true,
+              "syscall_stat_normal": true,
+              "readdir_screenshot": true,
+              "readdir_normal": true
+            },
+            "screen_capture_callbacks": 0,
+            "raw_screen_capture_callbacks": 0,
+            "media_callbacks": 0,
+            "file_screenshot_events": 0,
+            "file_normal_events": 0,
+            "broadcast_screenshot_events": 0,
+            "broadcast_normal_events": 0,
+            "manifest_screenshot_events": 0,
+            "manifest_normal_events": 0,
+            "notification_screenshot": 1,
+            "notification_normal": 1,
+            "accessibility_screenshot": 1,
+            "accessibility_normal": 1,
+            "accessibility_package_name_control": 1,
+            "clipboard_screenshot_visible": true,
+            "clipboard_screenshot_description": true,
+            "clipboard_screenshot_has": true,
+            "clipboard_normal_visible": true
+          }
+        }
+      },
+      "candidate-policy-11111": {
+        "status": "passed",
+        "started": "2026-11-10T12:58:53.635995+00:00",
+        "evidence": {
+          "state": {
+            "lifecycle": {
+              "attachBaseContext": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              },
+              "providerOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              },
+              "applicationOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0
+              }
+            },
+            "module": {
+              "injected": true,
+              "policyLoaded": true,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug"
+              ],
+              "futureMethodEnabled": true
+            },
+            "storedPolicy": {
+              "disabled": [],
+              "custom": true
+            },
+            "foreignReadDenied": true,
+            "writeDenied": true,
+            "otherPackageDenied": true,
+            "insertDenied": true,
+            "updateDenied": true,
+            "deleteDenied": true,
+            "queryDenied": true,
+            "development_settings_enabled.global": 0,
+            "development_settings_enabled.secure": "0",
+            "development_settings_enabled.system": "0",
+            "development_settings_enabled.float": 0,
+            "development_settings_enabled.long": 0,
+            "development_settings_enabled.call": "0",
+            "development_settings_enabled.clientCall": "0",
+            "development_settings_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "development_settings_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "development_settings_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.global": 0,
+            "adb_enabled.secure": "0",
+            "adb_enabled.system": "0",
+            "adb_enabled.float": 0,
+            "adb_enabled.long": 0,
+            "adb_enabled.call": "0",
+            "adb_enabled.clientCall": "0",
+            "adb_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.global": 0,
+            "adb_wifi_enabled.secure": "0",
+            "adb_wifi_enabled.system": "0",
+            "adb_wifi_enabled.float": 0,
+            "adb_wifi_enabled.long": 0,
+            "adb_wifi_enabled.call": "0",
+            "adb_wifi_enabled.clientCall": "0",
+            "adb_wifi_enabled.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "adb_wifi_enabled.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.global": 0,
+            "airplane_mode_on.secure": null,
+            "airplane_mode_on.system": "0",
+            "airplane_mode_on.float": 0,
+            "airplane_mode_on.long": 0,
+            "airplane_mode_on.call": "0",
+            "airplane_mode_on.clientCall": "0",
+            "airplane_mode_on.query": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "name",
+                "value"
+              ]
+            },
+            "airplane_mode_on.valueOnly": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "airplane_mode_on.bundleQuery": {
+              "value": "0",
+              "int": 0,
+              "long": 0,
+              "float": 0,
+              "columns": [
+                "value"
+              ]
+            },
+            "native": {
+              "init.svc.adbd.get": "stopped",
+              "init.svc.adbd.read": "stopped",
+              "init.svc.adbd.callback": "stopped",
+              "sys.usb.config.get": "none",
+              "sys.usb.config.read": "none",
+              "sys.usb.config.callback": "none",
+              "sys.usb.state.get": "none",
+              "sys.usb.state.read": "none",
+              "sys.usb.state.callback": "none",
+              "service.adb.tcp.port.get": "-1",
+              "ro.build.version.sdk.get": "36",
+              "ro.build.version.sdk.read": "36",
+              "ro.build.version.sdk.callback": "36",
+              "interfaces": [
+                "dummy0",
+                "lo",
+                "wlan0"
+              ],
+              "listLifetimeOk": true,
+              "getpidOk": true,
+              "protectionLibraries": [
+                "libdeveloperstate.so",
+                "libshield.so",
+                "libvpnstate.so"
+              ]
+            },
+            "init.svc.adbd.java": "stopped",
+            "sys.usb.config.java": "none",
+            "sys.usb.state.java": "none",
+            "service.adb.tcp.port.java": "-1",
+            "ro.build.version.sdk.java": "36",
+            "vpnNetworks": 0,
+            "activeVpn": false,
+            "activeNotVpn": true,
+            "legacyVpn": false,
+            "interfaces": [
+              "dummy0",
+              "wlan0",
+              "lo"
+            ],
+            "tunByName": false,
+            "linkInterface": null,
+            "linkTextTunnel": false,
+            "activeInfoConnected": true,
+            "networks": [
+              "100",
+              "101"
+            ],
+            "wifiTransport": true,
+            "parcelVpn": false,
+            "callbackVpn": false,
+            "internet": 204,
+            "proxyFixture": {
+              "hostVisible": false,
+              "portVisible": false,
+              "bulkHostVisible": false,
+              "ordinaryProperty": "Dalvik",
+              "configurator": "setHttpProxySystemProperty",
+              "selectedProxyTypes": [
+                "HTTP"
+              ],
+              "response": 204,
+              "actualHttpProxyUsed": true
+            }
+          },
+          "screenshot": {
+            "pid": 8059,
+            "sdk": 36,
+            "raw_register_code": 97,
+            "raw_unregister_code": 98,
+            "raw_binder_registered": true,
+            "java_screenshot_exists": false,
+            "java_normal_exists": true,
+            "java_list": [
+              "ordinary_probe.png"
+            ],
+            "java_screenshot_open": false,
+            "java_normal_open": true,
+            "nio_screenshot_exists": false,
+            "nio_normal_exists": true,
+            "media_legacy_count": 1,
+            "media_bundle_count": 1,
+            "media_client_count": 1,
+            "media_id_only_count": 1,
+            "native": {
+              "clone_new_stack_supported": true,
+              "clone_new_stack_ok": true,
+              "syscall_getpid_ok": true,
+              "syscall_six_arguments_ok": true,
+              "open_screenshot": false,
+              "open_normal": true,
+              "syscall_open_screenshot": false,
+              "syscall_open_normal": true,
+              "stat_screenshot": false,
+              "stat_normal": true,
+              "access_screenshot": false,
+              "access_normal": true,
+              "fopen_screenshot": false,
+              "fopen_normal": true,
+              "fixture_fd_screenshot": true,
+              "fd_read_screenshot": false,
+              "fd_pread_screenshot": false,
+              "fd_readv_screenshot": false,
+              "fd_preadv_screenshot": false,
+              "fd_fstat_screenshot": false,
+              "fd_syscall_read_screenshot": false,
+              "fd_mmap_screenshot": false,
+              "fd_dup_pread_screenshot": false,
+              "procfd_syscall_readlink_screenshot": false,
+              "procfd_open_screenshot": false,
+              "procfd_realpath_screenshot": false,
+              "procroot_open_screenshot": false,
+              "symlink_open_screenshot": false,
+              "libc_statx_screenshot": false,
+              "fd_syscall_statx_screenshot": false,
+              "fixture_fd_normal": true,
+              "fd_read_normal": true,
+              "fd_pread_normal": true,
+              "fd_readv_normal": true,
+              "fd_preadv_normal": true,
+              "fd_fstat_normal": true,
+              "fd_syscall_read_normal": true,
+              "fd_mmap_normal": true,
+              "fd_dup_pread_normal": true,
+              "procfd_syscall_readlink_normal": true,
+              "procfd_open_normal": true,
+              "procfd_realpath_normal": true,
+              "procroot_open_normal": true,
+              "symlink_open_normal": true,
+              "libc_statx_normal": true,
+              "fd_syscall_statx_normal": true,
+              "openat_screenshot": false,
+              "openat_normal": true,
+              "syscall_getdents_screenshot": false,
+              "syscall_getdents_normal": true,
+              "syscall_stat_screenshot": false,
+              "syscall_stat_normal": true,
+              "readdir_screenshot": false,
+              "readdir_normal": true
+            },
+            "screen_capture_callbacks": 0,
+            "raw_screen_capture_callbacks": 0,
+            "media_callbacks": 0,
+            "file_screenshot_events": 0,
+            "file_normal_events": 0,
+            "broadcast_screenshot_events": 0,
+            "broadcast_normal_events": 0,
+            "manifest_screenshot_events": 0,
+            "manifest_normal_events": 0,
+            "notification_screenshot": 0,
+            "notification_normal": 1,
+            "accessibility_screenshot": 0,
+            "accessibility_normal": 1,
+            "accessibility_package_name_control": 1,
+            "clipboard_screenshot_visible": false,
+            "clipboard_screenshot_description": false,
+            "clipboard_screenshot_has": false,
+            "clipboard_normal_visible": true
+          }
+        }
+      },
+      "candidate-ten-cold-starts": {
+        "status": "passed",
+        "started": "2026-11-10T12:59:16.068610+00:00",
+        "evidence": {
+          "coldStarts": [
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            },
+            {
+              "lifecycle": {
+                "attachBaseContext": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "providerOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                },
+                "applicationOnCreate": {
+                  "injected": true,
+                  "developer": 0,
+                  "debug": 0
+                }
+              },
+              "native": {
+                "init.svc.adbd.get": "stopped",
+                "init.svc.adbd.read": "stopped",
+                "init.svc.adbd.callback": "stopped",
+                "sys.usb.config.get": "none",
+                "sys.usb.config.read": "none",
+                "sys.usb.config.callback": "none",
+                "sys.usb.state.get": "none",
+                "sys.usb.state.read": "none",
+                "sys.usb.state.callback": "none",
+                "service.adb.tcp.port.get": "-1",
+                "ro.build.version.sdk.get": "36",
+                "ro.build.version.sdk.read": "36",
+                "ro.build.version.sdk.callback": "36",
+                "interfaces": [
+                  "dummy0",
+                  "lo",
+                  "wlan0"
+                ],
+                "listLifetimeOk": true,
+                "getpidOk": true,
+                "protectionLibraries": [
+                  "libdeveloperstate.so",
+                  "libshield.so",
+                  "libvpnstate.so"
+                ]
+              },
+              "internet": 204,
+              "proxyFixture": {
+                "hostVisible": false,
+                "portVisible": false,
+                "bulkHostVisible": false,
+                "ordinaryProperty": "Dalvik",
+                "configurator": "setHttpProxySystemProperty",
+                "selectedProxyTypes": [
+                  "HTTP"
+                ],
+                "response": 204,
+                "actualHttpProxyUsed": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    "cleanup": {
+      "settingsScopesServicesRestored": true,
+      "originalImagesPreserved": true,
+      "newImagesDeleted": 2,
+      "samplesUninstalled": true,
+      "fixtureVpnStopped": true,
+      "originalCustomizationsRestored": true,
+      "ordinaryInternet": 204,
+      "settings": {
+        "development_settings_enabled": "null",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "airplane_mode_on": "0",
+        "hidden_api_policy": "null"
+      },
+      "services": {
+        "enabled_accessibility_services": "null",
+        "enabled_notification_listeners": "",
+        "accessibility_enabled": "0"
+      }
+    }
+  },
+  "cleanup": {
+    "vivoPoliciesAndScopesRestored": true,
+    "scopeCount": 5,
+    "testPropertyRestored": true,
+    "temporaryDeviceFilesDeleted": true,
+    "actualVpnStillRunning": true,
+    "installedModuleSha256": "6fa0aa56fe3abe67f61b80fdfe7ef5594187683c37e82e80e3633a28a735bbf3",
+    "emulatorOriginalApkRestored": true
+  },
+  "limitations": [
+    "Pre-existing redirected libc entries are retained and have limited native screenshot coverage.",
+    "The implemented redirect recognition is ARM64 B and 16-byte literal LDR/BR only.",
+    "Four ABI compilation does not establish runtime compatibility on the other three ABIs.",
+    "SELinux is not implemented; wireless debugging still lacks an enabled emulator baseline.",
+    "The 0.2.0 full integration report is historical; this report covers focused 0.2.1 checks.",
+    "Clipboard fixtures restore in their own finally block; this focused session did not fingerprint the pretest clipboard."
+  ]
+}

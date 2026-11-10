@@ -1,104 +1,49 @@
-# AndroidAppPermissionControl
+# 应用状态屏蔽 · AppStateShield
 
-Repository: [lwtdzh/AndroidAppPermissionControl](https://github.com/lwtdzh/AndroidAppPermissionControl).
+一个 Vector 模块，按应用屏蔽截图、VPN、网络代理、开发者选项及 USB/无线调试状态。当前模块版本为 **0.2.1**，验证器保留 **0.2.0**。保留一个“应用状态验证器”，用来观察系统实际读取结果。
 
-A collection of Android apps and modules for restricting selected permissions or information access in user-selected apps. Screenshot detection protection is the first capability. Future projects can use Vector/Xposed, SukiSU/KernelSU, or other approaches to restrict additional permissions.
+主模块没有桌面图标。从 Vector 的模块页打开设置。Vector 决定作用域；设置页为作用域内的应用选择屏蔽方法。未定制应用默认全部开启，包括以后新增的方法。
 
-Each `module-*/` directory is a complete Android project with its own Gradle settings, wrapper, build configuration, and source code. Open that directory directly in Android Studio or as an agent workspace. The root contains shared instructions, agent skills, and host-side tools.
+## 使用
 
-## Workspace structure
+1. 安装 AppStateShield APK，在 Vector 启用模块并选择作用域。
+2. 默认即可使用。需要单独设置时，从 Vector 打开模块设置，点“添加应用”，选择应用，调整开关并保存。
+3. 强行停止并重新打开目标应用，让新配置生效。
+4. 删除定制条目恢复全部开启。定制列表不改变 Vector 作用域。
+
+截图、VPN、代理、开发者选项、USB/无线调试是五个独立开关。系统实际功能继续运行，目标应用读到的状态按所选方法处理。SELinux 尚未实现，设置中标注“待开发”。没有一种 API 屏蔽能保证覆盖任意应用的自定义、内核或服务端检测；具体读取路径和真实设备结果见测试记录。
+
+0.2.1 修复了 vivo 上动卡空间开启截图屏蔽后启动卡住的问题。ARM64 原生层会保留函数入口已有的外部跳转，避免覆盖应用加固库的 Hook。这些入口的原生读取无法由本模块完整屏蔽；Java 层和其余成功安装的原生 Hook 继续生效。验证范围和限制见[兼容性记录](verification/VIVO-COMPATIBILITY-0.2.1.md)。
+
+## 工程
 
 ```text
-AndroidAppPermissionControl/
-├── README.md                         # Shared purpose and instructions
-├── AGENTS.md                         # Instructions for every coding agent
-├── PROJECT-RELATIONSHIPS.md           # Relationships and companion checks for all groups
-├── .trae/skills/
-│   └── android-permission-workflow/
-│       └── SKILL.md                  # Shared development and verification workflow
-├── scripts/
-│   ├── build-all.sh                  # Build the independent Android projects
-│   └── sign-apk.py                   # Sign APKs with the established external key
-├── module-screenshot-shield/
-│   ├── README.md
-│   ├── settings.gradle
-│   ├── build.gradle
-│   ├── gradle/                       # This project's wrapper files
-│   ├── gradlew
-│   ├── app/                          # Screenshot protection module
-│   ├── COVERAGE-AUDIT.md
-│   └── verification/
-├── module-screenshot-detector/
-│   ├── README.md
-│   ├── settings.gradle
-│   ├── build.gradle
-│   ├── gradle/
-│   ├── gradlew
-│   ├── app/                          # Visible screenshot detection log app
-│   ├── scripts/
-│   └── verification/
-└── module-screenshot-probe/
-    ├── README.md
-    ├── settings.gradle
-    ├── build.gradle
-    ├── gradle/
-    ├── gradlew
-    ├── app/                          # Automated verification app
-    └── scripts/
+app/             整合模块、设置页、策略服务及三组 native hooks
+verifier/        保留验证器、截图日志、低层文件读取和设备状态检查
+scripts/         根工程构建、签名、专用模拟器与测试执行
+docs/            整合设计、逐步人工测试手册
+verification/    当前验证报告与 legacy 历史记录
+gradle/          全工程共用 wrapper
 ```
 
-The `.trae/skills/` location allows TRAE to discover the skill. Its Markdown instructions and the root `AGENTS.md` can also be read by other agents.
+`:app` 包名为 `io.github.lwtdzh.appstateshield`。`:verifier` 保留 `io.github.lwtdzh.screenshotdetector` 和原签名。sampleA/sampleB flavors 只供多应用隔离测试，正式交付不需要安装。
 
-## Current projects
+## 构建
 
-| Android project | Purpose | Package |
-| --- | --- | --- |
-| [module-screenshot-shield](module-screenshot-shield/README.md) | Block screenshot detection in apps selected through Vector scope | `io.github.lwtdzh.screenshotshield` |
-| [module-screenshot-detector](module-screenshot-detector/README.md) | Display real screenshot signals and manual read checks | `io.github.lwtdzh.screenshotdetector` |
-| [module-screenshot-probe](module-screenshot-probe/README.md) | Verify hooks, file access, provider access, and ordinary-operation controls on a dedicated emulator | `io.github.lwtdzh.screenshotprobe` |
-
-Existing app names, package IDs, versions, and signing identities are preserved. The protection project's Gradle name remains `ScreenshotShield`. The two standalone verification projects have their own Gradle names, `ScreenshotDetector` and `ScreenshotProbe`.
-
-Read [PROJECT-RELATIONSHIPS.md](PROJECT-RELATIONSHIPS.md) for how the shield, detector, and probe work together, including framework scope, companion APKs, test fixtures, and test order. Future related subprojects must be documented in that same file.
-
-## Build
-
-The current projects use JDK 17, Android SDK 36, NDK `29.0.14206865`, and CMake `3.22.1`. Each project owns its SDK and Gradle configuration.
-
-From the workspace root:
+JDK17、Android SDK36、NDK29.0.14206865、CMake3.22.1：
 
 ```sh
-export JAVA_HOME=/opt/homebrew/opt/openjdk@17
-export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
-
 ./scripts/build-all.sh
-./module-screenshot-shield/gradlew -p ./module-screenshot-shield :app:assembleRelease
-./module-screenshot-detector/gradlew -p ./module-screenshot-detector :app:assembleRelease
-./module-screenshot-probe/gradlew -p ./module-screenshot-probe :app:assembleDebug
+python3 scripts/sign-apk.py app/build/outputs/apk/release/app-release-unsigned.apk /path/to/AppStateShield.apk
+python3 scripts/sign-apk.py verifier/build/outputs/apk/primary/release/verifier-primary-release-unsigned.apk /path/to/AppStateVerifier.apk
 ```
 
-From within any individual project, use its own `./gradlew` to run that project's default build. Protection and detector projects default to release; the legacy-storage probe defaults to debug and retains its intentional SDK 28 target. APKs appear under that project's `app/build/outputs/apk/`. The shared helper uses those same defaults and also accepts a common task, for example `./scripts/build-all.sh :app:assembleDebug`.
+主模块 minSdk27/targetSdk36。验证器 minSdk28/targetSdk28，保留旧文件权限以比较 JNI/NIO 读取；这是侧载的诊断应用，未面向 Play 发布。官方截图日志页要求 API34，较低版本打开设备状态检查。
 
-For release signing, run the shared helper with an explicit input and output:
+## 验证与迁移
 
-```sh
-python3 scripts/sign-apk.py \
-  module-screenshot-shield/app/build/outputs/apk/release/app-release-unsigned.apk \
-  /tmp/ScreenshotShield-0.1.4.apk
-```
+[人工测试手册](docs/TEST-MANUAL.md) 包含设置页操作、32 种开关组合、多应用隔离、早期启动读取、真实 SystemUI 截图、选图授权、联网及清理步骤。[整合设计](docs/ARCHITECTURE.md) 说明配置和 Hook 安装；[工程关系](PROJECT-RELATIONSHIPS.md) 记录迁移。
 
-The established signing state stays outside this workspace in `~/Library/Application Support/ScreenshotShield/signing/`. Keep that key when updating the existing apps.
+整合模块使用新包名，可与旧模块共存。迁移时先禁用旧 ScreenshotShield、VPNStateShield、DeveloperStateShield 对同一应用的作用域，避免重复 Hook，再把相同目标加入新模块。旧模块没有按应用开关可迁移，整合版默认全部开启。验证器以原包名同签名升级。
 
-## Adding another app or module
-
-Create a new `module-<name>/` directory with a complete Android project, its own README, and its own build and packaging commands. Choose the implementation framework for that capability; different projects can use different frameworks.
-
-Add the project to the table above. Keep its app-specific guidance, detector tools, and verification records inside that project. Put reusable agent instructions in the shared skill and reusable host tools in `scripts/`.
-
-If it is related to another project, add or update the group's section in [PROJECT-RELATIONSHIPS.md](PROJECT-RELATIONSHIPS.md) and link that file from each participating project's README.
-
-Each new restriction should have a corresponding detection or verification method. Compare the selected app before and after applying the restriction, and confirm ordinary operations still work. Record permission requirements, framework scope, platform versions, and whether the evidence came from a real system operation or test content.
-
-## Starting a new agent
-
-Read [AGENTS.md](AGENTS.md), [PROJECT-RELATIONSHIPS.md](PROJECT-RELATIONSHIPS.md), the relevant project's README, and the [shared workflow skill](.trae/skills/android-permission-workflow/SKILL.md). The protection project's audit explains current limitations; the verification records are stored beside the project they describe. Current code implements screenshot protection; other permission restrictions are future work.
+历史验证记录保存在 `verification/legacy/`；历史脚本在 `scripts/legacy/` 仅供查阅，不应用于新布局或恢复旧模块。

@@ -1,0 +1,228 @@
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:configureCMakeRelWithDebInfo[arm64-v8a]
+> Task :app:buildCMakeRelWithDebInfo[arm64-v8a]
+> Task :app:configureCMakeRelWithDebInfo[armeabi-v7a]
+> Task :app:buildCMakeRelWithDebInfo[armeabi-v7a]
+> Task :app:configureCMakeRelWithDebInfo[x86]
+> Task :app:buildCMakeRelWithDebInfo[x86]
+> Task :app:configureCMakeRelWithDebInfo[x86_64]
+> Task :app:buildCMakeRelWithDebInfo[x86_64]
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:processReleaseNavigationResources UP-TO-DATE
+> Task :app:compileReleaseNavigationResources UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :app:processReleaseMainManifest UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :app:processReleaseResources UP-TO-DATE
+> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :app:dexBuilderRelease UP-TO-DATE
+> Task :app:desugarReleaseFileDependencies UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexRelease UP-TO-DATE
+> Task :app:mergeDexRelease UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :app:compileReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel UP-TO-DATE
+> Task :app:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:optimizeReleaseResources UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :verifier:preBuild UP-TO-DATE
+> Task :verifier:preSampleBReleaseBuild UP-TO-DATE
+> Task :verifier:configureCMakeRelWithDebInfo[arm64-v8a]
+> Task :verifier:buildCMakeRelWithDebInfo[arm64-v8a]
+> Task :verifier:configureCMakeRelWithDebInfo[armeabi-v7a]
+> Task :verifier:buildCMakeRelWithDebInfo[armeabi-v7a]
+> Task :verifier:configureCMakeRelWithDebInfo[x86]
+> Task :verifier:buildCMakeRelWithDebInfo[x86]
+> Task :app:mergeReleaseNativeLibs
+> Task :verifier:configureCMakeRelWithDebInfo[x86_64]
+> Task :verifier:buildCMakeRelWithDebInfo[x86_64]
+> Task :verifier:prePrimaryReleaseBuild UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseJniLibFolders UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseNativeLibs UP-TO-DATE
+> Task :verifier:stripPrimaryReleaseDebugSymbols UP-TO-DATE
+> Task :verifier:extractPrimaryReleaseNativeSymbolTables UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseNativeDebugMetadata UP-TO-DATE
+> Task :verifier:checkPrimaryReleaseDuplicateClasses UP-TO-DATE
+> Task :verifier:javaPreCompilePrimaryRelease UP-TO-DATE
+> Task :verifier:checkPrimaryReleaseAarMetadata UP-TO-DATE
+> Task :verifier:processPrimaryReleaseNavigationResources UP-TO-DATE
+> Task :verifier:compilePrimaryReleaseNavigationResources UP-TO-DATE
+> Task :verifier:generatePrimaryReleaseResValues UP-TO-DATE
+> Task :verifier:mapPrimaryReleaseSourceSetPaths UP-TO-DATE
+> Task :verifier:generatePrimaryReleaseResources UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseResources UP-TO-DATE
+> Task :verifier:packagePrimaryReleaseResources UP-TO-DATE
+> Task :verifier:parsePrimaryReleaseLocalResources UP-TO-DATE
+> Task :verifier:createPrimaryReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :verifier:extractDeepLinksPrimaryRelease UP-TO-DATE
+> Task :verifier:processPrimaryReleaseMainManifest UP-TO-DATE
+> Task :verifier:processPrimaryReleaseManifest UP-TO-DATE
+> Task :verifier:processPrimaryReleaseManifestForPackage UP-TO-DATE
+> Task :verifier:processPrimaryReleaseResources UP-TO-DATE
+> Task :verifier:compilePrimaryReleaseJavaWithJavac UP-TO-DATE
+> Task :verifier:dexBuilderPrimaryRelease UP-TO-DATE
+> Task :verifier:desugarPrimaryReleaseFileDependencies UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseStartupProfile UP-TO-DATE
+> Task :verifier:mergeExtDexPrimaryRelease UP-TO-DATE
+> Task :verifier:mergeDexPrimaryRelease UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseArtProfile UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseGlobalSynthetics UP-TO-DATE
+> Task :verifier:compilePrimaryReleaseArtProfile UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseShaders UP-TO-DATE
+> Task :verifier:compilePrimaryReleaseShaders NO-SOURCE
+> Task :verifier:generatePrimaryReleaseAssets UP-TO-DATE
+> Task :verifier:mergePrimaryReleaseAssets UP-TO-DATE
+> Task :verifier:compressPrimaryReleaseAssets UP-TO-DATE
+> Task :verifier:extractPrimaryReleaseVersionControlInfo UP-TO-DATE
+> Task :verifier:extractProguardFiles UP-TO-DATE
+> Task :verifier:generatePrimaryReleaseLintVitalReportModel UP-TO-DATE
+> Task :verifier:lintVitalAnalyzePrimaryRelease UP-TO-DATE
+> Task :verifier:lintVitalReportPrimaryRelease UP-TO-DATE
+> Task :verifier:lintVitalPrimaryRelease
+> Task :verifier:processPrimaryReleaseJavaRes NO-SOURCE
+> Task :verifier:mergePrimaryReleaseJavaResource UP-TO-DATE
+> Task :verifier:optimizePrimaryReleaseResources UP-TO-DATE
+> Task :verifier:collectPrimaryReleaseDependencies UP-TO-DATE
+> Task :verifier:sdkPrimaryReleaseDependencyData UP-TO-DATE
+> Task :verifier:writePrimaryReleaseAppMetadata UP-TO-DATE
+> Task :verifier:writePrimaryReleaseSigningConfigVersions UP-TO-DATE
+> Task :verifier:packagePrimaryRelease UP-TO-DATE
+> Task :verifier:createPrimaryReleaseApkListingFileRedirect UP-TO-DATE
+> Task :verifier:assemblePrimaryRelease UP-TO-DATE
+> Task :verifier:preSampleADebugBuild UP-TO-DATE
+> Task :verifier:mergeSampleADebugNativeDebugMetadata NO-SOURCE
+> Task :verifier:javaPreCompileSampleADebug UP-TO-DATE
+> Task :app:stripReleaseDebugSymbols
+> Task :verifier:checkSampleADebugAarMetadata UP-TO-DATE
+> Task :verifier:processSampleADebugNavigationResources UP-TO-DATE
+> Task :verifier:compileSampleADebugNavigationResources UP-TO-DATE
+> Task :verifier:generateSampleADebugResValues UP-TO-DATE
+> Task :verifier:mapSampleADebugSourceSetPaths UP-TO-DATE
+> Task :verifier:generateSampleADebugResources UP-TO-DATE
+> Task :verifier:mergeSampleADebugResources UP-TO-DATE
+> Task :verifier:packageSampleADebugResources UP-TO-DATE
+> Task :verifier:parseSampleADebugLocalResources UP-TO-DATE
+> Task :verifier:createSampleADebugCompatibleScreenManifests UP-TO-DATE
+> Task :verifier:extractDeepLinksSampleADebug UP-TO-DATE
+> Task :verifier:processSampleADebugMainManifest UP-TO-DATE
+> Task :verifier:processSampleADebugManifest UP-TO-DATE
+> Task :verifier:processSampleADebugManifestForPackage UP-TO-DATE
+> Task :verifier:processSampleADebugResources UP-TO-DATE
+> Task :verifier:compileSampleADebugJavaWithJavac UP-TO-DATE
+> Task :verifier:mergeSampleADebugShaders UP-TO-DATE
+> Task :verifier:compileSampleADebugShaders NO-SOURCE
+> Task :verifier:generateSampleADebugAssets UP-TO-DATE
+> Task :verifier:mergeSampleADebugAssets UP-TO-DATE
+> Task :verifier:compressSampleADebugAssets UP-TO-DATE
+> Task :verifier:checkSampleADebugDuplicateClasses UP-TO-DATE
+> Task :verifier:desugarSampleADebugFileDependencies UP-TO-DATE
+> Task :verifier:mergeExtDexSampleADebug UP-TO-DATE
+> Task :verifier:mergeLibDexSampleADebug UP-TO-DATE
+> Task :verifier:dexBuilderSampleADebug UP-TO-DATE
+> Task :verifier:mergeProjectDexSampleADebug UP-TO-DATE
+> Task :verifier:mergeSampleADebugGlobalSynthetics UP-TO-DATE
+> Task :verifier:processSampleADebugJavaRes NO-SOURCE
+> Task :verifier:mergeSampleADebugJavaResource UP-TO-DATE
+> Task :verifier:preSampleBDebugBuild UP-TO-DATE
+> Task :verifier:configureCMakeDebug[arm64-v8a]
+> Task :verifier:buildCMakeDebug[arm64-v8a]
+> Task :verifier:configureCMakeDebug[armeabi-v7a]
+> Task :app:extractReleaseNativeSymbolTables
+> Task :verifier:buildCMakeDebug[armeabi-v7a]
+> Task :verifier:configureCMakeDebug[x86]
+> Task :verifier:buildCMakeDebug[x86]
+> Task :verifier:configureCMakeDebug[x86_64]
+> Task :verifier:buildCMakeDebug[x86_64]
+> Task :verifier:mergeSampleADebugJniLibFolders UP-TO-DATE
+> Task :verifier:mergeSampleADebugNativeLibs UP-TO-DATE
+> Task :verifier:stripSampleADebugDebugSymbols UP-TO-DATE
+> Task :verifier:validateSigningSampleADebug UP-TO-DATE
+> Task :verifier:writeSampleADebugAppMetadata UP-TO-DATE
+> Task :verifier:writeSampleADebugSigningConfigVersions UP-TO-DATE
+> Task :verifier:packageSampleADebug UP-TO-DATE
+> Task :verifier:createSampleADebugApkListingFileRedirect UP-TO-DATE
+> Task :verifier:assembleSampleADebug UP-TO-DATE
+> Task :verifier:mergeSampleBDebugNativeDebugMetadata NO-SOURCE
+> Task :verifier:javaPreCompileSampleBDebug UP-TO-DATE
+> Task :verifier:checkSampleBDebugAarMetadata UP-TO-DATE
+> Task :verifier:processSampleBDebugNavigationResources UP-TO-DATE
+> Task :verifier:compileSampleBDebugNavigationResources UP-TO-DATE
+> Task :verifier:generateSampleBDebugResValues UP-TO-DATE
+> Task :verifier:mapSampleBDebugSourceSetPaths UP-TO-DATE
+> Task :verifier:generateSampleBDebugResources UP-TO-DATE
+> Task :verifier:mergeSampleBDebugResources UP-TO-DATE
+> Task :verifier:packageSampleBDebugResources UP-TO-DATE
+> Task :verifier:parseSampleBDebugLocalResources UP-TO-DATE
+> Task :verifier:createSampleBDebugCompatibleScreenManifests UP-TO-DATE
+> Task :verifier:extractDeepLinksSampleBDebug UP-TO-DATE
+> Task :verifier:processSampleBDebugMainManifest UP-TO-DATE
+> Task :verifier:processSampleBDebugManifest UP-TO-DATE
+> Task :verifier:processSampleBDebugManifestForPackage UP-TO-DATE
+> Task :verifier:processSampleBDebugResources UP-TO-DATE
+> Task :verifier:compileSampleBDebugJavaWithJavac UP-TO-DATE
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
+> Task :verifier:mergeSampleBDebugShaders UP-TO-DATE
+> Task :verifier:compileSampleBDebugShaders NO-SOURCE
+> Task :verifier:generateSampleBDebugAssets UP-TO-DATE
+> Task :verifier:mergeSampleBDebugAssets UP-TO-DATE
+> Task :verifier:compressSampleBDebugAssets UP-TO-DATE
+> Task :verifier:checkSampleBDebugDuplicateClasses UP-TO-DATE
+> Task :verifier:desugarSampleBDebugFileDependencies UP-TO-DATE
+> Task :verifier:mergeExtDexSampleBDebug UP-TO-DATE
+> Task :verifier:mergeLibDexSampleBDebug UP-TO-DATE
+> Task :verifier:dexBuilderSampleBDebug UP-TO-DATE
+> Task :verifier:mergeProjectDexSampleBDebug UP-TO-DATE
+> Task :verifier:mergeSampleBDebugGlobalSynthetics UP-TO-DATE
+> Task :verifier:processSampleBDebugJavaRes NO-SOURCE
+> Task :verifier:mergeSampleBDebugJavaResource UP-TO-DATE
+> Task :verifier:mergeSampleBDebugJniLibFolders UP-TO-DATE
+> Task :verifier:mergeSampleBDebugNativeLibs UP-TO-DATE
+> Task :verifier:stripSampleBDebugDebugSymbols UP-TO-DATE
+> Task :verifier:validateSigningSampleBDebug UP-TO-DATE
+> Task :verifier:writeSampleBDebugAppMetadata UP-TO-DATE
+> Task :verifier:writeSampleBDebugSigningConfigVersions UP-TO-DATE
+> Task :verifier:packageSampleBDebug UP-TO-DATE
+> Task :verifier:createSampleBDebugApkListingFileRedirect UP-TO-DATE
+> Task :verifier:assembleSampleBDebug UP-TO-DATE
+> Task :app:mergeReleaseNativeDebugMetadata
+> Task :app:assembleRelease
+
+[Incubating] Problems report is available at: file:///Users/bytedance/opensources/AndroidAppPermissionControl/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 6s
+192 actionable tasks: 31 executed, 161 up-to-date

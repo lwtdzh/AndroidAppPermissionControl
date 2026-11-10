@@ -1,0 +1,1065 @@
+{
+  "serial": "emulator-5584",
+  "platform": "16",
+  "cases": [
+    {
+      "name": "modules-disabled",
+      "observed": {
+        "development_settings_enabled.global": 1,
+        "development_settings_enabled.secure": "1",
+        "development_settings_enabled.float": 1,
+        "development_settings_enabled.long": 1,
+        "development_settings_enabled.call": "1",
+        "development_settings_enabled.clientCall": "1",
+        "development_settings_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "development_settings_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "development_settings_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.global": 1,
+        "adb_enabled.secure": "1",
+        "adb_enabled.system": "1",
+        "adb_enabled.float": 1,
+        "adb_enabled.long": 1,
+        "adb_enabled.call": "1",
+        "adb_enabled.clientCall": "1",
+        "adb_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.global": 0,
+        "adb_wifi_enabled.float": 0,
+        "adb_wifi_enabled.long": 0,
+        "adb_wifi_enabled.call": "0",
+        "adb_wifi_enabled.clientCall": "0",
+        "adb_wifi_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.global": 0,
+        "airplane_mode_on.system": "0",
+        "airplane_mode_on.float": 0,
+        "airplane_mode_on.long": 0,
+        "airplane_mode_on.call": "0",
+        "airplane_mode_on.clientCall": "0",
+        "airplane_mode_on.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "airplane_mode_on.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "native": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true
+        },
+        "init.svc.adbd.java": "running",
+        "sys.usb.config.java": "adb",
+        "sys.usb.state.java": "adb",
+        "service.adb.tcp.port.java": "",
+        "ro.build.version.sdk.java": "36",
+        "vpnNetworks": 1,
+        "activeVpn": true,
+        "activeNotVpn": false,
+        "legacyVpn": true,
+        "interfaces": [
+          "dummy0",
+          "wlan0",
+          "lo",
+          "tun0"
+        ],
+        "tunByName": true,
+        "linkInterface": "tun0",
+        "linkTextTunnel": true,
+        "activeInfoConnected": true,
+        "networks": [
+          "100",
+          "103"
+        ],
+        "wifiTransport": true,
+        "parcelVpn": true,
+        "callbackVpn": true,
+        "internet": 204,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxySystemProperty",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        }
+      },
+      "actualSystem": {
+        "development_settings_enabled": "1",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "tunPresent": true
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "vpn-only",
+      "observed": {
+        "development_settings_enabled.global": 1,
+        "development_settings_enabled.secure": "1",
+        "development_settings_enabled.float": 1,
+        "development_settings_enabled.long": 1,
+        "development_settings_enabled.call": "1",
+        "development_settings_enabled.clientCall": "1",
+        "development_settings_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "development_settings_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "development_settings_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.global": 1,
+        "adb_enabled.secure": "1",
+        "adb_enabled.system": "1",
+        "adb_enabled.float": 1,
+        "adb_enabled.long": 1,
+        "adb_enabled.call": "1",
+        "adb_enabled.clientCall": "1",
+        "adb_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.global": 0,
+        "adb_wifi_enabled.float": 0,
+        "adb_wifi_enabled.long": 0,
+        "adb_wifi_enabled.call": "0",
+        "adb_wifi_enabled.clientCall": "0",
+        "adb_wifi_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.global": 0,
+        "airplane_mode_on.system": "0",
+        "airplane_mode_on.float": 0,
+        "airplane_mode_on.long": 0,
+        "airplane_mode_on.call": "0",
+        "airplane_mode_on.clientCall": "0",
+        "airplane_mode_on.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "airplane_mode_on.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "native": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true
+        },
+        "init.svc.adbd.java": "running",
+        "sys.usb.config.java": "adb",
+        "sys.usb.state.java": "adb",
+        "service.adb.tcp.port.java": "",
+        "ro.build.version.sdk.java": "36",
+        "vpnNetworks": 0,
+        "activeVpn": false,
+        "activeNotVpn": true,
+        "legacyVpn": false,
+        "interfaces": [
+          "dummy0",
+          "wlan0",
+          "lo"
+        ],
+        "tunByName": false,
+        "linkTextTunnel": false,
+        "activeInfoConnected": true,
+        "networks": [
+          "100",
+          "103"
+        ],
+        "wifiTransport": true,
+        "parcelVpn": false,
+        "callbackVpn": false,
+        "internet": 204,
+        "proxyFixture": {
+          "hostVisible": false,
+          "portVisible": false,
+          "bulkHostVisible": false,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxySystemProperty",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        }
+      },
+      "actualSystem": {
+        "development_settings_enabled": "1",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "tunPresent": true
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "developer-only",
+      "observed": {
+        "development_settings_enabled.global": 0,
+        "development_settings_enabled.secure": "0",
+        "development_settings_enabled.system": "0",
+        "development_settings_enabled.float": 0,
+        "development_settings_enabled.long": 0,
+        "development_settings_enabled.call": "0",
+        "development_settings_enabled.clientCall": "0",
+        "development_settings_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "development_settings_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "development_settings_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.global": 0,
+        "adb_enabled.secure": "0",
+        "adb_enabled.system": "0",
+        "adb_enabled.float": 0,
+        "adb_enabled.long": 0,
+        "adb_enabled.call": "0",
+        "adb_enabled.clientCall": "0",
+        "adb_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.global": 0,
+        "adb_wifi_enabled.secure": "0",
+        "adb_wifi_enabled.system": "0",
+        "adb_wifi_enabled.float": 0,
+        "adb_wifi_enabled.long": 0,
+        "adb_wifi_enabled.call": "0",
+        "adb_wifi_enabled.clientCall": "0",
+        "adb_wifi_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.global": 0,
+        "airplane_mode_on.system": "0",
+        "airplane_mode_on.float": 0,
+        "airplane_mode_on.long": 0,
+        "airplane_mode_on.call": "0",
+        "airplane_mode_on.clientCall": "0",
+        "airplane_mode_on.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "airplane_mode_on.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "native": {
+          "init.svc.adbd.get": "stopped",
+          "init.svc.adbd.read": "stopped",
+          "init.svc.adbd.callback": "stopped",
+          "sys.usb.config.get": "none",
+          "sys.usb.config.read": "none",
+          "sys.usb.config.callback": "none",
+          "sys.usb.state.get": "none",
+          "sys.usb.state.read": "none",
+          "sys.usb.state.callback": "none",
+          "service.adb.tcp.port.get": "-1",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true
+        },
+        "init.svc.adbd.java": "stopped",
+        "sys.usb.config.java": "none",
+        "sys.usb.state.java": "none",
+        "service.adb.tcp.port.java": "-1",
+        "ro.build.version.sdk.java": "36",
+        "vpnNetworks": 1,
+        "activeVpn": true,
+        "activeNotVpn": false,
+        "legacyVpn": true,
+        "interfaces": [
+          "dummy0",
+          "wlan0",
+          "lo",
+          "tun0"
+        ],
+        "tunByName": true,
+        "linkInterface": "tun0",
+        "linkTextTunnel": true,
+        "activeInfoConnected": true,
+        "networks": [
+          "100",
+          "103"
+        ],
+        "wifiTransport": true,
+        "parcelVpn": true,
+        "callbackVpn": true,
+        "internet": 204,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxySystemProperty",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        }
+      },
+      "actualSystem": {
+        "development_settings_enabled": "1",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "tunPresent": true
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "both",
+      "observed": {
+        "development_settings_enabled.global": 0,
+        "development_settings_enabled.secure": "0",
+        "development_settings_enabled.system": "0",
+        "development_settings_enabled.float": 0,
+        "development_settings_enabled.long": 0,
+        "development_settings_enabled.call": "0",
+        "development_settings_enabled.clientCall": "0",
+        "development_settings_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "development_settings_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "development_settings_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.global": 0,
+        "adb_enabled.secure": "0",
+        "adb_enabled.system": "0",
+        "adb_enabled.float": 0,
+        "adb_enabled.long": 0,
+        "adb_enabled.call": "0",
+        "adb_enabled.clientCall": "0",
+        "adb_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.global": 0,
+        "adb_wifi_enabled.secure": "0",
+        "adb_wifi_enabled.system": "0",
+        "adb_wifi_enabled.float": 0,
+        "adb_wifi_enabled.long": 0,
+        "adb_wifi_enabled.call": "0",
+        "adb_wifi_enabled.clientCall": "0",
+        "adb_wifi_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.global": 0,
+        "airplane_mode_on.system": "0",
+        "airplane_mode_on.float": 0,
+        "airplane_mode_on.long": 0,
+        "airplane_mode_on.call": "0",
+        "airplane_mode_on.clientCall": "0",
+        "airplane_mode_on.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "airplane_mode_on.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "native": {
+          "init.svc.adbd.get": "stopped",
+          "init.svc.adbd.read": "stopped",
+          "init.svc.adbd.callback": "stopped",
+          "sys.usb.config.get": "none",
+          "sys.usb.config.read": "none",
+          "sys.usb.config.callback": "none",
+          "sys.usb.state.get": "none",
+          "sys.usb.state.read": "none",
+          "sys.usb.state.callback": "none",
+          "service.adb.tcp.port.get": "-1",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true
+        },
+        "init.svc.adbd.java": "stopped",
+        "sys.usb.config.java": "none",
+        "sys.usb.state.java": "none",
+        "service.adb.tcp.port.java": "-1",
+        "ro.build.version.sdk.java": "36",
+        "vpnNetworks": 0,
+        "activeVpn": false,
+        "activeNotVpn": true,
+        "legacyVpn": false,
+        "interfaces": [
+          "dummy0",
+          "wlan0",
+          "lo"
+        ],
+        "tunByName": false,
+        "linkTextTunnel": false,
+        "activeInfoConnected": true,
+        "networks": [
+          "100",
+          "103"
+        ],
+        "wifiTransport": true,
+        "parcelVpn": false,
+        "callbackVpn": false,
+        "internet": 204,
+        "proxyFixture": {
+          "hostVisible": false,
+          "portVisible": false,
+          "bulkHostVisible": false,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxySystemProperty",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        }
+      },
+      "actualSystem": {
+        "development_settings_enabled": "1",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "tunPresent": true
+      },
+      "errors": [],
+      "passed": true
+    },
+    {
+      "name": "outside-scope",
+      "observed": {
+        "development_settings_enabled.global": 1,
+        "development_settings_enabled.secure": "1",
+        "development_settings_enabled.float": 1,
+        "development_settings_enabled.long": 1,
+        "development_settings_enabled.call": "1",
+        "development_settings_enabled.clientCall": "1",
+        "development_settings_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "development_settings_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "development_settings_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.global": 1,
+        "adb_enabled.secure": "1",
+        "adb_enabled.system": "1",
+        "adb_enabled.float": 1,
+        "adb_enabled.long": 1,
+        "adb_enabled.call": "1",
+        "adb_enabled.clientCall": "1",
+        "adb_enabled.query": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_enabled.valueOnly": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_enabled.bundleQuery": {
+          "value": "1",
+          "int": 1,
+          "long": 1,
+          "float": 1,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.global": 0,
+        "adb_wifi_enabled.float": 0,
+        "adb_wifi_enabled.long": 0,
+        "adb_wifi_enabled.call": "0",
+        "adb_wifi_enabled.clientCall": "0",
+        "adb_wifi_enabled.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "adb_wifi_enabled.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.global": 0,
+        "airplane_mode_on.system": "0",
+        "airplane_mode_on.float": 0,
+        "airplane_mode_on.long": 0,
+        "airplane_mode_on.call": "0",
+        "airplane_mode_on.clientCall": "0",
+        "airplane_mode_on.query": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "name",
+            "value"
+          ]
+        },
+        "airplane_mode_on.valueOnly": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "airplane_mode_on.bundleQuery": {
+          "value": "0",
+          "int": 0,
+          "long": 0,
+          "float": 0,
+          "columns": [
+            "value"
+          ]
+        },
+        "native": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true
+        },
+        "init.svc.adbd.java": "running",
+        "sys.usb.config.java": "adb",
+        "sys.usb.state.java": "adb",
+        "service.adb.tcp.port.java": "",
+        "ro.build.version.sdk.java": "36",
+        "vpnNetworks": 1,
+        "activeVpn": true,
+        "activeNotVpn": false,
+        "legacyVpn": true,
+        "interfaces": [
+          "dummy0",
+          "wlan0",
+          "lo",
+          "tun0"
+        ],
+        "tunByName": true,
+        "linkInterface": "tun0",
+        "linkTextTunnel": true,
+        "activeInfoConnected": true,
+        "networks": [
+          "100",
+          "103"
+        ],
+        "wifiTransport": true,
+        "parcelVpn": true,
+        "callbackVpn": true,
+        "internet": 204,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxySystemProperty",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        }
+      },
+      "actualSystem": {
+        "development_settings_enabled": "1",
+        "adb_enabled": "1",
+        "adb_wifi_enabled": "0",
+        "tunPresent": true
+      },
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "restored": true,
+  "wirelessDebuggingEnabledBaseline": false,
+  "wirelessDebuggingNote": "The emulator resets adb_wifi_enabled to 0. Enabled wireless debugging is not validated."
+}
