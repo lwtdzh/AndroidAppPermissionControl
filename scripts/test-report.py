@@ -2,9 +2,11 @@
 """Render the current device evidence against every persisted manual step."""
 import json
 import pathlib
+import os
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-OUT = ROOT / "verification"
+VERSION = "0.3.0"
+OUT = pathlib.Path(os.environ.get("APPSTATE_TEST_OUTPUT", ROOT / "verification" / VERSION))
 report = json.loads((OUT / "integration-results.json").read_text())
 cases = report["cases"]
 coverage = {}
@@ -20,7 +22,7 @@ covers("P03", "P03-P07/V01/D01 P03-capture-script", "原始备份保持；实际
 covers("P06", "P03-P07/V01/D01", "独立模块作用域；旧模块对三个目标不重复注入。")
 covers("P07", "P03-P07/V01/D01 P07-clipboard-backup", "真实授权；未注入的 C 在矩阵测试前保存剪贴板。")
 covers("P05", "P05", "实际桌面应用列表与 Vector 模块设置入口。")
-covers("U01", "U01", "空定制列表、默认全开和 SELinux 待开发说明。")
+covers("U01", "U01", "空定制列表、默认全开，无待开发提示。")
 covers("U02 U03 U04", "U02-U04", "按名称/包名搜索、大小写、无匹配、清空和系统筛选。")
 covers("U05 U06 U07 U08 U09", "U05-U09/U23", "取消、继续编辑、丢弃、保存全开和重复选择。")
 covers("U10 U11 U12 U13", "U10-U13", "替换旧配置、全部开启和关闭已实现方法。")
@@ -29,7 +31,7 @@ covers("U16", "U14-U16 U16-recents", "后台进程结束、实际最近任务返
 covers("U17 U18 U19", "U17-U20", "取消/确认恢复默认、多个应用独立保存、卸载条目删除。")
 covers("U20", "U17-U20 U20-reinstalled-default", "删除已卸载条目；重装后重新关联 Vector 作用域，实际读取使用全开默认。")
 covers("U21", "U21 U21-top-layout U21-gesture", "大字体横竖屏上下部、长包名、实际手势返回；截图人工检查。")
-covers("U22", "U22 U22-labels", "六种语言的标题、五项开关与保存/取消文字；配置保持。")
+covers("U22", "U22 U22-labels", "六种语言的标题、六项开关与保存/取消文字；配置保持。")
 covers("U23", "U05-U09/U23 U23-repeat", "重复选取和连续保存/返回，无重复条目。")
 covers("S01", "S01", "模块禁用但有作用域，读取真实系统状态。")
 covers("S02", "S02/S07-S08", "模块启用但目标不在作用域，无注入。")
@@ -37,18 +39,18 @@ covers("S03 S04 S05", "S03 S04 S05", "无定制、全开定制和全部关闭分
 covers("S06 S09", "S06/S09", "运行中策略不变、冷启动采用新策略；三个早期生命周期。")
 covers("S07 S08", "S07-S08", "作用域外创建定制、加入作用域生效、移出恢复且定制保留。")
 covers("S10 S11", "S10-S11 M33/S10", "不同 UID 独立配置、:vpn 独立进程及模拟器重启。")
-for number in range(32):
-    bits = format(number, "05b")
+for number in range(64):
+    bits = format(number, "06b")
     covers("M" + bits, "M" + bits, "真实界面保存后冷启动；状态、低层截图读取及普通操作。")
-covers("M33", "M33/S10", "A=10101，B=01010，C 默认全开。")
+covers("M33", "M33/S10", "A=101010，B=010100，C 默认全开。")
 covers("M34", "M34", "只改变 A，B/C 保持原有结果。")
 covers("M35", "M35", "删除 A 定制恢复全开，B 定制保持。")
 covers("D01", "D01-system-ui", "实际开发者选项页面与 USB 调试开关、shell 真实开启值。")
-covers("D02 D03 D04 D05 D06 D07", "M00000 M00010 M00001 M00011",
-       "32 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。")
+covers("D02 D03 D04 D05 D06 D07", "M000000 M000100 M000010 M000110",
+       "64 组合中的 Global/Secure/System、call/query、Java/native 属性和普通控制。")
 covers("D08", "D08", "无线调试真实开启基线；平台恢复为零时单独标为未验证。")
 covers("V01", "P03-P07/V01/D01", "实际 VpnService 同意与 TUN 建立。")
-covers("V02 V03 V05 V06 V07", "M00000 M01000 M00100 M11111",
+covers("V02 V03 V05 V06 V07", "M000000 M010000 M001000 M111111",
        "真实 VPN 观察、独立代理 metadata、真实代理 HTTP 及 HTTPS 204。")
 covers("V04", "V02-V07/V04-ten-cold-starts/D02-D07", "真实网络回调和十次冷启动 native 列表成对释放。")
 covers("V08", "V08", "停止 VPN、无 VPN 基线、重新开启及再次保护。")
@@ -66,7 +68,7 @@ covers("I06", "I01-I02/I06 I06-final-upgrade", "按方法加载 native 库；最
 covers("I03", "I03", "损坏配置 JSON：页面与目标不崩溃，默认全开；恢复备份。")
 covers("I04", "I04", "页面保存保留未知关闭 ID；其他将来方法默认开启。")
 covers("I05", "I05", "强行停止后 provider 自启动；禁用 provider 时 policyLoaded=false 并全开回退。")
-covers("I07", "I07 U01", "SELinux 保持真实状态；设置标注待开发，本版没有该方法。")
+covers("I07", "I07 U01", "SELinux 完整的 Permissive 对照另见 selinux-0.3.0-results.json。")
 covers("R01 R02 R03 R04", "R01-R04", "恢复原设置、作用域、权限和服务，只删除本次新增图片/夹具。")
 covers("R05", "R05", "仅关闭 emulator-5584，其他设备保持原状。")
 
@@ -78,17 +80,17 @@ for ident, (keys, note) in coverage.items():
     status = next((v for v in ("failed", "missing", "platform-limited") if v in values), "passed")
     statuses.append(status)
     rows.append(f"| {ident} | {labels[status]} | {'、'.join(keys)} | {note} |")
-matrix = sum(cases.get("M" + format(n, "05b"), {}).get("status") == "passed" for n in range(32))
+matrix = sum(cases.get("M" + format(n, "06b"), {}).get("status") == "passed" for n in range(64))
 complete = not any(s in ("failed", "missing") for s in statuses)
 text = [
-    "# 应用状态屏蔽 0.2.0 · 模拟器测试记录", "",
+    "# 应用状态屏蔽 0.3.0 · 模拟器测试记录", "",
     ("所有适用步骤已通过。" if complete else "验证尚未结束，见下表未执行或失败的步骤。")
-    + f"五种方法的实际开关组合通过 {matrix}/32。", "",
+    + f"六种方法的实际开关组合通过 {matrix}/64。", "",
     "环境：专用 ScreenshotShield_API36，emulator-5584，Android 16 / API 36 / ARM64，Vector。"
     "四 ABI 构建与 ARM64 运行分别记录。", "",
-    "SELinux 尚未实现。无线调试开启基线不能保持时，只证明当前零值路径；"
+    "SELinux 的真实 Permissive 对照另见专门报告。无线调试开启基线不能保持时，只证明当前零值路径；"
     "不将其写为开启状态屏蔽通过。动卡空间与 vivo 本轮未测试。", "",
-    "人工步骤在 `docs/TEST-MANUAL.md`，完整实际数据在 `verification/integration-results.json`。"
+    f"人工步骤在 `docs/TEST-MANUAL.md`，完整实际数据在 `{OUT / 'integration-results.json'}`。"
     "表中的证据键对应 JSON 的 cases；previousRuns 保留重跑前的结果。", "",
     "| 手册步骤 | 结果 | 实际证据 | 检查内容 |", "|---|---|---|---|", *rows, "",
     "## 交付 APK 的 SHA-256", "",
@@ -125,4 +127,4 @@ text += [
     ident: {"status": statuses[index], "evidenceKeys": keys, "checks": note}
     for index, (ident, (keys, note)) in enumerate(coverage.items())
 }, ensure_ascii=False, indent=2) + "\n")
-print(f"Rendered {len(coverage)} manual rows; matrix {matrix}/32; complete={complete}")
+print(f"Rendered {len(coverage)} manual rows; matrix {matrix}/64; complete={complete}")

@@ -9,8 +9,8 @@ android {
         // Diagnostic APK keeps legacy file access for JNI/NIO controls.
         // Production module targets 36. API 34 capture registration is guarded.
         targetSdk 28
-        versionCode 6
-        versionName "0.2.0"
+        versionCode 7
+        versionName "0.3.0"
         ndk { abiFilters "arm64-v8a", "armeabi-v7a", "x86_64", "x86" }
         externalNativeBuild { cmake { cppFlags "-std=c++17" } }
     }

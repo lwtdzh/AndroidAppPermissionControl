@@ -16,7 +16,8 @@ public final class LifecycleProbe extends Application {
             Bundle marker = ModuleStatus.snapshot();
             reads.put(stage, new JSONObject().put("injected", marker.getBoolean("injected"))
                 .put("developer", Settings.Global.getInt(c.getContentResolver(), "development_settings_enabled", -7))
-                .put("debug", Settings.Global.getInt(c.getContentResolver(), "adb_enabled", -7)));
+                .put("debug", Settings.Global.getInt(c.getContentResolver(), "adb_enabled", -7))
+                .put("selinux", io.github.lwtdzh.devicestateprobe.SelinuxProbe.enforced()));
         } catch (Exception e) {
             try { reads.put(stage, e.getClass().getSimpleName()); } catch (Exception ignored) {}
         }

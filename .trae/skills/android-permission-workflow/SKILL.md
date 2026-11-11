@@ -17,4 +17,4 @@ Add matching verifier reads for every restriction. Establish real system baselin
 
 Execute the persisted `docs/TEST-MANUAL.md` on dedicated emulator-5584 only. Restore all original scopes, settings, grants, service state and fixtures. Do not expose private data in logs.
 
-Build through the root wrapper or `scripts/build-all.sh`, using JDK17, SDK36, NDK29.0.14206865 and CMake3.22.1. Sign with `scripts/sign-apk.py` and the existing external key. Record exact tested ABI/platform, test failures fixed, and unsupported baselines. Never describe pending SELinux as implemented.
+Build through the root wrapper or `scripts/build-all.sh`, using JDK17, SDK36, NDK29.0.14206865 and CMake3.22.1. Sign with `scripts/sign-apk.py` and the existing external key. Record exact tested ABI/platform, test failures fixed, and unsupported baselines. SELinux validation requires real Permissive/Enforcing reads and ordinary FD controls through `scripts/selinux-test.py`; never change mode on a physical device for testing.

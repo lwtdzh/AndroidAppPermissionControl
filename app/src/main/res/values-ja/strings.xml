@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">アプリ状態シールド</string>
-    <string name="module_description">アプリごとにスクリーンショット、VPN、プロキシ、開発者・デバッグ状態を隠します。既定ですべて有効、対象は Vector で管理します。</string>
+    <string name="module_description">アプリごとにスクリーンショット、VPN、プロキシ、開発者・デバッグ・SELinux 状態を隠します。既定ですべて有効、対象は Vector で管理します。</string>
     <string name="status_enabled">すべての保護機能は初期設定で有効です</string>
     <string name="setup_instructions">Vector でこのモジュールを有効にし、保護するアプリを選択してください。適用範囲を変更した後は、対象のアプリを強制停止して開き直してください。</string>
     <string name="coverage_summary">公式のスクリーンショット通知、画像の検索と変更通知、ファイルアクセスとディレクトリ監視に加え、識別可能なスクリーンショットのブロードキャスト、クリップボード、通知、ユーザー補助情報を遮断します。</string>

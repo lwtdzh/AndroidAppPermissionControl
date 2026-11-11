@@ -130,10 +130,7 @@ public final class SettingsActivity extends Activity {
                 t("已开启 ", "Enabled ") + (Methods.values().length - off) + "/" + Methods.values().length, 14, 0xff175bc1));
             row.setOnClickListener(v -> edit(pkg));
         }
-        LinearLayout pending = card();
-        pending.addView(text(t("SELinux · 待开发", "SELinux · Planned"), 15, 0xff667085));
-        pending.addView(text(t("当前版本尚未屏蔽 SELinux 状态。", "SELinux state is not hidden in this version."), 13, 0xff667085));
-        body.addView(text("0.2.0 · Vector", 12, 0xff667085));
+        body.addView(text(BuildConfig.VERSION_NAME + " · Vector", 12, 0xff667085));
     }
     private LinearLayout pickerRows;
     private void renderPicker() {
@@ -185,7 +182,6 @@ public final class SettingsActivity extends Activity {
             });
             row.addView(toggle); row.addView(text(t(method.detailZh, method.detailEn), 13, 0xff667085));
         }
-        body.addView(text(t("SELinux · 待开发，当前无屏蔽效果", "SELinux · Planned; currently not hidden"), 14, 0xff667085));
         body.addView(button(t("全部开启", "Enable all"), "enable-all", () -> {
             for (Switch s : switches.values()) s.setChecked(true);
         }));

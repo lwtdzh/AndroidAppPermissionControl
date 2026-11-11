@@ -53,6 +53,22 @@ using WatchMap = std::unordered_map<int, Watch>;
 // dup aliases share one kernel watch set; additions/IN_IGNORED must be visible through all aliases.
 std::unordered_map<int, std::shared_ptr<WatchMap>> watches;
 std::unordered_set<void *> hookedSymbols;
+std::unordered_set<void *> successfulHooks;
+using ReadFilter = ssize_t (*)(int, void *, ssize_t);
+std::atomic<ReadFilter> extraReadFilter{nullptr};
+ssize_t afterRead(int fd, void *buffer, ssize_t n) {
+    auto filter = extraReadFilter.load();
+    return filter ? filter(fd, buffer, n) : n;
+}
+ssize_t afterReadv(int fd, const iovec *iov, int count, ssize_t n) {
+    size_t remaining = n > 0 ? static_cast<size_t>(n) : 0;
+    for (int i = 0; i < count && remaining; ++i) {
+        size_t part = std::min(remaining, iov[i].iov_len);
+        afterRead(fd, iov[i].iov_base, static_cast<ssize_t>(part));
+        remaining -= part;
+    }
+    return n;
+}
 
 int (*real_open)(const char *, int, ...) = nullptr;
 int (*real_openat)(int, const char *, int, ...) = nullptr;
@@ -235,19 +251,19 @@ char *h_realpath(const char *path, char *result) {
 }
 ssize_t h_pread(int fd, void *buffer, size_t size, off_t offset) {
     if (hiddenFd(fd)) return missing();
-    return real_pread(fd, buffer, size, offset);
+    return afterRead(fd, buffer, real_pread(fd, buffer, size, offset));
 }
 ssize_t h_pread64(int fd, void *buffer, size_t size, off64_t offset) {
     if (hiddenFd(fd)) return missing();
-    return real_pread64(fd, buffer, size, offset);
+    return afterRead(fd, buffer, real_pread64(fd, buffer, size, offset));
 }
 ssize_t h_preadv(int fd, const struct iovec *iov, int count, off_t offset) {
     if (hiddenFd(fd)) return missing();
-    return real_preadv(fd, iov, count, offset);
+    return afterReadv(fd, iov, count, real_preadv(fd, iov, count, offset));
 }
 ssize_t h_preadv64(int fd, const struct iovec *iov, int count, off64_t offset) {
     if (hiddenFd(fd)) return missing();
-    return real_preadv64(fd, iov, count, offset);
+    return afterReadv(fd, iov, count, real_preadv64(fd, iov, count, offset));
 }
 int h_statx(int dir, const char *path, int flags, unsigned int mask, struct statx *value) {
     if (hidden(dir, path) || (path && !*path && hiddenFd(dir))) return missing();
@@ -388,16 +404,17 @@ template <class Reader> ssize_t filteredRead(int fd, void *buffer, size_t size, 
 }
 ssize_t h_read(int fd, void *buffer, size_t size) {
     if (hiddenFd(fd)) return missing();
-    return filteredRead(fd, buffer, size, [&] { return real_read(fd, buffer, size); });
+    return afterRead(fd, buffer, filteredRead(fd, buffer, size, [&] { return real_read(fd, buffer, size); }));
 }
 ssize_t h_read_chk(int fd, void *buffer, size_t size, size_t capacity) {
     if (size <= capacity && hiddenFd(fd)) return missing();
     // Preserve libc's fortify abort on invalid lengths.
-    return filteredRead(fd, buffer, size, [&] { return real_read_chk(fd, buffer, size, capacity); });
+    return afterRead(fd, buffer, filteredRead(fd, buffer, size, [&] { return real_read_chk(fd, buffer, size, capacity); }));
 }
 ssize_t h_readv(int fd, const struct iovec *iov, int count) {
     if (hiddenFd(fd)) return missing();
-    if (!tracked(fd) || count <= 0 || count > IOV_MAX) return real_readv(fd, iov, count);
+    if (!tracked(fd) || count <= 0 || count > IOV_MAX)
+        return afterReadv(fd, iov, count, real_readv(fd, iov, count));
     size_t total = 0;
     for (int i = 0; i < count; ++i) {
         if (iov[i].iov_len > SIZE_MAX - total) { errno = EINVAL; return -1; }
@@ -746,10 +763,19 @@ template <class R, class O> void install(const NativeAPIEntries *api, void *lib,
     // Bionic aliases often share addresses. Never hook one address twice.
     if (!hookedSymbols.insert(symbol).second) return;
     if (api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
-        reinterpret_cast<void **>(original)) == 0) hookCount++;
+        reinterpret_cast<void **>(original)) == 0) {
+        successfulHooks.insert(symbol);
+        hookCount++;
+    }
     else __android_log_print(ANDROID_LOG_WARN, "ScreenshotShield", "native hook failed: %s", name);
 }
 } // namespace
+extern "C" __attribute__((visibility("default"))) bool
+appstateshield_set_selinux_read_filter(void *symbol, ReadFilter filter) {
+    if (!successfulHooks.count(symbol)) return false;
+    extraReadFilter.store(filter);
+    return true;
+}
 
 extern "C" __attribute__((visibility("hidden"))) long shield_filtered_syscall(
     long number, long a1, long a2, long a3, long a4, long a5, long a6) {

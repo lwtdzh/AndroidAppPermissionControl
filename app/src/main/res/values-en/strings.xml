@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AppStateShield</string>
-    <string name="module_description">Hide screenshot, VPN, proxy, developer and debugging state per app. All methods default to enabled; Vector manages scope.</string>
+    <string name="module_description">Hide screenshot, VPN, proxy, developer, debugging and SELinux state per app. All methods default to enabled; Vector manages scope.</string>
     <string name="status_enabled">All protections are enabled by default</string>
     <string name="setup_instructions">Enable this module in Vector and select the apps to protect. After changing its scope, force stop and reopen the selected apps.</string>
     <string name="coverage_summary">Blocks official screenshot callbacks, media queries and change notifications, file access and directory monitoring, plus identifiable screenshot broadcasts, clipboard data, notifications and accessibility metadata.</string>

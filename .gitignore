@@ -17,3 +17,8 @@ verification/build.log
 verification/pretest-state.json
 verification/integration-preservation.json
 verification/*.png
+verification/build-0.3.0.log
+verification/selinux-0.3.0-test.log
+verification/0.3.0/pretest-state.json
+verification/0.3.0/integration-preservation.json
+verification/0.3.0/*.png

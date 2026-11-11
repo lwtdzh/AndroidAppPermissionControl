@@ -1,6 +1,6 @@
 # 应用状态屏蔽 · AppStateShield
 
-一个 Vector 模块，按应用屏蔽截图、VPN、网络代理、开发者选项及 USB/无线调试状态。当前模块版本为 **0.2.1**，验证器保留 **0.2.0**。保留一个“应用状态验证器”，用来观察系统实际读取结果。
+一个 Vector 模块，按应用屏蔽截图、VPN、网络代理、开发者选项、USB/无线调试及 SELinux 状态。当前版本为 **0.3.0**，模块和验证器一起升级。保留一个“应用状态验证器”，用来观察系统实际读取结果。
 
 主模块没有桌面图标。从 Vector 的模块页打开设置。Vector 决定作用域；设置页为作用域内的应用选择屏蔽方法。未定制应用默认全部开启，包括以后新增的方法。
 
@@ -11,14 +11,16 @@
 3. 强行停止并重新打开目标应用，让新配置生效。
 4. 删除定制条目恢复全部开启。定制列表不改变 Vector 作用域。
 
-截图、VPN、代理、开发者选项、USB/无线调试是五个独立开关。系统实际功能继续运行，目标应用读到的状态按所选方法处理。SELinux 尚未实现，设置中标注“待开发”。没有一种 API 屏蔽能保证覆盖任意应用的自定义、内核或服务端检测；具体读取路径和真实设备结果见测试记录。
+六个开关独立生效。SELinux 开启时，目标应用的 Java API、libselinux 状态函数和常见 enforce 文件读取返回强制执行状态（Enforcing / 1）；系统实际模式保持原样。关闭后恢复真实读取。旧定制只保存已关闭的方法，升级后 SELinux 默认开启。
+
+SELinux 不修改系统权限或进程安全上下文。直接内核系统调用、未注入的 shell 子进程、其他挂载位置及保留的加固入口仍可能读到真实模式；读取原本失败时不会伪造文件成功。具体路径见[SELinux 验证记录](verification/SELINUX-0.3.0.md)。其他应用的自定义、内核或服务端检测也不保证全部覆盖。
 
 0.2.1 修复了 vivo 上动卡空间开启截图屏蔽后启动卡住的问题。ARM64 原生层会保留函数入口已有的外部跳转，避免覆盖应用加固库的 Hook。这些入口的原生读取无法由本模块完整屏蔽；Java 层和其余成功安装的原生 Hook 继续生效。验证范围和限制见[兼容性记录](verification/VIVO-COMPATIBILITY-0.2.1.md)。
 
 ## 工程
 
 ```text
-app/             整合模块、设置页、策略服务及三组 native hooks
+app/             整合模块、设置页、策略服务及四组 native hooks
 verifier/        保留验证器、截图日志、低层文件读取和设备状态检查
 scripts/         根工程构建、签名、专用模拟器与测试执行
 docs/            整合设计、逐步人工测试手册
@@ -42,7 +44,7 @@ python3 scripts/sign-apk.py verifier/build/outputs/apk/primary/release/verifier-
 
 ## 验证与迁移
 
-[人工测试手册](docs/TEST-MANUAL.md) 包含设置页操作、32 种开关组合、多应用隔离、早期启动读取、真实 SystemUI 截图、选图授权、联网及清理步骤。[整合设计](docs/ARCHITECTURE.md) 说明配置和 Hook 安装；[工程关系](PROJECT-RELATIONSHIPS.md) 记录迁移。
+[人工测试手册](docs/TEST-MANUAL.md) 包含设置页操作、64 种开关组合、多应用隔离、早期启动读取、SELinux 真实模式对照、SystemUI 截图、选图授权、联网及清理步骤。[整合设计](docs/ARCHITECTURE.md) 说明配置和 Hook 安装；[工程关系](PROJECT-RELATIONSHIPS.md) 记录迁移。
 
 整合模块使用新包名，可与旧模块共存。迁移时先禁用旧 ScreenshotShield、VPNStateShield、DeveloperStateShield 对同一应用的作用域，避免重复 Hook，再把相同目标加入新模块。旧模块没有按应用开关可迁移，整合版默认全部开启。验证器以原包名同签名升级。
 

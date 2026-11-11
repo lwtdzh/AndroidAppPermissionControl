@@ -20,11 +20,11 @@ Read `README.md`, `PROJECT-RELATIONSHIPS.md`, `docs/ARCHITECTURE.md` and `.trae/
 - Keep VPN/proxy and developer/debug controls independent; native libraries load only for enabled methods.
 - Preserve screenshot syscall assembly dispatch, clone child stack and six arguments. Vector native_init runs under loader locks: do not use dlopen there; use RTLD_DEFAULT. Retain RO linker-view handling and safe paired native allocations/releases.
 - Preserve recognized pre-existing external ARM64 entry redirects instead of chaining an inline hook over a packer's guard. Log skipped symbol names only. Retained entries have limited native screenshot coverage; successful startup is not evidence that those reads are blocked.
-- SELinux is not implemented. Do not label it protected or present a working switch before real hooks and baselines exist.
+- SELinux is an independent `selinux` method. Report Enforcing only inside injected targets; never change the system mode or context. Preserve read failures, EOF and descriptor ownership. Direct syscalls, un-injected subprocesses and retained external entries remain limitations.
 
 ## Verification and builds
 
-- Follow `docs/TEST-MANUAL.md`; exercise UI drafts/save/cancel, 32 policy combinations, independent packages, early lifecycle, real system events, actual URI grants, and ordinary operations.
+- Follow `docs/TEST-MANUAL.md`; exercise UI drafts/save/cancel, 64 policy combinations, independent packages, early lifecycle, real system events, actual URI grants, and ordinary operations. Use `scripts/selinux-test.py` for real Permissive/Enforcing baselines; save its original state outside git and restore it before shutdown.
 - A zero result without a real enabled baseline, correct permissions and live callback is not proof of blocking.
 - ADB tests may use only the dedicated ScreenshotShield_API36 emulator-5584. Preserve unrelated modules/scopes, settings, grants, services and fixtures. Never deploy to a physical device without user authorization.
 - Build with root `scripts/build-all.sh` using JDK17, SDK36, NDK29.0.14206865, CMake3.22.1. Four ABI compilation is distinct from runtime validation.

@@ -1,14 +1,14 @@
-# 应用状态屏蔽 0.2.0 人工测试手册
+# 应用状态屏蔽 0.3.0 人工测试手册
 
-本手册用于整合版发布前验收。每条都要记录通过、失败或未验证，以及实际观察结果。失败必须修复后重新执行受影响步骤。没有真实开启基线、缺少权限或方法报错，都不能记为“屏蔽成功”。SELinux 未实现，无线调试开启基线在本次模拟器中无法保持，这两项不能由本手册推导为已支持。
+本手册用于整合版发布前验收。每条都要记录通过、失败或未验证，以及实际观察结果。失败必须修复后重新执行受影响步骤。没有真实开启基线、缺少权限或方法报错，都不能记为“屏蔽成功”。SELinux 使用真实 Permissive/Enforcing 对照；无线调试开启基线在本次模拟器中无法保持，仍单独记为未验证。
 
 测试环境为 Android 16 / API 36 / ARM64，已安装 Vector 的专用模拟器 `ScreenshotShield_API36`，序列号 `emulator-5584`。不要在有私人数据的设备上执行异常夹具。四 ABI 构建成功只证明可编译，其他系统和 ABI 仍需设备验证。
 
 ## P · 准备与安装
 
-1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate 三个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
+1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate、selinuxstate 四个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
 2. P02：启动 `scripts/start-emulator.sh -no-window`，将输出重定向到本机私有文件。确认 AVD 名称和序列号。ADB 命令始终带 `-s emulator-5584`。必要时 `adb -s emulator-5584 root`，不要操作其他模拟器或 vivo。
-3. P03：安装测试 APK、修改任何设置前，执行 `python3 scripts/integration-test.py capture`。它以只读方式备份模块启用状态、作用域、目标应用授权、开发者/USB/无线调试、飞行模式、隐藏 API 策略、无障碍和通知服务、自动旋转、模块定制与应用语言；两个本机快照文件权限为 600，已被 git 忽略。保存测试前的截图 MediaStore ID，结束时只删除新增测试图片。已有快照时拒绝覆盖；上一次清理完成后，先将快照移入本机归档再开始新一轮。已有 VPN 时停止测试，不覆盖它。
+3. P03：安装测试 APK、修改任何设置前，执行 `python3 scripts/integration-test.py capture`。完整测试的目录为 verification/0.3.0，先建立该目录并放入本轮四个签名 APK（主包名带 0.3.0，临时包为 Verifier-A.apk / Verifier-B.apk）；原 0.2.0 快照和报告保持原样。它以只读方式备份模块启用状态、作用域、目标应用授权、开发者/USB/无线调试、飞行模式、隐藏 API 策略、无障碍和通知服务、自动旋转、模块定制与应用语言；两个本机快照文件权限为 600，已被 git 忽略。保存测试前的截图 MediaStore ID，结束时只删除新增测试图片。已有快照时拒绝覆盖；上一次清理完成后，先将快照移入本机归档再开始新一轮。已有 VPN 时停止测试，不覆盖它。仅跑 SELinux 专项时使用下方 L 节的独立备份和执行入口。
 4. P04：安装签名 APK。A 为主验证器 `io.github.lwtdzh.screenshotdetector`，B 为 `.samplea`，C 为 `.sampleb.screenshot`。C 的测试包名以 `.screenshot` 结尾，用于沿用截图服务的发送方判断，实际发布命名测试通知。B/C 是相同代码的临时测试目标，正式交付只有 A。
 5. P05：打开桌面应用列表。只出现验证器，应用状态屏蔽没有桌面图标。Vector 模块列表能识别“应用状态屏蔽”，进入模块设置后标题、版本及默认说明正确。
 6. P06：旧截图/VPN/开发者模块对 A/B/C 均关闭或移除作用域，避免重复注入。不要覆盖其他应用的作用域。确认模块不作用于自身。
@@ -35,19 +35,19 @@ adb -s emulator-5584 shell cat /data/user/0/io.github.lwtdzh.screenshotdetector/
 
 | 编号 | 操作 | 期望 |
 |---|---|---|
-| U01 | 首次打开设置 | 定制列表为空；默认全部开启；SELinux 标注待开发 |
+| U01 | 首次打开设置 | 定制列表为空；默认全部开启；没有待开发提示 |
 | U02 | 点添加应用，搜索 A 的完整包名 | 能找到 A；模块自身不在列表 |
 | U03 | 搜索验证器名称、部分包名、大小写变化、无匹配文字，再清空 | 名称/包名匹配一致；无匹配提示；清空恢复列表 |
 | U04 | 关闭、开启“显示系统应用”，搜索 Settings | 关闭时不展示系统应用，开启后展示；不改变已保存配置 |
-| U05 | 选择 A，不修改就取消 | 五个开关初始全开；回主页后仍无 A 条目 |
+| U05 | 选择 A，不修改就取消 | 六个开关初始全开；回主页后仍无 A 条目 |
 | U06 | 再选择 A，关闭 VPN，按系统返回 | 出现未保存提示；点继续编辑保留草稿 |
-| U07 | 接 U06 点取消，再点丢弃 | A 条目不产生；再次进入五项全开 |
+| U07 | 接 U06 点取消，再点丢弃 | A 条目不产生；再次进入六项全开 |
 | U08 | 添加 A，全开状态保存 | A 仅一个条目，摘要“全部开启”；重开页面值相同 |
 | U09 | 再次从添加列表选择已定制 A | 编辑现有条目，不产生重复条目 |
-| U10 | 关闭 VPN、开发者选项，保存后重开 | 仅两项关闭；摘要 3/5；其余仍开 |
+| U10 | 关闭 VPN、开发者选项，保存后重开 | 仅两项关闭；摘要 4/6；其余仍开 |
 | U11 | 接 U10 开启 VPN、关闭截图，保存后重开 | 恰好截图和开发者选项关闭；旧值正确替换 |
-| U12 | 点全部开启，再保存 | 五项全开；目标下次冷启动使用全开 |
-| U13 | 点关闭已实现方法，再保存 | 五项全关；SELinux 仍为待开发，不声称已实现 |
+| U12 | 点全部开启，再保存 | 六项全开；目标下次冷启动使用全开 |
+| U13 | 点关闭已实现方法，再保存 | 六项全关，包含 SELinux |
 | U14 | 修改一项，旋转横屏再竖屏 | 草稿、选择的应用、保存/取消按钮都保留，页面可滚动 |
 | U15 | 在选择器搜索并开启系统筛选，旋转 | 搜索词、筛选状态保留，列表对应当前条件 |
 | U16 | 编辑草稿时将页面退到后台，等 Android 完成停止并保存状态（dumpsys Activity 的 state=STOPPED、mHaveState=true），杀死后台设置进程，再从最近任务返回 | 可恢复的系统页面重建保留草稿；强行停止后重新打开只保留已保存配置 |
@@ -63,9 +63,9 @@ adb -s emulator-5584 shell cat /data/user/0/io.github.lwtdzh.screenshotdetector/
 
 1. S01：保持模块禁用但 A 在作用域内。打开设备状态页；`module.injected=false`，读到真实开启的状态。
 2. S02：启用模块，将 A 移出作用域。A 即使有定制也不注入，真实状态仍可读。
-3. S03：A 在作用域内，删除 A 定制。冷启动后 `injected=true`、`policyLoaded=true`，五种 ID 都在 enabled 中；未来测试方法也默认开启。
+3. S03：A 在作用域内，删除 A 定制。冷启动后 `injected=true`、`policyLoaded=true`，六种 ID 都在 enabled 中；未来测试方法也默认开启。
 4. S04：A 创建全开定制。结果与 S03 相同，storedPolicy.custom=true、disabled=[]。
-5. S05：A 五种方法全关且在作用域内。保持注入，但 enabled=[]；实际读取与无模块基线一致。
+5. S05：A 六种方法全关且在作用域内。保持注入，但 enabled=[]；实际读取与无模块基线一致。
 6. S06：目标 A 保持运行，在设置中改变开关并保存。回 A 时旧进程保持原策略；强行停止并重开后采用新策略。
 7. S07：把 A 加入定制但不加 Vector 作用域。结果仍为无注入。再加作用域并冷启动，配置生效。
 8. S08：移除 A 作用域并冷启动。定制仍在设置页保留，A 真实读取恢复。
@@ -73,15 +73,19 @@ adb -s emulator-5584 shell cat /data/user/0/io.github.lwtdzh.screenshotdetector/
 10. S10：从 `:vpn` 独立进程启动后读取其策略；同包不同进程一致。B/C UID 不同，互不串配置。
 11. S11：重新启动模拟器，先等待系统启动完成，再由未注入 shell 确认 `wlan0` 为 UP、当前 Wi-Fi NetworkAgentInfo 带 VALIDATED；只有启动完成并不代表网络已连接。启动 C 的真实 VPN 夹具，确认 TUN 建立且普通 Wi-Fi 仍就绪，再冷启动 A/B/C。已保存配置、Vector 作用域和生效结果一致。目标读不到普通网络时保留失败快照，不反复重开直到偶然通过。
 
-## M · 五种方法的 32 个组合
+## M · 六种方法的 64 个组合
 
-位顺序固定为截图、VPN、代理、开发者选项、USB/无线调试。1=开启，0=关闭。以下每一行都要独立操作设置页、保存、冷启动 A，并检查设备状态快照、截图读取快照及普通操作。不要只读取 enabled 标记。
+位顺序固定为截图、VPN、代理、开发者选项、USB/无线调试、SELinux。1=开启，0=关闭。以下每一项都要独立操作设置页、保存、冷启动 A，并检查设备状态快照、截图读取快照及普通操作。不要只读取 enabled 标记。SELinux 专项的 M6 用例检查这些组合中的真实 SELinux 读取、开发者/调试、真实 VPN 接口、实际代理请求、构造截图文件和普通文件；它不替代 X 节的真实截图/授权测试。
 
 ```text
-00000 00001 00010 00011 00100 00101 00110 00111
-01000 01001 01010 01011 01100 01101 01110 01111
-10000 10001 10010 10011 10100 10101 10110 10111
-11000 11001 11010 11011 11100 11101 11110 11111
+000000 000001 000010 000011 000100 000101 000110 000111
+001000 001001 001010 001011 001100 001101 001110 001111
+010000 010001 010010 010011 010100 010101 010110 010111
+011000 011001 011010 011011 011100 011101 011110 011111
+100000 100001 100010 100011 100100 100101 100110 100111
+101000 101001 101010 101011 101100 101101 101110 101111
+110000 110001 110010 110011 110100 110101 110110 110111
+111000 111001 111010 111011 111100 111101 111110 111111
 ```
 
 按下列规则判断每一行：
@@ -92,9 +96,37 @@ adb -s emulator-5584 shell cat /data/user/0/io.github.lwtdzh.screenshotdetector/
 - 代理开启：代理 metadata 不可见；关闭：恢复可见。两者真实 HTTP 代理请求都成功。
 - 开发者选项开启：开发者读取为 0；关闭：真实值 1。调试开关不得随它变化。
 - USB/无线调试开启：调试设置为 0，adbd/USB 属性去掉调试信息；关闭：真实 adbd 和 USB 信息恢复。无线开启未建立时只检查当前零值路径。
+- SELinux 开启：真实系统 Permissive 保持不变，应用 Java 返回 true、libselinux 和文件读取返回 1；关闭：应用恢复 false/0。再在 Enforcing 中核对开关不会改变真实模式。直接 syscall 是明确的未屏蔽对照。
 - airplane_mode、SDK、普通接口、网络 handle、文件 syscall/getpid/mmap/clone 控制均正常。
 
-M33：A=10101，B=01010，C 没有定制；三者都在作用域内。依次冷启动并读取 A/B/C，确认两个相反配置和 C 的全开默认。M34：仅把 A 改成 01010，B/C 结果保持不变。M35：删除 A 定制，A 恢复全开，B 的定制保留。
+M33：A=101010，B=010100，C 没有定制；三者都在作用域内。依次冷启动并读取 A/B/C，确认独立配置和 C 的全开默认。M34：仅把 A 改成 010100，B/C 结果保持不变。M35：删除 A 定制，A 恢复全开，B 的定制保留。SELinux 的相反配置与默认继承另由 L08–L10 检查。
+
+## L · SELinux 真实读取与独立开关
+
+仅在专用模拟器执行模式切换。模块自身没有模式写入逻辑；执行器中的 setenforce 只用于建立真实测试条件，结束必须恢复原模式。不得在真机切换模式来制造基线。
+
+1. L00：安装前运行 capture，保存原模式、模块/作用域、定制、相关系统设置及原 APK 到仓库外的 Library/Application Support/ScreenshotShield/selinux-0.3.0，文件权限 600。已有原始快照时拒绝覆盖。
+2. L01：prepare 安装本轮签名包，独立 B/C、真实 VPN 和构造文件；记录 APK 哈希。原 0.2.0/0.2.1 报告不覆盖。
+3. L02–L05：建立 Permissive。未注入 shell 的 getenforce 必须显示 Permissive；A 无作用域及全部关闭时读到 false/0，只开 SELinux及全开时读到 true/1。逐条检查 Java API、FileInputStream、RandomAccessFile、NIO、FileChannel、native read/pread/pread64/readv/dup/fread/fgets 和真实 libselinux 导出函数。
+4. L06–L07：建立 Enforcing，先移出作用域采集真实权限与 API 结果，然后检查全部关闭与只开 SELinux。该 ROM 下无权限读取 enforce 时，Java 原 API 可能返回 false，libselinux 返回 -1；全部关闭应与这份真实基线一致。开启后 Java 与 libselinux 返回 true/1，文件仍保持原始权限错误；不能把失败计作返回 1 的证明。
+5. M6-000000 至 M6-111111：在 Permissive 下通过真实设置页操作 64 组合。逐项核对 SELinux、三个早期生命周期、开发者/调试读取、真实 VPN Java/native 接口、代理 metadata 与 HTTP 204、构造截图文件、普通文件和按需加载的 native 库。
+6. L08–L10：A 只关闭 SELinux，B 只开启 SELinux，分别冷启动。删除 A 定制后恢复全开，B 保持自己的配置；未来方法仍默认开启。
+7. L11–L12：默认全开时检查 HTTPS 204、配置服务的跨 UID 读取及写入拒绝；连续十次冷启动检查 native 列表分配/释放、实际读取和普通操作。64 组合可按 Gray 顺序执行，每次只改变一个开关，但保存并核对每一份配置。执行器为了让六项同屏可见会暂时调整字体比例，结束恢复原值。
+8. L13：执行 native 阶段，只开 SELinux、只开截图、全部开启分别检查保留的截图原生验证器。用未注入 C 私下保存并恢复剪贴板；构造截图 PNG 和普通 PNG，核对已有 FD、read/pread/readv/preadv、mmap、syscall 六参数与 clone 新栈，测试后删除本次构造文件。未发出真实 SystemUI 截图事件。
+9. 每份样本同时检查 enforce FD 的 EOF、dup、errno=EBADF、fread 不完整项、普通同名文件及 getcon/freecon 成对调用。直接 syscall 必须保留真实模式，不把此路径写成已屏蔽。系统 libselinux 已在 zygote 加载时，可从其实际 ELF 动态符号表调用，不能用模拟函数代替。
+10. L99：cleanup 恢复模式、系统设置、字体、原 APK、定制、完整作用域和授权，停止临时 VPN、删除仅本次创建的文件；核对结果后正常关闭专用模拟器。
+
+专项 APK 放在 verification 根目录：AppStateShield-0.3.0.apk、AppStateVerifier-0.3.0.apk、Verifier-A-0.3.0.apk、Verifier-B-0.3.0.apk。执行顺序：
+
+```sh
+python3 scripts/selinux-test.py capture
+python3 scripts/selinux-test.py prepare
+python3 scripts/selinux-test.py test
+python3 scripts/selinux-test.py native
+python3 scripts/selinux-test.py cleanup
+```
+
+逐项结果为 verification/selinux-0.3.0-results.json。某阶段失败时先修复并定向重跑，保留最初恢复快照。smoke 只跑模式与独立配置对照，不包含 64 组合。
 
 ## D · 开发者和调试读取路径
 
@@ -115,7 +147,7 @@ M33：A=10101，B=01010，C 没有定制；三者都在作用域内。依次冷�
 4. V04：网络回调必须确实收到，不能把超时当 false；native listLifetimeOk/getpidOk 必须真。连续冷启动十次，确认无 native 列表释放崩溃。
 5. V05：仅代理开启：proxyFixture 的 hostVisible、portVisible、bulkHostVisible 均假；VPN 信息保持基线。response=204、actualHttpProxyUsed=true，ordinaryProperty 非空。
 6. V06：仅 VPN 开启：proxyFixture metadata 仍可见，真实 HTTP 代理请求仍成功。验证 VPN 和代理开关独立。
-7. V07：五项全开，HTTPS internet=204，实际代理仍成功。
+7. V07：六项全开，HTTPS internet=204，实际代理仍成功。
 8. V08：停止夹具 VPN，重新读 A 全关状态：VPN API 为未开启，普通联网正常；再次启动真实 VPN 后检查保护结果仍一致。
 
 ## X · 截图所有已有读取与信号
@@ -148,15 +180,15 @@ X13：日志页按源筛选、全部源、重启监听、清空日志、授权�
 3. I03：在专用模拟器先备份模块私有配置。把 apps JSON 损坏作为明确异常夹具；重启设置和目标，均不崩溃，使用默认全开。恢复备份。
 4. I04：配置含未知关闭 ID；已知方法正常，普通新增方法默认开启。通过页面更改一个已知开关后，未知关闭 ID 仍被保留；避免升级损失将来恢复的设置。
 5. I05：强行停止配置 provider 所属包，冷启动目标；记录配置读取是否仍可启动 provider。再明确禁用 PolicyProvider 组件作为不可用夹具，要有 policyLoaded=false 证据，并验证既定全开 fallback。结束重新启用组件。
-6. I06：同签名覆盖安装新 APK，定制和权限保持；重启目标使用新代码。模块 native 三库按已启用方法加载，全关时不加载；仅 developer 开启时 developerstate 不加载，debug 开启时加载。
-7. I07：SELinux 仍为真实系统状态，设置中始终标待开发。未来实现时在本手册新增真实 enforcing/permissive 基线和读取路径；不改默认策略存储方式。
+6. I06：同签名覆盖安装新 APK，定制和权限保持；重启目标使用新代码。模块 native 四库按已启用方法加载，全关时不加载；仅 developer 开启时 developerstate 不加载，debug 开启时加载；selinuxstate 只随 selinux 加载。
+7. I07：SELinux 模块不改真实模式，完整 Permissive/Enforcing 对照执行 L 节，不能用设置页开关或注入标记替代实际读取。
 
 ## K · 加固应用启动兼容
 
 使用已获授权的设备与目标应用；专用模拟器不能代替该 ROM 和该应用版本的真机检查。记录模块 APK 的 SHA-256、系统版本、ABI 和应用版本。
 
 1. K01：目标应用加入整合模块作用域，恢复默认全开并冷启动。至少重复三次，每次确认真正进入首页，不能只看进程存在、原生加载成功或启动页。检查有无 ANR、崩溃，以及原有 VPN/代理提示；不要进行登录或金融业务。
-2. K02：通过真实设置页将截图关闭，保存并冷启动；再将截图开启，保存并冷启动。核对 `Policy loaded=true` 和实际启用方法，其他四项保持开启。结束时恢复测试前的定制条目和作用域。
+2. K02：通过真实设置页将截图关闭，保存并冷启动；再将截图开启，保存并冷启动。核对 `Policy loaded=true` 和实际启用方法，其他五项保持开启。结束时恢复测试前的定制条目和作用域。
 3. K03：如日志有 `existing native redirect retained`，记录符号名和最终安装数量。ARM64 的已有外部 `B` 或 16 字节 `LDR/BR` 跳转应保持原状；普通未改入口的截图、普通文件、已有 FD 和 syscall 检查仍按 X01–X08 执行。被保留入口的原生截图读取可能仍可见，要明确写入报告，不能把首页正常、Java 检查通过或原生库加载成功当成所有原生读取已屏蔽。
 
 ## R · 清理与判定

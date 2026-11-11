@@ -37,6 +37,8 @@ public final class IntegratedEntry implements IXposedHookLoadPackage {
                     io.github.lwtdzh.vpnstateshield.ProxyHooks.install(load.classLoader));
                 if (RuntimePolicy.enabled("developer") || RuntimePolicy.enabled("debug")) install(() ->
                     new io.github.lwtdzh.developerstateshield.DeveloperModule().handleLoadPackage(load));
+                if (RuntimePolicy.enabled("selinux")) install(() ->
+                    io.github.lwtdzh.selinuxstateshield.SelinuxModule.install(load.classLoader));
                 final boolean fromProvider = loaded;
                 // The verifier reports injection separately from system observations.
                 Class<?> status = XposedHelpers.findClassIfExists(

@@ -15,10 +15,10 @@ Java/JNI 内部包名保留，减少 native 符号迁移。已发布模块的旧
 
 `IntegratedEntry` 在 Application.attach 原方法之前读取自己的策略并安装选中的方法。`PolicyStore` 只保存关闭 ID。`PolicyProvider` 只允许 UID 读取其拥有的包名；`SettingsActivity` 是唯一正常写入口。`ModuleStatus` 是验证器内的注入标记，实际读取检查与它分开。
 
-截图 native 库只在截图开启时加载；vpnstate 只在 VPN 开启时加载；developerstate 只在 debug 开启时加载。developer Java 设置读取与 debug Java 属性读取通过 RuntimePolicy 分别控制；proxy 有独立 Java 安装入口。SELinux 未实现。
+截图 native 库只在截图开启时加载；vpnstate 只在 VPN 开启时加载；developerstate 只在 debug 开启时加载。developer Java 设置读取与 debug Java 属性读取通过 RuntimePolicy 分别控制；proxy 有独立 Java 安装入口。0.3.0 新增 selinuxstateshield/SelinuxModule 与 selinuxstate native 库，仅在 selinux 开启时安装。验证器新增 SelinuxProbe，仍保留原包名和签名。
 
 模块 0.2.1 仅增加截图 native 层对已有 ARM64 外部入口跳转的识别，并保留这些跳转以避免加固冲突。验证器仍为 0.2.0，工程与包名不变。保留入口的原生截图读取覆盖受限，真机启动与模拟器读取检查分别记录在 `verification/VIVO-COMPATIBILITY-0.2.1.md`。
 
 同一份 verifier 源码通过 sampleA/sampleB flavors 提供三个 UID。所有使用私有文件目录的 native 夹具从实际 Context 传入，不依赖旧 probe APK 路径。
 
-[人工手册](docs/TEST-MANUAL.md) 是本次整合的验收步骤，含 UI、默认/将来方法、32 组合、跨应用和真实事件。旧覆盖清单和验证结果保留在 verification/legacy；不能把旧 APK 的报告当整合 APK 的验证证据。
+[人工手册](docs/TEST-MANUAL.md) 是本次整合的验收步骤，含 UI、默认/将来方法、64 组合、跨应用和真实事件。SELinux 专项由 scripts/selinux-test.py 执行，记录到 verification/selinux-0.3.0-results.json，原始恢复快照保存在仓库外。旧覆盖清单和验证结果保留；不能把旧 APK 的报告当 0.3.0 的验证证据。

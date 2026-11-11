@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">應用狀態屏蔽</string>
-    <string name="module_description">按應用屏蔽截圖、VPN、代理、開發者選項與偵錯狀態。預設全部開啟，作用域由 Vector 管理。</string>
+    <string name="module_description">按應用屏蔽截圖、VPN、代理、開發者選項、偵錯與 SELinux 狀態。預設全部開啟，作用域由 Vector 管理。</string>
     <string name="status_enabled">所有攔截功能已預設啟用</string>
     <string name="setup_instructions">在 Vector 中啟用本模組，並勾選需要保護的應用程式。變更作用範圍後，強制停止並重新開啟目標應用程式。</string>
     <string name="coverage_summary">攔截官方截圖回呼、相簿查詢與變更通知、檔案存取與目錄監聽，以及可識別的截圖廣播、剪貼簿、通知和無障礙資訊。</string>

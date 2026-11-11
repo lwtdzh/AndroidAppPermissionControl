@@ -20,7 +20,8 @@ import zipfile
 from test_device import Device, MODULE, PRIMARY, METHODS
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-OUT = ROOT / "verification"
+VERSION = "0.3.0"
+OUT = pathlib.Path(os.environ.get("APPSTATE_TEST_OUTPUT", ROOT / "verification" / VERSION))
 B = PRIMARY + ".samplea"
 C = PRIMARY + ".sampleb.screenshot"
 MEDIA = "content://media/external/images/media"
@@ -55,7 +56,7 @@ class Manual:
         print("START " + name, flush=True)
         started = datetime.datetime.now(datetime.timezone.utc).isoformat()
         artifacts = {p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-                     for p in (OUT / "AppStateShield-0.2.0.apk", OUT / "AppStateVerifier-0.2.0.apk")
+                     for p in (OUT / f"AppStateShield-{VERSION}.apk", OUT / f"AppStateVerifier-{VERSION}.apk")
                      if p.exists()}
         previous = self.report["cases"].get(name)
         if previous:
@@ -91,7 +92,7 @@ class Manual:
         self.report["updated"] = datetime.datetime.now(datetime.timezone.utc).isoformat()
         self.report["artifacts"] = {
             p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in (OUT / "AppStateShield-0.2.0.apk", OUT / "AppStateVerifier-0.2.0.apk")
+            for p in (OUT / f"AppStateShield-{VERSION}.apk", OUT / f"AppStateVerifier-{VERSION}.apk")
             if p.exists()}
         self.path.write_text(json.dumps(self.report, ensure_ascii=False, indent=2) + "\n")
 
@@ -208,18 +209,18 @@ class Manual:
 
     def packaging(self):
         def run():
-            apk = OUT / "AppStateShield-0.2.0.apk"
+            apk = OUT / f"AppStateShield-{VERSION}.apk"
             with zipfile.ZipFile(apk) as archive:
                 libraries = sorted(n for n in archive.namelist() if n.startswith("lib/"))
                 expected = {f"lib/{abi}/lib{library}.so"
                             for abi in ("arm64-v8a", "armeabi-v7a", "x86", "x86_64")
-                            for library in ("shield", "vpnstate", "developerstate")}
+                            for library in ("shield", "vpnstate", "developerstate", "selinuxstate")}
                 check(set(libraries) == expected, "Four-ABI module libraries differ")
                 check(archive.read("assets/xposed_init").decode().strip() ==
                       "io.github.lwtdzh.appstateshield.IntegratedEntry", "Module entry differs")
             installed = {}
-            for pkg, filename in ((MODULE, "AppStateShield-0.2.0.apk"),
-                                  (PRIMARY, "AppStateVerifier-0.2.0.apk")):
+            for pkg, filename in ((MODULE, f"AppStateShield-{VERSION}.apk"),
+                                  (PRIMARY, f"AppStateVerifier-{VERSION}.apk")):
                 path = self.d.shell("pm", "path", pkg).splitlines()[0].removeprefix("package:")
                 actual = self.d.shell("sha256sum", path).split()[0]
                 expected_hash = hashlib.sha256((OUT / filename).read_bytes()).hexdigest()
@@ -238,7 +239,7 @@ class Manual:
         self.case("P01-P02/P04", run)
         def final_upgrade():
             before = self.policies()
-            for name in ("AppStateShield-0.2.0.apk", "AppStateVerifier-0.2.0.apk"):
+            for name in (f"AppStateShield-{VERSION}.apk", f"AppStateVerifier-{VERSION}.apk"):
                 self.d.adb("install", "--no-incremental", "-r", str(OUT / name))
             check(self.policies() == before, "Final signed upgrade changed customizations")
             return {"finalSignedUpgrade": True, "customizationsPreserved": True}
@@ -292,6 +293,12 @@ class Manual:
             check(phase["injected"] == injected, "Early lifecycle not injected")
             check(phase["developer"] == (0 if injected and "developer" in enabled else 1), "Early developer differs")
             check(phase["debug"] == (0 if injected and "debug" in enabled else 1), "Early debug differs")
+        # Enforcing can deny this UID access to enforce: the original Java API
+        # then returns false and libselinux returns -1. Compare the actual APIs;
+        # the dedicated SELinux suite separately checks un-injected baselines.
+        expected_selinux = (injected and "selinux" in enabled) or (
+            value["selinux"]["native"]["security_getenforce"] == "1")
+        check(value["selinux"]["javaEnforced"] is expected_selinux, "SELinux Java/native results differ")
         vpn = injected and "vpn" in enabled
         check(value["vpnNetworks"] == (0 if vpn else 1), "VPN enumeration differs")
         for key in ("activeVpn", "parcelVpn", "callbackVpn", "legacyVpn", "tunByName", "linkTextTunnel"):
@@ -385,8 +392,8 @@ class Manual:
             nodes = d.nodes()
             check(not self.policies(), "First settings list not empty")
             check(any("All methods enabled" in n.get("text", "") for n in nodes), "Default explanation missing")
-            check(any("SELinux" in n.get("text", "") and "Planned" in n.get("text", "") for n in nodes), "Pending status missing")
-            return {"empty": True, "defaultAll": True, "selinuxPending": True}
+            check(not any("Planned" in n.get("text", "") for n in nodes), "Stale pending status")
+            return {"empty": True, "defaultAll": True, "methodCount": len(METHODS)}
         self.case("U01", opening)
         def search():
             for query in ("App State", "screenshotdetector", "SCREENSHOTDETECTOR", "unmatched-application-123"):
@@ -425,7 +432,7 @@ class Manual:
             return {"cancel": True, "keepDraft": True, "discard": True, "savedAllEnabled": True, "singleEntry": True}
         self.case("U05-U09/U23", drafts)
         def edits():
-            for enabled in ({"screenshot", "proxy", "debug"}, {"vpn", "proxy", "debug"}):
+            for enabled in ({"screenshot", "proxy", "debug", "selinux"}, {"vpn", "proxy", "debug", "selinux"}):
                 d.set_policy(PRIMARY, enabled)
                 check(set(self.policies()[PRIMARY]) == set(METHODS) - enabled, "Saved switches wrong")
                 d.home_settings(); d.picker(PRIMARY)
@@ -576,7 +583,7 @@ class Manual:
             d.click("Open companion app")
             d.find("add-app")
             texts = [n.get("text", "") for n in d.nodes()]
-            check("AppStateShield" in texts and "0.2.0 · Vector" in texts, "Wrong module settings/version")
+            check("AppStateShield" in texts and VERSION + " · Vector" in texts, "Wrong module settings/version")
             check("All methods enabled by default" in texts, "Default explanation missing")
             d.screenshot(OUT / "vector-settings-entry.png")
             d.shell("input", "keyevent", "HOME")
@@ -587,7 +594,7 @@ class Manual:
             check("AppStateShield" not in labels, "Main module icon appeared in launcher drawer")
             d.screenshot(OUT / "launcher-no-module-icon.png")
             return {"actualVectorModuleOpened": True, "companionActionOpenedSettings": True,
-                    "settingsVersion": "0.2.0", "launcherVerifierPresent": True, "launcherModuleAbsent": True}
+                    "settingsVersion": VERSION, "launcherVerifierPresent": True, "launcherModuleAbsent": True}
         self.case("P05", vector)
         def developer():
             d.shell("am", "force-stop", "com.android.settings")
@@ -724,7 +731,7 @@ class Manual:
                 node.text = json.dumps(policies)
                 self.write_pref(ET.tostring(tree, encoding="unicode"))
                 value = self.sample(PRIMARY, set(METHODS))
-                d.set_policy(PRIMARY, {"screenshot", "proxy", "debug", "developer"})
+                d.set_policy(PRIMARY, set(METHODS) - {"vpn"})
                 check("unknown-disabled" in self.policies()[PRIMARY], "Unknown ID lost by UI save")
                 check(set(self.policies()[PRIMARY]) == {"unknown-disabled", "vpn"}, "Known switch edit differs")
                 return {"initial": value, "disabled": self.policies()[PRIMARY]}
@@ -746,23 +753,34 @@ class Manual:
         self.case("I05", unavailable)
         def native():
             results = {}
-            for enabled in (set(), {"developer"}, {"debug"}, {"vpn"}, {"proxy"}, {"screenshot"}, set(METHODS)):
+            for enabled in (set(), {"developer"}, {"debug"}, {"vpn"}, {"proxy"}, {"screenshot"}, {"selinux"}, set(METHODS)):
                 d.set_policy(PRIMARY, enabled)
                 value = d.start_probe(PRIMARY)
                 self.state_assert(value, enabled)
                 actual = {name[3:-3] for name in value["native"]["protectionLibraries"]}
                 expected = {lib for method, lib in (("screenshot", "shield"), ("vpn", "vpnstate"),
-                            ("debug", "developerstate")) if method in enabled}
+                            ("debug", "developerstate"), ("selinux", "selinuxstate")) if method in enabled}
                 check(actual == expected, "Unselected native library loaded: " + str(actual))
                 results[",".join(sorted(enabled))] = sorted(actual)
             policies = self.policies()
-            d.adb("install", "--no-incremental", "-r", str(OUT / "AppStateShield-0.2.0.apk"))
-            d.adb("install", "--no-incremental", "-r", str(OUT / "AppStateVerifier-0.2.0.apk"))
+            d.adb("install", "--no-incremental", "-r", str(OUT / f"AppStateShield-{VERSION}.apk"))
+            d.adb("install", "--no-incremental", "-r", str(OUT / f"AppStateVerifier-{VERSION}.apk"))
             check(self.policies() == policies, "Upgrade lost policies")
             value = self.sample(PRIMARY, set(METHODS))
             return {"libraries": results, "upgradePolicyPreserved": True, "final": value}
         self.case("I01-I02/I06", native)
-        self.case("I07", lambda: {"realSELinux": d.shell("getenforce"), "implemented": False})
+        def selinux_evidence():
+            path = ROOT / "verification" / f"selinux-{VERSION}-results.json"
+            evidence = json.loads(path.read_text())
+            for name in ("L02-unscoped-permissive", "L03-all-off", "L04-selinux-only", "L05-all-on",
+                         "L06-enforcing-baseline", "L06-enforcing-all-off", "L07-enforcing-selinux-only"):
+                check(evidence["cases"].get(name, {}).get("status") == "passed", "SELinux evidence missing: " + name)
+            for name, digest in evidence["artifacts"].items():
+                check(hashlib.sha256((OUT / name).read_bytes()).hexdigest() == digest,
+                      "SELinux evidence belongs to another APK: " + name)
+            return {"realSELinux": d.shell("getenforce"), "permissiveEvidence": str(path.relative_to(ROOT)),
+                    "testedArtifactsMatch": True}
+        self.case("I07", selinux_evidence)
 
     def fixture(self, pkg, command, uri=None):
         path = "/data/user/0/" + pkg + "/files/services-result.json"
@@ -1197,7 +1215,7 @@ class Manual:
         self.fixtures()
         self.case("P07-clipboard-backup", self.preserve_clipboard)
         for number in range(first, last + 1):
-            bits = format(number, "05b")
+            bits = format(number, "06b")
             enabled = {key for key, bit in zip(METHODS, bits) if bit == "1"}
             def run():
                 self.d.set_policy(PRIMARY, enabled)
@@ -1398,7 +1416,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("phase", choices=["capture", "prepare", "packaging", "entries", "navigation", "localization", "matrix", "deep", "media", "scope", "ui", "exceptional", "detector", "reboot", "networks", "cleanup", "shutdown"])
     parser.add_argument("--first", type=int, default=0)
-    parser.add_argument("--last", type=int, default=31)
+    parser.add_argument("--last", type=int, default=63)
     parser.add_argument("--case", action="append", default=[], help="Run only named cases; retain prerequisite state")
     args = parser.parse_args()
     manual = Manual()

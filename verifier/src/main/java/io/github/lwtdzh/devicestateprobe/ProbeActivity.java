@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class ProbeActivity extends Activity {
     static { System.loadLibrary("stateprobe"); }
-    private native String nativeSnapshot();
+    static native String nativeSnapshot();
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         TextView text = new TextView(this);
@@ -42,7 +42,7 @@ public final class ProbeActivity extends Activity {
         } else if ("vpn-stop".equals(action)) {
             startService(new Intent(this, ProbeVpnService.class).setAction("stop"));
         } else new Thread(() -> {
-            JSONObject result = snapshot();
+            JSONObject result = "selinux".equals(action) ? SelinuxProbe.snapshot(this) : snapshot();
             try (FileOutputStream out = new FileOutputStream(new File(getFilesDir(), "result.json"))) {
                 out.write(result.toString(2).getBytes(java.nio.charset.StandardCharsets.UTF_8));
             } catch (Exception error) { android.util.Log.e("DeviceStateProbe", "write failed", error); }
@@ -128,6 +128,7 @@ public final class ProbeActivity extends Activity {
             read(result, key + ".bundleQuery", () -> query(key, new String[]{"value"}, true));
         }
         read(result, "native", () -> new JSONObject(nativeSnapshot()));
+        read(result, "selinux", () -> SelinuxProbe.snapshot(this));
         for (String key : new String[]{"init.svc.adbd", "sys.usb.config", "sys.usb.state",
             "service.adb.tcp.port", "ro.build.version.sdk"}) {
             read(result, key + ".java", () -> Class.forName("android.os.SystemProperties")
@@ -206,11 +207,11 @@ public final class ProbeActivity extends Activity {
             connection.setReadTimeout(10000);
             try { return connection.getResponseCode(); } finally { connection.disconnect(); }
         });
-        read(result, "proxyFixture", this::proxyFixture);
+        read(result, "proxyFixture", ProbeActivity::proxyFixture);
         return result;
     }
     /** A real local HTTP proxy exchange plus deliberately constructed metadata observations. */
-    private JSONObject proxyFixture() throws Exception {
+    static JSONObject proxyFixture() throws Exception {
         java.net.ServerSocket server = new java.net.ServerSocket(0, 1, java.net.InetAddress.getByName("127.0.0.1"));
         server.setSoTimeout(8000);
         java.net.ProxySelector selector = java.net.ProxySelector.getDefault();

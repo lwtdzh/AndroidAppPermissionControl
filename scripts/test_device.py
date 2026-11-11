@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 ADB = "/opt/homebrew/share/android-commandlinetools/platform-tools/adb"
 MODULE = "io.github.lwtdzh.appstateshield"
 PRIMARY = "io.github.lwtdzh.screenshotdetector"
-METHODS = ["screenshot", "vpn", "proxy", "developer", "debug"]
+METHODS = ["screenshot", "vpn", "proxy", "developer", "debug", "selinux"]
 CLI = "/data/adb/modules/zygisk_vector/cli"
 
 
@@ -151,14 +151,15 @@ class Device:
     def start_probe(self, pkg, kind="state", cold=True):
         if cold:
             self.kill_reader(pkg)
-        filename = "result.json" if kind == "state" else "screenshot-result.json"
+        filename = "screenshot-result.json" if kind == "shot" else "result.json"
         path = "/data/user/0/" + pkg + "/files/" + filename
         self.shell("rm", "-f", path)
-        activity = ("io.github.lwtdzh.devicestateprobe.ProbeActivity" if kind == "state"
-                    else "io.github.lwtdzh.screenshotprobe.ProbeActivity")
+        activity = ("io.github.lwtdzh.screenshotprobe.ProbeActivity" if kind == "shot"
+                    else "io.github.lwtdzh.devicestateprobe.ProbeActivity")
         # A restored task may have a fixture above its root probe. Request the
         # probe itself instead of merely bringing that task's old top forward.
-        self.shell("am", "start", "-W", "--activity-clear-top", "-n", pkg + "/" + activity)
+        action = ["--es", "action", "selinux"] if kind == "selinux" else []
+        self.shell("am", "start", "-W", "--activity-clear-top", "-n", pkg + "/" + activity, *action)
         deadline = time.monotonic() + 40
         while time.monotonic() < deadline:
             result = subprocess.run(self.prefix + ["shell", "cat", path], text=True, capture_output=True, timeout=10)
@@ -167,7 +168,9 @@ class Device:
                     value = json.loads(result.stdout)
                     if kind == "state" and "proxyFixture" in value:
                         return value
-                    if kind != "state" and ("clipboard_normal_visible" in value or "startup_error" in value or "inspect_error" in value):
+                    if kind == "selinux" and "bootProperty" in value:
+                        return value
+                    if kind == "shot" and ("clipboard_normal_visible" in value or "startup_error" in value or "inspect_error" in value):
                         return value
                 except json.JSONDecodeError:
                     pass
