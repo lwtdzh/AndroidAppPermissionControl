@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.*;
 import android.database.Cursor;
 import android.graphics.Insets;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.*;
 import android.provider.*;
@@ -27,6 +28,32 @@ public final class MainActivity extends Activity implements Signals.Listener {
     private final EnumMap<Source, LinkedHashSet<String>> seen = new EnumMap<>(Source.class);
     private final EnumMap<Source, Long> recent = new EnumMap<>(Source.class);
     private TextView count, log;
+    private TextView sessionCount, sessionDetail, monitoring;
+    private final Map<String, TextView> summaryRows = new LinkedHashMap<>();
+    private final EnumMap<Source, Integer> sourceStates = new EnumMap<>(Source.class);
+    private ScreenshotSession session = new ScreenshotSession();
+    private boolean stateBusy;
+    private final Runnable refreshState = new Runnable() {
+        @Override public void run() {
+            if (!foreground || destroyed) return;
+            if (!stateBusy) {
+                stateBusy = true;
+                worker.execute(() -> {
+                    Map<String, Integer> values = ObservedState.read(getApplicationContext());
+                    main.post(() -> {
+                        stateBusy = false;
+                        if (destroyed) return;
+                        for (Map.Entry<String, Integer> entry : values.entrySet()) {
+                            TextView row = summaryRows.get(entry.getKey());
+                            row.setText(getString(summaryLabel(entry.getKey())) + "  " + getString(entry.getValue()));
+                            row.setTextColor(entry.getValue() == R.string.summary_unknown ? 0xff667085 : 0xff182331);
+                        }
+                    });
+                });
+            }
+            main.postDelayed(this, 2000);
+        }
+    };
     private Spinner choices;
     private EditText broadcast;
     private Detector detector;
@@ -43,6 +70,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
         }
         detector = new Detector(this);
         if (saved != null) {
+            restoreSession(saved);
             detections = saved.getInt("count");
             ArrayList<String> old = saved.getStringArrayList("lines");
             if (old != null) lines.addAll(old);
@@ -50,6 +78,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
             if (source >= 0 && source < Source.values().length) selected = Source.values()[source];
         }
         LinearLayout root = column();
+        root.setPadding(dp(16), dp(8), dp(16), dp(8));
         root.setBackgroundColor(0xfffafafa);
         root.setOnApplyWindowInsetsListener((view, insets) -> {
             Insets b = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout());
@@ -60,6 +89,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
         Bundle marker = ModuleStatus.snapshot();
         root.addView(text("Vector: " + marker.getBoolean("injected") + " · "
             + Arrays.toString(marker.getStringArray("enabled")), 13));
+        addSummary(root, marker);
         LinearLayout probes = new LinearLayout(this);
         Button device = new Button(this); device.setText(R.string.device_probe); device.setContentDescription("device-probe");
         device.setOnClickListener(v -> startActivity(new Intent(this, io.github.lwtdzh.devicestateprobe.ProbeActivity.class)));
@@ -134,6 +164,43 @@ public final class MainActivity extends Activity implements Signals.Listener {
         });
         render();
     }
+    @SuppressWarnings("deprecation")
+    private void restoreSession(Bundle saved) {
+        Object value = saved.getSerializable("screenshot-session");
+        if (value instanceof ScreenshotSession) session = (ScreenshotSession) value;
+    }
+    private int summaryLabel(String key) {
+        switch (key) {
+            case "vpn": return R.string.summary_vpn;
+            case "proxy": return R.string.summary_proxy;
+            case "developer": return R.string.summary_developer;
+            case "usb": return R.string.summary_usb;
+            case "wireless": return R.string.summary_wireless;
+            default: return R.string.summary_selinux;
+        }
+    }
+    private void addSummary(LinearLayout root, Bundle marker) {
+        LinearLayout panel = column(); panel.setPadding(dp(14), dp(10), dp(14), dp(10));
+        GradientDrawable background = new GradientDrawable();
+        background.setColor(0xffedf3fc); background.setCornerRadius(dp(14)); panel.setBackground(background);
+        sessionCount = text("", 20); sessionCount.setTextColor(0xff175bc1);
+        sessionCount.setContentDescription("session-screenshots"); panel.addView(sessionCount);
+        sessionDetail = text("", 12); sessionDetail.setContentDescription("session-detail"); panel.addView(sessionDetail);
+        String[] keys = {"vpn", "proxy", "developer", "usb", "wireless", "selinux"};
+        for (int i = 0; i < keys.length; i += 2) {
+            LinearLayout row = new LinearLayout(this);
+            for (int j = i; j < i + 2; j++) {
+                TextView item = text(getString(summaryLabel(keys[j])) + "  " + getString(R.string.summary_reading), 13);
+                item.setContentDescription("summary:" + keys[j]); summaryRows.put(keys[j], item);
+                row.addView(item, new LinearLayout.LayoutParams(0, -2, 1));
+            }
+            panel.addView(row);
+        }
+        monitoring = text(getString(R.string.summary_waiting), 12);
+        monitoring.setContentDescription("summary-monitoring"); panel.addView(monitoring);
+        panel.addView(text(getString(marker.getBoolean("injected") ? R.string.summary_shielded : R.string.summary_observed), 11));
+        root.addView(panel, new LinearLayout.LayoutParams(-1, -2));
+    }
     private LinearLayout column() {
         LinearLayout value = new LinearLayout(this); value.setOrientation(LinearLayout.VERTICAL); return value;
     }
@@ -170,9 +237,11 @@ public final class MainActivity extends Activity implements Signals.Listener {
             ((MainActivity) previous).stopListening();
         foreground = true; Signals.listener = this;
         main.post(this::restart);
+        main.removeCallbacks(refreshState); main.post(refreshState);
     }
     private void stopListening() {
         foreground = false; generation++;
+        main.removeCallbacks(refreshState);
         if (Signals.listener == this) Signals.listener = null;
         if (detector != null) detector.stop();
     }
@@ -194,6 +263,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
                 recent.put(source, now);
             }
             detections++;
+            session.signal(source.name(), identity, SystemClock.elapsedRealtime(), System.currentTimeMillis());
             append(getString(R.string.detected_line, time(), getString(source.label(this))));
             Log.i("ScreenshotDetector", "DETECTED source=" + source.key() + " total=" + detections);
         });
@@ -203,14 +273,23 @@ public final class MainActivity extends Activity implements Signals.Listener {
             if (!foreground) return;
             if (selected != null && selected != source) messageIgnored(source);
             else {
+            sourceStates.put(source, message);
             states.get(source).setText(getString(source.label(this)) + " · " + getString(message));
+            renderMonitoring();
             Log.i("ScreenshotDetector", "STATE source=" + source.key() + " code="
                 + getResources().getResourceEntryName(message));
             }
         });
     }
     private void messageIgnored(Source source) {
+        sourceStates.put(source, R.string.state_disabled);
         states.get(source).setText(getString(source.label(this)) + " · " + getString(R.string.state_disabled));
+        renderMonitoring();
+    }
+    private void renderMonitoring() {
+        long ready = sourceStates.values().stream().filter(value -> value == R.string.state_ready).count();
+        monitoring.setText(ready == 0 ? getString(R.string.summary_no_listener) :
+            getString(R.string.summary_listeners, ready));
     }
     private String time() { return DateFormat.getTimeInstance(DateFormat.MEDIUM).format(new Date()); }
     private void append(String line) {
@@ -218,6 +297,10 @@ public final class MainActivity extends Activity implements Signals.Listener {
     }
     private void render() {
         count.setText(getString(R.string.event_count, detections));
+        sessionCount.setText(getString(R.string.summary_screenshots, session.count()));
+        sessionDetail.setText(session.lastWallTime() == 0 ? getString(R.string.summary_count_notice) :
+            getString(R.string.summary_last_screenshot,
+                DateFormat.getTimeInstance(DateFormat.MEDIUM).format(new Date(session.lastWallTime()))));
         log.setText(lines.isEmpty() ? getString(R.string.empty_log) : String.join("\n\n", lines));
     }
     private void diagnostic(int label, boolean accessible) {
@@ -280,6 +363,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
     @Override protected void onSaveInstanceState(Bundle out) {
         out.putInt("count", detections); out.putStringArrayList("lines", new ArrayList<>(lines));
         out.putInt("source", selected == null ? -1 : selected.ordinal());
+        out.putSerializable("screenshot-session", session);
         super.onSaveInstanceState(out);
     }
     @Override protected void onDestroy() {

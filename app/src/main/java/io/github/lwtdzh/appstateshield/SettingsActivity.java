@@ -11,7 +11,7 @@ import android.widget.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-/** Native, Vector-only settings. Editing is a draft until the user saves it. */
+/** Native settings with an optional launcher. Policy editing stays a draft until saved. */
 public final class SettingsActivity extends Activity {
     private PolicyStore store;
     private LinearLayout page, body, footer;
@@ -22,6 +22,7 @@ public final class SettingsActivity extends Activity {
     private final ExecutorService loader = Executors.newSingleThreadExecutor();
     private final Map<String, Switch> switches = new HashMap<>();
     private UiText strings;
+    private Switch launcher;
     private String t(String zh, String en) { return strings.get(zh, en); }
     private int dp(int n) { return Math.round(n * getResources().getDisplayMetrics().density); }
     @Override public void onCreate(Bundle saved) {
@@ -109,6 +110,27 @@ public final class SettingsActivity extends Activity {
         else { screen = "home"; renderHome(); }
     }
     private void renderHome() {
+        LinearLayout entry = card();
+        launcher = new Switch(this);
+        launcher.setText(t("显示应用图标", "Show app icon"));
+        launcher.setTextSize(17);
+        launcher.setContentDescription("show-launcher");
+        launcher.setChecked(launcherEnabled());
+        entry.addView(launcher);
+        entry.addView(text(t("默认关闭。开启后可从桌面打开设置，也可供分身工具识别；能否分身取决于工具支持。",
+            "Off by default. Enable to open settings from the launcher and let cloning tools find the app. Cloning support depends on the tool."), 13, 0xff667085));
+        launcher.setOnClickListener(v -> {
+            boolean enabled = launcher.isChecked();
+            try {
+                getPackageManager().setComponentEnabledSetting(
+                    new android.content.ComponentName(this, getPackageName() + ".Launcher"),
+                    enabled ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                    PackageManager.DONT_KILL_APP);
+            } catch (RuntimeException e) {
+                launcher.setChecked(launcherEnabled());
+                failed();
+            }
+        });
         LinearLayout policy = card();
         policy.addView(text(t("默认全部开启", "All methods enabled by default"), 18, 0xff175bc1));
         policy.addView(text(t("Vector 作用域内，未定制的应用自动开启所有屏蔽方法，包括以后新增的方法。",
@@ -131,6 +153,15 @@ public final class SettingsActivity extends Activity {
             row.setOnClickListener(v -> edit(pkg));
         }
         body.addView(text(BuildConfig.VERSION_NAME + " · Vector", 12, 0xff667085));
+    }
+    private boolean launcherEnabled() {
+        return getPackageManager().getComponentEnabledSetting(
+            new android.content.ComponentName(this, getPackageName() + ".Launcher"))
+            == PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
+    }
+    @Override protected void onResume() {
+        super.onResume();
+        if ("home".equals(screen) && launcher != null) launcher.setChecked(launcherEnabled());
     }
     private LinearLayout pickerRows;
     private void renderPicker() {

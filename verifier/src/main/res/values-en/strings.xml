@@ -1,4 +1,27 @@
 <resources>
+    <string name="summary_screenshots">This session · %1$d screenshots detected (estimated)</string>
+    <string name="summary_count_notice">Signals from the same capture are merged; counts only while this page is foreground.</string>
+    <string name="summary_last_screenshot">Last capture %1$s · merged estimate; no background counting</string>
+    <string name="summary_vpn">VPN</string>
+    <string name="summary_proxy">Network proxy</string>
+    <string name="summary_developer">Developer options</string>
+    <string name="summary_usb">USB debugging</string>
+    <string name="summary_wireless">Wireless debugging</string>
+    <string name="summary_selinux">SELinux</string>
+    <string name="summary_on">On</string>
+    <string name="summary_off">Off</string>
+    <string name="summary_unknown">Unavailable</string>
+    <string name="summary_reading">Reading…</string>
+    <string name="summary_configured">Configured</string>
+    <string name="summary_not_configured">Not configured</string>
+    <string name="summary_enforcing">Enforcing</string>
+    <string name="summary_permissive">Permissive</string>
+    <string name="summary_selinux_unconfirmed">Mode unconfirmed</string>
+    <string name="summary_waiting">Preparing screenshot listeners…</string>
+    <string name="summary_no_listener">No ready listener; zero does not prove screenshot blocking.</string>
+    <string name="summary_listeners">%1$d listeners ready · zero still requires permissions and a baseline</string>
+    <string name="summary_shielded">App observations refresh every 2s; module injected, so readings may be filtered.</string>
+    <string name="summary_observed">App observations refresh every 2s; no module injection detected.</string>
     <string name="device_probe">VPN / Proxy / Debug</string>
     <string name="screenshot_probe">Screenshot reads</string>
     <string name="app_name">App State Verifier</string>

@@ -7,7 +7,7 @@ description: Develop and verify the integrated AppStateShield Vector module and 
 
 Read root README, AGENTS, PROJECT-RELATIONSHIPS and docs/ARCHITECTURE.
 
-The root is one Gradle build, with `app/` for all blocking methods and `verifier/` for all observation checks. Do not split methods into separate apps. Keep the verifier package/signature stable. Main settings open from Vector and have no launcher icon.
+The root is one Gradle build, with `app/` for all blocking methods and `verifier/` for all observation checks. Do not split methods into separate apps. Keep the verifier package/signature stable. Main settings open from Vector; the optional launcher icon defaults off and is controlled by the user's setting.
 
 Add a stable Methods ID and store only disabled IDs. Unconfigured and future methods default enabled. Provider requests must validate calling UID. Settings save drafts atomically; target cold-start applies them. Adding an app customization does not change Vector scope.
 

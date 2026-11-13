@@ -6,7 +6,7 @@ Read `README.md`, `PROJECT-RELATIONSHIPS.md`, `docs/ARCHITECTURE.md` and `.trae/
 
 - This root is one Gradle project with one wrapper: `:app` is AppStateShield and `:verifier` is the retained verification APK.
 - Do not create independent projects for individual blocking methods. Add methods to the main app and matching checks to the verifier.
-- Main package: `io.github.lwtdzh.appstateshield`; main settings have Vector MODULE_SETTINGS/INFO only, no LAUNCHER.
+- Main package: `io.github.lwtdzh.appstateshield`; settings retain Vector MODULE_SETTINGS/INFO. The optional Launcher alias defaults disabled; only the user's icon switch enables it.
 - Verifier retains `io.github.lwtdzh.screenshotdetector` and the existing external signing identity. Debug sampleA/sampleB flavors are temporary targets for independent UID checks, not production apps.
 - Keep shared scripts in `scripts/`, current results in `verification/`, historical records in `verification/legacy/`.
 

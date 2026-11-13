@@ -1,0 +1,34 @@
+{
+  "model": "vivo V2419A",
+  "sdk": "36",
+  "packages": {
+    "io.github.lwtdzh.appstateshield": {
+      "version": "0.3.1",
+      "sha256": "1eeacdfe8cbffb4e8aca35df338c0d1846d91cb56d0afa1fbac34f9b8ac624a9",
+      "installed": true,
+      "rootInstaller": false
+    },
+    "io.github.lwtdzh.screenshotdetector": {
+      "version": "0.3.1",
+      "sha256": "36d6e61cc477d0ed792ceac5112adc1b20c8d8e9eec11df6f93b6e5917617fd8",
+      "installed": true,
+      "rootInstaller": true
+    }
+  },
+  "iconOff": true,
+  "openedOriginalApp": true,
+  "summary": {
+    "vpn": "VPN  未开启",
+    "proxy": "网络代理  未配置",
+    "developer": "开发者选项  未开启",
+    "usb": "USB 调试  未开启",
+    "wireless": "无线调试  未开启",
+    "selinux": "SELinux  强制执行"
+  },
+  "sessionCounterVisible": true,
+  "preserved": {
+    "policy": true,
+    "frameworkScopesAndState": true,
+    "realSELinuxMode": true
+  }
+}

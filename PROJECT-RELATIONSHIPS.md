@@ -2,6 +2,8 @@
 
 整合版 0.2.0 将六个独立工程迁入一个根 Gradle 工程，正式构建只交付模块和验证器两个 APK。
 
+0.3.1 保留工程、包名和签名关系。主模块新增默认关闭的 Launcher 别名和图标设置；验证器新增只读 ObservedState 信息条与独立 ScreenshotSession 截图次数，传统诊断入口继续保留。新增验证步骤见手册 I/V 编号，执行器为 scripts/status-ui-test.py；原有 0.3.0 的 64 组合记录仍作为历史证据，本次没有修改六种屏蔽方法的 Hook。
+
 | 原工程 | 现位置 | 作用 |
 |---|---|---|
 | module-screenshot-shield | app/ 内 screenshotshield Java 包、shield native 库 | 截图回调、文件/FD、媒体、广播及其他信号屏蔽 |

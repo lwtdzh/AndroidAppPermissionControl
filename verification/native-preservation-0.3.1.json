@@ -1,0 +1,10 @@
+{
+  "AppStateShield": {
+    "nativeLibraries": 16,
+    "nativeBytesUnchanged": true
+  },
+  "AppStateVerifier": {
+    "nativeLibraries": 12,
+    "nativeBytesUnchanged": true
+  }
+}

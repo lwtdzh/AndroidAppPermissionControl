@@ -1,4 +1,27 @@
 <resources>
+    <string name="summary_screenshots">本次打开 · 检测到 %1$d 次截图（估算）</string>
+    <string name="summary_count_notice">同一截图的多入口信号合并；仅统计本页前台期间。</string>
+    <string name="summary_last_screenshot">最近一次 %1$s · 多入口合并估算，后台不统计</string>
+    <string name="summary_vpn">VPN</string>
+    <string name="summary_proxy">网络代理</string>
+    <string name="summary_developer">开发者选项</string>
+    <string name="summary_usb">USB 调试</string>
+    <string name="summary_wireless">无线调试</string>
+    <string name="summary_selinux">SELinux</string>
+    <string name="summary_on">已开启</string>
+    <string name="summary_off">未开启</string>
+    <string name="summary_unknown">无法读取</string>
+    <string name="summary_reading">读取中…</string>
+    <string name="summary_configured">已配置</string>
+    <string name="summary_not_configured">未配置</string>
+    <string name="summary_enforcing">强制执行</string>
+    <string name="summary_permissive">宽容模式</string>
+    <string name="summary_selinux_unconfirmed">模式无法确认</string>
+    <string name="summary_waiting">正在准备截图监听…</string>
+    <string name="summary_no_listener">暂无就绪入口；0 次不能证明截图被屏蔽。</string>
+    <string name="summary_listeners">%1$d 个入口就绪 · 0 次也需结合权限和基线判断</string>
+    <string name="summary_shielded">每 2 秒刷新本应用读到的状态；已注入模块，读数可能经过屏蔽。</string>
+    <string name="summary_observed">每 2 秒刷新本应用读到的状态；未检测到模块注入。</string>
     <string name="device_probe">VPN / 代理 / 调试</string>
     <string name="screenshot_probe">截图读取检查</string>
     <string name="app_name">应用状态验证器</string>

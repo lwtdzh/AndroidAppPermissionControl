@@ -1,0 +1,329 @@
+{
+  "cases": {
+    "I00-capture": {
+      "status": "passed",
+      "evidence": {
+        "serial": "emulator-5584",
+        "sdk": "36",
+        "abi": "arm64-v8a",
+        "originalMode": "Enforcing"
+      }
+    },
+    "I01-default-off-upgrade": {
+      "status": "passed",
+      "evidence": {
+        "defaultOff": true,
+        "upgradedFrom": "0.3.0"
+      }
+    },
+    "I02-enable-open-upgrade": {
+      "status": "passed",
+      "evidence": {
+        "launcherOpensSettings": true,
+        "survivesColdStartAndUpgrade": true
+      }
+    },
+    "I03-disable-vector-entry": {
+      "status": "passed",
+      "evidence": {
+        "hidden": true,
+        "vectorSettingsOpen": true,
+        "upgradeKeepsOff": true
+      }
+    },
+    "V01-observed-baseline": {
+      "status": "passed",
+      "evidence": {
+        "readings": {
+          "vpn": "VPN  未开启",
+          "proxy": "网络代理  未配置",
+          "developer": "开发者选项  已开启",
+          "usb": "USB 调试  已开启",
+          "wireless": "无线调试  未开启",
+          "selinux": "SELinux  模式无法确认"
+        },
+        "realSELinux": "Enforcing"
+      }
+    },
+    "V02-live-proxy": {
+      "status": "passed",
+      "evidence": {
+        "configuredThenRemovedWithoutRestart": true,
+        "configuredReading": "网络代理  已配置"
+      }
+    },
+    "V03-live-vpn": {
+      "status": "passed",
+      "evidence": {
+        "realVpnCreatedAndStopped": true,
+        "readings": {
+          "vpn": "VPN  已开启",
+          "proxy": "网络代理  未配置",
+          "developer": "开发者选项  已开启",
+          "usb": "USB 调试  已开启",
+          "wireless": "无线调试  未开启",
+          "selinux": "SELinux  模式无法确认"
+        }
+      }
+    },
+    "V04-shielded-readings": {
+      "status": "passed",
+      "evidence": {
+        "readings": {
+          "vpn": "VPN  未开启",
+          "proxy": "网络代理  未配置",
+          "developer": "开发者选项  未开启",
+          "usb": "USB 调试  未开启",
+          "wireless": "无线调试  未开启",
+          "selinux": "SELinux  强制执行"
+        },
+        "realDeveloper": "1",
+        "realSELinux": "Enforcing"
+      }
+    },
+    "V05-real-screenshot-session": {
+      "status": "passed",
+      "evidence": {
+        "realSystemUICaptures": 2,
+        "summaryCount": 2,
+        "officialAndBinderSignalsAtLeast": 4
+      }
+    },
+    "I04-profile-isolation": {
+      "status": "passed",
+      "evidence": {
+        "freshUserDefaultOff": true,
+        "perUserIsolation": true,
+        "testUserRemoved": true
+      }
+    },
+    "V06-rotation-background-clear": {
+      "status": "passed",
+      "evidence": {
+        "preservedCount": 2,
+        "restart": true,
+        "clearLog": true,
+        "background": true,
+        "rotation": true
+      }
+    },
+    "V07-fresh-session": {
+      "status": "passed",
+      "evidence": {
+        "coldStartZero": true,
+        "newPageZero": true
+      }
+    },
+    "V08-font-size": {
+      "status": "passed",
+      "evidence": {
+        "fontScale": 1.3,
+        "summaryAndDiagnosticsVisible": true
+      }
+    },
+    "V11-locales": {
+      "status": "passed",
+      "evidence": {
+        "zh-Hans": {
+          "summary": true,
+          "icon": true
+        },
+        "zh-Hant": {
+          "summary": true,
+          "icon": true
+        },
+        "en": {
+          "summary": true,
+          "icon": true
+        },
+        "ja": {
+          "summary": true,
+          "icon": true
+        }
+      }
+    },
+    "I99-restored": {
+      "status": "passed",
+      "evidence": {
+        "originalApks": true,
+        "scopes": true,
+        "settings": true,
+        "prefs": true,
+        "SELinuxUnchanged": true,
+        "vpnStopped": true
+      }
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.3.1.apk": "1eeacdfe8cbffb4e8aca35df338c0d1846d91cb56d0afa1fbac34f9b8ac624a9",
+    "AppStateVerifier-0.3.1.apk": "36d6e61cc477d0ed792ceac5112adc1b20c8d8e9eec11df6f93b6e5917617fd8"
+  },
+  "previousRuns": {
+    "I01-default-off-upgrade": [
+      {
+        "status": "passed",
+        "evidence": {
+          "defaultOff": true,
+          "upgradedFrom": "0.3.0"
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "defaultOff": true,
+          "upgradedFrom": "0.3.0"
+        }
+      }
+    ],
+    "I02-enable-open-upgrade": [
+      {
+        "status": "passed",
+        "evidence": {
+          "launcherOpensSettings": true,
+          "survivesColdStartAndUpgrade": true
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "launcherOpensSettings": true,
+          "survivesColdStartAndUpgrade": true
+        }
+      }
+    ],
+    "I03-disable-vector-entry": [
+      {
+        "status": "passed",
+        "evidence": {
+          "hidden": true,
+          "vectorSettingsOpen": true,
+          "upgradeKeepsOff": true
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "hidden": true,
+          "vectorSettingsOpen": true,
+          "upgradeKeepsOff": true
+        }
+      }
+    ],
+    "V01-observed-baseline": [
+      {
+        "status": "failed",
+        "error": "AssertionError('True developer/USB baseline missing')"
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "readings": {
+            "vpn": "VPN  未开启",
+            "proxy": "网络代理  未配置",
+            "developer": "开发者选项  已开启",
+            "usb": "USB 调试  已开启",
+            "wireless": "无线调试  未开启",
+            "selinux": "SELinux  宽容模式"
+          },
+          "realSELinux": "Enforcing"
+        }
+      }
+    ],
+    "I04-profile-isolation": [
+      {
+        "status": "failed",
+        "error": "AssertionError('Per-user launcher state leaked')"
+      }
+    ],
+    "V02-live-proxy": [
+      {
+        "status": "passed",
+        "evidence": {
+          "configuredThenRemovedWithoutRestart": true,
+          "configuredReading": "网络代理  已配置"
+        }
+      }
+    ],
+    "V03-live-vpn": [
+      {
+        "status": "passed",
+        "evidence": {
+          "realVpnCreatedAndStopped": true,
+          "readings": {
+            "vpn": "VPN  已开启",
+            "proxy": "网络代理  未配置",
+            "developer": "开发者选项  已开启",
+            "usb": "USB 调试  已开启",
+            "wireless": "无线调试  未开启",
+            "selinux": "SELinux  宽容模式"
+          }
+        }
+      }
+    ],
+    "V04-shielded-readings": [
+      {
+        "status": "passed",
+        "evidence": {
+          "readings": {
+            "vpn": "VPN  未开启",
+            "proxy": "网络代理  未配置",
+            "developer": "开发者选项  未开启",
+            "usb": "USB 调试  未开启",
+            "wireless": "无线调试  未开启",
+            "selinux": "SELinux  强制执行"
+          },
+          "realDeveloper": "1",
+          "realSELinux": "Enforcing"
+        }
+      }
+    ],
+    "V05-real-screenshot-session": [
+      {
+        "status": "failed",
+        "error": "AssertionError('Missing UI control: session-screenshots')"
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "realSystemUICaptures": 2,
+          "summaryCount": 2,
+          "officialAndBinderSignalsAtLeast": 4
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "realSystemUICaptures": 2,
+          "summaryCount": 2,
+          "officialAndBinderSignalsAtLeast": 4
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "realSystemUICaptures": 2,
+          "summaryCount": 2,
+          "officialAndBinderSignalsAtLeast": 4
+        }
+      }
+    ],
+    "V06-rotation-background-clear": [
+      {
+        "status": "failed",
+        "error": "AssertionError('Missing UI control: restart')"
+      },
+      {
+        "status": "failed",
+        "error": "AssertionError('Restart control is not reachable in the diagnostic scroll')"
+      },
+      {
+        "status": "failed",
+        "error": "AssertionError('Background reset session')"
+      },
+      {
+        "status": "failed",
+        "error": "AssertionError('Background task did not preserve the session')"
+      }
+    ]
+  }
+}

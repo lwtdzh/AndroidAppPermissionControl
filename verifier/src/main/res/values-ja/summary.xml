@@ -1,0 +1,25 @@
+<resources>
+    <string name="summary_screenshots">今回の起動 · スクリーンショット %1$d 回（推定）</string>
+    <string name="summary_count_notice">同じ撮影の信号をまとめます。この画面が前面にある間のみ計測します。</string>
+    <string name="summary_last_screenshot">最終検出 %1$s · 信号をまとめた推定値。背景では計測しません</string>
+    <string name="summary_vpn">VPN</string>
+    <string name="summary_proxy">プロキシ</string>
+    <string name="summary_developer">開発者向け設定</string>
+    <string name="summary_usb">USB デバッグ</string>
+    <string name="summary_wireless">無線デバッグ</string>
+    <string name="summary_selinux">SELinux</string>
+    <string name="summary_on">オン</string>
+    <string name="summary_off">オフ</string>
+    <string name="summary_unknown">取得できません</string>
+    <string name="summary_reading">取得中…</string>
+    <string name="summary_configured">設定済み</string>
+    <string name="summary_not_configured">未設定</string>
+    <string name="summary_enforcing">強制モード</string>
+    <string name="summary_permissive">許容モード</string>
+    <string name="summary_selinux_unconfirmed">モード未確認</string>
+    <string name="summary_waiting">撮影の監視を準備中…</string>
+    <string name="summary_no_listener">準備済みの入口がありません。0 回だけでは遮断を確認できません。</string>
+    <string name="summary_listeners">%1$d 個の入口を監視中 · 0 回でも権限と基準の確認が必要です</string>
+    <string name="summary_shielded">2 秒ごとにアプリの読み取りを更新。モジュールが適用され、表示は遮断の影響を受けます。</string>
+    <string name="summary_observed">2 秒ごとにアプリの読み取りを更新。モジュールの適用は検出されません。</string>
+</resources>

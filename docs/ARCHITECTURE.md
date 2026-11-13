@@ -1,12 +1,12 @@
 # 应用状态屏蔽 · 整合设计
 
-本次整合名称为“应用状态屏蔽”，英文名 AppStateShield，当前版本 0.3.0。目标是让 Vector 作用域内的应用读不到指定系统状态，同时保留用户实际使用的系统功能。
+本次整合名称为“应用状态屏蔽”，英文名 AppStateShield，当前版本 0.3.1。目标是让 Vector 作用域内的应用读不到指定系统状态，同时保留用户实际使用的系统功能。
 
 ## 项目与应用
 
 根目录成为一个 Gradle 工程，只保留一个 wrapper。`:app` 构建整合模块，`:verifier` 构建保留的验证应用。旧的按能力拆分的独立工程移除；历史验证记录归入 `verification/legacy/`。脚本统一在 `scripts/`，人工测试手册在 `docs/TEST-MANUAL.md`。
 
-主模块包名为 `io.github.lwtdzh.appstateshield`，仅注册 Vector 的 MODULE_SETTINGS/INFO 入口，没有 LAUNCHER 入口。验证应用保留 `io.github.lwtdzh.screenshotdetector` 的包名和签名身份，升级为通用状态验证入口；原来的截图监听、截图低层 Probe 和设备状态 Probe 都进入同一个 APK。
+主模块包名为 `io.github.lwtdzh.appstateshield`，保留 Vector 的 MODULE_SETTINGS/INFO 入口。0.3.1 增加默认 disabled 的 Launcher activity-alias，目标仍为 SettingsActivity；首页图标开关通过 PackageManager 设置当前 Android 用户的组件状态，不写入屏蔽策略，也不改变 Vector 作用域。开启后可供桌面和分身工具发现；工具的分身支持需另行确认。验证应用保留 `io.github.lwtdzh.screenshotdetector` 的包名和签名身份；原来的截图监听、截图低层 Probe 和设备状态 Probe 都进入同一个 APK。
 
 验证工程的 debug flavors 生成 A/B 测试目标，使用同一份源代码和独立 package/UID，供多应用配置检查使用。正式交付只需要整合模块与主验证 APK。
 
@@ -45,6 +45,10 @@ SELinux 的 native 入口使用与 0.2.1 相同的两类 ARM64 跳转识别，�
 截图方法在注册 MediaStore observer 时保存可见普通行的元数据快照。系统通知没有图片 ID 时，只有普通行实际新增、删除或修改才放行；仅截图变化不会改变该快照。快照查询失败或无权限时仍抑制不明通知。普通行很多时，集合通知会增加一次元数据查询的成本；没有扫描图片内容。嵌套 dispatchChange 只在最外层判断，避免同一次通知被重复比较后误拦截。
 
 ## 设置交互
+
+验证器首页的 ObservedState 只读取 ConnectivityManager、Settings.Global 和 SELinux API/enforce 文件，每 2 秒在后台线程刷新，页面退出前台后停止轮询。它不调用包含代理请求、文件写入等测试夹具的完整 Probe。异常单独显示无法读取，模块注入提示与状态值同时可见。SELinux 优先使用 enforce 文件的实际 0/1；文件不可读时，Java API 的 false 可能来自 security_getenforce 失败，显示“模式无法确认”，不能据此断言 Permissive。
+
+ScreenshotSession 与传统来源信号计数分开。相同文件路径和相同 MediaStore ID去重；不同入口的信号在 2 秒窗口内合并，重复官方回调、同一入口的不同图片仍增加次数。无身份的重复浮层信号在窗口内合并，因此截图次数标为估算。最近身份最多保留 1024 个，超过后淘汰最旧项。保存状态时序列化会话以保留旋转/进程重建期间的次数和去重信息；后台不新增信号，清空日志或重启监听不重置会话，新页面/冷启动使用新会话。
 
 模块页显示默认策略、定制列表与“添加应用”。应用选择支持按名称/包名搜索和系统应用筛选。应用详情显示每种方法的用途、开关和保存按钮；添加应用时默认全部开启。
 

@@ -1,0 +1,25 @@
+<resources>
+    <string name="summary_screenshots">本次開啟 · 偵測到 %1$d 次截圖（估算）</string>
+    <string name="summary_count_notice">同一截圖的多入口訊號合併；僅統計本頁在前台期間。</string>
+    <string name="summary_last_screenshot">最近一次 %1$s · 多入口合併估算，背景不統計</string>
+    <string name="summary_vpn">VPN</string>
+    <string name="summary_proxy">網路代理</string>
+    <string name="summary_developer">開發人員選項</string>
+    <string name="summary_usb">USB 偵錯</string>
+    <string name="summary_wireless">無線偵錯</string>
+    <string name="summary_selinux">SELinux</string>
+    <string name="summary_on">已開啟</string>
+    <string name="summary_off">未開啟</string>
+    <string name="summary_unknown">無法讀取</string>
+    <string name="summary_reading">讀取中…</string>
+    <string name="summary_configured">已設定</string>
+    <string name="summary_not_configured">未設定</string>
+    <string name="summary_enforcing">強制執行</string>
+    <string name="summary_permissive">寬容模式</string>
+    <string name="summary_selinux_unconfirmed">模式無法確認</string>
+    <string name="summary_waiting">正在準備截圖監聽…</string>
+    <string name="summary_no_listener">暫無就緒入口；0 次不能證明截圖被屏蔽。</string>
+    <string name="summary_listeners">%1$d 個入口就緒 · 0 次仍需結合權限和基線判斷</string>
+    <string name="summary_shielded">每 2 秒更新本應用讀到的狀態；已注入模組，讀數可能經過屏蔽。</string>
+    <string name="summary_observed">每 2 秒更新本應用讀到的狀態；未偵測到模組注入。</string>
+</resources>
