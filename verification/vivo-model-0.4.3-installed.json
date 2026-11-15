@@ -1,0 +1,23 @@
+{
+  "installed": {
+    "io.github.lwtdzh.appstateshield": {
+      "version": "0.4.3",
+      "sha256": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529"
+    },
+    "io.github.lwtdzh.screenshotdetector": {
+      "version": "0.4.3",
+      "sha256": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+    }
+  },
+  "preferencesPreserved": true,
+  "vectorPreserved": true,
+  "uidsPreserved": true,
+  "previousPermissionsPreserved": true,
+  "androidUserAndCloneStatesPreserved": true,
+  "startupAccepted": {
+    "io.github.lwtdzh.appstateshield": true,
+    "io.github.lwtdzh.screenshotdetector": true
+  },
+  "model": "V2419A",
+  "completedAtUTC": "2026-11-13T16:43:55.524945+00:00"
+}

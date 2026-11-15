@@ -20,11 +20,12 @@ public final class IntegratedEntry implements IXposedHookLoadPackage {
                 Context context = (Context) p.args[0];
                 String[] disabled = null;
                 boolean loaded = false;
+                String device = null;
                 try {
                     Bundle policy = context.getContentResolver().call(Uri.parse("content://" + PolicyProvider.AUTHORITY),
                         "read", context.getPackageName(), null);
                     if (policy == null || !policy.containsKey("disabled")) throw new IllegalStateException();
-                    disabled = policy.getStringArray("disabled"); loaded = true;
+                    disabled = policy.getStringArray("disabled"); device = policy.getString("device"); loaded = true;
                 } catch (Throwable error) {
                     Log.w("AppStateShield", "Policy unavailable; using all enabled: " + error.getClass().getSimpleName());
                 }
@@ -39,10 +40,13 @@ public final class IntegratedEntry implements IXposedHookLoadPackage {
                     new io.github.lwtdzh.developerstateshield.DeveloperModule().handleLoadPackage(load));
                 if (RuntimePolicy.enabled("selinux")) install(() ->
                     io.github.lwtdzh.selinuxstateshield.SelinuxModule.install(load.classLoader));
+                final String initialDevice = device;
+                install(() -> DeviceRuntime.start((Application)p.thisObject, context, load.classLoader, initialDevice));
                 final boolean fromProvider = loaded;
                 // The verifier reports injection separately from system observations.
-                Class<?> status = XposedHelpers.findClassIfExists(
-                    "io.github.lwtdzh.screenshotdetector.ModuleStatus", load.classLoader);
+                Class<?> status = VerifierIdentity.trusted(context,load.packageName)
+                    ? XposedHelpers.findClassIfExists(
+                        "io.github.lwtdzh.screenshotdetector.ModuleStatus", load.classLoader) : null;
                 if (status != null) XposedBridge.hookAllMethods(status, "snapshot", new XC_MethodHook() {
                     @Override protected void beforeHookedMethod(MethodHookParam h) {
                         Bundle marker = new Bundle();
@@ -50,6 +54,7 @@ public final class IntegratedEntry implements IXposedHookLoadPackage {
                         marker.putBoolean("policyLoaded", fromProvider);
                         marker.putStringArray("enabled", RuntimePolicy.enabledIds());
                         marker.putBoolean("futureMethodEnabled", RuntimePolicy.enabled("future-test-method"));
+                        marker.putAll(DeviceRuntime.status());
                         h.setResult(marker);
                     }
                 });

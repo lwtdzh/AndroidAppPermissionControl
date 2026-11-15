@@ -22,3 +22,11 @@ verification/selinux-0.3.0-test.log
 verification/0.3.0/pretest-state.json
 verification/0.3.0/integration-preservation.json
 verification/0.3.0/*.png
+# Runtime/build output stays in local delivery packages; reviewed reports and test fixtures remain versioned.
+verification/*.log
+verification/*-maps.txt
+verification/*-defined-classes.txt
+verification/ruru-*-disassembly.txt
+verification/property-object-executor-before-*.py
+# Raw physical-device observations can contain identifiers; preset sources retain only public model parameters.
+verification/model-observed-*.json

@@ -1,0 +1,29 @@
+{
+  "moduleVersion": "0.4.9",
+  "verifierVersion": "0.4.7",
+  "signingIdentityPreserved": true,
+  "nativeLibrariesUnchanged": true,
+  "runtimeTestsRun": false,
+  "artifacts": {
+    "AppStateShield-0.4.9.apk": {
+      "sha256": "8da59f853f1a45e0a0eee8cb34c2d70dfcf752dd408192b710c450cc728c3b6b",
+      "bytes": 8063780
+    },
+    "AppStateShield-0.4.9-source.zip": {
+      "sha256": "b48effd69f3e606ccadbf247f6a1ff6b23aad59414dd7d3469700b40d0371754",
+      "bytes": 624733
+    },
+    "AppStateShield-0.4.9-更新说明.md": {
+      "sha256": "30dfe1c1a683c3837dcfcf2ec0c5ce6ee9c67645629e4db4e7611875dd4dfccf",
+      "bytes": 479
+    },
+    "AppStateShield-0.4.9-SHA256SUMS.txt": {
+      "sha256": "93c41eccac52b8b8d85a731d8e521574cefcb726e1f0758742670ae396ba6eef",
+      "bytes": 292
+    },
+    "AppStateShield-0.4.9-delivery.zip": {
+      "sha256": "2b6e79a16fd8c650c1b5bca1f01229e012f42870a2e81692a2b3eb7efc5df82f",
+      "bytes": 3598033
+    }
+  }
+}

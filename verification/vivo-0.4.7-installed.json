@@ -1,0 +1,23 @@
+{
+  "installed": {
+    "io.github.lwtdzh.appstateshield": {
+      "version": "0.4.7",
+      "sha256": "62c3d15f2924239879102c342a071055b292a964d5a174765418af842690d6ee",
+      "previousVersion": "0.4.3"
+    },
+    "io.github.lwtdzh.screenshotdetector": {
+      "version": "0.4.7",
+      "sha256": "c04424ba15dd223e31b96c6641c1dc98e5774acc1400e3141d8ee06550a19454",
+      "previousVersion": "0.4.3"
+    }
+  },
+  "preferencesPreserved": true,
+  "vectorPreserved": true,
+  "uidsPreserved": true,
+  "previousPermissionsPreserved": true,
+  "androidUserAndCloneStatesPreserved": true,
+  "realSELinuxModePreserved": true,
+  "model": "vivo X200 Pro mini / V2419A",
+  "sdk": 36,
+  "completedAtUTC": "2026-11-14T05:33:48.682821+00:00"
+}

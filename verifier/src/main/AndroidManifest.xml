@@ -3,9 +3,18 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-    <queries><provider android:authorities="io.github.lwtdzh.appstateshield.policy" /></queries>
+    <queries>
+        <provider android:authorities="io.github.lwtdzh.appstateshield.policy" />
+        <provider android:authorities="com.vivo.vms.IdProvider" />
+    </queries>
     <uses-permission android:name="android.permission.DETECT_SCREEN_CAPTURE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
@@ -17,6 +26,10 @@
             android:exported="false" />
         <activity android:name="io.github.lwtdzh.screenshotprobe.ProbeActivity" android:exported="true" />
         <activity android:name="io.github.lwtdzh.devicestateprobe.ProbeActivity" android:exported="true" />
+        <activity android:name=".DeviceActivity" android:exported="true" />
+        <service android:name=".PhoneReadService" android:exported="false" android:process=":phone_reads" />
+        <activity android:name=".DeviceProcessActivity" android:exported="true" android:process=":device"
+            android:permission="android.permission.DUMP" />
         <activity android:name=".FixtureActivity" android:exported="true"
             android:permission="android.permission.DUMP" />
         <service android:name="io.github.lwtdzh.devicestateprobe.ProbeVpnService" android:process=":vpn"

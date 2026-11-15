@@ -7,11 +7,16 @@ import os
 import pathlib
 import time
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
+from test_evidence import case_inputs
 from test_device import Device, METHODS, MODULE, PRIMARY
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-OUT = ROOT / "verification"
-STATE = pathlib.Path.home() / "Library/Application Support/ScreenshotShield/selinux-0.3.0"
+VERSION = os.environ.get("APPSTATE_TEST_VERSION", "0.3.0")
+ARTIFACTS = ROOT / "verification"
+OUT = pathlib.Path(os.environ.get("APPSTATE_TEST_OUTPUT", ARTIFACTS))
+STATE = pathlib.Path(os.environ.get("APPSTATE_TEST_STATE",
+    pathlib.Path.home() / ("Library/Application Support/ScreenshotShield/selinux-" + VERSION)))
 PREF = "/data/user/0/" + MODULE + "/shared_prefs/policies.xml"
 B = PRIMARY + ".samplea"
 C = PRIMARY + ".sampleb.screenshot"
@@ -27,21 +32,37 @@ def check(ok, message):
 class Run:
     def __init__(self):
         self.d = Device()
-        self.path = OUT / "selinux-0.3.0-results.json"
+        self.path = OUT / ("selinux-" + VERSION + "-results.json")
         self.policy_boxes = {}
         self.policy_save = None
+        self.policy_scrolls = 0
         self.enforcing_baseline = None
+        self.only = set()
+        self.started = time.monotonic()
+        self.input_metadata = None
         self.report = json.loads(self.path.read_text()) if self.path.exists() else {"cases": {}}
-        self.report["artifacts"] = {name: hashlib.sha256((OUT / name).read_bytes()).hexdigest()
-                                   for name in ("AppStateShield-0.3.0.apk", "AppStateVerifier-0.3.0.apk")}
+        self.prior_artifacts = self.report.get("artifacts", {}).copy()
+        self.report["artifacts"] = {name: hashlib.sha256((ARTIFACTS / name).read_bytes()).hexdigest()
+                                   for name in ("AppStateShield-"+VERSION+".apk", "AppStateVerifier-"+VERSION+".apk")}
 
     def case(self, name, action):
+        if not self.pending(name):
+            return self.report["cases"].get(name, {}).get("evidence")
         print("START " + name, flush=True)
+        started = time.monotonic()
+        stamp = datetime.now(timezone.utc).isoformat()
         try:
             evidence = action()
-            value = {"status": "passed", "evidence": evidence}
+            if self.input_metadata is None:
+                self.input_metadata = case_inputs(self.d, self.report["artifacts"])
+            value = {"status": "passed", "evidence": evidence, "artifacts":self.report["artifacts"].copy(),
+                     "startedAtUTC": stamp, "durationSeconds": round(time.monotonic() - started, 3),
+                     **self.input_metadata}
         except Exception as error:
-            value = {"status": "failed", "error": repr(error)}
+            value = {"status": "failed", "error": repr(error), "startedAtUTC": stamp,
+                     "durationSeconds": round(time.monotonic()-started, 3)}
+            if name in self.report["cases"]:
+                self.report.setdefault("previousRuns", {}).setdefault(name, []).append(self.report["cases"][name])
             self.report["cases"][name] = value
             self.save()
             raise
@@ -50,6 +71,47 @@ class Run:
         self.report["cases"][name] = value
         self.save()
         print("PASS " + name, flush=True)
+        return evidence
+
+    def pending(self, name):
+        if self.only and name not in self.only:
+            return False
+        row = self.report["cases"].get(name, {})
+        if row.get("status") == "passed" and row.get("artifacts") == self.report["artifacts"]:
+            marker = row.get("evidence", {}).get("module", {}) if isinstance(row.get("evidence"), dict) else {}
+            if (name.startswith("M6-") and getattr(self, "resume_revision", None) is not None and
+                    marker.get("deviceRevision") != self.resume_revision):
+                return True
+            print("KEEP verified " + name, flush=True)
+            return False
+        if time.monotonic() - self.started > 1200:
+            raise RuntimeError("20-minute execution budget reached; preserve results and inspect durations")
+        return True
+
+    def validate_setup(self):
+        """Resume requires installed bytes, original snapshot and live fixtures."""
+        d = self.d
+        check((STATE / "state.json").exists(), "Original regression snapshot is missing")
+        installed = {}
+        for pkg, name in [(MODULE, "AppStateShield-"+VERSION+".apk"),
+                          (PRIMARY, "AppStateVerifier-"+VERSION+".apk"),
+                          (B, "Verifier-A-"+VERSION+".apk"), (C, "Verifier-B-"+VERSION+".apk")]:
+            path = d.shell("pm", "path", pkg).splitlines()[0].removeprefix("package:")
+            installed[pkg] = d.shell("sha256sum", path).split()[0]
+            check(installed[pkg] == hashlib.sha256((ARTIFACTS / name).read_bytes()).hexdigest(),
+                  "Installed artifact differs: " + pkg)
+        check("tun0" in d.shell("ip", "link", "show"), "Resume VPN fixture is missing")
+        for key in ("hidden_api_policy", "development_settings_enabled", "adb_enabled"):
+            check(d.shell("settings", "get", "global", key) == "1", "Resume baseline differs: " + key)
+        check(d.shell("cat", FIXTURE + "/ordinary_control.txt") == "0", "Resume ordinary fixture differs")
+        check(d.shell("cat", FIXTURE + "/Screenshot_control.txt") == "0", "Resume screenshot fixture differs")
+        baseline = self.report["cases"].get("D17-uninjected-enforcing", {})
+        if baseline.get("artifacts") == self.report["artifacts"] and baseline.get("status") == "passed":
+            self.enforcing_baseline = baseline["evidence"]
+        self.report.setdefault("executions", []).append({
+            "startedAtUTC": datetime.now(timezone.utc).isoformat(),
+            "resume": True, "installedSha256": installed, "setupVerified": True})
+        self.save()
 
     def save(self):
         self.path.write_text(json.dumps(self.report, ensure_ascii=False, indent=2) + "\n")
@@ -88,9 +150,9 @@ class Run:
     def prepare(self):
         d = self.d
         check((STATE / "state.json").exists(), "Capture the original state before installation")
-        for pkg, name in [(MODULE, "AppStateShield-0.3.0.apk"), (PRIMARY, "AppStateVerifier-0.3.0.apk"),
-                          (B, "Verifier-A-0.3.0.apk"), (C, "Verifier-B-0.3.0.apk")]:
-            d.adb("install", "--no-incremental", "-r", str(OUT / name))
+        for pkg, name in [(MODULE, "AppStateShield-"+VERSION+".apk"), (PRIMARY, "AppStateVerifier-"+VERSION+".apk"),
+                          (B, "Verifier-A-"+VERSION+".apk"), (C, "Verifier-B-"+VERSION+".apk")]:
+            d.adb("install", "--no-incremental", "-r", str(ARTIFACTS / name))
         for m in d.cli("modules", "ls"):
             for pkg in TARGETS:
                 d.scope(m["PACKAGE"], pkg, False)
@@ -170,6 +232,9 @@ class Run:
             check(value[key] == (0 if injected and method in enabled else 1), key + " independence differs")
         check(value["adbd"] == ("stopped" if injected and "debug" in enabled else "running"), "Debug property differs")
         check(value["tunByName"] is (not (injected and "vpn" in enabled)), "VPN independence differs")
+        check(value["legacyVpnAvailable"] is True, "Supported legacy VPN information disappeared")
+        check(value["legacyVpnConnected"] is (not (injected and "vpn" in enabled)),
+              "Legacy VPN connection state differs")
         check(("tun0" in value["nativeState"]["interfaces"]) is (not (injected and "vpn" in enabled)),
               "Native VPN independence differs")
         for key in ("hostVisible", "portVisible", "bulkHostVisible"):
@@ -188,83 +253,92 @@ class Run:
         return value
 
     def policy(self, pkg, enabled):
-        """Use the real editor, caching measured coordinates only while its layout is unchanged."""
+        """Use fresh element bounds and edit only the switches that changed."""
         d = self.d
-        if self.policy_boxes and self.policy_save and pkg == PRIMARY:
+        if hasattr(self,"current_enabled") and pkg == PRIMARY:
             d.shell("am", "start", "-W", "-n", MODULE + "/.SettingsActivity")
             d.click("custom:" + pkg)
-            # Measured bounds are reused within this same test session, not across
-            # rotation/font/locale changes; the saved policy is checked after every edit.
-            current = self.current_enabled
-            for key in set(enabled) ^ current:
-                x, y = self.policy_boxes[key]
-                d.shell("input", "tap", x, y)
-            d.shell("input", "tap", *self.policy_save)
+            for key in sorted(set(enabled) ^ self.current_enabled):
+                node=d.find("method:"+key,scroll=True)
+                if (node.get("checked")=="true") != (key in enabled):d.tap(node)
+            d.click("save")
             d.find("add-app")
             tree = ET.fromstring(d.shell("cat", PREF))
             saved = json.loads(tree.find("string[@name='apps']").text)
-            check(set(saved[pkg]) == set(METHODS) - set(enabled), "UI coordinates no longer match saved switches")
+            check(set(saved[pkg]) == set(METHODS) - set(enabled), "Saved switches differ from requested policy")
             self.current_enabled = set(enabled)
             return
         d.set_policy(pkg, enabled)
 
     def matrix(self):
         d = self.d
-        # Keep each iteration to measured UI actions. With the reduced test-only
-        # font scale all six native controls fit; restore the original in cleanup.
-        d.shell("settings", "put", "system", "font_scale", "0.85")
-        d.set_policy(PRIMARY, set())
-        d.home_settings()
-        d.click("custom:" + PRIMARY)
-        nodes = d.nodes()
-        boxes = {n.get("content-desc").split(":")[1]: d.center(n) for n in nodes
-                 if n.get("content-desc", "").startswith("method:")}
-        check(set(boxes) == set(METHODS), "Six controls must fit before caching measured coordinates")
-        self.policy_boxes = boxes
-        self.policy_save = d.center(next(n for n in nodes if n.get("content-desc") == "save"))
-        d.click("save")
-        self.current_enabled = set()
-        # Gray order changes one control at a time but every bit pattern is recorded.
+        if self.only and not any(name.startswith("M6-") for name in self.only):
+            return
+        layout = self.report["cases"].get("L14-matrix-editor-layout", {})
+        if layout.get("status") != "passed" or layout.get("artifacts") != self.report["artifacts"]:
+            # One real UI persistence check remains mandatory before bulk fixtures.
+            d.set_policy(PRIMARY, set())
+            self.case("L14-matrix-editor-layout", lambda: {"realUiSave": True,
+                "savedDisabled": json.loads(ET.fromstring(d.shell("cat", PREF))
+                    .find("string[@name='apps']").text)[PRIMARY]})
+        remaining = []
         for i in range(64):
             mask = i ^ (i >> 1)
             bits = format(mask, "06b")
             enabled = {key for key, bit in zip(METHODS, bits) if bit == "1"}
-            self.policy(PRIMARY, enabled)
+            if self.pending("M6-" + bits):
+                remaining.append((bits, enabled))
+        print("Matrix: " + str(len(remaining)) + " remaining, bulk configuration; expected 3–8 minutes", flush=True)
+        for bits, enabled in remaining:
+            d.batch_policy(PRIMARY, enabled)
             self.case("M6-" + bits, lambda enabled=enabled: self.sample(enabled))
         self.policy_boxes = {}
 
     def tests(self, matrix=True):
         d = self.d
-        d.shell("setenforce", "0")
-        check(d.shell("getenforce") == "Permissive", "A real permissive baseline is required")
-        d.scope(MODULE, PRIMARY, False)
-        self.case("L02-unscoped-permissive", lambda: self.sample(set(), injected=False))
-        d.scope(MODULE, PRIMARY, True)
-        for enabled, name in [(set(), "L03-all-off"), ({"selinux"}, "L04-selinux-only"), (set(METHODS), "L05-all-on")]:
-            d.set_policy(PRIMARY, enabled)
-            self.case(name, lambda enabled=enabled: self.sample(enabled))
-        # Changing mode while the test runs never changes anything on physical devices.
-        d.shell("setenforce", "1")
-        d.scope(MODULE, PRIMARY, False)
-        self.case("L06-enforcing-baseline", lambda: self.sample(set(), injected=False, mode="Enforcing"))
-        d.scope(MODULE, PRIMARY, True)
-        d.set_policy(PRIMARY, set())
-        self.case("L06-enforcing-all-off", lambda: self.sample(set(), mode="Enforcing"))
-        d.set_policy(PRIMARY, {"selinux"})
-        self.case("L07-enforcing-selinux-only", lambda: self.sample({"selinux"}, mode="Enforcing"))
-        d.shell("setenforce", "0")
+        self.validate_setup()
+        baseline = self.report["cases"].get("L06-enforcing-baseline", {})
+        if baseline.get("status") == "passed" and baseline.get("artifacts") == self.report["artifacts"]:
+            self.enforcing_baseline = baseline["evidence"]
+        modes = [
+            ("L02-unscoped-permissive", "Permissive", False, set()),
+            ("L03-all-off", "Permissive", True, set()),
+            ("L04-selinux-only", "Permissive", True, {"selinux"}),
+            ("L05-all-on", "Permissive", True, set(METHODS)),
+            ("L06-enforcing-baseline", "Enforcing", False, set()),
+            ("L06-enforcing-all-off", "Enforcing", True, set()),
+            ("L07-enforcing-selinux-only", "Enforcing", True, {"selinux"}),
+        ]
+        for name, mode, injected, enabled in modes:
+            if not self.pending(name):
+                continue
+            d.shell("setenforce", "1" if mode == "Enforcing" else "0")
+            check(d.shell("getenforce") == mode, "Real mode baseline is missing")
+            d.scope(MODULE, PRIMARY, injected)
+            if injected:
+                d.batch_policy(PRIMARY, enabled)
+            self.case(name, lambda mode=mode, injected=injected, enabled=enabled:
+                      self.sample(enabled, injected=injected, mode=mode))
         if matrix:
+            d.shell("setenforce", "0")
+            d.scope(MODULE, PRIMARY, True)
             self.matrix()
-        d.set_policy(PRIMARY, set(METHODS) - {"selinux"})
-        d.set_policy(B, {"selinux"})
-        self.case("L08-independent-A", lambda: self.sample(set(METHODS) - {"selinux"}))
-        self.case("L09-independent-B", lambda: self.sample({"selinux"}, B))
-        d.home_settings()
-        d.click("custom:" + PRIMARY, scroll=True)
-        d.click("remove-custom", scroll=True)
-        d.click("android:id/button1", "resource-id")
-        d.find("add-app")
-        self.case("L10-default-future-method", lambda: self.sample(set(METHODS)))
+        for name, pkg, enabled in [("L08-independent-A", PRIMARY, set(METHODS)-{"selinux"}),
+                                   ("L09-independent-B", B, {"selinux"})]:
+            if self.pending(name):
+                d.shell("setenforce", "0")
+                d.scope(MODULE, pkg, True)
+                d.batch_policy(pkg, enabled)
+                self.case(name, lambda pkg=pkg, enabled=enabled: self.sample(enabled, pkg))
+        if self.pending("L10-default-future-method"):
+            d.shell("setenforce", "0")
+            d.scope(MODULE, PRIMARY, True)
+            d.home_settings()
+            d.click("custom:" + PRIMARY, scroll=True)
+            d.click("remove-custom", scroll=True)
+            d.click("android:id/button1", "resource-id")
+            d.find("add-app")
+            self.case("L10-default-future-method", lambda: self.sample(set(METHODS)))
         def full_state():
             value = d.start_probe(PRIMARY)
             check(value["internet"] == 204, "Ordinary HTTPS failed")
@@ -335,6 +409,11 @@ class Run:
 
     def native(self):
         """Regression for the shared read wrappers, using the retained native probe."""
+        groups = [({"selinux"}, "selinux-only"), ({"screenshot"}, "screenshot-only"),
+                  (set(METHODS), "all-on")]
+        groups = [(enabled, label) for enabled, label in groups if self.pending("L13-native-" + label)]
+        if not groups:
+            return
         d = self.d
         directory = "/sdcard/Pictures/ShieldProbe"
         names = ["ordinary_probe.png", "Screenshot_probe.png"]
@@ -360,9 +439,8 @@ class Run:
         try:
             d.shell("screencap", "-p", directory + "/" + names[0])
             d.shell("cp", directory + "/" + names[0], directory + "/" + names[1])
-            for enabled, label in [({"selinux"}, "selinux-only"), ({"screenshot"}, "screenshot-only"),
-                                   (set(METHODS), "all-on")]:
-                d.set_policy(PRIMARY, enabled)
+            for enabled, label in groups:
+                d.batch_policy(PRIMARY, enabled)
                 def run(enabled=enabled):
                     value = d.start_probe(PRIMARY, "shot")
                     check("startup_error" not in value and "inspect_error" not in value, "Screenshot probe error")
@@ -386,13 +464,15 @@ class Run:
                 d.shell("rm", "-f", directory + "/" + name)
             if not existed:
                 d.shell("rmdir", directory)
-        d.set_policy(PRIMARY, set(METHODS))
+        d.batch_policy(PRIMARY, set(METHODS))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("phase", choices=["capture", "prepare", "smoke", "test", "native", "cleanup"])
+    parser.add_argument("--case", action="append", default=[])
     args = parser.parse_args()
     run = Run()
+    run.only = set(args.case)
     {"capture": run.capture, "prepare": run.prepare, "smoke": lambda: run.tests(False),
      "test": run.tests, "native": run.native, "cleanup": run.cleanup}[args.phase]()

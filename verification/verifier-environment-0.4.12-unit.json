@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "assertions": 5154,
+  "tool": "JDK 17 javac/java",
+  "cases": [
+    "modern RootOfTrust",
+    "legacy RootOfTrust without hash",
+    "absent RootOfTrust",
+    "duplicate RootOfTrust rejection",
+    "all truncations",
+    "trailing data",
+    "indefinite/nonminimal lengths",
+    "size bounds",
+    "null input",
+    "5000 deterministic malformed DER inputs",
+    "high tags and long-form lengths",
+    "RootOfTrust tag 704 distinct from attestationApplicationId tag 709"
+  ]
+}

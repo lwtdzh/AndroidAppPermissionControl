@@ -1,0 +1,34 @@
+{
+  "previousSourceSHA256": "c84203160e59b0e5003acc401756edaec2242e49f4952a9a7fd5b90f6f6f83c0",
+  "changedAppSources": [
+    "app/src/main/cpp/developerstate.cpp",
+    "app/src/main/cpp/devicestate.cpp",
+    "app/src/main/cpp/selinuxstate.cpp",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceRuntime.java"
+  ],
+  "changedSharedNative": [
+    "shared/native/property-read.h",
+    "shared/native/property-view.h"
+  ],
+  "unchangedPolicyAndAdapters": {
+    "app/src/main/java/io/github/lwtdzh/appstateshield/Methods.java": "07e80f68b9beb8ead5eb80da9e5da1c8f0798a1da1c7fb84e9e2e603af3ac5d9",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/RuntimePolicy.java": "c9e477cf6021302a7d486f682dc38a9fdf078b990074a5744c9b24135dfd2008",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/PolicyStore.java": "1319fccdfb5faa3881d855ac73edcda4a98c2d9c68da8cc555886e63cd801609",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/PolicyProvider.java": "82c2805ebf1a6219e1098250c1054c976bef77222c0eb706dc6e715c8833c2d3",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceHooks.java": "2fdcf34beaaacac667ebaf5937235031942e88354eb0e94f8344f1fb148692c7",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceStore.java": "d611041506e9098e4ec088212341cdeb69de74820870342dee7fb144858f4f55",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/VerifierIdentity.java": "2199c867f0a82559c3b3ea3d2c95f95b61e141f7998512f2b88749ee87323f83",
+    "app/src/main/cpp/shield.cpp": "76ebf3ccb9cac42160d3288fb4bac09a72cb513714a31c8a0f997b757645d135",
+    "app/src/main/cpp/vpnstate.cpp": "543e60032a4ba57539c51c317b3bf86b6300c2b0e6995e3aa131279ac84d7228"
+  },
+  "currentArtifacts": {
+    "AppStateShield-0.4.6.apk": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+    "AppStateVerifier-0.4.6.apk": "bfcdb84b85ab921eff577d904f7449a8e037fffcd5f8128f0ee8ec58a1850cc9"
+  },
+  "current64CombinationCases": true,
+  "historical0.4.5UnitAndUICasesNotReplayed": true,
+  "executors": {
+    "currentSHA256": "acc06354b85c153fe68e299e7de3d1f655a85d0d51c7ad8370676e2b2f5eff31",
+    "beforeRadioStallSHA256": "47ff02350926961a2f62c9aac2ae2165a49b40657c338dd540ff3bcaa51ab9eb"
+  }
+}

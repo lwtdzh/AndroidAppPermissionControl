@@ -3,3 +3,5 @@
 gradlew text eol=lf
 *.bat text eol=crlf
 *.jar binary
+# TSV rows retain empty latitude/longitude columns as trailing tabs.
+app/src/main/assets/china-regions.tsv whitespace=-blank-at-eol

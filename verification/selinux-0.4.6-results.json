@@ -1,0 +1,227 @@
+{
+  "cases": {
+    "L01-prepare": {
+      "status": "passed",
+      "evidence": {
+        "realVpn": true,
+        "realUsbDebug": true,
+        "fixture": "constructed file",
+        "installedSha256": {
+          "io.github.lwtdzh.appstateshield": "e224626b6f6acf8601da2dcf6c7204c7560e785c36232d5ebd68f0d0127fe5a1",
+          "io.github.lwtdzh.screenshotdetector": "9a041bedac29dc5ad3d0e5e2d1a8db32e3c10078255031ecf81292c1712e1b8b"
+        }
+      },
+      "artifacts": {
+        "AppStateShield-0.4.6.apk": "e224626b6f6acf8601da2dcf6c7204c7560e785c36232d5ebd68f0d0127fe5a1",
+        "AppStateVerifier-0.4.6.apk": "9a041bedac29dc5ad3d0e5e2d1a8db32e3c10078255031ecf81292c1712e1b8b"
+      },
+      "startedAtUTC": "2026-11-13T20:48:40.156509+00:00",
+      "durationSeconds": 0.181,
+      "buildInputsSHA256": "d2f11d0ba5ec6a5a9d2ed6750fa1c1d36c26349db97be95bc9a9feffda6462c4",
+      "apkPayloads": {
+        "AppStateShield": "0f4bcedbbbe18d04e7b2693b1d77284d1c6a86bdedc189bc7969f2640831ac5a",
+        "AppStateVerifier": "37589c0b067d277e73a4c003b371abb298fe377ea30017a649a6c679ed3506c1",
+        "Verifier-A": "58aa59208dc9ee6fa9d57f6fa5217c998631424aebdc1ed038c47c39715be24c",
+        "Verifier-B": "15d50d7229a06a0f6622437fe36d915d6c45f19d7d5c5bc685168bb1b047187b"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.4.6.apk": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+    "AppStateVerifier-0.4.6.apk": "bfcdb84b85ab921eff577d904f7449a8e037fffcd5f8128f0ee8ec58a1850cc9"
+  },
+  "lastProbe": {
+    "module": {
+      "policyLoaded": true,
+      "networkMode": "off",
+      "locationEnabled": false,
+      "enabled": [
+        "screenshot"
+      ],
+      "deviceHooks": 305,
+      "deviceNative": true,
+      "deviceRegion": "",
+      "deviceRevision": 1794604202802,
+      "futureMethodEnabled": true,
+      "deviceNativeObjects": true,
+      "injected": true,
+      "deviceSelected": [
+        "brand",
+        "manufacturer",
+        "model",
+        "device",
+        "product",
+        "board",
+        "hardware",
+        "release",
+        "incremental",
+        "fingerprint",
+        "density",
+        "serial"
+      ],
+      "deviceEnabled": true
+    },
+    "lifecycle": {
+      "attachBaseContext": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Object probe fixture",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794604202802,
+        "selinux": false
+      },
+      "providerOnCreate": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Object probe fixture",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794604202802,
+        "selinux": false
+      },
+      "applicationOnCreate": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Object probe fixture",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794604202802,
+        "selinux": false
+      }
+    },
+    "javaEnforced": false,
+    "javaEnabled": true,
+    "fileInputStream": "0",
+    "randomAccessFile": "0",
+    "nio": "0",
+    "channel": "0",
+    "native": {
+      "read": "0",
+      "eof": "0",
+      "pread": "0",
+      "pread64": "0",
+      "readv": "0",
+      "dup": "0",
+      "directSyscall": "0",
+      "badFd": "EBADF",
+      "fread": "0",
+      "freadPartial": "0",
+      "freadPartialItems": "0",
+      "fgets": "0",
+      "security_getenforce": "0",
+      "is_selinux_enabled": "1",
+      "contextAvailable": "true",
+      "ordinaryRead": "0",
+      "done": true
+    },
+    "developer": 1,
+    "debug": 1,
+    "adbd": "running",
+    "nativeState": {
+      "init.svc.adbd.get": "running",
+      "init.svc.adbd.read": "running",
+      "init.svc.adbd.callback": "running",
+      "sys.usb.config.get": "adb",
+      "sys.usb.config.read": "adb",
+      "sys.usb.config.callback": "adb",
+      "sys.usb.state.get": "adb",
+      "sys.usb.state.read": "adb",
+      "sys.usb.state.callback": "adb",
+      "service.adb.tcp.port.get": "",
+      "ro.build.version.sdk.get": "36",
+      "ro.build.version.sdk.read": "36",
+      "ro.build.version.sdk.callback": "36",
+      "interfaces": [
+        "dummy0",
+        "lo",
+        "tun0",
+        "wlan0"
+      ],
+      "listLifetimeOk": true,
+      "getpidOk": true,
+      "protectionLibraries": [
+        "libshield.so"
+      ]
+    },
+    "tunByName": true,
+    "proxyFixture": {
+      "hostVisible": true,
+      "portVisible": true,
+      "bulkHostVisible": true,
+      "ordinaryProperty": "Dalvik",
+      "configurator": "setHttpProxyConfiguration",
+      "selectedProxyTypes": [
+        "HTTP"
+      ],
+      "response": 204,
+      "actualHttpProxyUsed": true
+    },
+    "screenshotFixture": false,
+    "ordinaryFixture": true,
+    "bootPropertyDefault": "absent-control",
+    "bootProperty": ""
+  },
+  "executions": [
+    {
+      "startedAtUTC": "2026-11-13T20:52:20.794303+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "b492e67b2eb2911df7f97d80415e0b8c92d87348b74eca616d46f49ca8a8bd8f",
+        "io.github.lwtdzh.screenshotdetector": "9a041bedac29dc5ad3d0e5e2d1a8db32e3c10078255031ecf81292c1712e1b8b",
+        "io.github.lwtdzh.screenshotdetector.samplea": "68e9516afcaffb92868600f39a703442d0854d2c1cd7c98106b8995b06cf64a0",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "2b5d32710cb5e03065ad7315ad071a3cdcfd681ea5c7df28e15947ad71e644d1"
+      },
+      "setupVerified": true
+    },
+    {
+      "startedAtUTC": "2026-11-13T20:56:43.225546+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+        "io.github.lwtdzh.screenshotdetector": "9a041bedac29dc5ad3d0e5e2d1a8db32e3c10078255031ecf81292c1712e1b8b",
+        "io.github.lwtdzh.screenshotdetector.samplea": "68e9516afcaffb92868600f39a703442d0854d2c1cd7c98106b8995b06cf64a0",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "2b5d32710cb5e03065ad7315ad071a3cdcfd681ea5c7df28e15947ad71e644d1"
+      },
+      "setupVerified": true
+    },
+    {
+      "startedAtUTC": "2026-11-13T20:59:25.097861+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+        "io.github.lwtdzh.screenshotdetector": "bfcdb84b85ab921eff577d904f7449a8e037fffcd5f8128f0ee8ec58a1850cc9",
+        "io.github.lwtdzh.screenshotdetector.samplea": "70b04e4629341acae5baa1026da3923fcc6a6baa4146a1a6b18c0ce949ec6df6",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "015727f5e83407a21145df4d4861e6a6493c32ddc7128658eb340c3c1dc72277"
+      },
+      "setupVerified": true
+    },
+    {
+      "startedAtUTC": "2026-11-13T21:00:52.757253+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+        "io.github.lwtdzh.screenshotdetector": "bfcdb84b85ab921eff577d904f7449a8e037fffcd5f8128f0ee8ec58a1850cc9",
+        "io.github.lwtdzh.screenshotdetector.samplea": "70b04e4629341acae5baa1026da3923fcc6a6baa4146a1a6b18c0ce949ec6df6",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "015727f5e83407a21145df4d4861e6a6493c32ddc7128658eb340c3c1dc72277"
+      },
+      "setupVerified": true
+    },
+    {
+      "startedAtUTC": "2026-11-13T21:10:02.499662+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "47b5040d91153535688e2cfe484ecac3106eadcfc5b2069414fabd182414b8cb",
+        "io.github.lwtdzh.screenshotdetector": "bfcdb84b85ab921eff577d904f7449a8e037fffcd5f8128f0ee8ec58a1850cc9",
+        "io.github.lwtdzh.screenshotdetector.samplea": "70b04e4629341acae5baa1026da3923fcc6a6baa4146a1a6b18c0ce949ec6df6",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "015727f5e83407a21145df4d4861e6a6493c32ddc7128658eb340c3c1dc72277"
+      },
+      "setupVerified": true
+    }
+  ]
+}

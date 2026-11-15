@@ -1,0 +1,21 @@
+{
+  "personalIdentifiersExcluded": true,
+  "xiaomi-14": {
+    "marketingName": "Xiaomi 14 global",
+    "firmwareRepository": "https://github.com/Jiovanni-dump/xiaomi_houji_dump",
+    "commit": "d0218f10a72390912c6fff1517b71918243f2a52",
+    "buildPropertyFiles": ["system/system/build.prop", "system_ext/etc/build.prop", "vendor/build.prop", "odm/etc/build.prop", "product/etc/build.prop"],
+    "officialOTA": "https://cdnorg.d.miui.com/OS2.0.201.0.VNCMIXM/houji_global-ota_full-OS2.0.201.0.VNCMIXM-user-15.0-a6f5b7a87f.zip",
+    "metadataFingerprint": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+    "hardwareEvidence": "vendor_boot bootconfig: androidboot.hardware=qcom",
+    "bootOperationProof": "model-xiaomi-boot-source.json",
+    "display": {"width": 1200, "height": 2670, "ro.sf.lcd_density": 480},
+    "optionalMemoryAndStorage": {"ramGiB": 12, "storageGiB": 256, "automaticallySelected": false}
+  },
+  "vivo-x200-pro-mini": {
+    "marketingName": "vivo X200 Pro mini",
+    "captureMethod": "adb shell getprop; wm size; wm density (outside injected app processes)",
+    "capturedAtUTC": "2026-11-13T16:20:47.112192+00:00",
+    "source": "model-vivo-source.json"
+  }
+}

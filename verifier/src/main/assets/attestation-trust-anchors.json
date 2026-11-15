@@ -1,0 +1,24 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-11-15",
+  "source": "https://developer.android.com/privacy-and-security/security-key-attestation",
+  "rootListEndpoint": "https://android.googleapis.com/attestation/root",
+  "match": "SHA-256 of DER SubjectPublicKeyInfo",
+  "anchors": [
+    {
+      "name": "Google Hardware Attestation RSA",
+      "spkiSha256": "feb2ea7551ee316ed4bb443c8293b884dbfdea40b603ee3e4f4a897e4580fbae"
+    },
+    {
+      "name": "Google Key Attestation CA1 ECDSA (2026)",
+      "spkiSha256": "3ee44512a1af2beb39c889490c60ea3f82e43f5d5a5532f5ab9419f676cd07ec"
+    }
+  ],
+  "notes": [
+    "Public trust anchor fingerprints, never private keys.",
+    "RSA fingerprint covers previously issued root certificates sharing this public key.",
+    "ECDSA P-384 root is published by Android Developers for attestation signing beginning in 2026.",
+    "Unknown roots may be vendor roots; a missing Google match alone does not prove root or compromise.",
+    "Offline matching does not check certificate revocation and is not remote integrity verification."
+  ]
+}

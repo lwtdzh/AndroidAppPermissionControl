@@ -1,0 +1,333 @@
+{
+  "version": "0.4.12",
+  "model": "vivo V2419A",
+  "atUTC": "2026-11-15T05:33:55.493925+00:00",
+  "packages": {
+    "io.github.lwtdzh.appstateshield": {
+      "uid": "10469",
+      "version": "0.4.12",
+      "versionCode": 22,
+      "grantedPermissions": [
+        "android.permission.QUERY_ALL_PACKAGES",
+        "android.permission.RECEIVE_BOOT_COMPLETED"
+      ],
+      "sha256": "9abab57be155885e351ccd0c5f7325cc25e990ab0ea586b8b239deb5a9bc2224",
+      "previousVersion": "0.4.12",
+      "installed": true,
+      "addedNormalPermissions": []
+    },
+    "io.github.lwtdzh.screenshotdetector": {
+      "uid": "10455",
+      "version": "0.4.12",
+      "versionCode": 18,
+      "grantedPermissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.DETECT_SCREEN_CAPTURE",
+        "android.permission.FOREGROUND_SERVICE",
+        "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+        "android.permission.INTERNET",
+        "android.permission.READ_PHONE_STATE"
+      ],
+      "sha256": "8b9b5d7d2781b3e008b0b01a807b69cdfa2e985a1736fa67cd1064975d6968bb",
+      "previousVersion": "0.4.7",
+      "installed": true,
+      "addedNormalPermissions": []
+    }
+  },
+  "preserved": {
+    "configurationHashes": true,
+    "uid": true,
+    "grantedPermissions": true,
+    "vectorScopesAndEnabledState": true,
+    "realSELinuxMode": true
+  },
+  "environmentSummary": {
+    "pass": 16,
+    "warn": 10,
+    "unknown": 6,
+    "info": 6
+  },
+  "environmentChecks": [
+    {
+      "id": "rootFiles",
+      "label": "Su / Busybox / Root 文件",
+      "status": "UNKNOWN",
+      "value": "部分路径不可读",
+      "detail": "Java、libc stat 和直接 faccessat syscall 对照。权限拒绝不能证明文件不存在；不执行 su。\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+    },
+    {
+      "id": "injection.maps",
+      "label": "注入库 · maps",
+      "status": "PASS",
+      "value": "not found",
+      "detail": "只匹配已知框架库路径；不等同于 Native Detector 的全部扫描算法，也不检测隐藏/匿名映射。"
+    },
+    {
+      "id": "injection.linker",
+      "label": "注入库 · linker",
+      "status": "PASS",
+      "value": "not found",
+      "detail": "只匹配已知框架库路径；不等同于 Native Detector 的全部扫描算法，也不检测隐藏/匿名映射。"
+    },
+    {
+      "id": "property.ro.build.tags",
+      "label": "ro.build.tags",
+      "status": "PASS",
+      "value": "release-keys",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.build.type",
+      "label": "ro.build.type",
+      "status": "PASS",
+      "value": "user",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.debuggable",
+      "label": "ro.debuggable",
+      "status": "UNKNOWN",
+      "value": "缺失或不可读",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.secure",
+      "label": "ro.secure",
+      "status": "UNKNOWN",
+      "value": "缺失或不可读",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.vendor_dlkm.build.tags",
+      "label": "ro.vendor_dlkm.build.tags",
+      "status": "PASS",
+      "value": "release-keys",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.odm_dlkm.build.tags",
+      "label": "ro.odm_dlkm.build.tags",
+      "status": "PASS",
+      "value": "release-keys",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.system_dlkm.build.tags",
+      "label": "ro.system_dlkm.build.tags",
+      "status": "PASS",
+      "value": "release-keys",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.boot.verifiedbootstate",
+      "label": "ro.boot.verifiedbootstate",
+      "status": "WARN",
+      "value": "orange",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.boot.flash.locked",
+      "label": "ro.boot.flash.locked",
+      "status": "WARN",
+      "value": "0",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.boot.vbmeta.device_state",
+      "label": "ro.boot.vbmeta.device_state",
+      "status": "WARN",
+      "value": "unlocked",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "property.ro.boot.veritymode",
+      "label": "ro.boot.veritymode",
+      "status": "INFO",
+      "value": "enforcing",
+      "detail": "原生属性读数可受 Hook 影响；启动属性只作参考，应核对签名证明。"
+    },
+    {
+      "id": "buildTags",
+      "label": "Java Build.TAGS",
+      "status": "PASS",
+      "value": "release-keys",
+      "detail": "Java 构建字段也可受机型伪装影响。"
+    },
+    {
+      "id": "vpn",
+      "label": "VPN",
+      "status": "WARN",
+      "value": "已开启",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "proxy",
+      "label": "网络代理",
+      "status": "WARN",
+      "value": "已配置",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "developer",
+      "label": "开发者选项",
+      "status": "WARN",
+      "value": "已开启",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "usb",
+      "label": "USB 调试",
+      "status": "WARN",
+      "value": "已开启",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "wireless",
+      "label": "无线调试",
+      "status": "PASS",
+      "value": "未开启",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "selinux",
+      "label": "SELinux · Java",
+      "status": "UNKNOWN",
+      "value": "模式无法确认",
+      "detail": "当前应用实际读取；开启状态是可见信号，不能单独证明 Root。"
+    },
+    {
+      "id": "selinux.native",
+      "label": "SELinux · 原生文件",
+      "status": "UNKNOWN",
+      "value": "unknown:errno=13",
+      "detail": "只读 enforce 文件，不修改系统状态。"
+    },
+    {
+      "id": "debugger",
+      "label": "当前进程调试器",
+      "status": "PASS",
+      "value": "false",
+      "detail": "读取 Android Debug API；不检测全部 ptrace/内核追踪方式。"
+    },
+    {
+      "id": "modules",
+      "label": "可见 Xposed 模块",
+      "status": "PASS",
+      "value": "0",
+      "detail": "仅检查当前应用可查询的模块元数据；空列表不证明未安装框架。"
+    },
+    {
+      "id": "xposedClass",
+      "label": "Xposed Java 类",
+      "status": "PASS",
+      "value": "not found",
+      "detail": "本次类查询未发现；不代表没有其他注入方式。"
+    },
+    {
+      "id": "idAttestation",
+      "label": "设备 ID 证明能力",
+      "status": "INFO",
+      "value": "true",
+      "detail": "只读功能标记，不请求 IMEI、序列号等身份字段。"
+    },
+    {
+      "id": "strongboxFeature",
+      "label": "StrongBox 能力标记",
+      "status": "INFO",
+      "value": "false",
+      "detail": "默认生成普通 EC 证明密钥；未主动申请 StrongBox 密钥。"
+    },
+    {
+      "id": "attestation.chain",
+      "label": "证明链签名与有效期",
+      "status": "PASS",
+      "value": "true",
+      "detail": "离线逐级检查签名、签发者和有效期；尚未核对在线吊销列表或完整 PKIX 策略。"
+    },
+    {
+      "id": "attestation.root",
+      "label": "Google 证明根匹配",
+      "status": "PASS",
+      "value": "Google Key Attestation CA1 ECDSA (2026)",
+      "detail": "未知根可能是厂商根或测试根；不能据此单独判定 Root。公钥指纹清单：2026-11-15。"
+    },
+    {
+      "id": "attestation.challenge",
+      "label": "新生成证明的 Challenge",
+      "status": "PASS",
+      "value": "true",
+      "detail": "每次使用新的随机挑战，避免读取旧证明；挑战内容不写入日志。"
+    },
+    {
+      "id": "attestation.security",
+      "label": "证明安全级别",
+      "status": "INFO",
+      "value": "TrustedEnvironment (TEE)",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。"
+    },
+    {
+      "id": "attestation.keyMint",
+      "label": "Keymaster / KeyMint 安全级别",
+      "status": "INFO",
+      "value": "TrustedEnvironment (TEE)",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。"
+    },
+    {
+      "id": "attestation.boot.locked",
+      "label": "证明 deviceLocked",
+      "status": "WARN",
+      "value": "false",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。"
+    },
+    {
+      "id": "attestation.boot.state",
+      "label": "证明 verifiedBootState",
+      "status": "WARN",
+      "value": "Unverified",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。"
+    },
+    {
+      "id": "attestation.boot.key",
+      "label": "证明 verifiedBootKey",
+      "status": "WARN",
+      "value": "全零",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。 非零也不能单独证明生产启动链。"
+    },
+    {
+      "id": "attestation.boot.hash",
+      "label": "证明 verifiedBootHash",
+      "status": "INFO",
+      "value": "非零，长度 32",
+      "detail": "这是本地解析结果。未知根或无效链时，字段不能作为已受信任的事实。 非零也不能单独证明生产启动链。"
+    },
+    {
+      "id": "attestation.revocation",
+      "label": "证明吊销状态",
+      "status": "UNKNOWN",
+      "value": "未在线核验",
+      "detail": "检测器不联网、不调用 Play Integrity；本地 Hook 仍可能影响读取。"
+    },
+    {
+      "id": "attestation.cleanup",
+      "label": "临时证明密钥清理",
+      "status": "PASS",
+      "value": "true",
+      "detail": "仅删除本次随机别名；不导出私钥、证书或设备 ID。"
+    }
+  ],
+  "environmentModule": {
+    "policyLoaded": false,
+    "networkMode": "no_sim",
+    "locationEnabled": false,
+    "enabled": [],
+    "deviceRevision": 0,
+    "futureMethodEnabled": false,
+    "injected": false,
+    "deviceEnabled": false
+  },
+  "environmentVisible": true
+}

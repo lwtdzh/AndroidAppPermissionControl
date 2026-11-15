@@ -1,0 +1,421 @@
+{
+  "artifacts": {
+    "AppStateShield-0.4.0.apk": "4f434b9a3f8c847e297e22150e4c129e70566da7b8ef67f451b350257c4ba7a1",
+    "AppStateVerifier-0.4.0.apk": "fc96ec1fbe24aa1b60c98bbc610ea279d627a8cadbb67e19cbad4723af103b24",
+    "Verifier-A-0.4.0.apk": "057917b33906dbb890dabb5d0281692a92caea5b0c423f6f4b0ec093cd6034a0",
+    "Verifier-B-0.4.0.apk": "a9b2033db326212db085be4d64567912a44b9eac93fb00f9148256c586d3f49f"
+  },
+  "sample": {
+    "timestamp": 1794578108768,
+    "elapsed": 3432309,
+    "pid": 12046,
+    "package": "io.github.lwtdzh.screenshotdetector",
+    "module": {
+      "policyLoaded": true,
+      "enabled": [
+        "screenshot",
+        "vpn",
+        "proxy",
+        "developer",
+        "debug",
+        "selinux"
+      ],
+      "deviceHooks": 159,
+      "deviceNative": false,
+      "deviceRevision": 1794578108468,
+      "futureMethodEnabled": true,
+      "injected": true,
+      "deviceSelected": [
+        "aaid",
+        "accuracy",
+        "android_id",
+        "board",
+        "brand",
+        "bssid",
+        "bt_mac",
+        "cid",
+        "density",
+        "device",
+        "fingerprint",
+        "gaid",
+        "hardware",
+        "height",
+        "iccid",
+        "imei",
+        "imei2",
+        "imsi",
+        "incremental",
+        "lac",
+        "latitude",
+        "longitude",
+        "manufacturer",
+        "mcc",
+        "meid",
+        "mnc",
+        "model",
+        "oaid",
+        "operator",
+        "pci",
+        "phone",
+        "product",
+        "release",
+        "serial",
+        "signal",
+        "ssid",
+        "tac",
+        "vaid",
+        "width",
+        "wifi_mac"
+      ],
+      "deviceEnabled": false
+    },
+    "early": {
+      "attachBaseContext": {
+        "injected": true,
+        "developer": 0,
+        "debug": 0,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794578108468,
+        "selinux": true
+      },
+      "providerOnCreate": {
+        "injected": true,
+        "developer": 0,
+        "debug": 0,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794578108468,
+        "selinux": true
+      },
+      "applicationOnCreate": {
+        "injected": true,
+        "developer": 0,
+        "debug": 0,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1794578108468,
+        "selinux": true
+      }
+    },
+    "reads": {
+      "brand": {
+        "value": "Android",
+        "source": "Build.BRAND"
+      },
+      "manufacturer": {
+        "value": "unknown",
+        "source": "Build.MANUFACTURER"
+      },
+      "model": {
+        "value": "Android SDK built for arm64",
+        "source": "Build.MODEL"
+      },
+      "device": {
+        "value": "emu64a",
+        "source": "Build.DEVICE"
+      },
+      "product": {
+        "value": "sdk_phone64_arm64",
+        "source": "Build.PRODUCT"
+      },
+      "board": {
+        "value": "goldfish_arm64",
+        "source": "Build.BOARD"
+      },
+      "hardware": {
+        "value": "ranchu",
+        "source": "Build.HARDWARE"
+      },
+      "fingerprint": {
+        "value": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "source": "Build.FINGERPRINT"
+      },
+      "release": {
+        "value": "16",
+        "source": "Build.VERSION.RELEASE"
+      },
+      "incremental": {
+        "value": "13818094",
+        "source": "Build.VERSION.INCREMENTAL"
+      },
+      "serial": {
+        "error": "TimeoutException",
+        "source": "Build.getSerial"
+      },
+      "serial_static": {
+        "value": "unknown",
+        "source": "Build.SERIAL"
+      },
+      "android_id": {
+        "value": "b7a012c685f55dce",
+        "source": "Settings.Secure.getString"
+      },
+      "android_id_cursor": {
+        "value": "b7a012c685f55dce",
+        "source": "settings secure value-only cursor"
+      },
+      "oaid": {
+        "error": "SecurityException",
+        "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{19dee71 12046:io.github.lwtdzh.screenshotdetector/u0a163} (pid=12046, uid=10163) requires android.permission.DUMP or android.permission.DUMP",
+        "source": "vivo IdProvider query"
+      },
+      "vaid": {
+        "error": "SecurityException",
+        "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{19dee71 12046:io.github.lwtdzh.screenshotdetector/u0a163} (pid=12046, uid=10163) requires android.permission.DUMP or android.permission.DUMP",
+        "source": "vivo IdProvider query"
+      },
+      "aaid": {
+        "error": "SecurityException",
+        "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{19dee71 12046:io.github.lwtdzh.screenshotdetector/u0a163} (pid=12046, uid=10163) requires android.permission.DUMP or android.permission.DUMP",
+        "source": "vivo IdProvider query"
+      },
+      "xiaomi_oaid": {
+        "error": "ClassNotFoundException",
+        "detail": "com.android.id.impl.IdProviderImpl",
+        "source": "Xiaomi IdProviderImpl.getOAID"
+      },
+      "gaid": {
+        "error": "ClassNotFoundException",
+        "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+        "source": "Google AdvertisingIdClient (if SDK is present)"
+      },
+      "imei": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getImei(0)"
+      },
+      "imei2": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getImei(1)"
+      },
+      "device_id": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getDeviceId"
+      },
+      "meid": {
+        "value": null,
+        "source": "TelephonyManager.getMeid"
+      },
+      "imsi": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getSubscriberId"
+      },
+      "iccid": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getSimSerialNumber"
+      },
+      "phone": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getLine1Number"
+      },
+      "operator": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getNetworkOperatorName"
+      },
+      "mcc": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getNetworkOperator / MCC"
+      },
+      "mnc": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getNetworkOperator / MNC"
+      },
+      "lac": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getCellLocation.getLac"
+      },
+      "cid": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getCellLocation.getCid"
+      },
+      "tac": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "pci": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "lte_ci": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "lte_mcc": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "lte_mnc": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "signal": {
+        "error": "TimeoutException",
+        "source": "TelephonyManager.getAllCellInfo / LTE"
+      },
+      "wifi_mac": {
+        "value": "02:00:00:00:00:00",
+        "source": "WifiInfo.getMacAddress"
+      },
+      "ssid": {
+        "value": "\"AndroidWifi\"",
+        "source": "WifiInfo.getSSID"
+      },
+      "bssid": {
+        "value": "00:13:10:85:fe:01",
+        "source": "WifiInfo.getBSSID"
+      },
+      "java_macs": {
+        "value": {
+          "dummy0": "02:00:00:00:00:00",
+          "wlan0": "02:00:00:00:00:00"
+        },
+        "source": "NetworkInterface.getHardwareAddress"
+      },
+      "bt_mac": {
+        "value": "02:00:00:00:00:00",
+        "source": "BluetoothAdapter.getAddress"
+      },
+      "latitude": {
+        "value": null,
+        "source": "LocationManager.getLastKnownLocation(gps)"
+      },
+      "longitude": {
+        "value": null,
+        "source": "LocationManager.getLastKnownLocation(gps)"
+      },
+      "accuracy": {
+        "value": null,
+        "source": "LocationManager.getLastKnownLocation(gps)"
+      },
+      "drm_id": {
+        "error": "UnsupportedSchemeException",
+        "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-13 21:55:10.258 I No hidl drm factories found\n  11-13 21:55:10.258 W Failed to find passthrough drm factories\n  11-13 21:55:10.281 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+        "source": "MediaDrm Widevine deviceUniqueId"
+      },
+      "width": {
+        "value": 1080,
+        "source": "Display.getRealMetrics"
+      },
+      "height": {
+        "value": 2400,
+        "source": "Display.getRealMetrics"
+      },
+      "density": {
+        "value": 420,
+        "source": "Display.getRealMetrics"
+      },
+      "display_size": {
+        "value": "1080 \u00d7 2138",
+        "source": "Display.getSize"
+      },
+      "mode": {
+        "value": "1080 \u00d7 2400",
+        "source": "Display.Mode physical dimensions"
+      },
+      "resource_metrics": {
+        "value": "1080 \u00d7 2138 / 420",
+        "source": "Resources.getDisplayMetrics"
+      },
+      "total_ram": {
+        "value": 2592632832,
+        "source": "ActivityManager.MemoryInfo.totalMem bytes"
+      },
+      "storage": {
+        "value": 10411143168,
+        "source": "StatFs.getTotalBytes bytes"
+      },
+      "timezone": {
+        "value": "Asia/Taipei",
+        "source": "TimeZone.getDefault"
+      },
+      "language": {
+        "value": "zh-CN",
+        "source": "Locale.getDefault"
+      },
+      "hide_sensors": {
+        "value": 18,
+        "source": "SensorManager.getSensorList count"
+      },
+      "java_properties": {
+        "value": {
+          "ro.product.model": "Android SDK built for arm64",
+          "ro.product.brand": "Android",
+          "ro.product.manufacturer": "unknown",
+          "ro.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "ro.serialno": "",
+          "ro.hardware": "ranchu",
+          "ro.boot.selinux": "",
+          "sys.usb.config": "none"
+        },
+        "source": "SystemProperties.get"
+      },
+      "native": {
+        "value": {
+          "properties": {
+            "ro.product.model": {
+              "get": "Android SDK built for arm64",
+              "read": "Android SDK built for arm64",
+              "callback": "Android SDK built for arm64"
+            },
+            "ro.product.brand": {
+              "get": "Android",
+              "read": "Android",
+              "callback": "Android"
+            },
+            "ro.product.manufacturer": {
+              "get": "unknown",
+              "read": "unknown",
+              "callback": "unknown"
+            },
+            "ro.build.fingerprint": {
+              "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+            },
+            "ro.serialno": {
+              "get": "",
+              "read": null,
+              "callback": null
+            },
+            "ro.hardware": {
+              "get": "ranchu",
+              "read": "ranchu",
+              "callback": "ranchu"
+            },
+            "ro.boot.selinux": {
+              "get": "",
+              "read": null,
+              "callback": null
+            },
+            "sys.usb.config": {
+              "get": "none",
+              "read": "none",
+              "callback": "none"
+            },
+            "appstate.probe.absent": {
+              "get": "",
+              "read": null,
+              "callback": null
+            }
+          },
+          "interfaces": {},
+          "interfaceFreeControl": true,
+          "propertyCallbackLifetimeControl": true
+        },
+        "source": "Bionic property get / read / callback and getifaddrs"
+      },
+      "ordinary": {
+        "value": {
+          "brightness": 102,
+          "propertyMissing": "",
+          "localeExplicit": "en-US",
+          "timezoneExplicit": "UTC",
+          "availableBytes": 9426321408,
+          "file": "ordinary-device-control"
+        },
+        "source": "Unrelated settings, files, property defaults"
+      }
+    }
+  },
+  "binder": "binder proc state:\nproc 12046\ncontext hwbinder\n  thread 12075: l 00 need_return 0 tr 0\n  ref 1654559: desc 0 node 7 s 1 w 1 d 0000000000000000\n  buffer 1654607: 0 size 8:0:0 delivered\nbinder proc state:\nproc 12046\ncontext binder\n  thread 12046: l 00 need_return 0 tr 0\n  thread 12055: l 12 need_return 0 tr 0\n  thread 12056: l 11 need_return 0 tr 0\n  thread 12057: l 11 need_return 0 tr 0\n  thread 12058: l 11 need_return 0 tr 0\n  thread 12060: l 00 need_return 0 tr 0\n  thread 12061: l 00 need_return 0 tr 0\n  thread 12065: l 00 need_return 0 tr 0\n  thread 12066: l 00 need_return 0 tr 0\n  thread 12067: l 10 need_return 0 tr 0\n    outgoing transaction 1653396: 0000000000000000 from 12046:12067 to 704:3198 code 2 flags 12 pri 0:120 r1 elapsed 1647ms\n    transaction complete\n  thread 12075: l 00 need_return 0 tr 0\n  thread 12076: l 10 need_return 0 tr 0\n    outgoing transaction 1653734: 0000000000000000 from 12046:12076 to 2119:0 code 94 flags 12 pri 0:120 r1 elapsed 1562ms\n    transaction complete\n  thread 12077: l 10 need_return 0 tr 0\n    outgoing transaction 1653849: 0000000000000000 from 12046:12077 to 2119:0 code 94 flags 12 pri 0:120 r1 elapsed 1482ms\n  thread 12082: l 10 need_return 0 tr 0\n    outgoing transaction 1653934: 0000000000000000 from 12046:12082 to 2119:0 code 93 flags 12 pri 0:120 r1 elapsed 1401ms\n  thread 12087: l 10 need_return 0 tr 0\n    outgoing transaction 1654015: 0000000000000000 from 12046:12087 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 1320ms\n    transaction complete\n  thread 12088: l 10 need_return 0 tr 0\n    outgoing transaction 1654112: 0000000000000000 from 12046:12088 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 1239ms\n  thread 12093: l 10 need_return 0 tr 0\n    outgoing transaction 1654200: 0000000000000000 from 12046:12093 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 1158ms\n  thread 12094: l 10 need_return 0 tr 0\n    outgoing transaction 1654335: 0000000000000000 from 12046:12094 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 1076ms\n  thread 12099: l 10 need_return 0 tr 0\n    outgoing transaction 1654403: 0000000000000000 from 12046:12099 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 996ms\n  thread 12104: l 10 need_return 0 tr 0\n    outgoing transaction 1654451: 0000000000000000 from 12046:12104 to 2119:0 code 1c flags 12 pri 0:120 r1 elapsed 915ms\n  thread 12105: l 10 need_return 0 tr 0\n    outgoing transaction 1654463: 0000000000000000 from 12046:12105 to 2119:0 code 1f flags 12 pri 0:120 r1 elapsed 830ms\n  thread 12110: l 10 need_return 0 tr 0\n    outgoing transaction 1654469: 0000000000000000 from 12046:12110 to 2119:0 code 1f flags 12 pri 0:120 r1 elapsed 749ms\n  thread 12115: l 10 need_return 0 tr 0\n    outgoing transaction 1654477: 0000000000000000 from 12046:12115 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 669ms\n  thread 12116: l 10 need_return 0 tr 0\n    outgoing transaction 1654483: 0000000000000000 from 12046:12116 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 579ms\n  thread 12121: l 10 need_return 0 tr 0\n    outgoing transaction 1654489: 0000000000000000 from 12046:12121 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 497ms\n  thread 12126: l 10 need_return 0 tr 0\n    outgoing transaction 1654495: 0000000000000000 from 12046:12126 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 417ms\n  thread 12127: l 10 need_return 0 tr 0\n    outgoing transaction 1654501: 0000000000000000 from 12046:12127 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 333ms\n  thread 12132: l 10 need_return 0 tr 0\n    outgoing transaction 1654507: 0000000000000000 from 12046:12132 to 2119:0 code 48 flags 12 pri 0:120 r1 elapsed 251ms\n  node 1650505: u0000006e1f9649c0 c0000006dcf961f70 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 2 iw 2 tr 1 proc 704 11942\n  node 1649247: u0000006e1f978eb0 c0000006dcf961a90 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 597\n  node 1650246: u0000006e1f979b70 c0000006dcf96d2b0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1649911: u0000006e1f97a320 c0000006dcf95f750 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 597\n  node 1652602: u0000006e1f98c380 c0000006dcf96d3d0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1652506: u0000006e1f98c530 c0000006dcf96d670 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1652688: u0000006e1f98e300 c0000006dcf96d7f0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1652886: u0000006e1f98e6c0 c0000006dcf96d1f0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1652911: u0000006e1f98e840 c0000006dcf964610 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1652913: u0000006e1f98f1a0 c0000006dcf9651b0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 2 iw 2 tr 1 proc 1384 704\n  node 1653194: u0000006e1f990160 c0000006dcf964250 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1653545: u0000006e1f990580 c0000006d9f99bff8 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 534\n  node 1653300: u0000006e1f991300 c0000006dcf970010 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 2 iw 2 tr 1 proc 534 704\n  node 1653447: u0000006e1f991450 c0000006dcf96fef0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1653283: u0000006e1f991480 c0000006dcf970250 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  node 1654684: u0000006e1f996df0 c0000006dcf971f90 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 534\n  node 1653638: u0000006e1f999250 c0000006dcf9768b0 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 2 iw 2 tr 1 proc 1384 704\n  node 1654543: u0000006e1f9a0d80 c0000006dcf977f30 pri 0:139 hs 1 hw 1 ls 0 lw 0 is 1 iw 1 tr 1 proc 704\n  ref 1649236: desc 0 node 1 s 1 w 1 d 0000000000000000\n  ref 1649243: desc 1 node 3125 s 1 w 1 d 0000000000000000\n  ref 1649253: desc 2 node 2749 s 1 w 1 d 0000000000000000\n  ref 1649988: desc 3 node 1645090 s 1 w 1 d 0000000000000000\n  ref 1650261: desc 4 node 3064 s 1 w 1 d 0000000000000000\n  ref 1650262: desc 5 node 2871 s 1 w 1 d 0000000000000000\n  ref 1650263: desc 6 node 3552 s 1 w 1 d 0000000000000000\n  ref 1650264: desc 7 node 6349 s 1 w 1 d 0000000000000000\n  ref 1650265: desc 8 node 3109 s 1 w 1 d 0000000000000000\n  ref 1650266: desc 9 node 3762 s 1 w 1 d 0000000000000000\n  ref 1650267: desc 10 node 4029 s 1 w 1 d 0000000000000000\n  ref 1650268: desc 11 node 3121 s 1 w 1 d 0000000000000000\n  ref 1650269: desc 12 node 3699 s 1 w 1 d 0000000000000000\n  ref 1650270: desc 13 node 3718 s 1 w 1 d 0000000000000000\n  ref 1650271: desc 14 node 4042 s 1 w 1 d 0000000000000000\n  ref 1650272: desc 15 node 2948 s 1 w 1 d 0000000000000000\n  ref 1650273: desc 16 node 4326 s 1 w 1 d 0000000000000000\n  ref 1650274: desc 17 node 3556 s 1 w 1 d 0000000000000000\n  ref 1650275: desc 18 node 4021 s 1 w 1 d 0000000000000000\n  ref 1650276: desc 19 node 5270 s 1 w 1 d 0000000000000000\n  ref 1650277: desc 20 node 2800 s 1 w 1 d 0000000000000000\n  ref 1650278: desc 21 node 2993 s 1 w 1 d 0000000000000000\n  ref 1650279: desc 22 node 4282 s 1 w 1 d 0000000000000000\n  ref 1650280: desc 23 node 4186 s 1 w 1 d 0000000000000000\n  ref 1650475: desc 24 node 4206 s 1 w 1 d 0000000000000000\n  ref 1650501: desc 25 node 1645193 s 1 w 1 d 0000000000000000\n  ref 1650503: desc 26 node 1650502 s 1 w 1 d 0000000000000000\n  ref 1652562: desc 27 node 12765 s 1 w 1 d 0000000000000000\n  ref 1652564: desc 28 node 1652563 s 1 w 1 d 0000000000000000\n  ref 1652626: desc 29 node 1648986 s 1 w 1 d 0000000000000000\n  ref 1652628: desc 30 node 1652627 s 1 w 1 d 0000000000000000\n  ref 1652630: desc 31 node 1652629 s 1 w 1 d 0000000000000000\n  ref 1652632: desc 32 node 1652631 s 1 w 1 d 0000000000000000\n  ref 1652678: desc 33 node 1043 s 1 w 1 d 0000000000000000\n  ref 1652682: desc 34 node 1652681 s 1 w 1 d 0000000000000000\n  ref 1652740: desc 35 node 2857 s 1 w 1 d 0000000000000000\n  ref 1652748: desc 36 node 13859 s 1 w 1 d 0000000000000000\n  ref 1652897: desc 37 node 739 s 1 w 1 d 0000000000000000\n  ref 1653130: desc 38 node 5908 s 1 w 1 d 0000000000000000\n  ref 1653141: desc 39 node 8388 s 1 w 1 d 0000000000000000\n  ref 1653200: desc 40 node 1653199 s 1 w 1 d 0000000000000000\n  ref 1653212: desc 41 node 1653211 s 1 w 1 d 0000000000000000\n  ref 1653250: desc 42 node 25488 s 1 w 1 d 0000000000000000\n  ref 1653289: desc 43 node 575 s 1 w 1 d 0000000000000000\n  ref 1653321: desc 44 node 1653320 s 1 w 1 d 0000000000000000\n  ref 1653393: desc 45 node 2817 s 1 w 1 d 0000000000000000\n  ref 1653475: desc 46 node 3705 s 1 w 1 d 0000000000000000\n  ref 1653476: desc 47 node 1653461 s 1 w 1 d 0000000000000000\n  ref 1653484: desc 48 node 1039 s 1 w 1 d 0000000000000000\n  ref 1653594: desc 49 node 1653466 s 1 w 1 d 0000000000000000\n  ref 1653595: desc 50 node 1653470 s 1 w 1 d 0000000000000000\n  ref 1653644: desc 51 node 1653643 s 1 w 1 d 0000000000000000\n  ref 1653657: desc 52 node 25133 s 1 w 1 d 0000000000000000\n  ref 1653676: desc 53 node 1653665 s 1 w 1 d 0000000000000000\n  ref 1653677: desc 54 node 1653651 s 1 w 1 d 0000000000000000\n  ref 1653718: desc 55 node 1653717 s 1 w 1 d 0000000000000000\n  ref 1653733: desc 56 node 46969 s 1 w 1 d 0000000000000000\n  ref 1654014: desc 57 node 44135 s 1 w 1 d 0000000000000000\n  ref 1654519: desc 58 node 4242 s 1 w 1 d 0000000000000000\n  ref 1654541: desc 59 node 8475 s 1 w 1 d 0000000000000000\n  ref 1654546: desc 60 node 15155 s 1 w 1 d 0000000000000000\n  ref 1654552: desc 61 node 4338 s 1 w 1 d 0000000000000000\n  ref 1654647: desc 62 node 3515 s 1 w 1 d 0000000000000000\n  ref 1654638: desc 63 node 861 s 1 w 1 d 0000000000000000\n  ref 1654650: desc 64 node 6887 s 1 w 1 d 0000000000000000"
+}

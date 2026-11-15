@@ -6,6 +6,7 @@
 namespace {
 int (*real_getifaddrs)(ifaddrs **) = nullptr;
 void (*real_freeifaddrs)(ifaddrs *) = nullptr;
+std::atomic<void (*)(ifaddrs *)> deviceInterfaceFilter{nullptr};
 std::mutex listsMutex;
 std::unordered_map<ifaddrs *, ifaddrs *> lists;
 bool tunnel(const char *name) {
@@ -30,6 +31,7 @@ void h_freeifaddrs(ifaddrs *head) {
 int h_getifaddrs(ifaddrs **output) {
     int result = real_getifaddrs(output);
     if (result || !output || !*output) return result;
+    if (auto filter = deviceInterfaceFilter.load()) filter(*output);
     ifaddrs *original = *output, *head = nullptr, **tail = &head;
     bool filtered = false;
     for (auto *item = original; item; item = item->ifa_next) {
@@ -54,6 +56,12 @@ int h_getifaddrs(ifaddrs **output) {
     *output = head;
     return result;
 }
+}
+extern "C" __attribute__((visibility("default"))) bool
+appstateshield_set_device_interface_filter(void *symbol, void (*filter)(ifaddrs *)) {
+    if (!hookedSymbols.count(symbol) || !real_getifaddrs) return false;
+    deviceInterfaceFilter.store(filter);
+    return true;
 }
 extern "C" __attribute__((visibility("default"))) OnLoad native_init(const NativeAPIEntries *api) {
     if (!api || api->version < 1 || !api->hookFunc) return nullptr;

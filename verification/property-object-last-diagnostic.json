@@ -1,0 +1,691 @@
+{
+  "timestamp": 1794602933533,
+  "elapsed": 96085,
+  "pid": 3450,
+  "package": "io.github.lwtdzh.screenshotdetector",
+  "module": {
+    "policyLoaded": true,
+    "networkMode": "off",
+    "locationEnabled": false,
+    "enabled": [],
+    "deviceHooks": 305,
+    "deviceNative": true,
+    "deviceRegion": "",
+    "deviceRevision": 1794602921968,
+    "futureMethodEnabled": true,
+    "deviceNativeObjects": true,
+    "injected": true,
+    "deviceSelected": [
+      "brand",
+      "manufacturer",
+      "model",
+      "device",
+      "product",
+      "board",
+      "hardware",
+      "release",
+      "incremental",
+      "fingerprint"
+    ],
+    "deviceEnabled": true
+  },
+  "early": {
+    "attachBaseContext": {
+      "injected": true,
+      "developer": 1,
+      "debug": 1,
+      "model": "Android SDK built for arm64",
+      "androidId": "b7a012c685f55dce",
+      "deviceRevision": 1794602921326,
+      "selinux": false
+    },
+    "providerOnCreate": {
+      "injected": true,
+      "developer": 1,
+      "debug": 1,
+      "model": "Android SDK built for arm64",
+      "androidId": "b7a012c685f55dce",
+      "deviceRevision": 1794602921326,
+      "selinux": false
+    },
+    "applicationOnCreate": {
+      "injected": true,
+      "developer": 1,
+      "debug": 1,
+      "model": "Android SDK built for arm64",
+      "androidId": "b7a012c685f55dce",
+      "deviceRevision": 1794602921326,
+      "selinux": false
+    }
+  },
+  "phoneWorker": {
+    "pid": 4851,
+    "revision": 1794602921968,
+    "reads": {
+      "imei": {
+        "error": "SecurityException",
+        "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+        "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+      },
+      "imei2": {
+        "value": null,
+        "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+      },
+      "device_id": {
+        "error": "SecurityException",
+        "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+        "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+      },
+      "meid": {
+        "value": null,
+        "source": "TelephonyManager.getMeid (same-UID phone worker)"
+      },
+      "imsi": {
+        "error": "SecurityException",
+        "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+        "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+      },
+      "iccid": {
+        "error": "SecurityException",
+        "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+        "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+      },
+      "phone": {
+        "error": "SecurityException",
+        "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+        "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+      },
+      "operator": {
+        "value": "",
+        "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+      },
+      "mcc": {
+        "value": null,
+        "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+      },
+      "mnc": {
+        "value": null,
+        "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+      },
+      "sim_state": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 sim_state (same-UID phone worker)"
+      },
+      "sim_state_slot0": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 sim_state_slot0 (same-UID phone worker)"
+      },
+      "sim_state_slot1": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 sim_state_slot1 (same-UID phone worker)"
+      },
+      "sim_card_state": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 sim_card_state (same-UID phone worker)"
+      },
+      "sim_application_state": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 sim_application_state (same-UID phone worker)"
+      },
+      "has_sim": {
+        "value": false,
+        "source": "Android telephony / subscription API \u00b7 has_sim (same-UID phone worker)"
+      },
+      "sim_operator": {
+        "value": "",
+        "source": "Android telephony / subscription API \u00b7 sim_operator (same-UID phone worker)"
+      },
+      "sim_operator_name": {
+        "value": "",
+        "source": "Android telephony / subscription API \u00b7 sim_operator_name (same-UID phone worker)"
+      },
+      "sim_country": {
+        "value": "",
+        "source": "Android telephony / subscription API \u00b7 sim_country (same-UID phone worker)"
+      },
+      "network_country": {
+        "value": "",
+        "source": "Android telephony / subscription API \u00b7 network_country (same-UID phone worker)"
+      },
+      "network_type": {
+        "error": "SecurityException",
+        "detail": "getDataNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+        "source": "Android telephony / subscription API \u00b7 network_type (same-UID phone worker)"
+      },
+      "voice_network_type": {
+        "error": "SecurityException",
+        "detail": "getVoiceNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+        "source": "Android telephony / subscription API \u00b7 voice_network_type (same-UID phone worker)"
+      },
+      "data_state": {
+        "value": 0,
+        "source": "Android telephony / subscription API \u00b7 data_state (same-UID phone worker)"
+      },
+      "roaming": {
+        "value": false,
+        "source": "Android telephony / subscription API \u00b7 roaming (same-UID phone worker)"
+      },
+      "subscription_count": {
+        "error": "SecurityException",
+        "detail": "Need READ_PHONE_STATE, READ_PRIVILEGED_PHONE_STATE, or carrier privilege",
+        "source": "Android telephony / subscription API \u00b7 subscription_count (same-UID phone worker)"
+      },
+      "default_subscription": {
+        "value": -1,
+        "source": "Android telephony / subscription API \u00b7 default_subscription (same-UID phone worker)"
+      },
+      "subscriptions": {
+        "value": [],
+        "source": "Android telephony / subscription API \u00b7 subscriptions (same-UID phone worker)"
+      },
+      "service_state": {
+        "value": null,
+        "source": "Android telephony / subscription API \u00b7 service_state (same-UID phone worker)"
+      },
+      "cells": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "Android telephony / subscription API \u00b7 cells (same-UID phone worker)"
+      },
+      "async_cells": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "Android telephony / subscription API \u00b7 async_cells (same-UID phone worker)"
+      },
+      "lac": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell location",
+        "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+      },
+      "cid": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell location",
+        "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+      },
+      "tac": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      },
+      "pci": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      },
+      "lte_ci": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      },
+      "lte_mcc": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      },
+      "lte_mnc": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      },
+      "signal": {
+        "error": "SecurityException",
+        "detail": "Not allowed to access cell info",
+        "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+      }
+    }
+  },
+  "reads": {
+    "brand": {
+      "value": "Xiaomi",
+      "source": "Build.BRAND"
+    },
+    "manufacturer": {
+      "value": "Xiaomi",
+      "source": "Build.MANUFACTURER"
+    },
+    "model": {
+      "value": "Object probe fixture",
+      "source": "Build.MODEL"
+    },
+    "device": {
+      "value": "houji",
+      "source": "Build.DEVICE"
+    },
+    "product": {
+      "value": "houji_global",
+      "source": "Build.PRODUCT"
+    },
+    "board": {
+      "value": "houji",
+      "source": "Build.BOARD"
+    },
+    "hardware": {
+      "value": "qcom",
+      "source": "Build.HARDWARE"
+    },
+    "fingerprint": {
+      "value": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+      "source": "Build.FINGERPRINT"
+    },
+    "release": {
+      "value": "15",
+      "source": "Build.VERSION.RELEASE"
+    },
+    "incremental": {
+      "value": "OS2.0.201.0.VNCMIXM",
+      "source": "Build.VERSION.INCREMENTAL"
+    },
+    "build_metadata": {
+      "value": {
+        "id": "BE2A.250530.026.D1",
+        "type": "userdebug",
+        "tags": "test-keys",
+        "sdk": 36
+      },
+      "source": "Build.ID / TYPE / TAGS / SDK_INT"
+    },
+    "serial": {
+      "error": "SecurityException",
+      "detail": "getSerial: The uid 10159 does not meet the requirements to access device identifiers.",
+      "source": "Build.getSerial"
+    },
+    "serial_static": {
+      "value": "unknown",
+      "source": "Build.SERIAL"
+    },
+    "android_id": {
+      "value": "b7a012c685f55dce",
+      "source": "Settings.Secure.getString"
+    },
+    "android_id_cursor": {
+      "value": "b7a012c685f55dce",
+      "source": "settings secure value-only cursor"
+    },
+    "oaid": {
+      "error": "SecurityException",
+      "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{709fcf9 3450:io.github.lwtdzh.screenshotdetector/u0a159} (pid=3450, uid=10159) requires android.permission.DUMP or android.permission.DUMP",
+      "source": "vivo IdProvider query"
+    },
+    "vaid": {
+      "error": "SecurityException",
+      "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{709fcf9 3450:io.github.lwtdzh.screenshotdetector/u0a159} (pid=3450, uid=10159) requires android.permission.DUMP or android.permission.DUMP",
+      "source": "vivo IdProvider query"
+    },
+    "aaid": {
+      "error": "SecurityException",
+      "detail": "Permission Denial: opening provider io.github.lwtdzh.screenshotdetector.VivoFixtureProvider from ProcessRecord{709fcf9 3450:io.github.lwtdzh.screenshotdetector/u0a159} (pid=3450, uid=10159) requires android.permission.DUMP or android.permission.DUMP",
+      "source": "vivo IdProvider query"
+    },
+    "xiaomi_oaid": {
+      "error": "ClassNotFoundException",
+      "detail": "com.android.id.impl.IdProviderImpl",
+      "source": "Xiaomi IdProviderImpl.getOAID"
+    },
+    "gaid": {
+      "error": "ClassNotFoundException",
+      "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+      "source": "Google AdvertisingIdClient (if SDK is present)"
+    },
+    "imei": {
+      "error": "SecurityException",
+      "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+      "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+    },
+    "imei2": {
+      "value": null,
+      "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+    },
+    "device_id": {
+      "error": "SecurityException",
+      "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+      "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+    },
+    "meid": {
+      "value": null,
+      "source": "TelephonyManager.getMeid (same-UID phone worker)"
+    },
+    "imsi": {
+      "error": "SecurityException",
+      "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+      "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+    },
+    "iccid": {
+      "error": "SecurityException",
+      "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+      "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+    },
+    "phone": {
+      "error": "SecurityException",
+      "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+      "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+    },
+    "operator": {
+      "value": "",
+      "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+    },
+    "mcc": {
+      "value": null,
+      "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+    },
+    "mnc": {
+      "value": null,
+      "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+    },
+    "lac": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell location",
+      "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+    },
+    "cid": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell location",
+      "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+    },
+    "tac": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "pci": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "lte_ci": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "lte_mcc": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "lte_mnc": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "signal": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+    },
+    "sim_state": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 sim_state (same-UID phone worker)"
+    },
+    "sim_state_slot0": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 sim_state_slot0 (same-UID phone worker)"
+    },
+    "sim_state_slot1": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 sim_state_slot1 (same-UID phone worker)"
+    },
+    "sim_card_state": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 sim_card_state (same-UID phone worker)"
+    },
+    "sim_application_state": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 sim_application_state (same-UID phone worker)"
+    },
+    "has_sim": {
+      "value": false,
+      "source": "Android telephony / subscription API \u00b7 has_sim (same-UID phone worker)"
+    },
+    "sim_operator": {
+      "value": "",
+      "source": "Android telephony / subscription API \u00b7 sim_operator (same-UID phone worker)"
+    },
+    "sim_operator_name": {
+      "value": "",
+      "source": "Android telephony / subscription API \u00b7 sim_operator_name (same-UID phone worker)"
+    },
+    "sim_country": {
+      "value": "",
+      "source": "Android telephony / subscription API \u00b7 sim_country (same-UID phone worker)"
+    },
+    "network_country": {
+      "value": "",
+      "source": "Android telephony / subscription API \u00b7 network_country (same-UID phone worker)"
+    },
+    "network_type": {
+      "error": "SecurityException",
+      "detail": "getDataNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+      "source": "Android telephony / subscription API \u00b7 network_type (same-UID phone worker)"
+    },
+    "voice_network_type": {
+      "error": "SecurityException",
+      "detail": "getVoiceNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+      "source": "Android telephony / subscription API \u00b7 voice_network_type (same-UID phone worker)"
+    },
+    "data_state": {
+      "value": 0,
+      "source": "Android telephony / subscription API \u00b7 data_state (same-UID phone worker)"
+    },
+    "roaming": {
+      "value": false,
+      "source": "Android telephony / subscription API \u00b7 roaming (same-UID phone worker)"
+    },
+    "subscription_count": {
+      "error": "SecurityException",
+      "detail": "Need READ_PHONE_STATE, READ_PRIVILEGED_PHONE_STATE, or carrier privilege",
+      "source": "Android telephony / subscription API \u00b7 subscription_count (same-UID phone worker)"
+    },
+    "default_subscription": {
+      "value": -1,
+      "source": "Android telephony / subscription API \u00b7 default_subscription (same-UID phone worker)"
+    },
+    "subscriptions": {
+      "value": [],
+      "source": "Android telephony / subscription API \u00b7 subscriptions (same-UID phone worker)"
+    },
+    "service_state": {
+      "value": null,
+      "source": "Android telephony / subscription API \u00b7 service_state (same-UID phone worker)"
+    },
+    "cells": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "Android telephony / subscription API \u00b7 cells (same-UID phone worker)"
+    },
+    "async_cells": {
+      "error": "SecurityException",
+      "detail": "Not allowed to access cell info",
+      "source": "Android telephony / subscription API \u00b7 async_cells (same-UID phone worker)"
+    },
+    "wifi_mac": {
+      "value": "02:00:00:00:00:00",
+      "source": "WifiInfo.getMacAddress"
+    },
+    "ssid": {
+      "value": "<unknown ssid>",
+      "source": "WifiInfo.getSSID"
+    },
+    "bssid": {
+      "value": "02:00:00:00:00:00",
+      "source": "WifiInfo.getBSSID"
+    },
+    "java_macs": {
+      "value": {
+        "dummy0": "02:00:00:00:00:00",
+        "wlan0": "02:00:00:00:00:00",
+        "tun0": "02:00:00:00:00:00"
+      },
+      "source": "NetworkInterface.getHardwareAddress"
+    },
+    "bt_mac": {
+      "error": "SecurityException",
+      "detail": "Need android.permission.BLUETOOTH_CONNECT permission for AttributionSource { uid = 1000, packageName = android, attributionTag = null, token = android.os.Binder@ad75419, deviceId = 0, next = AttributionSource { uid = 10159, packageName = io.github.lwtdzh.screenshotdetector, attributionTag = null, token = android.os.BinderProxy@722dec5, deviceId = 0, next = null } }: getAddress",
+      "source": "BluetoothAdapter.getAddress"
+    },
+    "latitude": {
+      "error": "SecurityException",
+      "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+      "source": "LocationManager.getLastKnownLocation(gps)"
+    },
+    "longitude": {
+      "error": "SecurityException",
+      "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+      "source": "LocationManager.getLastKnownLocation(gps)"
+    },
+    "accuracy": {
+      "error": "SecurityException",
+      "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+      "source": "LocationManager.getLastKnownLocation(gps)"
+    },
+    "drm_id": {
+      "error": "UnsupportedSchemeException",
+      "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-14 04:48:41.900 I No hidl drm factories found\n  11-14 04:48:41.901 W Failed to find passthrough drm factories\n  11-14 04:48:41.902 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:42.647 I No hidl drm factories found\n  11-14 04:48:42.648 W Failed to find passthrough drm factories\n  11-14 04:48:42.652 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:43.320 I No hidl drm factories found\n  11-14 04:48:43.320 W Failed to find passthrough drm factories\n  11-14 04:48:43.378 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:44.032 I No hidl drm factories found\n  11-14 04:48:44.033 W Failed to find passthrough drm factories\n  11-14 04:48:44.036 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:44.676 I No hidl drm factories found\n  11-14 04:48:44.677 W Failed to find passthrough drm factories\n  11-14 04:48:44.678 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:45.514 I No hidl drm factories found\n  11-14 04:48:45.514 W Failed to find passthrough drm factories\n  11-14 04:48:45.515 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:46.375 I No hidl drm factories found\n  11-14 04:48:46.376 W Failed to find passthrough drm factories\n  11-14 04:48:46.376 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:47.276 I No hidl drm factories found\n  11-14 04:48:47.276 W Failed to find passthrough drm factories\n  11-14 04:48:47.277 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:48.022 I No hidl drm factories found\n  11-14 04:48:48.024 W Failed to find passthrough drm factories\n  11-14 04:48:48.036 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:48.862 I No hidl drm factories found\n  11-14 04:48:48.862 W Failed to find passthrough drm factories\n  11-14 04:48:48.863 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:49.754 I No hidl drm factories found\n  11-14 04:48:49.755 W Failed to find passthrough drm factories\n  11-14 04:48:49.756 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:50.637 I No hidl drm factories found\n  11-14 04:48:50.640 W Failed to find passthrough drm factories\n  11-14 04:48:50.640 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:51.476 I No hidl drm factories found\n  11-14 04:48:51.476 W Failed to find passthrough drm factories\n  11-14 04:48:51.477 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:52.335 I No hidl drm factories found\n  11-14 04:48:52.336 W Failed to find passthrough drm factories\n  11-14 04:48:52.336 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:53.147 I No hidl drm factories found\n  11-14 04:48:53.147 W Failed to find passthrough drm factories\n  11-14 04:48:53.157 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 04:48:54.062 I No hidl drm factories found\n  11-14 04:48:54.063 W Failed to find passthrough drm factories\n  11-14 04:48:54.064 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+      "source": "MediaDrm Widevine deviceUniqueId"
+    },
+    "width": {
+      "value": 1080,
+      "source": "Display.getRealMetrics"
+    },
+    "height": {
+      "value": 2400,
+      "source": "Display.getRealMetrics"
+    },
+    "density": {
+      "value": 420,
+      "source": "Display.getRealMetrics"
+    },
+    "display_size": {
+      "value": "1080 \u00d7 2138",
+      "source": "Display.getSize"
+    },
+    "mode": {
+      "value": "1080 \u00d7 2400",
+      "source": "Display.Mode physical dimensions"
+    },
+    "resource_metrics": {
+      "value": "1080 \u00d7 2138 / 420",
+      "source": "Resources.getDisplayMetrics"
+    },
+    "total_ram": {
+      "value": 2592632832,
+      "source": "ActivityManager.MemoryInfo.totalMem bytes"
+    },
+    "storage": {
+      "value": 10411143168,
+      "source": "StatFs.getTotalBytes bytes"
+    },
+    "memory_view": {
+      "value": {
+        "total": 2592632832,
+        "available": 1222504448,
+        "threshold": 226492416,
+        "lowMemory": false
+      },
+      "source": "ActivityManager.MemoryInfo actual object"
+    },
+    "storage_view": {
+      "value": {
+        "blockSize": 4096,
+        "total": 10411143168,
+        "available": 9426915328,
+        "free": 9577910272,
+        "blocks": 2541783,
+        "availableBlocks": 2301493,
+        "freeBlocks": 2338357,
+        "blocks32": 2541783,
+        "availableBlocks32": 2301493,
+        "freeBlocks32": 2338357,
+        "fileTotal": 10411143168,
+        "fileFree": 9577910272,
+        "fileUsable": 9426915328,
+        "systemTotal": 924643328
+      },
+      "source": "StatFs blocks / bytes and File space actual APIs"
+    },
+    "typed_properties": {
+      "value": {
+        "densityInt": -17,
+        "densityLong": -17,
+        "missingInt": -17,
+        "missingBool": true
+      },
+      "source": "SystemProperties.getInt / getLong / getBoolean"
+    },
+    "timezone": {
+      "value": "Asia/Taipei",
+      "source": "TimeZone.getDefault"
+    },
+    "language": {
+      "value": "en-US",
+      "source": "Locale.getDefault"
+    },
+    "hide_sensors": {
+      "value": 18,
+      "source": "SensorManager.getSensorList count"
+    },
+    "java_properties": {
+      "value": {
+        "ro.product.model": "Object probe fixture",
+        "ro.product.brand": "Xiaomi",
+        "ro.product.manufacturer": "Xiaomi",
+        "ro.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.product.device": "houji",
+        "ro.product.name": "houji_global",
+        "ro.product.board": "houji",
+        "ro.product.vendor.device": "houji",
+        "ro.product.odm.name": "houji_global",
+        "ro.product.system_ext.manufacturer": "Xiaomi",
+        "ro.product.system_ext.device": "houji",
+        "ro.product.system_ext.name": "houji_global",
+        "ro.system.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.system_ext.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.vendor.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.product.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.odm.build.fingerprint": "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT",
+        "ro.vendor.build.version.release": "15",
+        "ro.serialno": "EMULATOR37X1X11X0",
+        "ro.hardware": "qcom",
+        "ro.boot.selinux": "",
+        "sys.usb.config": "adb"
+      },
+      "source": "SystemProperties.get"
+    },
+    "metadata_properties": {
+      "value": {
+        "ro.build.id": "BE2A.250530.026.D1",
+        "ro.build.type": "userdebug",
+        "ro.build.tags": "test-keys",
+        "ro.system.build.id": "BE2A.250530.026.D1",
+        "ro.system.build.type": "userdebug",
+        "ro.system.build.tags": "test-keys",
+        "ro.system_ext.build.id": "BE2A.250530.026.D1",
+        "ro.system_ext.build.type": "userdebug",
+        "ro.system_ext.build.tags": "test-keys",
+        "ro.vendor.build.id": "BE2A.250530.026.D1",
+        "ro.vendor.build.type": "userdebug",
+        "ro.vendor.build.tags": "test-keys",
+        "ro.product.build.id": "BE2A.250530.026.D1",
+        "ro.product.build.type": "userdebug",
+        "ro.product.build.tags": "test-keys",
+        "ro.odm.build.id": "BE2A.250530.026.D1",
+        "ro.odm.build.type": "userdebug",
+        "ro.odm.build.tags": "test-keys"
+      },
+      "source": "SystemProperties.get root / partition build metadata"
+    },
+    "native": {
+      "error": "TimeoutException",
+      "source": "Bionic property get / read / callback and getifaddrs"
+    },
+    "ordinary": {
+      "value": {
+        "brightness": 102,
+        "propertyMissing": "",
+        "localeExplicit": "en-US",
+        "timezoneExplicit": "UTC",
+        "availableBytes": 9426915328,
+        "file": "ordinary-device-control"
+      },
+      "source": "Unrelated settings, files, property defaults"
+    }
+  }
+}

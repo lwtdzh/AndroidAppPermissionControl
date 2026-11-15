@@ -15,12 +15,14 @@
 #include <atomic>
 #include <unordered_set>
 #include <vector>
+#include "code-view.h"
 using Hook = int (*)(void *, void *, void **);
 using OnLoad = void (*)(const char *, void *);
 struct NativeAPIEntries { uint32_t version; Hook hookFunc; int (*unhookFunc)(void *); };
 namespace {
 std::atomic<int> hookCount{0};
 std::unordered_set<void *> hookedSymbols;
+shield_code::Views codeViews;
 // Local copy of the verified ScreenshotShield compatibility fix. This project builds independently.
 // Only anonymize Vector's entire shared RO linker file view; keep addresses and executable mappings.
 void anonymizeLinkerFileViews() {
@@ -120,9 +122,16 @@ bool install(const NativeAPIEntries *api, const char *name, R replacement, O *or
     // Vector's loader mutex is held here. Do not call dlopen.
     void *symbol = dlsym(RTLD_DEFAULT, name);
     if (!symbol || symbolSize(symbol, name) < 16 || !hookedSymbols.insert(symbol).second) return false;
+    uint8_t before[64];size_t captured=std::min(symbolSize(symbol,name),sizeof(before));
+    memcpy(before,symbol,captured);
     if (api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
         reinterpret_cast<void **>(original)) != 0) return false;
+    codeViews.remember(reinterpret_cast<uintptr_t>(symbol),before,symbol,captured);
     ++hookCount;
     return true;
 }
+}
+extern "C" __attribute__((visibility("default"))) void
+appstateshield_overlay_own_code(uintptr_t at, void *buffer, size_t n) {
+    codeViews.overlay(at,buffer,n);
 }

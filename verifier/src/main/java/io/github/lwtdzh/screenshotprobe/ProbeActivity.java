@@ -237,6 +237,7 @@ public final class ProbeActivity extends Activity {
         try { result.put(key, value); } catch (Exception error) { throw new IllegalStateException(error); }
     }
     private void render() {
+        put("module",io.github.lwtdzh.screenshotdetector.ModuleStatus.json());
         put("screen_capture_callbacks", screenshotCallbacks);
         put("raw_screen_capture_callbacks", rawScreenshotCallbacks);
         put("media_callbacks", mediaCallbacks);

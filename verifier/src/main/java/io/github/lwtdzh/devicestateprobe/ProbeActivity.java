@@ -29,26 +29,39 @@ import java.util.concurrent.TimeUnit;
 public final class ProbeActivity extends Activity {
     static { System.loadLibrary("stateprobe"); }
     static native String nativeSnapshot();
+    private io.github.lwtdzh.screenshotdetector.DeviceOverview overview;
+    private io.github.lwtdzh.screenshotdetector.EnvironmentOverview environment;
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
         TextView text = new TextView(this);
         text.setText("Device state probe");
-        setContentView(text);
+        android.widget.LinearLayout root=new android.widget.LinearLayout(this);root.setOrientation(android.widget.LinearLayout.VERTICAL);
+        android.widget.ScrollView scroll=new android.widget.ScrollView(this);
+        android.widget.LinearLayout content=new android.widget.LinearLayout(this);content.setOrientation(android.widget.LinearLayout.VERTICAL);
+        environment=new io.github.lwtdzh.screenshotdetector.EnvironmentOverview(this, null);content.addView(environment);
+        overview=new io.github.lwtdzh.screenshotdetector.DeviceOverview(this);content.addView(overview);content.addView(text);
+        scroll.addView(content);root.addView(scroll);setContentView(root);
         String action = getIntent().getStringExtra("action");
-        if ("vpn-start".equals(action)) {
+        if ("environment".equals(action)) {
+            text.setText("Environment observations only · no active state fixtures");
+        } else if ("vpn-start".equals(action)) {
             Intent consent = VpnService.prepare(this);
             if (consent != null) startActivityForResult(consent, 10);
             else startVpn();
         } else if ("vpn-stop".equals(action)) {
             startService(new Intent(this, ProbeVpnService.class).setAction("stop"));
         } else new Thread(() -> {
-            JSONObject result = "selinux".equals(action) ? SelinuxProbe.snapshot(this) : snapshot();
+            JSONObject result = "selinux".equals(action) ? SelinuxProbe.snapshot(this) :
+                "module-list".equals(action) ? io.github.lwtdzh.screenshotdetector.ModuleListProbe.read(this) : snapshot();
             try (FileOutputStream out = new FileOutputStream(new File(getFilesDir(), "result.json"))) {
                 out.write(result.toString(2).getBytes(java.nio.charset.StandardCharsets.UTF_8));
             } catch (Exception error) { android.util.Log.e("DeviceStateProbe", "write failed", error); }
             runOnUiThread(() -> text.setText(result.toString()));
         }, "state-probe").start();
     }
+    @Override protected void onResume(){super.onResume();overview.start();environment.start();}
+    @Override protected void onPause(){overview.stop();environment.stop();super.onPause();}
+    @Override protected void onDestroy(){environment.dispose();super.onDestroy();}
     private void startVpn() { startForegroundService(new Intent(this, ProbeVpnService.class)); }
     @Override protected void onActivityResult(int request, int result, Intent data) {
         super.onActivityResult(request, result, data);
@@ -67,11 +80,7 @@ public final class ProbeActivity extends Activity {
     private JSONObject snapshot() {
         JSONObject result = new JSONObject();
         read(result, "lifecycle", io.github.lwtdzh.screenshotdetector.LifecycleProbe::snapshot);
-        Bundle marker = io.github.lwtdzh.screenshotdetector.ModuleStatus.snapshot();
-        read(result, "module", () -> new JSONObject().put("injected", marker.getBoolean("injected"))
-            .put("policyLoaded", marker.getBoolean("policyLoaded"))
-            .put("enabled", new JSONArray(marker.getStringArray("enabled")))
-            .put("futureMethodEnabled", marker.getBoolean("futureMethodEnabled")));
+        read(result, "module", io.github.lwtdzh.screenshotdetector.ModuleStatus::json);
         read(result, "storedPolicy", () -> {
             Bundle policy = getContentResolver().call(Uri.parse("content://io.github.lwtdzh.appstateshield.policy"),
                 "read", getPackageName(), null);

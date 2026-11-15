@@ -1,0 +1,152 @@
+[
+  {
+    "file": "app/build.gradle",
+    "previousSHA256": "cccfa67b1169d71e558c165f3d1a043b9497226d0a9a9496be4d61ac69f831bd",
+    "currentSHA256": "a0a7cb507510e2d7880c5ca3004b7f63d7960bdc6381c963dc8ac2952369b3b7"
+  },
+  {
+    "file": "app/src/main/cpp/.DS_Store",
+    "previousSHA256": null,
+    "currentSHA256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "file": "app/src/main/cpp/CMakeLists.txt",
+    "previousSHA256": "c400eb38e21e357704a0648b7143668610184eec2896743cba6c90582f397324",
+    "currentSHA256": "c43efbd825bd75ad0ee30d76f8497549df5e619ee3975b4c90fc910b134358f8"
+  },
+  {
+    "file": "app/src/main/cpp/device-file-view.h",
+    "previousSHA256": null,
+    "currentSHA256": "f3462b486417fcac94d060d4d90dd6735ab99c48a35853cbf6c58cff7ede03f4"
+  },
+  {
+    "file": "app/src/main/cpp/device-raw-io.h",
+    "previousSHA256": null,
+    "currentSHA256": "a737d47731d1fa2b3d2561e1220f405c572eac8eaed265bd1175c768425c14b8"
+  },
+  {
+    "file": "app/src/main/cpp/device-syscall-view.h",
+    "previousSHA256": null,
+    "currentSHA256": "fbf88ba59a901edf9a8333397c2f8945c48af79d37cbe03ae936c123ca9fc136"
+  },
+  {
+    "file": "app/src/main/cpp/devicestate.cpp",
+    "previousSHA256": "1d47ac940434e10115179c70f98fe11f66e9db96f35e73a7bf067e6f22fac9fc",
+    "currentSHA256": "62dbd0e7dae6547839ae4983ecbaef6b097b3dbc5cc51428d8463924805233b3"
+  },
+  {
+    "file": "app/src/main/cpp/shield.cpp",
+    "previousSHA256": "76ebf3ccb9cac42160d3288fb4bac09a72cb513714a31c8a0f997b757645d135",
+    "currentSHA256": "c082afafc141807d7edfe608e6283372f863297aca3a160c5726ff6108469243"
+  },
+  {
+    "file": "app/src/main/cpp/vector-hooks.h",
+    "previousSHA256": "c8e2b9cfccba7b686ea0bfb6041f0e5e65d6e8dd45478d27bc1b6628a9ece351",
+    "currentSHA256": "67d28475540e512ba85f879a753655227e3d76d57004449ecc1efb465f9fa3fc"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/appstateshield/AttestationHooks.java",
+    "previousSHA256": null,
+    "currentSHA256": "13e23951849f68522cd1ce31ca687076e88cc1079a9ac746c95a58f4fc6c8465"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceHooks.java",
+    "previousSHA256": "2fdcf34beaaacac667ebaf5937235031942e88354eb0e94f8344f1fb148692c7",
+    "currentSHA256": "546c2d08df94ba665fc7dccf9ca883fa526ed22531a2b427ac601a6d49bf4b63"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceRuntime.java",
+    "previousSHA256": "765ae04727411a34bce42ece6327626be4db71fff838b38179fe75d73836cff3",
+    "currentSHA256": "7660978795df9d49ff7f3d8f2e1c8688d77b66f13d8c27f823c08a3dcb849340"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceSettingsActivity.java",
+    "previousSHA256": "ea22603960c125606a127b774e78b070304b5cb92cc26b7eec77622a373b5b2f",
+    "currentSHA256": "cd8c95e24644ad01133b2b688bb2584ac6232e11c77964ded7ffd4dcc3d9ab43"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/developerstateshield/.DS_Store",
+    "previousSHA256": null,
+    "currentSHA256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/screenshotshield/.DS_Store",
+    "previousSHA256": null,
+    "currentSHA256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "file": "app/src/main/java/io/github/lwtdzh/vpnstateshield/.DS_Store",
+    "previousSHA256": null,
+    "currentSHA256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "file": "shared/java/io/github/lwtdzh/deviceprofile/AttestationPrivacy.java",
+    "previousSHA256": null,
+    "currentSHA256": "9a0889d15a498ec3eacb40d63def8ccf9c00aa9f172af9dc7990f43d17256457"
+  },
+  {
+    "file": "shared/java/io/github/lwtdzh/deviceprofile/DeviceField.java",
+    "previousSHA256": "59ef6bccdd2627c8abaa925857818c9565131586bcd5deb7be45cf7cb57f39d4",
+    "currentSHA256": "c9b70309a56d7d809ab145b0627a72061e4674d22f94e0c2750d71828b087344"
+  },
+  {
+    "file": "shared/java/io/github/lwtdzh/deviceprofile/DeviceProfile.java",
+    "previousSHA256": "21e60b66574a350b067a4f6f9521cb5a0852a70226a1b9b5c29e1886ce4d55e9",
+    "currentSHA256": "c2d0b594fd333d770acbb8d1cd8f6e7adf6fed9c72e032fa7cc4c882bb6986ad"
+  },
+  {
+    "file": "shared/native/code-view.h",
+    "previousSHA256": null,
+    "currentSHA256": "34145cb6cd99587ec2dfb2170844542ff1d779d2dc402db334277543c8b60cba"
+  },
+  {
+    "file": "shared/native/property-area.h",
+    "previousSHA256": null,
+    "currentSHA256": "db8665bed1b05665693c22de04b29306ccf26a31c6e135e8d0e8ffa533306516"
+  },
+  {
+    "file": "shared/test/AreaCodeTest.cpp",
+    "previousSHA256": null,
+    "currentSHA256": "1609b28a8348d85853721f36747f141e9e6100004a287e5868bf6079ae030c40"
+  },
+  {
+    "file": "shared/test/ModelGateTest.java",
+    "previousSHA256": null,
+    "currentSHA256": "654ff50f27d43df7a46f5742af959668c731b91127ad4b0f5b730feb7dcca0d9"
+  },
+  {
+    "file": "verifier/build.gradle",
+    "previousSHA256": "7e339466571a6563b1cf61d15d3360269bfefcf5eed60bdbb56fba8024b13ed1",
+    "currentSHA256": "26c1dcf809c477d7ed93e1b12f0c4bceb0f94391ca5dcaa323c2a3772a473540"
+  },
+  {
+    "file": "verifier/src/debug/AndroidManifest.xml",
+    "previousSHA256": "19d646f8418f2c6ed74a8b13effc54870768c22c5b4a09cd0bcec84dda796d8c",
+    "currentSHA256": "ff28c7642e615d17a529092e77ba5a5bb1980795a18aca3c90c2cd7f8f79da14"
+  },
+  {
+    "file": "verifier/src/debug/cpp/incrementalprobe.cpp",
+    "previousSHA256": null,
+    "currentSHA256": "df497db1dfecd2c64bdbfc1a201a0bb9967cdcf5c44583aae6e088eeffc58f4b"
+  },
+  {
+    "file": "verifier/src/debug/java/io/github/lwtdzh/screenshotdetector/IncrementalProbeActivity.java",
+    "previousSHA256": null,
+    "currentSHA256": "1bf1ae710cde0c13809fc20ca29992af44d36e4f3f73de4df6cded10458c6f15"
+  },
+  {
+    "file": "verifier/src/main/cpp/CMakeLists.txt",
+    "previousSHA256": "36ad97e84bc51b7c6c3bf7ea36ad8e5abeec31656a9e33852533fd8ce583cabe",
+    "currentSHA256": "ba79587b160b569d47df78a66ee91c07731e23add7ef6ddf547a1de685139bce"
+  },
+  {
+    "file": "verifier/src/main/java/io/github/lwtdzh/screenshotdetector/.DS_Store",
+    "previousSHA256": null,
+    "currentSHA256": "d65165279105ca6773180500688df4bdc69a2c7b771752f0a46ef120b7fd8ec3"
+  },
+  {
+    "file": "verifier/src/main/java/io/github/lwtdzh/screenshotdetector/DeviceActivity.java",
+    "previousSHA256": "410ebe4045a3ff73bcf9ea60b08b82f2e9afd2b9f11ed3cb98826b3bcf4f2fb5",
+    "currentSHA256": "6caba24b7e4df68f0749725481d7958c7410936f8d517c27cdb05b6678c57235"
+  }
+]

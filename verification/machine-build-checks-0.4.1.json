@@ -1,0 +1,34 @@
+{
+  "AppStateShield-0.4.1.apk": {
+    "sha256": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+    "fourABIs": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "OEMDebugClassesExcluded": true,
+    "nativeExportChecks": 64,
+    "signingIdentityPreserved": true
+  },
+  "AppStateVerifier-0.4.1.apk": {
+    "sha256": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae",
+    "fourABIs": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86",
+      "x86_64"
+    ],
+    "OEMDebugClassesExcluded": true,
+    "nativeExportChecks": 0,
+    "signingIdentityPreserved": true
+  },
+  "app/build/reports/lint-results-release.xml": {
+    "errors": 0,
+    "warnings": 14
+  },
+  "verifier/build/reports/lint-results-primaryRelease.xml": {
+    "errors": 0,
+    "warnings": 77
+  }
+}

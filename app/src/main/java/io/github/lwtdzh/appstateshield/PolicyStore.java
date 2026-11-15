@@ -8,7 +8,8 @@ import java.util.*;
 /** One synchronous preference transaction stores the entire revision. */
 public final class PolicyStore {
     private final android.content.SharedPreferences prefs;
-    public PolicyStore(Context context) { prefs = context.getSharedPreferences("policies", Context.MODE_PRIVATE); }
+    private final Context context;
+    public PolicyStore(Context context) { this.context = context; prefs = context.getSharedPreferences("policies", Context.MODE_PRIVATE); }
     private JSONObject data() {
         try { return new JSONObject(prefs.getString("apps", "{}")); }
         catch (Exception error) { return new JSONObject(); }
@@ -31,7 +32,9 @@ public final class PolicyStore {
         JSONObject data = data();
         try { data.put(pkg, new JSONArray(new TreeSet<>(disabled))); }
         catch (Exception error) { return false; }
-        return prefs.edit().putString("apps", data.toString()).commit();
+        boolean saved = prefs.edit().putString("apps", data.toString()).commit();
+        if (saved) PolicyVisibility.grant(context, pkg);
+        return saved;
     }
     public synchronized boolean remove(String pkg) {
         JSONObject data = data(); data.remove(pkg);

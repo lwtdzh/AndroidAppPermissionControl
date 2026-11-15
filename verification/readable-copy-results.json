@@ -1,0 +1,45 @@
+{
+  "cases": {
+    "D00-capture": {
+      "status": "passed",
+      "evidence": {
+        "serial": "emulator-5584",
+        "sdk": "36",
+        "abi": "arm64-v8a",
+        "originalMode": "Enforcing",
+        "privateBackup": true
+      },
+      "artifacts": {},
+      "startedAtUTC": "2026-11-13T15:49:25.865739+00:00",
+      "durationSeconds": 0.119
+    },
+    "D18-restored": {
+      "status": "passed",
+      "evidence": {
+        "settings": true,
+        "scopes": true,
+        "originalPackages": true,
+        "mode": "Enforcing"
+      },
+      "artifacts": {},
+      "startedAtUTC": "2026-11-13T15:49:55.030175+00:00",
+      "durationSeconds": 0.0
+    }
+  },
+  "layout": {
+    "modeDescriptions": 3,
+    "helpExpandsAndCollapses": true,
+    "modeSelectionWorks": true,
+    "draftNotSaved": true,
+    "onlySettingsUIChanged": [
+      "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceSettingsActivity.java"
+    ]
+  },
+  "restoration": {
+    "originalAPKBytes": true,
+    "completeDataSnapshotRestored": true,
+    "modulesAndScopes": true,
+    "settings": true,
+    "mode": "Enforcing"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "url": "https://cdnorg.d.miui.com/OS2.0.201.0.VNCMIXM/houji_global-ota_full-OS2.0.201.0.VNCMIXM-user-15.0-a6f5b7a87f.zip",
+  "headerVersion": 4,
+  "cmdline": "video=vfb:640x400,bpp=32,memsize=3072000 swinfo.fingerprint=houji:14/OS2.0.201.0.VNCMIXM:user mtdoops.fingerprint=houji:14/OS2.0.201.0.VNCMIXM:user bootconfig",
+  "bootconfig": "androidboot.hardware=qcom\nandroidboot.memcg=1\nandroidboot.usbcontroller=a600000.dwc3\nandroidboot.load_modules_parallel=true\nandroidboot.vendor.qspa=true\nandroidboot.hypervisor.protected_vm.supported=false\n",
+  "verifiedOperations": [
+    {
+      "operation": 0,
+      "sha256": "ff3dd00b1a33fd3a1d2bd262f5123144f8f6c3490bb37e71d01dcf88ad57c28c",
+      "compressedBytes": 1510324
+    },
+    {
+      "operation": 10,
+      "sha256": "eadf2221bfa4a5795902f2fba4f6ffaf4171ef7ae4d2fc93b9d88b928aee4217",
+      "compressedBytes": 68520
+    }
+  ],
+  "bytesTransferred": 1827296,
+  "wholePartitionHashVerified": false
+}

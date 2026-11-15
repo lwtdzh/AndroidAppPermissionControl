@@ -1,18 +1,84 @@
-# 应用状态屏蔽 0.3.1 人工测试手册
+# 应用状态屏蔽 0.4.12 人工测试手册
 
-本手册用于整合版发布前验收。每条都要记录通过、失败或未验证，以及实际观察结果。失败必须修复后重新执行受影响步骤。没有真实开启基线、缺少权限或方法报错，都不能记为“屏蔽成功”。SELinux 使用真实 Permissive/Enforcing 对照；无线调试开启基线在本次模拟器中无法保持，仍单独记为未验证。
+0.4.12 验证器定向步骤（模块只更新版本，旧六项组合记录保留）：
+
+1. 无作用域冷启动首页，确认环境面板自动完成、详情逐项可读、私有 JSON 完整、Logcat 打印每一项，环境日志不增加截图次数。
+2. 点击“重新检查环境”，确认同 PID 的时间戳更新、新挑战匹配、本次临时证明密钥清理；重复点击不会并发生成密钥。
+3. 按 Home 离开，后台没有持续生成证明；返回后仅再检查一次。旧页面回调不显示到新页面。
+4. 在专用模拟器分别给验证器设作用域且六项全关、六项开启、机型/隐藏模块列表启用，再关闭档案。核对实际注入库、调试/SELinux、构建/DLKM 与模块列表的变化；签名证明不能因机型伪装被当作真实硬件改善。
+5. 文件权限拒绝、不支持的证明、缺失属性和未知证明根显示无法确认。Google 根匹配不代替签名/有效期/挑战或在线吊销检查。验证器不执行 su，不申请身份字段，不更改系统模式。
+6. 核对最终两个 APK 的版本、签名、四 ABI，正式 APK 不含 debug 厂商夹具。停止专用模拟器，按完整停止状态快照恢复磁盘并核对文件哈希。真机覆盖安装需已有用户授权；保留原包名、UID、配置、权限和 Vector 作用域，打开验证器检查输出。
+
+0.4.11 环境检测使用专用 ScreenshotShield_API36 / emulator-5584，保存完整停止状态的 AVD 副本。先测 SukiSU、ZygiskNext、Vector 已运行、检测应用没有模块作用域的基线；再测全部关闭、六个单项、相关组合、全部开启和机器伪装。三款检测 APK 核对官方来源、签名及哈希；Key Attestation 每次使用自身 Reset 重新生成证书，核对 challenge 和创建时间。Ruru 展开异常环境与设置属性。记录原生闪退，不能将未出现检测页算为通过。
+
+原生注册对照保留同一 Java 代码和库文件，分别删除清单、单独注册五个条目。最终 APK 的全部关闭应不注册原生库；启用原生功能时核对 native ready 和实际读取结果。批量配置写完后打开模块设置页，为已保存的目标建立只读 URI 授权。此次 Key Attestation 在模块已启动时仍无法解析 Provider；修复依靠 URI 授权提供的包可见性，不能归因为清除强行停止状态。正式代码保留 UID 所有权验证。全部结束后停止模拟器并恢复完整原 AVD。
+
+“隐藏模块应用列表”在“其他环境”默认不选中。通过实际 UI 选择字段并保存，检查 Ruru 的 Xposed Modules；验证器检查应用、包和 Intent 列表，以及直接模块查询。自身、普通 Settings 包及原异常保留。字段关闭和机器关闭后，同一 PID 的真实列表应恢复。只读 URI 授权后，跨包读取与所有写入仍须被拒绝。此选项不保证隐藏原生文件/子进程及 Vector 进程内痕迹。
+
+Native Detector 在 Settings → App 打开 Experimental 和 Custom ROM，冷启动后展开每项 Details。对照原生 ro.vendor_dlkm.build.tags=test-keys，再分别使用 vivo/小米机型预设；补齐 DLKM 元数据后 Custom ROM 提示应消失，关闭机型总开关后恢复。Key Attestation 的设备属性证明选项要求真实 android.software.device_id_attestation 功能；缺少此功能且 UI 没有该选项时记录无法验证，不能伪造功能支持后宣称原环境通过。
+
+Ruru 的 VPN 对照须先由未注入的 C 建立真实 TUN。分别测试无作用域、全部关闭、仅 vpn、仅 debug、vpn/debug/developer 联开；展开 Setting Props，核对 Vpn Connected 与 vpn not connected 的实际状态。vpn 开启时旧 getNetworkInfo 对象仍可用，但 isConnectedOrConnecting 为 false，shell 中 TUN 仍存在；仅 debug 不应隐藏 VPN。采集保存页面位置和底部字段，文字相同不代表已滚动到底。六项组合增加旧对象的可用性与连接状态断言。最后展开 Native Detector 的 Found Injection 保存真实 Details，不把未知算法推测成事实。
+
+0.4.10 将机型预设选择和机型刷新合并为“按预设机型填写参数”。需要人工检查时：model 分类只有这一个填写按钮并显示当前机型；选择机型、确认“填写参数”后只更新下方机型、系统和屏幕字段，其他分类及各开关保留；保存后生效。
+
+0.4.9 顶部不再提供“更新随机标识”。需要人工检查时，在设备标识、网络与基站、机型与系统分类中分别使用统一刷新，确认只更新当前分类，其他分类和总开关保留；保存后生效。单项刷新继续使用原按钮。
+
+0.4.8 将机型预设选择移入“机型与系统”。这一版只变更模块，验证器仍为 0.4.7。需要人工检查时：展开该分类后选择小米 14 或 vivo X200 Pro mini，确认只有机型、系统和屏幕字段更新，设备标识、网络、位置、其他环境及各总开关保留；取消仍不保存。此前顶部预设会替换整份草稿的行为已移除。
+
+0.4.7 仅补做新增检查，保留此前通过用例及其原 APK 哈希。scripts/incremental-environment-test.py 的独立 debug 入口检查属性文件、缓存 FD、原始 read/mmap、既存线程、代码读取、证明请求、关闭恢复和截图文件适配器组合；edges 单独检查新增 readv/preadv2、位置和错误行为。scripts/model-gate-incremental.py 只检查新增机型开关与屏幕读数，不调用完整电话采样器。最终使用 restore 恢复专用 AVD 的 APK、数据、作用域、模块和设置，再 unroot 并关闭 AVD。原矩阵不重复。
+
+本版新增人工步骤：
+
+1. 从 Vector 进入一个尚无档案的目标应用，开启机器伪装。分类初始收起；“机型与系统”显示已关闭，没有单独“屏幕”分类。
+2. 展开“机型与系统”。总开关初始关闭，屏幕宽、高和密度在这一节内。保存后只模拟设备标识和无 SIM 卡，机型、指纹、分辨率和密度应与未开启时一致。
+3. 开启机型总开关后返回，选择丢弃。重新进入时总开关仍关闭，保存值和字段选择不变。
+4. 主动开启机型总开关并保存。冷启动目标，只检查机型、指纹和 Display.getRealMetrics，对照已选字段。切换 vivo/小米预设后总开关仍保持当前选择。
+5. 关闭总开关并保存。填写值和字段选择保留；冷启动后机型、指纹与屏幕恢复真实读数。总开关关闭时切换预设，不应自动开启。
+6. 原档案缺少 modelEnabled 时，总开关应关闭；原参数、原字段选择、网络档位和位置选择应保留。
+
+本版的限制判断与自动检查证据见 [进程内隐私实现说明](PROCESS-PRIVACY-0.4.7.md)。硬件证明的 challenge 和签名通过不等于可信根验证通过；新文件映射通过不等于此前缓存的所有 CPU 属性页都被替换。
+
+0.4.6 的 scripts/property-object-test.py selected 检查属性对象、serial、缺失属性、枚举、缓存及同进程更新/关闭；稳定后执行一次 matrix 的 64 组合，最后统一 restore。128/256/48 字节指纹是边界夹具，不属于真实机型预设。详见 [属性对象实现和限制](PROPERTY-OBJECTS-0.4.6.md)。
+
+0.4.5 使用 scripts/environment-test.py 在专用 emulator-5584 上检查：从未开启时设备 Java Hook 为 0；真实 UI 保存和提示、草稿丢弃；指纹元数据、类型化属性及容量关系；同 PID 更新与字段/主开关恢复；共享 debug/SELinux 和六项全开启动；固定包名/签名正例及两个反例。foreignProbeDebug 及未经重签的 sampleADebug 仅为身份反例，不进入正式交付。执行结束调用 --finish 恢复原 APK/数据/作用域/设置/语言并关闭专用模拟器。已通过步骤保留，不重复完整 64 组合。
+
+0.4.4 使用 scripts/property-repair-test.py 检查旧 get/read、read 的空名称参数、callback、Java 和 Build 的指纹返回，包含六个指纹属性与三项长名称。测试 91/92/128/256 字节边界和长值换短值，确认整个旧接口值缓冲区没有本机尾部残留。独立、debug、SELinux、debug+SELinux 入口分别检查；共享 native Hook 修改后执行完整 64 组合，再恢复原设置、授权、作用域、APK 和数据。测试选择和限制见 [属性读取修复](PROPERTY-READ-0.4.4.md)。
+
+0.4.3 检查小米 14 和 vivo X200 Pro mini 预设，确认列表没有 Find X9s，分类默认收起。vivo 保存后读取 V2419A、PD2419、k6991v1_64、mt6991 和 Android 16；小米读取 23127PN0CG、houji、houji_global、qcom 和 Android 15。统一刷新后机型字段保持固定。取消草稿不改变配置；手工代号优先于预设；旧 OPPO 档案转为自定义并保留其他参数；机器关闭后 Build 和 Java/native 属性恢复原值。脚本为 scripts/model-preset-test.py，来源见 [真实机型预设](MODEL-PRESETS-0.4.3.md)。此次无需重复旧六项屏蔽的 64 组合。
+
+0.4.2 用例见 [位置与网络三档](LOCATION-0.4.2.md)：位置默认关闭，省市区只填写经纬度与精度；取消、旋转、保存、单项修改及三层开关；网络三档分别核对卡状态、订阅、运营商、注册状态、LTE 类型和同步/异步/Parcel 基站；统一刷新只改对应分类并保持参数匹配。选择具体用例后执行，暂不安装真机。
+
+本手册保留整合版的完整用例目录。执行前按 [测试范围、结果复用与停止规则](TEST-EXECUTION-POLICY.md) 选择本次需要跑的步骤，不要求每次修改从头执行。所选步骤记录通过、失败或未验证，以及实际观察结果；复用结果单独保留原报告与理由。失败必须修复后重新执行受影响步骤。没有真实开启基线、缺少权限或方法报错，都不能记为“屏蔽成功”。SELinux 使用真实 Permissive/Enforcing 对照；无线调试开启基线在本次模拟器中无法保持，仍单独记为未验证。
+
+机器伪装新增 D00–D18 步骤，见 [逐项测试矩阵](DEVICE-TEST-MATRIX.md)。它默认关闭，与本手册六项默认开启的屏蔽开关分开测试；实施说明见 [机器伪装读取入口](DEVICE-SPOOFING.md)。新增或改变的入口使用本次实际证据；未改变的行为可以按执行规则复用，不能把旧结果改标为新 APK 实测。
 
 测试环境为 Android 16 / API 36 / ARM64，已安装 Vector 的专用模拟器 `ScreenshotShield_API36`，序列号 `emulator-5584`。不要在有私人数据的设备上执行异常夹具。四 ABI 构建成功只证明可编译，其他系统和 ABI 仍需设备验证。
 
+## 0.4.1 标识展示与交互补测
+
+原需求逐条对照见 [REQUIREMENT-AUDIT-0.4.1](REQUIREMENT-AUDIT-0.4.1.md)。此次 UI 与采样修改只选择以下用例；旧六项策略及 Hook 未改，不重复执行完整 64 组合。
+
+1. 打开验证器首页，直接看到双卡 IMEI、Android ID、OAID、序列号与机型。等待两次自动采样；记录时间与 PID。无法读取时确认显示原因，不用空值判断成功。
+2. 进入全部 46 项，IMEI 位于最前；搜索 IMEI、OAID、MAC，并核对对应入口及原始调试信息可展开。
+3. 对未选中的序列号使用行内随机刷新，确认字段自动选中，保存后读到新值。
+4. IMEI 编辑同时有随机和单字段预设。使用预设只改变 IMEI；取消生成或取消整页不得写入草稿。
+5. 为检测器开启一个 IMEI，在相同 PID 中读到保存值；手工修改合法号码后自动更新；关闭后恢复原值或原来的系统拒绝错误。
+6. 从首页、旧状态检查及详情之间切换，核对电话辅助进程返回且页面不重启；进入后台后采样停止，返回继续。
+7. 升级两个应用，核对版本、签名、已有配置、权限、分身安装状态和 Vector 作用域。专用模拟器测试结束后恢复原状态并关闭。
+
+这些步骤只在专用模拟器进行配置实验。真机安装与只读查看须已有用户授权。执行器为 scripts/requirement-ui-test.py，记录用例耗时与实际 APK 指纹，保留失败记录和历史 0.4.0 结果。
+
 ## P · 准备与安装
 
-1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate、selinuxstate 四个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
+1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate、selinuxstate、devicestate 五个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
 2. P02：启动 `scripts/start-emulator.sh -no-window`，将输出重定向到本机私有文件。确认 AVD 名称和序列号。ADB 命令始终带 `-s emulator-5584`。必要时 `adb -s emulator-5584 root`，不要操作其他模拟器或 vivo。
 3. P03：安装测试 APK、修改任何设置前，执行 `python3 scripts/integration-test.py capture`。完整测试的目录为 verification/0.3.0，先建立该目录并放入本轮四个签名 APK（主包名带 0.3.0，临时包为 Verifier-A.apk / Verifier-B.apk）；原 0.2.0 快照和报告保持原样。它以只读方式备份模块启用状态、作用域、目标应用授权、开发者/USB/无线调试、飞行模式、隐藏 API 策略、无障碍和通知服务、自动旋转、模块定制与应用语言；两个本机快照文件权限为 600，已被 git 忽略。保存测试前的截图 MediaStore ID，结束时只删除新增测试图片。已有快照时拒绝覆盖；上一次清理完成后，先将快照移入本机归档再开始新一轮。已有 VPN 时停止测试，不覆盖它。仅跑 SELinux 专项时使用下方 L 节的独立备份和执行入口。
 4. P04：安装签名 APK。A 为主验证器 `io.github.lwtdzh.screenshotdetector`，B 为 `.samplea`，C 为 `.sampleb.screenshot`。C 的测试包名以 `.screenshot` 结尾，用于沿用截图服务的发送方判断，实际发布命名测试通知。B/C 是相同代码的临时测试目标，正式交付只有 A。
-5. P05：首次安装或从 0.3.0 升级时打开桌面应用列表。只出现验证器，应用状态屏蔽默认没有桌面图标。Vector 模块列表能识别“应用状态屏蔽”，进入模块设置后标题、版本及默认说明正确。主动开启图标后应出现主模块，操作见 I 节。
+5. P05：首次安装或从 0.3.0 / 0.3.1 升级时打开桌面应用列表。首次安装只出现验证器，应用状态屏蔽默认没有桌面图标；升级保留已保存的图标选择。Vector 模块列表能识别“应用状态屏蔽”，进入模块设置后标题、版本及默认说明正确。主动开启图标后应出现主模块，操作见 I 节。
 6. P06：旧截图/VPN/开发者模块对 A/B/C 均关闭或移除作用域，避免重复注入。不要覆盖其他应用的作用域。确认模块不作用于自身。
 7. P07：为 A/B/C 授予图片读取和所有文件访问；通知与无障碍测试另按相应步骤授权。记录实际权限，验证器显示无权限时该路径不能算通过。首次打开保护启用的验证页前，由未注入的 C 执行 `FixtureActivity` 的 `command=clipboard-save` 保存原剪贴板；备份只留在 C 的私有目录，不输出内容、不重复覆盖。清理阶段通过同入口的 `command=clipboard-restore` 恢复；自动 navigation 和 matrix 阶段会先完成备份。
+
+0.4.0 的机器伪装及 64 组合联测使用 DEVICE-TEST-MATRIX 中的 scripts/machine-test.py capture / prepare / regression / restore，安装包和结果写入 verification 的 0.4.0 文件。P03 的 integration-test.py 和 0.3.0 子目录保留原有完整保护测试流程；选用哪个执行器，就沿用它自己的备份和恢复入口。
 
 常用命令（先将 `adb` 加入 PATH）：
 
@@ -31,7 +97,7 @@ adb -s emulator-5584 shell cat /data/user/0/io.github.lwtdzh.screenshotdetector/
 
 ## U · 设置页操作
 
-0.3.1 新增测试单独使用 I/V 编号；下面原有的 U/M/L 等步骤继续作为完整保护测试计划。只有本次实际执行的步骤才计入本轮结果，原有 64 组合和 SELinux 全路径记录不能标成 0.3.1 新测。
+0.3.1 新增测试单独使用 I/V 编号；0.4.0 机器伪装使用 D 编号。下面原有的 U/M/L 等步骤继续作为完整保护测试计划。只有本次实际执行的步骤才计入本轮结果，历史报告不能直接改标为本轮通过。
 
 ### I/V · 0.3.1 图标与状态信息条
 
@@ -68,7 +134,7 @@ V09 的独立类为 verifier/src/test/java/io/github/lwtdzh/screenshotdetector/S
 
 截图次数标为估算：多入口在 2 秒窗口内合并，延迟通知、快速连拍和匿名信号会带来误差。测试构造的截图名称/通知也会被传统检测识别，不应把它们当真实系统截图证据。只在首页前台计数；0 次需结合入口就绪、权限与真实基线判断。
 
-每一项均通过真实设置页操作。读取配置用于核对，不能用直接编辑配置文件代替保存。独立运行自动执行器时也必须执行这些点击、输入和系统返回动作。
+本节的保存、取消、校验、搜索和页面重建通过真实设置页操作，读取配置不能代替这些 UI 断言。组合及批量字段还原另按执行规则设置配置并核对实际行为，不重复本节的每次搜索和滚动。
 
 | 编号 | 操作 | 期望 |
 |---|---|---|
@@ -112,7 +178,7 @@ V09 的独立类为 verifier/src/test/java/io/github/lwtdzh/screenshotdetector/S
 
 ## M · 六种方法的 64 个组合
 
-位顺序固定为截图、VPN、代理、开发者选项、USB/无线调试、SELinux。1=开启，0=关闭。以下每一项都要独立操作设置页、保存、冷启动 A，并检查设备状态快照、截图读取快照及普通操作。不要只读取 enabled 标记。SELinux 专项的 M6 用例检查这些组合中的真实 SELinux 读取、开发者/调试、真实 VPN 接口、实际代理请求、构造截图文件和普通文件；它不替代 X 节的真实截图/授权测试。
+位顺序固定为截图、VPN、代理、开发者选项、USB/无线调试、SELinux。1=开启，0=关闭。只有执行规则要求建立或更新完整基线时才跑本节。每个组合独立保存有效配置、冷启动 A，并检查设备状态快照、截图读取快照及普通操作；专用模拟器执行器批量设置配置，UI 保存语义另用代表性对照确认。不要只读取 enabled 标记。SELinux 专项的 M6 用例检查这些组合中的真实 SELinux 读取、开发者/调试、真实 VPN 接口、实际代理请求、构造截图文件和普通文件；它不替代 X 节的真实截图/授权测试。中断后核对现有基线并从未通过的组合继续。
 
 ```text
 000000 000001 000010 000011 000100 000101 000110 000111
@@ -146,7 +212,7 @@ M33：A=101010，B=010100，C 没有定制；三者都在作用域内。依次�
 2. L01：prepare 安装本轮签名包，独立 B/C、真实 VPN 和构造文件；记录 APK 哈希。原 0.2.0/0.2.1 报告不覆盖。
 3. L02–L05：建立 Permissive。未注入 shell 的 getenforce 必须显示 Permissive；A 无作用域及全部关闭时读到 false/0，只开 SELinux及全开时读到 true/1。逐条检查 Java API、FileInputStream、RandomAccessFile、NIO、FileChannel、native read/pread/pread64/readv/dup/fread/fgets 和真实 libselinux 导出函数。
 4. L06–L07：建立 Enforcing，先移出作用域采集真实权限与 API 结果，然后检查全部关闭与只开 SELinux。该 ROM 下无权限读取 enforce 时，Java 原 API 可能返回 false，libselinux 返回 -1；全部关闭应与这份真实基线一致。开启后 Java 与 libselinux 返回 true/1，文件仍保持原始权限错误；不能把失败计作返回 1 的证明。
-5. M6-000000 至 M6-111111：在 Permissive 下通过真实设置页操作 64 组合。逐项核对 SELinux、三个早期生命周期、开发者/调试读取、真实 VPN Java/native 接口、代理 metadata 与 HTTP 204、构造截图文件、普通文件和按需加载的 native 库。
+5. M6-000000 至 M6-111111：需要完整基线时，在 Permissive 下按 M 节和执行规则设置 64 组合。逐项核对 SELinux、三个早期生命周期、开发者/调试读取、真实 VPN Java/native 接口、代理 metadata 与 HTTP 204、构造截图文件、普通文件和按需加载的 native 库；中断后保留有效结果，只补剩余或受影响组合。
 6. L08–L10：A 只关闭 SELinux，B 只开启 SELinux，分别冷启动。删除 A 定制后恢复全开，B 保持自己的配置；未来方法仍默认开启。
 7. L11–L12：默认全开时检查 HTTPS 204、配置服务的跨 UID 读取及写入拒绝；连续十次冷启动检查 native 列表分配/释放、实际读取和普通操作。64 组合可按 Gray 顺序执行，每次只改变一个开关，但保存并核对每一份配置。执行器为了让六项同屏可见会暂时调整字体比例，结束恢复原值。
 8. L13：执行 native 阶段，只开 SELinux、只开截图、全部开启分别检查保留的截图原生验证器。用未注入 C 私下保存并恢复剪贴板；构造截图 PNG 和普通 PNG，核对已有 FD、read/pread/readv/preadv、mmap、syscall 六参数与 clone 新栈，测试后删除本次构造文件。未发出真实 SystemUI 截图事件。
@@ -180,7 +246,7 @@ python3 scripts/selinux-test.py cleanup
 
 1. V01：在未作用域的 C 设备状态页启动 VPN 测试（action=vpn-start）。通过系统 VPN 同意框后，从 shell ip link 确认真实 tun 接口；原网络和公网访问保持正常。夹具只路由 TEST-NET，不覆盖已有 VPN。
 2. V02：A 无保护基线：vpnNetworks=1，activeVpn、parcelVpn、callbackVpn、legacyVpn、tunByName、linkTextTunnel 为真；activeNotVpn=false。Java/native 接口列表都有隧道。
-3. V03：仅 VPN 开启：上述 VPN 信号隐藏，activeNotVpn=true。真实 TUN 仍存在；普通接口和网络 handle 保留。
+3. V03：仅 VPN 开启：上述 VPN 信号隐藏，activeNotVpn=true。getNetworkInfo(TYPE_VPN) 在系统支持时仍返回对象，isConnectedOrConnecting=false；真实 TUN 仍存在，普通接口和网络 handle 保留。
 4. V04：网络回调必须确实收到，不能把超时当 false；native listLifetimeOk/getpidOk 必须真。连续冷启动十次，确认无 native 列表释放崩溃。
 5. V05：仅代理开启：proxyFixture 的 hostVisible、portVisible、bulkHostVisible 均假；VPN 信息保持基线。response=204、actualHttpProxyUsed=true，ordinaryProperty 非空。
 6. V06：仅 VPN 开启：proxyFixture metadata 仍可见，真实 HTTP 代理请求仍成功。验证 VPN 和代理开关独立。

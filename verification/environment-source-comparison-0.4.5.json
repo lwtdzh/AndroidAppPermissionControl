@@ -1,0 +1,37 @@
+{
+  "historicalSourceSHA256": "94d15a25e208c993ad8e771bb230a96f6b2024db32595e72723741e1b41a18eb",
+  "unchangedFiles": {
+    "app/src/main/java/io/github/lwtdzh/appstateshield/Methods.java": "07e80f68b9beb8ead5eb80da9e5da1c8f0798a1da1c7fb84e9e2e603af3ac5d9",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/RuntimePolicy.java": "c9e477cf6021302a7d486f682dc38a9fdf078b990074a5744c9b24135dfd2008",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/PolicyStore.java": "1319fccdfb5faa3881d855ac73edcda4a98c2d9c68da8cc555886e63cd801609",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/PolicyProvider.java": "82c2805ebf1a6219e1098250c1054c976bef77222c0eb706dc6e715c8833c2d3",
+    "app/src/main/cpp/devicestate.cpp": "1b76e2f2a34bc8c1893db50284a0494bd507130fc196c443cc4ed53a64102aa4",
+    "app/src/main/cpp/developerstate.cpp": "ee149c9abe2e890169c2562ef494fc6c0bd1333fd3d19f777c478d323ddc5969",
+    "app/src/main/cpp/selinuxstate.cpp": "9c02213a47ba892d61b352ade0fe397f8ca54cb04688ae8f0d1ee81f9327cc85",
+    "app/src/main/cpp/vpnstate.cpp": "543e60032a4ba57539c51c317b3bf86b6300c2b0e6995e3aa131279ac84d7228",
+    "shared/native/property-read.h": "b1b10146a3a33c00767f1277549979032aa74872f06550b02d3e36654d01f24c"
+  },
+  "changedAppSources": [
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceHooks.java",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceRuntime.java",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/DeviceSettingsActivity.java",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/IntegratedEntry.java",
+    "app/src/main/java/io/github/lwtdzh/appstateshield/VerifierIdentity.java",
+    "app/src/main/java/io/github/lwtdzh/developerstateshield/.DS_Store",
+    "app/src/main/java/io/github/lwtdzh/screenshotshield/.DS_Store",
+    "app/src/main/java/io/github/lwtdzh/vpnstateshield/.DS_Store"
+  ],
+  "historicalAPK": {
+    "AppStateShield-0.4.4.apk": "f28c7839116d37c61afede921dbdf060ed3a6559e90e47bbbeb5171b03f07561",
+    "AppStateVerifier-0.4.4.apk": "ba007812fca7f49b202a4ebc1b6a6a95f0fdaeb68c17106713004f178dbc8324"
+  },
+  "historicalReportSHA256": "3f6e57485ff438ed7188742517122487255025fd67116649420c2bf1e25745bd",
+  "currentAPK": {
+    "AppStateShield-0.4.5.apk": "2eb2c547df6e3d8e3d34552139d581d25733dd7acb291cd6f7442e6cc95db693",
+    "AppStateVerifier-0.4.5.apk": "82d232f3fc680f23f21957ba0174de4dd40ce1aeeb5e44f07e66cb7054d17471",
+    "Verifier-A-0.4.5.apk": "f60b2a828a38291eecf811cc7733138fe3c53dd0d6dbcc4e85228e5c6f7fc761",
+    "Verifier-Foreign-0.4.5.apk": "8ba78f760e3f0cee0ba264895ff7e4b47f5bf9dea801722a56f2b09881992d50"
+  },
+  "historical64CasesNotRelabeled": true,
+  "reason": "Methods、策略和共享 native 实现未改；本次验证首次启用、共享属性及全开启动，不重复旧 64 组合。检测器新增读数，旧结果仅保留历史归属。"
+}

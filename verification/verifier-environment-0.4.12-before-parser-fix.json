@@ -1,0 +1,23 @@
+{
+  "version": "0.4.12",
+  "serial": "emulator-5584",
+  "cases": {
+    "E01-no-injection": {
+      "atUTC": "2026-11-15T04:59:24.903731+00:00",
+      "status": "failed",
+      "error": "Environment results did not complete",
+      "seconds": 35.386
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.4.12.apk": "9abab57be155885e351ccd0c5f7325cc25e990ab0ea586b8b239deb5a9bc2224",
+    "AppStateVerifier-0.4.12.apk": "67a77604e5608ed12fb260214f854cd608c5a34c0f9b3b4b7e6a3f166de1db69"
+  },
+  "expectedCases": 8,
+  "estimateMinutes": 4,
+  "environment": {
+    "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+    "abi": "arm64-v8a",
+    "rootMode": "Enforcing"
+  }
+}

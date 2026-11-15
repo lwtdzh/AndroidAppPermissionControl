@@ -1,5 +1,6 @@
 #include "vector-hooks.h"
 #include "loaded-symbol.h"
+#include "property-read.h"
 #include <sys/uio.h>
 #include <sys/system_properties.h>
 #include <cerrno>
@@ -20,6 +21,9 @@ int (*real_property_get)(const char *, char *) = nullptr;
 int (*real_property_read)(const prop_info *, char *, char *) = nullptr;
 using PropertyCallback = void (*)(void *, const char *, const char *, uint32_t);
 void (*real_property_callback)(const prop_info *, PropertyCallback, void *) = nullptr;
+using DevicePropertyFilter = const char *(*)(const char *, const char *);
+std::atomic<DevicePropertyFilter> devicePropertyFilter{nullptr};
+std::atomic<const shield_properties::HandleAdapter *> deviceHandles{nullptr};
 
 bool enforceFd(int fd) {
     int saved = errno;
@@ -85,20 +89,47 @@ const char *propertyFilter(const char *name, const char *value) {
 }
 int h_property_get(const char *name, char *value) {
     int n = real_property_get(name, value);
-    if (bootProperty(name, value)) { strcpy(value, "enforcing"); return 9; }
+    if (bootProperty(name, value)) { strcpy(value, "enforcing"); n = 9; }
+    if (auto extra = devicePropertyFilter.load()) {
+        std::string replacement = extra(name, value);
+        if (replacement != value) {
+            return shield_properties::writeLegacy(name, replacement, value);
+        }
+    }
     return n;
 }
 int h_property_read(const prop_info *info, char *name, char *value) {
+    if(auto adapter=deviceHandles.load()) {
+        info=adapter->map(info);
+        if(adapter->owns(info)) {
+            int result=real_property_read(info,name,value);
+            auto source=shield_properties::snapshot(info,real_property_callback);
+            return source.captured ? shield_properties::writeLegacy(source.name.c_str(),source.value,value) : result;
+        }
+    }
     int n = real_property_read(info, name, value);
-    if (bootProperty(name, value)) { strcpy(value, "enforcing"); return 9; }
-    return n;
+    auto source = shield_properties::snapshot(info, real_property_callback);
+    if (!source.captured) return n;
+    const char *key = source.name.c_str();
+    std::string replacement = propertyFilter(key, source.value.c_str());
+    if (auto extra = devicePropertyFilter.load()) {
+        replacement = extra(key, replacement.c_str());
+    }
+    return replacement == source.value ? n :
+        shield_properties::writeLegacy(key, replacement, value);
 }
 struct PropertyContext { PropertyCallback callback; void *cookie; };
 void propertyCallback(void *cookie, const char *name, const char *value, uint32_t serial) {
     auto *context = static_cast<PropertyContext *>(cookie);
-    context->callback(context->cookie, name, bootProperty(name, value) ? "enforcing" : value, serial);
+    std::string replacement = bootProperty(name, value) ? "enforcing" : value;
+    if (auto extra = devicePropertyFilter.load()) replacement = extra(name, replacement.c_str());
+    context->callback(context->cookie, name, replacement.c_str(), serial);
 }
 void h_property_callback(const prop_info *info, PropertyCallback callback, void *cookie) {
+    if(auto adapter=deviceHandles.load()) {
+        info=adapter->map(info);
+        if(adapter->owns(info)) { real_property_callback(info,callback,cookie);return; }
+    }
     PropertyContext context{callback, cookie};
     real_property_callback(info, propertyCallback, &context);
 }
@@ -181,10 +212,22 @@ void onLoaded(const char *path, void *handle) {
     if (name && !strcmp(name, "libselinux.so")) selinuxLibrary(handle);
 }
 }
+extern "C" __attribute__((visibility("default"))) void
+appstateshield_set_device_property_handles(const shield_properties::HandleAdapter *adapter) {
+    deviceHandles.store(adapter);
+}
+extern "C" __attribute__((visibility("default"))) bool
+appstateshield_set_device_property_filter(void *symbol, const char *(*filter)(const char *, const char *)) {
+    if (!hookedSymbols.count(symbol) || !real_property_get || !real_property_read || !real_property_callback) return false;
+    devicePropertyFilter.store(filter);
+    return true;
+}
 extern "C" __attribute__((visibility("default"))) OnLoad native_init(const NativeAPIEntries *api) {
     if (!api || api->version < 1 || !api->hookFunc) return nullptr;
     entries = *api;
     anonymizeLinkerFileViews();
+    real_property_callback=reinterpret_cast<shield_properties::ReadCallback>(
+        dlsym(RTLD_DEFAULT,"__system_property_read_callback"));
     // Vector holds its loader locks: RTLD_DEFAULT and the supplied on-load handle only.
 #define ADD(name, replacement, original) add(RTLD_DEFAULT, name, replacement, &original)
     addRead("read", h_read, &real_read);

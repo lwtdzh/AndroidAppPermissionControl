@@ -25,11 +25,7 @@ public final class SelinuxProbe {
     }
     public static JSONObject snapshot(Context context) {
         JSONObject result = new JSONObject();
-        Bundle marker = io.github.lwtdzh.screenshotdetector.ModuleStatus.snapshot();
-        read(result, "module", () -> new JSONObject().put("injected", marker.getBoolean("injected"))
-            .put("policyLoaded", marker.getBoolean("policyLoaded"))
-            .put("enabled", new JSONArray(marker.getStringArray("enabled")))
-            .put("futureMethodEnabled", marker.getBoolean("futureMethodEnabled")));
+        read(result, "module", io.github.lwtdzh.screenshotdetector.ModuleStatus::json);
         read(result, "lifecycle", io.github.lwtdzh.screenshotdetector.LifecycleProbe::snapshot);
         read(result, "javaEnforced", SelinuxProbe::enforced);
         read(result, "javaEnabled", () -> Class.forName("android.os.SELinux").getMethod("isSELinuxEnabled").invoke(null));
@@ -62,6 +58,13 @@ public final class SelinuxProbe {
             .invoke(null, "init.svc.adbd"));
         read(result, "nativeState", () -> new JSONObject(ProbeActivity.nativeSnapshot()));
         read(result, "tunByName", () -> java.net.NetworkInterface.getByName("tun0") != null);
+        android.net.ConnectivityManager connectivity = context.getSystemService(android.net.ConnectivityManager.class);
+        read(result, "legacyVpnAvailable", () ->
+            connectivity.getNetworkInfo(android.net.ConnectivityManager.TYPE_VPN) != null);
+        read(result, "legacyVpnConnected", () -> {
+            android.net.NetworkInfo info = connectivity.getNetworkInfo(android.net.ConnectivityManager.TYPE_VPN);
+            return info != null && info.isConnectedOrConnecting();
+        });
         read(result, "proxyFixture", ProbeActivity::proxyFixture);
         read(result, "screenshotFixture", () -> {
             try (InputStream stream = new FileInputStream("/sdcard/Pictures/SELinuxShieldProbe/Screenshot_control.txt")) {

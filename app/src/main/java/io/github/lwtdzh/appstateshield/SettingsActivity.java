@@ -29,6 +29,7 @@ public final class SettingsActivity extends Activity {
         super.onCreate(saved);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         store = new PolicyStore(this);
+        PolicyVisibility.restore(this);
         strings = new UiText(this);
         if (Build.VERSION.SDK_INT >= 33)
             getOnBackInvokedDispatcher().registerOnBackInvokedCallback(
@@ -132,14 +133,15 @@ public final class SettingsActivity extends Activity {
             }
         });
         LinearLayout policy = card();
-        policy.addView(text(t("默认全部开启", "All methods enabled by default"), 18, 0xff175bc1));
-        policy.addView(text(t("Vector 作用域内，未定制的应用自动开启所有屏蔽方法，包括以后新增的方法。",
-            "Every app in Vector scope uses all methods, including methods added in future versions."), 15, 0xff475569));
+        policy.addView(text(t("状态屏蔽默认开启 · 机器伪装默认关闭", "State blocking on · device spoofing off"), 18, 0xff175bc1));
+        policy.addView(text(t("Vector 作用域内，未定制的应用自动开启状态屏蔽。机器伪装需为每个应用单独开启。",
+            "Scoped apps use state blocking by default. Device spoofing requires explicit opt-in for each app."), 15, 0xff475569));
         policy.addView(text(t("请在 Vector 中选择作用域。此处的定制列表不会添加或移除作用域。",
             "Select scope in Vector. Custom settings do not change scope."), 13, 0xff667085));
         body.addView(heading(t("按应用定制", "App customizations")));
         body.addView(button(t("添加应用", "Add app"), "add-app", () -> { screen = "picker"; render(); }));
-        List<String> packages = store.packages();
+        List<String> packages = new ArrayList<>(new TreeSet<>(store.packages()));
+        for (String pkg : new DeviceStore(this).packages()) if (!packages.contains(pkg)) packages.add(pkg);
         if (packages.isEmpty()) body.addView(text(t("尚无定制应用。作用域内所有应用使用默认配置。",
             "No custom apps. All scoped apps use the defaults."), 15, 0xff667085));
         packages.sort(Comparator.comparing(this::label, String.CASE_INSENSITIVE_ORDER));
@@ -150,6 +152,8 @@ public final class SettingsActivity extends Activity {
             long off = Arrays.stream(Methods.values()).filter(m -> store.disabled(pkg).contains(m.id)).count();
             row.addView(text(off == 0 ? t("全部开启", "All enabled") :
                 t("已开启 ", "Enabled ") + (Methods.values().length - off) + "/" + Methods.values().length, 14, 0xff175bc1));
+            row.addView(text(new DeviceStore(this).read(pkg).enabled ?
+                t("机器伪装已开启", "Device spoofing enabled") : t("机器伪装关闭", "Device spoofing off"), 13, 0xff667085));
             row.setOnClickListener(v -> edit(pkg));
         }
         body.addView(text(BuildConfig.VERSION_NAME + " · Vector", 12, 0xff667085));
@@ -162,6 +166,7 @@ public final class SettingsActivity extends Activity {
     @Override protected void onResume() {
         super.onResume();
         if ("home".equals(screen) && launcher != null) launcher.setChecked(launcherEnabled());
+        if ("editor".equals(screen) && deviceSummary != null) updateDeviceSummary();
     }
     private LinearLayout pickerRows;
     private void renderPicker() {
@@ -202,6 +207,14 @@ public final class SettingsActivity extends Activity {
         LinearLayout info = card(); info.addView(heading(label(selected)));
         info.addView(text(selected, 12, 0xff667085));
         info.addView(text(t("保存后，请强行停止并重新打开目标应用。", "After saving, force-stop and reopen the target app."), 14, 0xff475569));
+        LinearLayout machine = card();
+        machine.addView(text(t("机器伪装", "Device spoofing"), 18, 0xff182331));
+        deviceSummary = text("", 14, 0xff175bc1); machine.addView(deviceSummary); updateDeviceSummary();
+        machine.addView(text(t("仅对单独开启的应用生效。按字段选择，支持机型预设、随机和手工填写。",
+            "Opt in per app. Choose fields, a model preset, generated identifiers or manual values."), 13, 0xff667085));
+        machine.addView(button(t("配置机器伪装", "Configure device spoofing"), "device-config", () ->
+            startActivity(new android.content.Intent(this, DeviceSettingsActivity.class).putExtra("package", selected))));
+        body.addView(text(t("状态屏蔽", "State blocking"), 19, 0xff182331));
         switches.clear();
         for (Methods method : Methods.values()) {
             LinearLayout row = card(); Switch toggle = new Switch(this);
@@ -219,12 +232,13 @@ public final class SettingsActivity extends Activity {
         body.addView(button(t("关闭已实现方法", "Disable implemented methods"), "disable-all", () -> {
             for (Switch s : switches.values()) s.setChecked(false);
         }));
-        if (store.packages().contains(selected)) body.addView(button(t("删除定制，恢复默认", "Remove customization"), "remove-custom", () ->
+        if (store.packages().contains(selected) || new DeviceStore(this).packages().contains(selected)) body.addView(button(t("删除定制，恢复默认", "Remove customization"), "remove-custom", () ->
             new AlertDialog.Builder(this).setTitle(t("恢复默认？", "Restore defaults?"))
-                .setMessage(t("仅删除这个应用的定制，恢复所有方法开启。", "Remove only this app's customization and enable all methods."))
+                .setMessage(t("删除这个应用的定制：状态屏蔽全部开启，机器伪装关闭并删除档案。",
+                    "Remove this app's customization: all state blocking on; device spoofing off and profile deleted."))
                 .setNegativeButton(t("取消", "Cancel"), null)
                 .setPositiveButton(t("恢复默认", "Restore"), (d, w) -> {
-                    if (store.remove(selected)) home(); else failed();
+                    if (new DeviceStore(this).remove(selected) && store.remove(selected)) home(); else failed();
                 }).show()));
         LinearLayout actions = new LinearLayout(this);
         actions.addView(button(t("取消", "Cancel"), "cancel", this::back), new LinearLayout.LayoutParams(0, -2, 1));
@@ -235,6 +249,12 @@ public final class SettingsActivity extends Activity {
             } else failed();
         }), new LinearLayout.LayoutParams(0, -2, 1));
         footer.addView(actions);
+    }
+    private TextView deviceSummary;
+    private void updateDeviceSummary() {
+        io.github.lwtdzh.deviceprofile.DeviceProfile p = new DeviceStore(this).read(selected);
+        deviceSummary.setText(p.enabled ? t("已开启 · ", "Enabled · ") + p.selected.size() + t(" 个字段", " fields") :
+            t("默认关闭 · 原始设备读数", "Off · original device reads"));
     }
     private void failed() { Toast.makeText(this, t("保存失败，请重试", "Save failed. Please retry."), Toast.LENGTH_LONG).show(); }
     private void home() { screen = "home"; selected = null; render(); }

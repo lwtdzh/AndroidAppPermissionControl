@@ -1,0 +1,49 @@
+{
+  "artifacts": {
+    "AppStateShield-0.4.7.apk": {
+      "bytes": 8063780,
+      "sha256": "62c3d15f2924239879102c342a071055b292a964d5a174765418af842690d6ee"
+    },
+    "AppStateVerifier-0.4.7.apk": {
+      "bytes": 6899535,
+      "sha256": "c04424ba15dd223e31b96c6641c1dc98e5774acc1400e3141d8ee06550a19454"
+    },
+    "AppStateShield-0.4.7-source.zip": {
+      "bytes": 623853,
+      "sha256": "ec98edb303f11e26c1d5155da7459de0159bb0782e4c0e5b9cf0db64bd6f39c3"
+    },
+    "AppStateShield-0.4.7-实现与未覆盖原因.md": {
+      "bytes": 12139,
+      "sha256": "9c4e5a7b5cd161ca4a4bdf140e9db8ad81766d5d3dab16df985482ca971b6f68"
+    },
+    "AppStateShield-0.4.7-人工测试手册.md": {
+      "bytes": 40673,
+      "sha256": "cddab912f0119d4eee6d433ec5a63eedb33dba7b3df8a0f9b4ed9ab04a8737ed"
+    },
+    "AppStateShield-0.4.7-测试数据.json": {
+      "bytes": 49504,
+      "sha256": "7bd125dbb076f9f05566aac6be3429b86c295d89df2790bc7663639b59647f62"
+    },
+    "AppStateShield-0.4.7-机型分类.png": {
+      "bytes": 275463,
+      "sha256": "fa60c36a12bb9c95a9e2c3478f0e747b05f4766c7ca7baf4e043a1b2fcb3ad76"
+    },
+    "AppStateShield-0.4.7-SHA256SUMS.txt": {
+      "bytes": 715,
+      "sha256": "d2974f1d9eb19f798b787c78998f2750ae7cdf26fb98d1c10ca4cc07dc022f63"
+    },
+    "AppStateShield-0.4.7-delivery.zip": {
+      "bytes": 7018923,
+      "sha256": "28198df035b8286f10dd540dc899fb1680056e7d208342703fca47a449930c7f"
+    }
+  },
+  "runtimeCases": 14,
+  "publicSourceFiles": 184,
+  "restoration": {
+    "originalAPKAndData": true,
+    "scopesAndModules": true,
+    "settings": true,
+    "adbUnrooted": true,
+    "emulatorShutdown": true
+  }
+}

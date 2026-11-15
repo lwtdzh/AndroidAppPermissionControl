@@ -1,0 +1,204 @@
+{
+  "cases": {
+    "D00-capture": {
+      "status": "passed",
+      "evidence": {
+        "serial": "emulator-5584",
+        "sdk": "36",
+        "abi": "arm64-v8a",
+        "originalMode": "Enforcing",
+        "privateBackup": true
+      },
+      "artifacts": {},
+      "startedAtUTC": "2026-11-13T20:35:52.292833+00:00",
+      "durationSeconds": 0.123
+    },
+    "C01-module-owned-property-object": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "syntheticProperties": [
+            {
+              "length": 48,
+              "passed": true,
+              "serialLength": 48,
+              "longFlag": false,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 91,
+              "passed": true,
+              "serialLength": 91,
+              "longFlag": false,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 128,
+              "passed": true,
+              "serialLength": 50,
+              "longFlag": true,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 256,
+              "passed": true,
+              "serialLength": 50,
+              "longFlag": true,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            }
+          ],
+          "childReceived": true,
+          "childStatus": 0,
+          "childUid": 10154,
+          "effectiveCaps": 0,
+          "inheritedSeccomp": 2,
+          "noNewPrivsResult": 0,
+          "noNewPrivsErrno": 0,
+          "unshareResult": -1,
+          "unshareErrno": 1,
+          "allowFilterResult": 0,
+          "allowFilterErrno": 0,
+          "listenerResult": 72,
+          "listenerErrno": 0,
+          "errnoFilterResult": 0,
+          "errnoFilterErrno": 0,
+          "rawGetpidBefore": 3466,
+          "rawGetpidAfter": -13,
+          "parentSeccompUnchanged": true,
+          "parentNoNewPrivsUnchanged": true,
+          "package": "io.github.lwtdzh.screenshotdetector.samplea",
+          "uid": 10154,
+          "pid": 3447,
+          "sdk": 36
+        },
+        "actualAppUID": true,
+        "syntheticSizes": [
+          48,
+          91,
+          128,
+          256
+        ],
+        "readCallbackSerialWaitAndGuards": true,
+        "apkBytesMatch": true
+      },
+      "artifacts": {
+        "researchDebugAPK": "ce31a06d60718dc8a950026934995cd19e2d577e1c819a07671be187bc4a0055"
+      },
+      "startedAtUTC": "2026-11-13T20:35:55.166691+00:00",
+      "durationSeconds": 0.0
+    },
+    "C02-unprivileged-process-capabilities": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "syntheticProperties": [
+            {
+              "length": 48,
+              "passed": true,
+              "serialLength": 48,
+              "longFlag": false,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 91,
+              "passed": true,
+              "serialLength": 91,
+              "longFlag": false,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 128,
+              "passed": true,
+              "serialLength": 50,
+              "longFlag": true,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            },
+            {
+              "length": 256,
+              "passed": true,
+              "serialLength": 50,
+              "longFlag": true,
+              "callbackReadsSyntheticValue": true,
+              "bufferGuards": true,
+              "zeroTimeoutReturnsFalse": true
+            }
+          ],
+          "childReceived": true,
+          "childStatus": 0,
+          "childUid": 10154,
+          "effectiveCaps": 0,
+          "inheritedSeccomp": 2,
+          "noNewPrivsResult": 0,
+          "noNewPrivsErrno": 0,
+          "unshareResult": -1,
+          "unshareErrno": 1,
+          "allowFilterResult": 0,
+          "allowFilterErrno": 0,
+          "listenerResult": 72,
+          "listenerErrno": 0,
+          "errnoFilterResult": 0,
+          "errnoFilterErrno": 0,
+          "rawGetpidBefore": 3466,
+          "rawGetpidAfter": -13,
+          "parentSeccompUnchanged": true,
+          "parentNoNewPrivsUnchanged": true,
+          "package": "io.github.lwtdzh.screenshotdetector.samplea",
+          "uid": 10154,
+          "pid": 3447,
+          "sdk": 36
+        },
+        "noRootCapabilities": true,
+        "mountNamespaceAvailable": false,
+        "seccompFilterAvailable": true,
+        "notificationListenerAvailable": true,
+        "directSVCIntercepted": true,
+        "onlyChildModified": true
+      },
+      "artifacts": {
+        "researchDebugAPK": "ce31a06d60718dc8a950026934995cd19e2d577e1c819a07671be187bc4a0055"
+      },
+      "startedAtUTC": "2026-11-13T20:35:55.168056+00:00",
+      "durationSeconds": 0.0
+    },
+    "D18-restored": {
+      "status": "passed",
+      "evidence": {
+        "settings": true,
+        "scopes": true,
+        "originalPackages": true,
+        "mode": "Enforcing"
+      },
+      "artifacts": {
+        "researchDebugAPK": "ce31a06d60718dc8a950026934995cd19e2d577e1c819a07671be187bc4a0055"
+      },
+      "startedAtUTC": "2026-11-13T20:35:59.332218+00:00",
+      "durationSeconds": 0.0
+    }
+  },
+  "artifacts": {
+    "researchDebugAPK": "ce31a06d60718dc8a950026934995cd19e2d577e1c819a07671be187bc4a0055"
+  },
+  "restoration": {
+    "originalAPKAndData": true,
+    "scopesAndModules": true,
+    "systemSettings": true,
+    "mode": "Enforcing",
+    "researchChildExited": true,
+    "adbUnrooted": true,
+    "emulatorShutdown": true
+  }
+}

@@ -28,7 +28,7 @@ public final class SelinuxModule {
                 }
             }
         });
-        try { System.loadLibrary("selinuxstate"); }
+        try { io.github.lwtdzh.appstateshield.NativeLibraries.load("selinuxstate"); }
         catch (Throwable error) { Log.e("SELinuxStateShield", "native layer unavailable", error); }
     }
 }

@@ -1,0 +1,2298 @@
+{
+  "cases": {
+    "D00-capture": {
+      "status": "passed",
+      "evidence": {
+        "serial": "emulator-5584",
+        "sdk": "36",
+        "abi": "arm64-v8a",
+        "originalMode": "Enforcing",
+        "privateBackup": true
+      },
+      "artifacts": {},
+      "startedAtUTC": "2026-11-13T14:55:24.385446+00:00",
+      "durationSeconds": 0.129
+    },
+    "U01-install-default": {
+      "status": "passed",
+      "evidence": {
+        "defaultOff": true,
+        "baseline": {
+          "timestamp": 1794581727085,
+          "elapsed": 213631,
+          "pid": 3374,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 159,
+            "deviceNative": false,
+            "deviceRevision": 1794581726186,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [],
+            "deviceEnabled": false
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581726186,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581726186,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581726186,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 3409,
+            "revision": 1794581726186,
+            "reads": {
+              "imei": {
+                "error": "SecurityException",
+                "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": null,
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "error": "SecurityException",
+                "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": null,
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "error": "SecurityException",
+                "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "error": "SecurityException",
+                "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "error": "SecurityException",
+                "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "lac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Android",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "unknown",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "Android SDK built for arm64",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "emu64a",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "sdk_phone64_arm64",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "goldfish_arm64",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "ranchu",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "13818094",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "error": "SecurityException",
+              "detail": "getSerial: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "unknown",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "b7a012c685f55dce",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "b7a012c685f55dce",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "error": "SecurityException",
+              "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": null,
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "error": "SecurityException",
+              "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": null,
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "error": "SecurityException",
+              "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "error": "SecurityException",
+              "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "error": "SecurityException",
+              "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "<unknown ssid>",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:00:00:00:00:00"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "error": "SecurityException",
+              "detail": "Need android.permission.BLUETOOTH_CONNECT permission for AttributionSource { uid = 1000, packageName = android, attributionTag = null, token = android.os.Binder@6784414, deviceId = 0, next = AttributionSource { uid = 10159, packageName = io.github.lwtdzh.screenshotdetector, attributionTag = null, token = android.os.BinderProxy@f758dda, deviceId = 0, next = null } }: getAddress",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-13 22:55:27.457 I No hidl drm factories found\n  11-13 22:55:27.457 W Failed to find passthrough drm factories\n  11-13 22:55:27.486 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1080,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2400,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 420,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1080 × 2138",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1080 × 2400",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1080 × 2138 / 420",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "zh-CN",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "Android SDK built for arm64",
+                "ro.product.brand": "Android",
+                "ro.product.manufacturer": "unknown",
+                "ro.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                "ro.serialno": "",
+                "ro.hardware": "ranchu",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "Android SDK built for arm64",
+                    "read": "Android SDK built for arm64",
+                    "callback": "Android SDK built for arm64"
+                  },
+                  "ro.product.brand": {
+                    "get": "Android",
+                    "read": "Android",
+                    "callback": "Android"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "unknown",
+                    "read": "unknown",
+                    "callback": "unknown"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+                  },
+                  "ro.serialno": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "ranchu",
+                    "read": "ranchu",
+                    "callback": "ranchu"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9446891520,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "installedBytesMatch": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:55:27.224142+00:00",
+      "durationSeconds": 0.172,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U02-home-timer-and-pause": {
+      "status": "passed",
+      "evidence": {
+        "visibleIdentifiers": 6,
+        "autonomousIntervalMs": 2002,
+        "samePid": 3374,
+        "backgroundStops": true,
+        "noActivityRelaunchBetweenSamples": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:55:27.398051+00:00",
+      "durationSeconds": 9.154,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U03-detail-directory-search": {
+      "status": "passed",
+      "evidence": {
+        "readDirectory": 46,
+        "idsFirst": true,
+        "searchFilters": true,
+        "nativeMacReadable": true,
+        "phoneWorkerRevisionMatches": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:55:36.553137+00:00",
+      "durationSeconds": 17.26,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U04-editor-preset-and-cancel": {
+      "status": "passed",
+      "evidence": {
+        "defaultOffInEditor": true,
+        "firstPresetGeneratedTwoIMEIs": true,
+        "singleRandomFieldPreset": true,
+        "onlyIMEIChanged": true,
+        "cancelDoesNotSave": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:56:59.113675+00:00",
+      "durationSeconds": 46.793,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "D18-restored": {
+      "status": "passed",
+      "evidence": {
+        "settings": true,
+        "scopes": true,
+        "originalPackages": true,
+        "mode": "Enforcing"
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T15:00:32.031533+00:00",
+      "durationSeconds": 0.0,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U05-row-random-selects": {
+      "status": "passed",
+      "evidence": {
+        "unselectedFieldAutoSelected": true,
+        "newValueSaved": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:57:45.908201+00:00",
+      "durationSeconds": 10.638,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U06-enable-manual-update-disable": {
+      "status": "passed",
+      "evidence": {
+        "enabled": {
+          "timestamp": 1794581877219,
+          "elapsed": 363765,
+          "pid": 5501,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 159,
+            "deviceNative": true,
+            "deviceRevision": 1794581876819,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei",
+              "imei2",
+              "meid",
+              "android_id",
+              "oaid",
+              "vaid",
+              "aaid",
+              "gaid",
+              "wifi_mac",
+              "bt_mac",
+              "ssid",
+              "bssid",
+              "imsi",
+              "iccid",
+              "phone",
+              "lac",
+              "cid",
+              "tac",
+              "pci",
+              "brand",
+              "manufacturer",
+              "model",
+              "device",
+              "product",
+              "board",
+              "hardware",
+              "release",
+              "incremental",
+              "fingerprint",
+              "operator",
+              "mcc",
+              "mnc",
+              "signal",
+              "latitude",
+              "longitude",
+              "accuracy",
+              "width",
+              "height",
+              "density",
+              "serial"
+            ],
+            "deviceEnabled": true
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 6829,
+            "revision": 1794581876819,
+            "reads": {
+              "imei": {
+                "value": "999982948972692",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": "991289754209336",
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "value": "999982948972692",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": "6be63703c54049",
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "value": "460006156623999",
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "value": "8986001301856485222",
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "value": "",
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "中国移动",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": "460",
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": "00",
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "lac": {
+                "value": 31159,
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "value": 138712613,
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "value": 31565,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "value": 57,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "value": 138712613,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "value": "460",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "value": "00",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "value": -85,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Xiaomi",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "Xiaomi",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "23127PN0CG",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "privacy_x14",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "privacy_x14",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "privacy_board",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "privacy_platform",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Xiaomi/privacy_x14/privacy_x14:16/PRIVATE/1:user/release-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "PRIVATE.1",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "value": "40BDDB0CDEB27260",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "40BDDB0CDEB27260",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "1ff5f31006d0dec8",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "1ff5f31006d0dec8",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "value": "999982948972692",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": "991289754209336",
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "value": "999982948972692",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": "6be63703c54049",
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "value": "460006156623999",
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "value": "8986001301856485222",
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "value": "",
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "中国移动",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": "460",
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": "00",
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "value": 31159,
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "value": 138712613,
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "value": 31565,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "value": 57,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "value": 138712613,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "value": "460",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "value": "00",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "value": -85,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:61:f6:38:b5:dc",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "\"Private-b54850\"",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:35:d4:21:09:46",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:61:f6:38:b5:dc"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "value": "02:2f:27:85:40:6a",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "value": 31.2304,
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "value": 121.4737,
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "value": 30,
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-13 22:56:59.278 I No hidl drm factories found\n  11-13 22:56:59.279 W Failed to find passthrough drm factories\n  11-13 22:56:59.306 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:09.862 I No hidl drm factories found\n  11-13 22:57:09.863 W Failed to find passthrough drm factories\n  11-13 22:57:09.872 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:30.009 I No hidl drm factories found\n  11-13 22:57:30.013 W Failed to find passthrough drm factories\n  11-13 22:57:30.033 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:46.512 I No hidl drm factories found\n  11-13 22:57:46.513 W Failed to find passthrough drm factories\n  11-13 22:57:46.529 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.190 I No hidl drm factories found\n  11-13 22:57:57.190 W Failed to find passthrough drm factories\n  11-13 22:57:57.209 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.751 I No hidl drm factories found\n  11-13 22:57:57.753 W Failed to find passthrough drm factories\n  11-13 22:57:57.754 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1200,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2670,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 420,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1200 × 2670",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1200 × 2670",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1200 × 2670 / 420",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "zh-CN",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "23127PN0CG",
+                "ro.product.brand": "Xiaomi",
+                "ro.product.manufacturer": "Xiaomi",
+                "ro.build.fingerprint": "Xiaomi/privacy_x14/privacy_x14:16/PRIVATE/1:user/release-keys",
+                "ro.serialno": "40BDDB0CDEB27260",
+                "ro.hardware": "privacy_platform",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "23127PN0CG",
+                    "read": "23127PN0CG",
+                    "callback": "23127PN0CG"
+                  },
+                  "ro.product.brand": {
+                    "get": "Xiaomi",
+                    "read": "Xiaomi",
+                    "callback": "Xiaomi"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "Xiaomi",
+                    "read": "Xiaomi",
+                    "callback": "Xiaomi"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Xiaomi/privacy_x14/privacy_x14:16/PRIVATE/1:user/release-keys",
+                    "read": "Xiaomi/privacy_x14/privacy_x14:16/PRIVATE/1:user/release-keys",
+                    "callback": "Xiaomi/privacy_x14/privacy_x14:16/PRIVATE/1:user/release-keys"
+                  },
+                  "ro.serialno": {
+                    "get": "40BDDB0CDEB27260",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "privacy_platform",
+                    "read": "privacy_platform",
+                    "callback": "privacy_platform"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9445572608,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "updated": {
+          "timestamp": 1794581893605,
+          "elapsed": 380151,
+          "pid": 5501,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 159,
+            "deviceNative": true,
+            "deviceRevision": 1794581892960,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei"
+            ],
+            "deviceEnabled": true
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 7232,
+            "revision": 1794581892960,
+            "reads": {
+              "imei": {
+                "value": "490154203237518",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": null,
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "value": "490154203237518",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": null,
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "error": "SecurityException",
+                "detail": "getSubscriberIdForSubscriber: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "error": "SecurityException",
+                "detail": "getIccSerialNumber: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "error": "SecurityException",
+                "detail": "getLine1NumberForDisplay: Neither user 10161 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "lac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Android",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "unknown",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "Android SDK built for arm64",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "emu64a",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "sdk_phone64_arm64",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "goldfish_arm64",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "ranchu",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "13818094",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "error": "SecurityException",
+              "detail": "getSerial: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "unknown",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "b7a012c685f55dce",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "b7a012c685f55dce",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "value": "490154203237518",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": null,
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "value": "490154203237518",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": null,
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "error": "SecurityException",
+              "detail": "getSubscriberIdForSubscriber: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "error": "SecurityException",
+              "detail": "getIccSerialNumber: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "error": "SecurityException",
+              "detail": "getLine1NumberForDisplay: Neither user 10161 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "<unknown ssid>",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:00:00:00:00:00"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "error": "SecurityException",
+              "detail": "Need android.permission.BLUETOOTH_CONNECT permission for AttributionSource { uid = 1000, packageName = android, attributionTag = null, token = android.os.Binder@6784414, deviceId = 0, next = AttributionSource { uid = 10161, packageName = io.github.lwtdzh.screenshotdetector, attributionTag = null, token = android.os.BinderProxy@5418001, deviceId = 0, next = null } }: getAddress",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-13 22:56:59.278 I No hidl drm factories found\n  11-13 22:56:59.279 W Failed to find passthrough drm factories\n  11-13 22:56:59.306 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:09.862 I No hidl drm factories found\n  11-13 22:57:09.863 W Failed to find passthrough drm factories\n  11-13 22:57:09.872 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:30.009 I No hidl drm factories found\n  11-13 22:57:30.013 W Failed to find passthrough drm factories\n  11-13 22:57:30.033 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:46.512 I No hidl drm factories found\n  11-13 22:57:46.513 W Failed to find passthrough drm factories\n  11-13 22:57:46.529 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.190 I No hidl drm factories found\n  11-13 22:57:57.190 W Failed to find passthrough drm factories\n  11-13 22:57:57.209 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.751 I No hidl drm factories found\n  11-13 22:57:57.753 W Failed to find passthrough drm factories\n  11-13 22:57:57.754 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:13.536 I No hidl drm factories found\n  11-13 22:58:13.537 W Failed to find passthrough drm factories\n  11-13 22:58:13.597 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:13.882 I No hidl drm factories found\n  11-13 22:58:13.882 W Failed to find passthrough drm factories\n  11-13 22:58:13.886 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1080,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2400,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 420,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1080 × 2138",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1080 × 2400",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1080 × 2138 / 420",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "zh-CN",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "Android SDK built for arm64",
+                "ro.product.brand": "Android",
+                "ro.product.manufacturer": "unknown",
+                "ro.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                "ro.serialno": "",
+                "ro.hardware": "ranchu",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "Android SDK built for arm64",
+                    "read": "Android SDK built for arm64",
+                    "callback": "Android SDK built for arm64"
+                  },
+                  "ro.product.brand": {
+                    "get": "Android",
+                    "read": "Android",
+                    "callback": "Android"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "unknown",
+                    "read": "unknown",
+                    "callback": "unknown"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+                  },
+                  "ro.serialno": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "ranchu",
+                    "read": "ranchu",
+                    "callback": "ranchu"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9445982208,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "disabled": {
+          "timestamp": 1794581895674,
+          "elapsed": 382220,
+          "pid": 5501,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 159,
+            "deviceNative": true,
+            "deviceRevision": 1794581893692,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei"
+            ],
+            "deviceEnabled": false
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794581818145,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 7462,
+            "revision": 1794581893692,
+            "reads": {
+              "imei": {
+                "error": "SecurityException",
+                "detail": "getImeiForSlot: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": null,
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "error": "SecurityException",
+                "detail": "getDeviceId: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": null,
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "error": "SecurityException",
+                "detail": "getSubscriberIdForSubscriber: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "error": "SecurityException",
+                "detail": "getIccSerialNumber: The uid 10161 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "error": "SecurityException",
+                "detail": "getLine1NumberForDisplay: Neither user 10161 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "lac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Android",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "unknown",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "Android SDK built for arm64",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "emu64a",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "sdk_phone64_arm64",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "goldfish_arm64",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "ranchu",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "13818094",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "error": "SecurityException",
+              "detail": "getSerial: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "unknown",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "b7a012c685f55dce",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "b7a012c685f55dce",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "error": "SecurityException",
+              "detail": "getImeiForSlot: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": null,
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "error": "SecurityException",
+              "detail": "getDeviceId: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": null,
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "error": "SecurityException",
+              "detail": "getSubscriberIdForSubscriber: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "error": "SecurityException",
+              "detail": "getIccSerialNumber: The uid 10161 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "error": "SecurityException",
+              "detail": "getLine1NumberForDisplay: Neither user 10161 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "<unknown ssid>",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:00:00:00:00:00"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "error": "SecurityException",
+              "detail": "Need android.permission.BLUETOOTH_CONNECT permission for AttributionSource { uid = 1000, packageName = android, attributionTag = null, token = android.os.Binder@6784414, deviceId = 0, next = AttributionSource { uid = 10161, packageName = io.github.lwtdzh.screenshotdetector, attributionTag = null, token = android.os.BinderProxy@5418001, deviceId = 0, next = null } }: getAddress",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10161 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-13 22:56:59.278 I No hidl drm factories found\n  11-13 22:56:59.279 W Failed to find passthrough drm factories\n  11-13 22:56:59.306 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:09.862 I No hidl drm factories found\n  11-13 22:57:09.863 W Failed to find passthrough drm factories\n  11-13 22:57:09.872 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:30.009 I No hidl drm factories found\n  11-13 22:57:30.013 W Failed to find passthrough drm factories\n  11-13 22:57:30.033 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:46.512 I No hidl drm factories found\n  11-13 22:57:46.513 W Failed to find passthrough drm factories\n  11-13 22:57:46.529 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.190 I No hidl drm factories found\n  11-13 22:57:57.190 W Failed to find passthrough drm factories\n  11-13 22:57:57.209 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:57:57.751 I No hidl drm factories found\n  11-13 22:57:57.753 W Failed to find passthrough drm factories\n  11-13 22:57:57.754 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:13.536 I No hidl drm factories found\n  11-13 22:58:13.537 W Failed to find passthrough drm factories\n  11-13 22:58:13.597 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:13.882 I No hidl drm factories found\n  11-13 22:58:13.882 W Failed to find passthrough drm factories\n  11-13 22:58:13.886 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:14.626 I No hidl drm factories found\n  11-13 22:58:14.627 W Failed to find passthrough drm factories\n  11-13 22:58:14.640 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:15.459 I No hidl drm factories found\n  11-13 22:58:15.460 W Failed to find passthrough drm factories\n  11-13 22:58:15.461 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-13 22:58:16.212 I No hidl drm factories found\n  11-13 22:58:16.213 W Failed to find passthrough drm factories\n  11-13 22:58:16.214 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1080,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2400,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 420,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1080 × 2138",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1080 × 2400",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1080 × 2138 / 420",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "zh-CN",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "Android SDK built for arm64",
+                "ro.product.brand": "Android",
+                "ro.product.manufacturer": "unknown",
+                "ro.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                "ro.serialno": "",
+                "ro.hardware": "ranchu",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "Android SDK built for arm64",
+                    "read": "Android SDK built for arm64",
+                    "callback": "Android SDK built for arm64"
+                  },
+                  "ro.product.brand": {
+                    "get": "Android",
+                    "read": "Android",
+                    "callback": "Android"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "unknown",
+                    "read": "unknown",
+                    "callback": "unknown"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+                  },
+                  "ro.serialno": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "ranchu",
+                    "read": "ranchu",
+                    "callback": "ranchu"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9445957632,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "samePid": 5501,
+        "manualIMEIApplied": true,
+        "originalValueOrErrorRestored": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:57:56.547418+00:00",
+      "durationSeconds": 23.828,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U07-legacy-entry-switch": {
+      "status": "passed",
+      "evidence": {
+        "legacyHasOverviewAndEntry": true,
+        "autonomousRefresh": true,
+        "switchKeepsPid": 5501,
+        "phoneWorkerRepliesAfterSwitch": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T14:58:20.378347+00:00",
+      "durationSeconds": 10.7,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "U08-visible-active-IMEI": {
+      "status": "passed",
+      "evidence": {
+        "homeAndDetailShowObservedIMEI": true,
+        "samePid": 9722,
+        "observedIMEIIsPublicTestExample": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+        "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+      },
+      "startedAtUTC": "2026-11-13T15:00:18.642086+00:00",
+      "durationSeconds": 11.453,
+      "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+      "apkPayloads": {
+        "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+        "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+        "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+        "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+    "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+  },
+  "restoration": {
+    "originalAPKBytes": true,
+    "completeDataSnapshotRestored": true,
+    "modulesAndScopes": true,
+    "settings": true,
+    "mode": "Enforcing",
+    "adbUnrooted": true,
+    "dedicatedEmulatorShutdownAccepted": true
+  },
+  "previousRuns": {
+    "U04-editor-preset-and-cancel": [
+      {
+        "status": "failed",
+        "error": "AssertionError()",
+        "startedAtUTC": "2026-11-13T14:55:53.814739+00:00",
+        "durationSeconds": 18.652
+      }
+    ],
+    "D18-restored": [
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+          "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+        },
+        "startedAtUTC": "2026-11-13T14:56:14.376318+00:00",
+        "durationSeconds": 0.0,
+        "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+        "apkPayloads": {
+          "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+          "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+          "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+          "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+          "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+        },
+        "startedAtUTC": "2026-11-13T14:58:33.117223+00:00",
+        "durationSeconds": 0.0,
+        "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+        "apkPayloads": {
+          "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+          "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+          "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+          "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.1.apk": "5352235fa932126404ee5827ece49c4a9d417d9f0594f0892531c4aa52d94ab4",
+          "AppStateVerifier-0.4.1.apk": "5a638eed53f75d7d8a8099dafa650a75b0d6de351e5d7b57369e1ffc1ee6c0ae"
+        },
+        "startedAtUTC": "2026-11-13T14:59:02.518340+00:00",
+        "durationSeconds": 0.0,
+        "buildInputsSHA256": "8626d2c86038ae125988b2e36b03b0708fb05dc0b49461c08de3d8d9e41e8a58",
+        "apkPayloads": {
+          "AppStateShield": "5850fac2e4ab82015ee10bc3e9ad4ac7a1c0b9648df780f3ef9bc213f7d91a43",
+          "AppStateVerifier": "df9aba825ad8a5500a587bf4f14f16a05c544cd3a802795b1af41c5412dfb83c",
+          "Verifier-A": "11177467aa7f8096fae98195e9333585463a7ef9b047adbf99b6f4c69e3606af",
+          "Verifier-B": "911ae30d22e20e4fd224d9787d0376b0fb2593a06fba4d159dfb328aeeb86e63"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      }
+    ],
+    "U08-visible-active-IMEI": [
+      {
+        "status": "failed",
+        "error": "KeyError('value')",
+        "startedAtUTC": "2026-11-13T14:58:59.669805+00:00",
+        "durationSeconds": 0.807
+      }
+    ]
+  },
+  "historicalComparison": {
+    "historicalSourceArchiveSHA256": "4e5b2a624cd9bd9b8b67710f6c80b701df2613d3ac6376bda8a975a61a14d6d1",
+    "unchangedRuntimeFiles": 34,
+    "historicalAPKHashes": {
+      "AppStateShield-0.4.0.apk": "da53746db954954df11cbb32596e4bf717c75cd65148bf78fcabffde1ce22d2b",
+      "AppStateVerifier-0.4.0.apk": "9fc720795b4ce2e9f191e8505b13723f0998af5f24d70ff0be78e08691b1684e"
+    },
+    "historicalCasesNotRelabeledOrRerun": true
+  }
+}

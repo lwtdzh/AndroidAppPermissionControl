@@ -46,7 +46,7 @@ public final class ShieldModule implements IXposedHookLoadPackage {
         broadcasts(load.classLoader);
         SignalHooks.install(load.classLoader);
         try {
-            System.loadLibrary("shield");
+            io.github.lwtdzh.appstateshield.NativeLibraries.load("shield");
             Log.i(TAG, "native library loaded");
         } catch (Throwable error) {
             Log.e(TAG, "native layer unavailable; Java hooks remain active", error);

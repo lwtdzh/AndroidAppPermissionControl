@@ -20,6 +20,7 @@ public final class PolicyProvider extends ContentProvider {
         result.putStringArray("disabled", store.disabled(pkg).toArray(new String[0]));
         result.putBoolean("custom", store.packages().contains(pkg));
         result.putInt("schema", 1);
+        result.putString("device", new DeviceStore(getContext()).read(pkg).json());
         return result;
     }
     @Override public Cursor query(Uri u, String[] p, String s, String[] a, String o) { throw denied(); }

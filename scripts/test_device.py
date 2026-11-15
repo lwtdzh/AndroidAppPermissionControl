@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dedicated emulator helpers. Policy changes always use the real settings controls."""
+"""Dedicated-emulator helpers; UI persistence and bulk runtime fixtures are separate."""
 import json
 import pathlib
 import re
@@ -13,6 +13,29 @@ MODULE = "io.github.lwtdzh.appstateshield"
 PRIMARY = "io.github.lwtdzh.screenshotdetector"
 METHODS = ["screenshot", "vpn", "proxy", "developer", "debug", "selinux"]
 CLI = "/data/adb/modules/zygisk_vector/cli"
+TEST_TARGETS = {PRIMARY, PRIMARY + ".samplea", PRIMARY + ".sampleb.screenshot"}
+
+
+def policy_fixture(tree, pkg, enabled):
+    """Preserve unknown method IDs and every unrelated preference/package."""
+    node = tree.find("string[@name='apps']")
+    if node is None:
+        node = ET.SubElement(tree, "string", name="apps")
+    apps = json.loads(node.text or "{}")
+    disabled = set(apps.get(pkg, [])) - set(METHODS)
+    apps[pkg] = sorted(disabled | (set(METHODS) - set(enabled)))
+    node.text = json.dumps(apps, ensure_ascii=False, separators=(",", ":"))
+
+
+def profile_fixture(tree, pkg, profile):
+    node = tree.find("string[@name='" + pkg + "']")
+    previous = json.loads(node.text or "{}") if node is not None else {}
+    value = json.loads(json.dumps(profile))
+    value["revision"] = max(int(time.time() * 1000), previous.get("revision", 0) + 1)
+    if node is None:
+        node = ET.SubElement(tree, "string", name=pkg)
+    node.text = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+    return value
 
 
 class Device:
@@ -141,6 +164,46 @@ class Device:
             raise AssertionError("Cannot edit every method")
         self.click("save")
         self.find("add-app")
+
+    def batch_preference(self, filename, pkg, change):
+        """Root-only atomic fixture on the dedicated AVD; never stop a target reader."""
+        if pkg not in TEST_TARGETS or filename not in {"policies", "device_profiles"}:
+            raise ValueError("Only synthetic targets and known preference files are accepted")
+        if self.shell("id", "-u") != "0":
+            raise RuntimeError("Bulk fixtures require root on the dedicated emulator")
+        self.shell("am", "force-stop", MODULE)  # Discard the provider's cached SharedPreferences.
+        folder = "/data/user/0/" + MODULE + "/shared_prefs"
+        path = folder + "/" + filename + ".xml"
+        raw = self.shell("sh", "-c", "test ! -f " + path + " || cat " + path)
+        tree = ET.fromstring(raw) if raw else ET.Element("map")
+        result = change(tree)
+        uid = re.search(r"^package:" + re.escape(MODULE) + r" uid:(\d+)$",
+                        self.shell("pm", "list", "packages", "-U", MODULE), re.M).group(1)
+        mode = self.shell("stat", "-c", "%a", path) if raw else "600"
+        temporary = path + ".appstate-fixture"
+        command = ("mkdir -p " + folder + " && cat > " + temporary +
+                   " && chown " + uid + ":" + uid + " " + temporary +
+                   " && chmod " + mode + " " + temporary + " && restorecon " + temporary +
+                   " && mv " + temporary + " " + path + " && rm -f " + path + ".bak")
+        subprocess.run(self.prefix + ["shell", command], input=ET.tostring(tree, encoding="utf-8"),
+                       check=True, timeout=15, stdout=subprocess.DEVNULL)
+        # Check all elements, including unknown keys and other apps, after saving.
+        saved = ET.fromstring(self.shell("cat", path))
+        if ET.tostring(saved) != ET.tostring(tree):
+            raise AssertionError("Bulk preference read-back differs")
+        # A live target may restart the provider during the atomic write and
+        # cache the previous XML. Invalidate that process after the read-back.
+        self.shell("am", "force-stop", MODULE)
+        return result
+
+    def batch_policy(self, pkg, enabled):
+        if not set(enabled) <= set(METHODS):
+            raise ValueError("Unknown enabled method")
+        self.batch_preference("policies", pkg, lambda tree: policy_fixture(tree, pkg, enabled))
+
+    def batch_profile(self, pkg, profile):
+        return self.batch_preference("device_profiles", pkg,
+                                     lambda tree: profile_fixture(tree, pkg, profile))
 
     def kill_reader(self, pkg):
         for line in self.shell("ps", "-A", "-o", "PID,NAME").splitlines()[1:]:

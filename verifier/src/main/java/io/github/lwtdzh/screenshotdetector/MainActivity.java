@@ -29,6 +29,8 @@ public final class MainActivity extends Activity implements Signals.Listener {
     private final EnumMap<Source, Long> recent = new EnumMap<>(Source.class);
     private TextView count, log;
     private TextView sessionCount, sessionDetail, monitoring;
+    private DeviceOverview deviceOverview;
+    private EnvironmentOverview environmentOverview;
     private final Map<String, TextView> summaryRows = new LinkedHashMap<>();
     private final EnumMap<Source, Integer> sourceStates = new EnumMap<>(Source.class);
     private ScreenshotSession session = new ScreenshotSession();
@@ -65,7 +67,8 @@ public final class MainActivity extends Activity implements Signals.Listener {
     @Override public void onCreate(Bundle saved) {
         super.onCreate(saved);
         if (Build.VERSION.SDK_INT < 34) {
-            startActivity(new Intent(this, io.github.lwtdzh.devicestateprobe.ProbeActivity.class));
+            startActivity(new Intent(this, io.github.lwtdzh.devicestateprobe.ProbeActivity.class)
+                .putExtra("action", "environment"));
             finish(); return;
         }
         detector = new Detector(this);
@@ -89,7 +92,6 @@ public final class MainActivity extends Activity implements Signals.Listener {
         Bundle marker = ModuleStatus.snapshot();
         root.addView(text("Vector: " + marker.getBoolean("injected") + " · "
             + Arrays.toString(marker.getStringArray("enabled")), 13));
-        addSummary(root, marker);
         LinearLayout probes = new LinearLayout(this);
         Button device = new Button(this); device.setText(R.string.device_probe); device.setContentDescription("device-probe");
         device.setOnClickListener(v -> startActivity(new Intent(this, io.github.lwtdzh.devicestateprobe.ProbeActivity.class)));
@@ -99,6 +101,9 @@ public final class MainActivity extends Activity implements Signals.Listener {
         probes.addView(low, new LinearLayout.LayoutParams(0, -2, 1)); root.addView(probes);
         count = text("", 18); root.addView(count);
         LinearLayout controls = column();
+        environmentOverview = new EnvironmentOverview(this, this::append); controls.addView(environmentOverview);
+        deviceOverview=new DeviceOverview(this);controls.addView(deviceOverview);
+        addSummary(controls, marker);
         controls.addView(text(getString(R.string.intro), 13));
         choices = new Spinner(this);
         choices.setContentDescription("source-filter");
@@ -146,14 +151,14 @@ public final class MainActivity extends Activity implements Signals.Listener {
         }
         ScrollView controlsScroll = new ScrollView(this);
         controlsScroll.addView(controls);
-        root.addView(controlsScroll, new LinearLayout.LayoutParams(-1, 0, 1.2f));
+        root.addView(controlsScroll, new LinearLayout.LayoutParams(-1, 0, 2f));
         LinearLayout tools = new LinearLayout(this);
         addButton(tools, R.string.clear_log, () -> { lines.clear(); detections = 0; render(); });
         root.addView(tools);
         log = text("", 14); log.setTextIsSelectable(true);
         log.setBackgroundColor(0xffffffff); log.setPadding(dp(10), dp(10), dp(10), dp(10));
         ScrollView logs = new ScrollView(this); logs.addView(log);
-        root.addView(logs, new LinearLayout.LayoutParams(-1, 0, 1f));
+        root.addView(logs, new LinearLayout.LayoutParams(-1, 0, .7f));
         setContentView(root);
         choices.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -238,10 +243,14 @@ public final class MainActivity extends Activity implements Signals.Listener {
         foreground = true; Signals.listener = this;
         main.post(this::restart);
         main.removeCallbacks(refreshState); main.post(refreshState);
+        deviceOverview.start();
+        environmentOverview.start();
     }
     private void stopListening() {
         foreground = false; generation++;
         main.removeCallbacks(refreshState);
+        if(deviceOverview!=null)deviceOverview.stop();
+        if(environmentOverview!=null)environmentOverview.stop();
         if (Signals.listener == this) Signals.listener = null;
         if (detector != null) detector.stop();
     }
@@ -367,6 +376,7 @@ public final class MainActivity extends Activity implements Signals.Listener {
         super.onSaveInstanceState(out);
     }
     @Override protected void onDestroy() {
+        if (environmentOverview != null) environmentOverview.dispose();
         destroyed = true;
         if (Signals.listener == this) Signals.listener = null;
         foreground = false; if (detector != null) detector.destroy(); worker.shutdown();

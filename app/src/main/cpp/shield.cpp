@@ -27,6 +27,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include "code-view.h"
 
 // Public Vector ABI, checked against Vector v2.2/native/include/core/native_api.h.
 using Hook = int (*)(void *, void *, void **);
@@ -56,16 +57,32 @@ std::unordered_set<void *> hookedSymbols;
 std::unordered_set<void *> successfulHooks;
 using ReadFilter = ssize_t (*)(int, void *, ssize_t);
 std::atomic<ReadFilter> extraReadFilter{nullptr};
+shield_code::Views codeViews;
+using OpenView = int (*)(int);
+using MemoryView = void (*)(int,void *,ssize_t,off64_t);
+std::atomic<OpenView> deviceOpenView{nullptr};
+std::atomic<MemoryView> deviceMemoryView{nullptr};
+int openedView(int fd) {
+    auto view=deviceOpenView.load();return view && !internal ? view(fd) : fd;
+}
+ssize_t memoryView(int fd,void *buffer,ssize_t n,off64_t at) {
+    auto view=deviceMemoryView.load();if(view && !internal)view(fd,buffer,n,at);return n;
+}
 ssize_t afterRead(int fd, void *buffer, ssize_t n) {
     auto filter = extraReadFilter.load();
     return filter ? filter(fd, buffer, n) : n;
 }
-ssize_t afterReadv(int fd, const iovec *iov, int count, ssize_t n) {
+ssize_t afterReadv(int fd, const iovec *iov, int count, ssize_t n,off64_t at=-1) {
+    if(at<0 && n>0 && deviceMemoryView.load() && !internal) {
+        int saved=errno;at=lseek64(fd,0,SEEK_CUR)-n;errno=saved;
+    }
     size_t remaining = n > 0 ? static_cast<size_t>(n) : 0;
     for (int i = 0; i < count && remaining; ++i) {
         size_t part = std::min(remaining, iov[i].iov_len);
+        if(at>=0)memoryView(fd,iov[i].iov_base,part,at);
         afterRead(fd, iov[i].iov_base, static_cast<ssize_t>(part));
         remaining -= part;
+        if(at>=0)at+=part;
     }
     return n;
 }
@@ -189,21 +206,21 @@ int h_open(const char *path, int flags, ...) {
     mode_t mode = 0;
     if (needsMode(flags)) { va_list ap; va_start(ap, flags); mode = va_arg(ap, int); va_end(ap); }
     if (reading(flags) && hidden(AT_FDCWD, path)) return missing();
-    return real_open(path, flags, mode);
+    return openedView(real_open(path, flags, mode));
 }
 int h_openat(int dir, const char *path, int flags, ...) {
     mode_t mode = 0;
     if (needsMode(flags)) { va_list ap; va_start(ap, flags); mode = va_arg(ap, int); va_end(ap); }
     if (reading(flags) && hidden(dir, path)) return missing();
-    return real_openat(dir, path, flags, mode);
+    return openedView(real_openat(dir, path, flags, mode));
 }
 int h_open_2(const char *path, int flags) {
     if (reading(flags) && hidden(AT_FDCWD, path)) return missing();
-    return real_open_2(path, flags);
+    return openedView(real_open_2(path, flags));
 }
 int h_openat_2(int dir, const char *path, int flags) {
     if (reading(flags) && hidden(dir, path)) return missing();
-    return real_openat_2(dir, path, flags);
+    return openedView(real_openat_2(dir, path, flags));
 }
 int h_access(const char *path, int mode) {
     if (hidden(AT_FDCWD, path)) return missing();
@@ -251,19 +268,19 @@ char *h_realpath(const char *path, char *result) {
 }
 ssize_t h_pread(int fd, void *buffer, size_t size, off_t offset) {
     if (hiddenFd(fd)) return missing();
-    return afterRead(fd, buffer, real_pread(fd, buffer, size, offset));
+    return afterRead(fd, buffer, memoryView(fd,buffer,real_pread(fd, buffer, size, offset),offset));
 }
 ssize_t h_pread64(int fd, void *buffer, size_t size, off64_t offset) {
     if (hiddenFd(fd)) return missing();
-    return afterRead(fd, buffer, real_pread64(fd, buffer, size, offset));
+    return afterRead(fd, buffer, memoryView(fd,buffer,real_pread64(fd, buffer, size, offset),offset));
 }
 ssize_t h_preadv(int fd, const struct iovec *iov, int count, off_t offset) {
     if (hiddenFd(fd)) return missing();
-    return afterReadv(fd, iov, count, real_preadv(fd, iov, count, offset));
+    return afterReadv(fd, iov, count, real_preadv(fd, iov, count, offset),offset);
 }
 ssize_t h_preadv64(int fd, const struct iovec *iov, int count, off64_t offset) {
     if (hiddenFd(fd)) return missing();
-    return afterReadv(fd, iov, count, real_preadv64(fd, iov, count, offset));
+    return afterReadv(fd, iov, count, real_preadv64(fd, iov, count, offset),offset);
 }
 int h_statx(int dir, const char *path, int flags, unsigned int mask, struct statx *value) {
     if (hidden(dir, path) || (path && !*path && hiddenFd(dir))) return missing();
@@ -280,7 +297,12 @@ void *h_mmap64(void *address, size_t size, int protection, int flags, int fd, of
 bool readingMode(const char *mode) { return mode && (mode[0] == 'r' || strchr(mode, '+')); }
 FILE *h_fopen(const char *path, const char *mode) {
     if (readingMode(mode) && hidden(AT_FDCWD, path)) { missing(); return nullptr; }
-    return real_fopen(path, mode);
+    FILE *stream=real_fopen(path,mode);
+    if(stream && deviceOpenView.load() && !internal) {
+        int fd=fileno(stream),next=openedView(dup(fd));
+        if(next>=0){int flags=fcntl(next,F_GETFD);dup3(next,fd,flags&FD_CLOEXEC?O_CLOEXEC:0);close(next);}
+    }
+    return stream;
 }
 FILE *h_freopen(const char *path, const char *mode, FILE *stream) {
     if (readingMode(mode) && hidden(AT_FDCWD, path)) { missing(); return nullptr; }
@@ -404,7 +426,11 @@ template <class Reader> ssize_t filteredRead(int fd, void *buffer, size_t size, 
 }
 ssize_t h_read(int fd, void *buffer, size_t size) {
     if (hiddenFd(fd)) return missing();
-    return afterRead(fd, buffer, filteredRead(fd, buffer, size, [&] { return real_read(fd, buffer, size); }));
+    ssize_t n=filteredRead(fd, buffer, size, [&] { return real_read(fd, buffer, size); });
+    if(n>0 && deviceMemoryView.load() && !internal){
+        int saved=errno;off64_t end=lseek64(fd,0,SEEK_CUR);errno=saved;memoryView(fd,buffer,n,end-n);
+    }
+    return afterRead(fd,buffer,n);
 }
 ssize_t h_read_chk(int fd, void *buffer, size_t size, size_t capacity) {
     if (size <= capacity && hiddenFd(fd)) return missing();
@@ -762,8 +788,11 @@ template <class R, class O> void install(const NativeAPIEntries *api, void *lib,
     }
     // Bionic aliases often share addresses. Never hook one address twice.
     if (!hookedSymbols.insert(symbol).second) return;
+    uint8_t before[64];size_t captured=std::min(symbolSize(symbol,name),sizeof(before));
+    memcpy(before,symbol,captured);
     if (api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
         reinterpret_cast<void **>(original)) == 0) {
+        codeViews.remember(reinterpret_cast<uintptr_t>(symbol),before,symbol,captured);
         successfulHooks.insert(symbol);
         hookCount++;
     }
@@ -774,6 +803,14 @@ extern "C" __attribute__((visibility("default"))) bool
 appstateshield_set_selinux_read_filter(void *symbol, ReadFilter filter) {
     if (!successfulHooks.count(symbol)) return false;
     extraReadFilter.store(filter);
+    return true;
+}
+extern "C" __attribute__((visibility("default"))) void
+appstateshield_overlay_own_code(uintptr_t at,void *buffer,size_t n) {codeViews.overlay(at,buffer,n);}
+extern "C" __attribute__((visibility("default"))) bool
+appstateshield_set_device_file_views(void *symbol,int kind,OpenView opened,MemoryView memory) {
+    if(!successfulHooks.count(symbol))return false;
+    if(kind==0)deviceOpenView.store(opened);else deviceMemoryView.store(memory);
     return true;
 }
 

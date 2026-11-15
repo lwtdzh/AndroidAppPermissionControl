@@ -1,0 +1,20 @@
+{
+  "settings": true,
+  "scopes": true,
+  "modules": true,
+  "originalPackages": true,
+  "mode": "Enforcing",
+  "vpnStopped": true,
+  "fixturesRemoved": true,
+  "clipboardBackupRestored": true,
+  "adbUnrooted": true,
+  "dedicatedEmulatorShutdownAccepted": true,
+  "artifacts": {
+    "AppStateShield-0.4.0.apk": "da53746db954954df11cbb32596e4bf717c75cd65148bf78fcabffde1ce22d2b",
+    "AppStateVerifier-0.4.0.apk": "9fc720795b4ce2e9f191e8505b13723f0998af5f24d70ff0be78e08691b1684e",
+    "Verifier-A-0.4.0.apk": "214c694b590ce9bbfb19c58240994997e375edf813d8feaa0724899e8dd734d8",
+    "Verifier-B-0.4.0.apk": "86cc5e67f0adc02e2c759901bb8441a3d08c7679c957a41be3da4071b20e1aed"
+  },
+  "originalSnapshotSHA256": "6c3fcaf6f1027a1efbb4c126a3517d340f64190caeeab707356d4f10a0ecd8fd",
+  "completedAtUTC": "2026-11-13T14:32:30.077407+00:00"
+}

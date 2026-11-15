@@ -1,0 +1,127 @@
+{
+  "status": "failed-before-fix",
+  "artifacts": {
+    "AppStateShield-0.4.0.apk": "b6d521f6672c7f34ef43b53a8ff43abecad36c588b8604e4972e49dbb0868f5d",
+    "AppStateVerifier-0.4.0.apk": "fc96ec1fbe24aa1b60c98bbc610ea279d627a8cadbb67e19cbad4723af103b24",
+    "Verifier-A-0.4.0.apk": "057917b33906dbb890dabb5d0281692a92caea5b0c423f6f4b0ec093cd6034a0",
+    "Verifier-B-0.4.0.apk": "a9b2033db326212db085be4d64567912a44b9eac93fb00f9148256c586d3f49f"
+  },
+  "function": "DeviceRuntime.apply",
+  "reason": "Published the new profile revision before native loading and JNI update completed",
+  "timestamp": 1794573559643,
+  "pid": 12471,
+  "marker": {
+    "policyLoaded": true,
+    "enabled": [
+      "screenshot",
+      "vpn",
+      "proxy",
+      "developer",
+      "debug",
+      "selinux"
+    ],
+    "deviceHooks": 159,
+    "deviceNative": false,
+    "deviceRevision": 1794573558657,
+    "futureMethodEnabled": true,
+    "injected": true,
+    "deviceSelected": [
+      "imei",
+      "imei2",
+      "serial",
+      "android_id",
+      "oaid",
+      "vaid",
+      "aaid",
+      "gaid",
+      "wifi_mac",
+      "bt_mac",
+      "ssid",
+      "bssid",
+      "imsi",
+      "iccid",
+      "phone",
+      "lac",
+      "cid",
+      "tac",
+      "pci",
+      "brand",
+      "manufacturer",
+      "model",
+      "device",
+      "product",
+      "board",
+      "hardware",
+      "release",
+      "incremental",
+      "fingerprint",
+      "operator",
+      "mcc",
+      "mnc",
+      "signal",
+      "latitude",
+      "longitude",
+      "accuracy",
+      "width",
+      "height",
+      "density",
+      "meid"
+    ],
+    "deviceEnabled": true
+  },
+  "javaModel": {
+    "value": "23127PN0CG",
+    "source": "Build.MODEL"
+  },
+  "javaBrand": {
+    "value": "Xiaomi",
+    "source": "Build.BRAND"
+  },
+  "nativeProperties": {
+    "ro.product.model": {
+      "get": "Android SDK built for arm64",
+      "read": "Android SDK built for arm64",
+      "callback": "Android SDK built for arm64"
+    },
+    "ro.product.brand": {
+      "get": "Android",
+      "read": "Android",
+      "callback": "Android"
+    },
+    "ro.product.manufacturer": {
+      "get": "unknown",
+      "read": "unknown",
+      "callback": "unknown"
+    },
+    "ro.build.fingerprint": {
+      "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+      "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+      "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+    },
+    "ro.serialno": {
+      "get": "",
+      "read": null,
+      "callback": null
+    },
+    "ro.hardware": {
+      "get": "ranchu",
+      "read": "ranchu",
+      "callback": "ranchu"
+    },
+    "ro.boot.selinux": {
+      "get": "",
+      "read": null,
+      "callback": null
+    },
+    "sys.usb.config": {
+      "get": "none",
+      "read": "none",
+      "callback": "none"
+    },
+    "appstate.probe.absent": {
+      "get": "",
+      "read": null,
+      "callback": null
+    }
+  }
+}

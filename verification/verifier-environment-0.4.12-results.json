@@ -1,0 +1,3866 @@
+{
+  "version": "0.4.12",
+  "serial": "emulator-5584",
+  "cases": {
+    "E01-no-injection": {
+      "atUTC": "2026-11-15T05:01:48.822894+00:00",
+      "status": "passed",
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794718915552,
+        "pid": 7718,
+        "module": {
+          "policyLoaded": false,
+          "networkMode": "no_sim",
+          "locationEnabled": false,
+          "enabled": [],
+          "deviceRevision": 0,
+          "futureMethodEnabled": false,
+          "injected": false,
+          "deviceEnabled": false
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "WARN",
+            "value": "userdebug",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "UNKNOWN",
+            "value": "Unavailable",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "WARN",
+            "value": "On",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "UNKNOWN",
+            "value": "Mode unconfirmed",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "WARN",
+            "value": "4",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "test-keys",
+              "ro.build.type": "userdebug",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "test-keys",
+              "ro.odm_dlkm.build.tags": "",
+              "ro.system_dlkm.build.tags": "test-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": false,
+              "networkMode": "no_sim",
+              "locationEnabled": false,
+              "enabled": [],
+              "deviceRevision": 0,
+              "futureMethodEnabled": false,
+              "injected": false,
+              "deviceEnabled": false
+            },
+            "pid": 7718,
+            "applications": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "packages": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "moduleActivities": [
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "directApplicationVisible": true,
+            "directPackageVisible": true,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 10,
+          "warn": 13,
+          "unknown": 12,
+          "info": 3
+        }
+      },
+      "seconds": 8.099
+    },
+    "E02-scoped-off": {
+      "atUTC": "2026-11-15T05:03:46.017616+00:00",
+      "status": "passed",
+      "earlierAttempts": [
+        {
+          "atUTC": "2026-11-15T05:01:56.923664+00:00",
+          "status": "failed",
+          "error": "",
+          "seconds": 6.713
+        }
+      ],
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719030938,
+        "pid": 11420,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "deviceRevision": 0,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [],
+          "deviceEnabled": false
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "WARN",
+            "value": "userdebug",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "UNKNOWN",
+            "value": "Unavailable",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "WARN",
+            "value": "On",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "UNKNOWN",
+            "value": "Mode unconfirmed",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "WARN",
+            "value": "4",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "test-keys",
+              "ro.build.type": "userdebug",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "test-keys",
+              "ro.odm_dlkm.build.tags": "",
+              "ro.system_dlkm.build.tags": "test-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "no_sim",
+              "modelEnabled": false,
+              "locationEnabled": false,
+              "enabled": [],
+              "deviceHooks": 0,
+              "deviceNative": false,
+              "deviceRegion": "",
+              "deviceRevision": 0,
+              "futureMethodEnabled": true,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": false,
+              "injected": true,
+              "deviceSelected": [],
+              "deviceEnabled": false
+            },
+            "pid": 11420,
+            "applications": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "packages": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "moduleActivities": [
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "directApplicationVisible": true,
+            "directPackageVisible": true,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 10,
+          "warn": 13,
+          "unknown": 12,
+          "info": 3
+        },
+        "shellKnownMappingLines": [],
+        "knownPathScanIsNotCompleteInjectionDetection": true
+      },
+      "seconds": 5.757
+    },
+    "E03-methods-on": {
+      "atUTC": "2026-11-15T05:03:51.776422+00:00",
+      "status": "passed",
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719038308,
+        "pid": 11697,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "deviceRevision": 0,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [],
+          "deviceEnabled": false
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "WARN",
+            "value": "userdebug",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "WARN",
+            "value": "4",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "test-keys",
+              "ro.build.type": "userdebug",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "test-keys",
+              "ro.odm_dlkm.build.tags": "",
+              "ro.system_dlkm.build.tags": "test-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "no_sim",
+              "modelEnabled": false,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 0,
+              "deviceNative": false,
+              "deviceRegion": "",
+              "deviceRevision": 0,
+              "futureMethodEnabled": true,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": false,
+              "injected": true,
+              "deviceSelected": [],
+              "deviceEnabled": false
+            },
+            "pid": 11697,
+            "applications": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "packages": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "moduleActivities": [
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "directApplicationVisible": true,
+            "directPackageVisible": true,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 13,
+          "warn": 12,
+          "unknown": 10,
+          "info": 3
+        }
+      },
+      "seconds": 7.652
+    },
+    "E04-model-list-on": {
+      "atUTC": "2026-11-15T05:04:56.430791+00:00",
+      "status": "passed",
+      "earlierAttempts": [
+        {
+          "atUTC": "2026-11-15T05:03:59.429644+00:00",
+          "status": "failed",
+          "error": "",
+          "seconds": 8.092
+        }
+      ],
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719102829,
+        "pid": 13782,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": true,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 330,
+          "deviceRemappedPages": 3,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "deviceRevision": 1794719099629,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 5,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "fingerprint",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "PASS",
+            "value": "user",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "PASS",
+            "value": "0",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "release-keys",
+              "ro.build.type": "user",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "release-keys",
+              "ro.odm_dlkm.build.tags": "release-keys",
+              "ro.system_dlkm.build.tags": "release-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "off",
+              "modelEnabled": true,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 330,
+              "deviceRemappedPages": 3,
+              "deviceNative": true,
+              "deviceRegion": "",
+              "deviceRevision": 1794719099629,
+              "futureMethodEnabled": true,
+              "deviceRetainedPages": 5,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": true,
+              "injected": true,
+              "deviceSyscallView": 1,
+              "deviceSelected": [
+                "fingerprint",
+                "hide_module_apps"
+              ],
+              "deviceSyscallErrno": 0,
+              "deviceEnabled": true,
+              "deviceFileViews": 0
+            },
+            "pid": 13782,
+            "applications": [],
+            "packages": [],
+            "moduleActivities": [],
+            "directApplicationVisible": false,
+            "directPackageVisible": false,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 20,
+          "warn": 6,
+          "unknown": 9,
+          "info": 3
+        }
+      },
+      "seconds": 7.436
+    },
+    "E05-refresh-ui": {
+      "atUTC": "2026-11-15T05:10:30.602412+00:00",
+      "status": "passed",
+      "earlierAttempts": [
+        {
+          "atUTC": "2026-11-15T05:05:03.868472+00:00",
+          "status": "failed",
+          "error": "",
+          "seconds": 6.903
+        },
+        {
+          "atUTC": "2026-11-15T05:05:43.381666+00:00",
+          "status": "failed",
+          "error": "Missing UI control: session-screenshots",
+          "seconds": 59.007
+        },
+        {
+          "atUTC": "2026-11-15T05:08:35.894393+00:00",
+          "status": "failed",
+          "error": "",
+          "seconds": 40.396
+        }
+      ],
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719432719,
+        "pid": 13782,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": true,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 330,
+          "deviceRemappedPages": 3,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "deviceRevision": 1794719099629,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 5,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "fingerprint",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "PASS",
+            "value": "user",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "PASS",
+            "value": "0",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "release-keys",
+              "ro.build.type": "user",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "release-keys",
+              "ro.odm_dlkm.build.tags": "release-keys",
+              "ro.system_dlkm.build.tags": "release-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "off",
+              "modelEnabled": true,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 330,
+              "deviceRemappedPages": 3,
+              "deviceNative": true,
+              "deviceRegion": "",
+              "deviceRevision": 1794719099629,
+              "futureMethodEnabled": true,
+              "deviceRetainedPages": 5,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": true,
+              "injected": true,
+              "deviceSyscallView": 1,
+              "deviceSelected": [
+                "fingerprint",
+                "hide_module_apps"
+              ],
+              "deviceSyscallErrno": 0,
+              "deviceEnabled": true,
+              "deviceFileViews": 0
+            },
+            "pid": 13782,
+            "applications": [],
+            "packages": [],
+            "moduleActivities": [],
+            "directApplicationVisible": false,
+            "directPackageVisible": false,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 20,
+          "warn": 6,
+          "unknown": 9,
+          "info": 3
+        }
+      },
+      "seconds": 98.581
+    },
+    "E06-background-return": {
+      "atUTC": "2026-11-15T05:12:09.185864+00:00",
+      "status": "passed",
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719532139,
+        "pid": 13782,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": true,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 330,
+          "deviceRemappedPages": 3,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "deviceRevision": 1794719099629,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 5,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "fingerprint",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "PASS",
+            "value": "user",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "PASS",
+            "value": "0",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "release-keys",
+              "ro.build.type": "user",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "release-keys",
+              "ro.odm_dlkm.build.tags": "release-keys",
+              "ro.system_dlkm.build.tags": "release-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "off",
+              "modelEnabled": true,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 330,
+              "deviceRemappedPages": 3,
+              "deviceNative": true,
+              "deviceRegion": "",
+              "deviceRevision": 1794719099629,
+              "futureMethodEnabled": true,
+              "deviceRetainedPages": 5,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": true,
+              "injected": true,
+              "deviceSyscallView": 1,
+              "deviceSelected": [
+                "fingerprint",
+                "hide_module_apps"
+              ],
+              "deviceSyscallErrno": 0,
+              "deviceEnabled": true,
+              "deviceFileViews": 0
+            },
+            "pid": 13782,
+            "applications": [],
+            "packages": [],
+            "moduleActivities": [],
+            "directApplicationVisible": false,
+            "directPackageVisible": false,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 20,
+          "warn": 6,
+          "unknown": 9,
+          "info": 3
+        }
+      },
+      "seconds": 4.027
+    },
+    "E07-legacy-environment": {
+      "atUTC": "2026-11-15T05:12:13.215096+00:00",
+      "status": "passed",
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719533556,
+        "pid": 13782,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": true,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 330,
+          "deviceRemappedPages": 3,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "deviceRevision": 1794719099629,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 5,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "fingerprint",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "PASS",
+            "value": "user",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "PASS",
+            "value": "release-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "PASS",
+            "value": "0",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "release-keys",
+              "ro.build.type": "user",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "release-keys",
+              "ro.odm_dlkm.build.tags": "release-keys",
+              "ro.system_dlkm.build.tags": "release-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "off",
+              "modelEnabled": true,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 330,
+              "deviceRemappedPages": 3,
+              "deviceNative": true,
+              "deviceRegion": "",
+              "deviceRevision": 1794719099629,
+              "futureMethodEnabled": true,
+              "deviceRetainedPages": 5,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": true,
+              "injected": true,
+              "deviceSyscallView": 1,
+              "deviceSelected": [
+                "fingerprint",
+                "hide_module_apps"
+              ],
+              "deviceSyscallErrno": 0,
+              "deviceEnabled": true,
+              "deviceFileViews": 0
+            },
+            "pid": 13782,
+            "applications": [],
+            "packages": [],
+            "moduleActivities": [],
+            "directApplicationVisible": false,
+            "directPackageVisible": false,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 20,
+          "warn": 6,
+          "unknown": 9,
+          "info": 3
+        }
+      },
+      "seconds": 5.358
+    },
+    "E08-profile-disabled": {
+      "atUTC": "2026-11-15T05:12:18.575499+00:00",
+      "status": "passed",
+      "result": {
+        "schema": 1,
+        "version": "0.4.12",
+        "timestamp": 1794719543477,
+        "pid": 28540,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "deviceRevision": 0,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [],
+          "deviceEnabled": false
+        },
+        "checks": [
+          {
+            "id": "rootFiles",
+            "label": "Su / Busybox / Root files",
+            "status": "UNKNOWN",
+            "value": "Some paths are inaccessible",
+            "detail": "Compares Java, libc stat and direct faccessat syscall. Permission denial cannot prove absence; su is not executed.\n/system/xbin/su, /system/xbin/busybox, /data/adb/magisk, /data/adb/ksu, /data/adb/modules"
+          },
+          {
+            "id": "injection.maps",
+            "label": "Injected libraries · maps",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "injection.linker",
+            "label": "Injected libraries · linker",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Matches known framework paths only; this is not Native Detector's full algorithm and does not detect hidden or anonymous mappings."
+          },
+          {
+            "id": "property.ro.build.tags",
+            "label": "ro.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.build.type",
+            "label": "ro.build.type",
+            "status": "WARN",
+            "value": "userdebug",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.debuggable",
+            "label": "ro.debuggable",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.secure",
+            "label": "ro.secure",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.vendor_dlkm.build.tags",
+            "label": "ro.vendor_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.odm_dlkm.build.tags",
+            "label": "ro.odm_dlkm.build.tags",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.system_dlkm.build.tags",
+            "label": "ro.system_dlkm.build.tags",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.verifiedbootstate",
+            "label": "ro.boot.verifiedbootstate",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.flash.locked",
+            "label": "ro.boot.flash.locked",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.vbmeta.device_state",
+            "label": "ro.boot.vbmeta.device_state",
+            "status": "UNKNOWN",
+            "value": "Missing or inaccessible",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "property.ro.boot.veritymode",
+            "label": "ro.boot.veritymode",
+            "status": "INFO",
+            "value": "enforcing",
+            "detail": "Native properties can be hooked; boot properties are informational and should be compared with signed attestation."
+          },
+          {
+            "id": "buildTags",
+            "label": "Java Build.TAGS",
+            "status": "WARN",
+            "value": "test-keys",
+            "detail": "Java build fields can also be spoofed."
+          },
+          {
+            "id": "vpn",
+            "label": "VPN",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "proxy",
+            "label": "Network proxy",
+            "status": "PASS",
+            "value": "Not configured",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "developer",
+            "label": "Developer options",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "usb",
+            "label": "USB debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "wireless",
+            "label": "Wireless debugging",
+            "status": "PASS",
+            "value": "Off",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux",
+            "label": "SELinux · Java",
+            "status": "PASS",
+            "value": "Enforcing",
+            "detail": "Actual app read; an enabled state is a visible signal and cannot prove root by itself."
+          },
+          {
+            "id": "selinux.native",
+            "label": "SELinux · native file",
+            "status": "UNKNOWN",
+            "value": "unknown:errno=13",
+            "detail": "Reads the enforce file without changing system state."
+          },
+          {
+            "id": "debugger",
+            "label": "Current process debugger",
+            "status": "PASS",
+            "value": "false",
+            "detail": "Reads the Android Debug API; not all ptrace or kernel tracing methods are detected."
+          },
+          {
+            "id": "modules",
+            "label": "Visible Xposed modules",
+            "status": "WARN",
+            "value": "4",
+            "detail": "Only visible module metadata is queried; an empty list does not prove no framework is installed."
+          },
+          {
+            "id": "xposedClass",
+            "label": "Xposed Java class",
+            "status": "PASS",
+            "value": "not found",
+            "detail": "Not found by this class lookup; other injection methods may exist."
+          },
+          {
+            "id": "idAttestation",
+            "label": "Device ID attestation feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "Reads the feature flag only; IMEI, serial and other identity fields are never requested."
+          },
+          {
+            "id": "strongboxFeature",
+            "label": "StrongBox feature",
+            "status": "INFO",
+            "value": "false",
+            "detail": "The probe generates a regular EC attestation key; it does not explicitly request StrongBox."
+          },
+          {
+            "id": "attestation.chain",
+            "label": "Attestation chain signatures and dates",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Offline signatures, issuer names and validity dates; online revocation and full PKIX policy are not checked."
+          },
+          {
+            "id": "attestation.root",
+            "label": "Google attestation root match",
+            "status": "UNKNOWN",
+            "value": "No match in bundled Google roots",
+            "detail": "An unknown root may be a vendor or test root; this alone cannot establish root. Pins dated 2026-11-15."
+          },
+          {
+            "id": "attestation.challenge",
+            "label": "Fresh attestation challenge",
+            "status": "PASS",
+            "value": "true",
+            "detail": "A new random challenge is used on each run; challenge bytes are not logged."
+          },
+          {
+            "id": "attestation.security",
+            "label": "Attestation security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.keyMint",
+            "label": "Keymaster / KeyMint security level",
+            "status": "WARN",
+            "value": "Software",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.locked",
+            "label": "Attested deviceLocked",
+            "status": "WARN",
+            "value": "false",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.state",
+            "label": "Attested verifiedBootState",
+            "status": "WARN",
+            "value": "Unverified",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts."
+          },
+          {
+            "id": "attestation.boot.key",
+            "label": "Attested verifiedBootKey",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.boot.hash",
+            "label": "Attested verifiedBootHash",
+            "status": "WARN",
+            "value": "All zero",
+            "detail": "Locally parsed fields; an unknown root or invalid chain means they are not authenticated facts. A nonzero value alone cannot prove a production boot chain."
+          },
+          {
+            "id": "attestation.revocation",
+            "label": "Attestation revocation status",
+            "status": "UNKNOWN",
+            "value": "Not checked online",
+            "detail": "No network or Play Integrity calls; local hooks may still affect observations."
+          },
+          {
+            "id": "attestation.cleanup",
+            "label": "Temporary attestation key cleanup",
+            "status": "PASS",
+            "value": "true",
+            "detail": "Deletes this run's random alias only; no keys, certificates or device IDs are exported."
+          }
+        ],
+        "evidence": {
+          "native": {
+            "files": [
+              {
+                "path": "/system/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/su",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/su/bin/su",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/bin/busybox",
+                "libc": "absent",
+                "syscall": "absent"
+              },
+              {
+                "path": "/system/xbin/busybox",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/magisk",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/ksu",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/data/adb/modules",
+                "libc": "unknown:errno=13",
+                "syscall": "unknown:errno=13"
+              },
+              {
+                "path": "/sbin/.magisk",
+                "libc": "absent",
+                "syscall": "absent"
+              }
+            ],
+            "maps": [],
+            "mapsError": 0,
+            "mapsTruncated": false,
+            "linker": [],
+            "properties": {
+              "ro.build.tags": "test-keys",
+              "ro.build.type": "userdebug",
+              "ro.debuggable": "",
+              "ro.secure": "",
+              "ro.vendor_dlkm.build.tags": "test-keys",
+              "ro.odm_dlkm.build.tags": "",
+              "ro.system_dlkm.build.tags": "test-keys",
+              "ro.boot.verifiedbootstate": "",
+              "ro.boot.flash.locked": "",
+              "ro.boot.vbmeta.device_state": "",
+              "ro.boot.veritymode": "enforcing",
+              "ro.boot.selinux": ""
+            },
+            "selinux": "unknown:errno=13"
+          },
+          "javaFiles": [
+            {
+              "path": "/system/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/su",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/su/bin/su",
+              "value": "absent"
+            },
+            {
+              "path": "/system/bin/busybox",
+              "value": "absent"
+            },
+            {
+              "path": "/system/xbin/busybox",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/magisk",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/ksu",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/data/adb/modules",
+              "value": "unknown:errno=13"
+            },
+            {
+              "path": "/sbin/.magisk",
+              "value": "absent"
+            }
+          ],
+          "moduleList": {
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "no_sim",
+              "modelEnabled": false,
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 0,
+              "deviceNative": false,
+              "deviceRegion": "",
+              "deviceRevision": 0,
+              "futureMethodEnabled": true,
+              "deviceAttestationIdsRemoved": 0,
+              "deviceNativeObjects": false,
+              "injected": true,
+              "deviceSelected": [],
+              "deviceEnabled": false
+            },
+            "pid": 28540,
+            "applications": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "packages": [
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "moduleActivities": [
+              "io.github.lwtdzh.appstateshield",
+              "io.github.lwtdzh.developerstateshield",
+              "io.github.lwtdzh.screenshotshield",
+              "io.github.lwtdzh.vpnstateshield"
+            ],
+            "directApplicationVisible": true,
+            "directPackageVisible": true,
+            "selfVisible": true,
+            "ordinarySettingsVisible": true
+          },
+          "attestation": {
+            "certificateCount": 3,
+            "rootSpkiSha256": "086e0d340e141f2226340e0fbbcbe2413b33675ebb96c71f7f2f8b516335d4da",
+            "rootSubject": "O=Google Test LLC,CN=Droid Unregistered Device CA"
+          }
+        },
+        "scope": "Local app observations; no remote integrity or online revocation check",
+        "summary": {
+          "pass": 13,
+          "warn": 12,
+          "unknown": 10,
+          "info": 3
+        }
+      },
+      "seconds": 7.635
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.4.12.apk": "9abab57be155885e351ccd0c5f7325cc25e990ab0ea586b8b239deb5a9bc2224",
+    "AppStateVerifier-0.4.12.apk": "8b9b5d7d2781b3e008b0b01a807b69cdfa2e985a1736fa67cd1064975d6968bb"
+  },
+  "expectedCases": 8,
+  "estimateMinutes": 4,
+  "environment": {
+    "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+    "abi": "arm64-v8a",
+    "rootMode": "Enforcing"
+  },
+  "logcat": "--------- beginning of main\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: injection.maps PASS not found\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: injection.linker PASS not found\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: buildTags WARN test-keys\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: vpn PASS Off\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: proxy PASS Not configured\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: developer UNKNOWN Unavailable\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: usb WARN On\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: wireless PASS Off\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: selinux UNKNOWN Mode unconfirmed\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: debugger PASS false\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: modules WARN 4\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: xposedClass PASS not found\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: idAttestation INFO false\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: strongboxFeature INFO false\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: attestation.chain PASS true\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: attestation.available UNKNOWN IllegalArgumentException\n11-15 12:59:28.972  2852  2867 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: vpn PASS Off\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: developer UNKNOWN Unavailable\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: usb WARN On\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: wireless PASS Off\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: selinux UNKNOWN Mode unconfirmed\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: debugger PASS false\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: modules WARN 4\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: idAttestation INFO false\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:01:56.202  7718  7735 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: vpn PASS Off\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: developer UNKNOWN Unavailable\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: usb WARN On\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: wireless PASS Off\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: selinux UNKNOWN Mode unconfirmed\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: debugger PASS false\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: modules WARN 4\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: idAttestation INFO false\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:02:02.709  8033  8051 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: vpn PASS Off\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: developer UNKNOWN Unavailable\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: usb WARN On\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: wireless PASS Off\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: selinux UNKNOWN Mode unconfirmed\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: debugger PASS false\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: modules WARN 4\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: idAttestation INFO false\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:03:51.203 11420 11452 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: vpn PASS Off\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: developer PASS Off\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: usb PASS Off\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: wireless PASS Off\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: debugger PASS false\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: modules WARN 4\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: idAttestation INFO false\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:03:58.740 11697 11716 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: vpn PASS Off\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: developer PASS Off\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: usb PASS Off\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: wireless PASS Off\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: debugger PASS false\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: modules WARN 4\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: idAttestation INFO false\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:04:07.217 11950 11980 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:05:03.565 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:05:08.129 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:05:08.130 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:05:46.173 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:05:46.173 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:05:46.180 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:09:13.362 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:10:33.410 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:12:13.025 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:12:14.939 13782 13814 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.build.tags PASS release-keys\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.build.type PASS user\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags PASS release-keys\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.odm_dlkm.build.tags PASS release-keys\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.system_dlkm.build.tags PASS release-keys\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: buildTags PASS release-keys\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: vpn PASS Off\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: developer PASS Off\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: usb PASS Off\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: wireless PASS Off\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: debugger PASS false\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: modules PASS 0\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: idAttestation INFO false\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:12:14.940 13782 13814 I EnvironmentProbe: attestation.cleanup PASS true\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: rootFiles UNKNOWN Some paths are inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: injection.maps PASS not found\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: injection.linker PASS not found\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.build.tags WARN test-keys\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.build.type WARN userdebug\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.debuggable UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.secure UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.vendor_dlkm.build.tags WARN test-keys\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.odm_dlkm.build.tags UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.system_dlkm.build.tags WARN test-keys\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.boot.verifiedbootstate UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.boot.flash.locked UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.boot.vbmeta.device_state UNKNOWN Missing or inaccessible\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: property.ro.boot.veritymode INFO enforcing\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: buildTags WARN test-keys\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: vpn PASS Off\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: proxy PASS Not configured\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: developer PASS Off\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: usb PASS Off\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: wireless PASS Off\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: selinux PASS Enforcing\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: selinux.native UNKNOWN unknown:errno=13\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: debugger PASS false\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: modules WARN 4\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: xposedClass PASS not found\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: idAttestation INFO false\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: strongboxFeature INFO false\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.chain PASS true\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.root UNKNOWN No match in bundled Google roots\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.challenge PASS true\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.security WARN Software\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.keyMint WARN Software\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.boot.locked WARN false\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.boot.state WARN Unverified\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.boot.key WARN All zero\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.boot.hash WARN All zero\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.revocation UNKNOWN Not checked online\n11-15 13:12:23.861 28540 28558 I EnvironmentProbe: attestation.cleanup PASS true"
+}

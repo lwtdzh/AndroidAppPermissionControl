@@ -1,0 +1,3615 @@
+{
+  "cases": {
+    "D00-capture": {
+      "status": "passed",
+      "evidence": {
+        "serial": "emulator-5584",
+        "sdk": "36",
+        "abi": "arm64-v8a",
+        "originalMode": "Enforcing",
+        "privateBackup": true
+      },
+      "artifacts": {},
+      "startedAtUTC": "2026-11-13T16:28:14.620835+00:00",
+      "durationSeconds": 0.061
+    },
+    "P01-vivo-preset-save-live-read": {
+      "status": "passed",
+      "evidence": {
+        "profile": {
+          "schema": 1,
+          "enabled": true,
+          "revision": 1794587595047,
+          "preset": "vivo-x200-pro-mini",
+          "values": {
+            "imei": "994129232915616",
+            "imei2": "996006861295718",
+            "meid": "288dae0fffc680",
+            "serial": "3163E5659D98584E",
+            "android_id": "f5e89138fc32a901",
+            "oaid": "c0a0892b-100d-42e0-922a-9d1f18b85fd4",
+            "vaid": "b287d805-72e5-4fb8-be8c-3a56d3a7da02",
+            "aaid": "56968afa-a2d0-4396-90af-25e3269543e2",
+            "gaid": "86b4a533-d6e3-4e0c-929a-c1e0e8bcb6da",
+            "drm_id": "1677946058e52461846fffff72b1c45f1ea51d2f18b33c74b6a03226a0382896",
+            "wifi_mac": "02:11:03:6e:70:3d",
+            "bt_mac": "02:3b:e9:dd:98:3e",
+            "ssid": "Home-0d25af",
+            "bssid": "02:57:b3:62:a4:c3",
+            "imsi": "460006669658614",
+            "iccid": "8986002343985875792",
+            "phone": "13844205245",
+            "lac": "45530",
+            "cid": "182533025",
+            "tac": "35700",
+            "pci": "437",
+            "brand": "vivo",
+            "manufacturer": "vivo",
+            "model": "V2419A",
+            "device": "PD2419",
+            "product": "PD2419",
+            "board": "k6991v1_64",
+            "hardware": "mt6991",
+            "release": "16",
+            "incremental": "compiler261012170621",
+            "fingerprint": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+            "width": "1080",
+            "height": "2344",
+            "density": "480",
+            "operator": "中国移动",
+            "mcc": "460",
+            "mnc": "00",
+            "signal": "-87",
+            "latitude": "31.2304",
+            "longitude": "121.4737",
+            "accuracy": "30",
+            "timezone": "Asia/Shanghai",
+            "language": "zh-CN",
+            "hide_sensors": "true"
+          },
+          "selected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy"
+          ],
+          "locationEnabled": false,
+          "regionId": "",
+          "regionName": "",
+          "regionOverrides": [],
+          "networkMode": "no_sim"
+        },
+        "observed": {
+          "timestamp": 1794587595680,
+          "elapsed": 64234,
+          "pid": 2535,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "no_sim",
+            "locationEnabled": false,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 291,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "deviceRevision": 1794587595047,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei",
+              "imei2",
+              "meid",
+              "serial",
+              "android_id",
+              "oaid",
+              "vaid",
+              "aaid",
+              "gaid",
+              "wifi_mac",
+              "bt_mac",
+              "ssid",
+              "bssid",
+              "imsi",
+              "iccid",
+              "phone",
+              "lac",
+              "cid",
+              "tac",
+              "pci",
+              "brand",
+              "manufacturer",
+              "model",
+              "device",
+              "product",
+              "board",
+              "hardware",
+              "release",
+              "incremental",
+              "fingerprint",
+              "width",
+              "height",
+              "density",
+              "operator",
+              "mcc",
+              "mnc",
+              "signal",
+              "latitude",
+              "longitude",
+              "accuracy"
+            ],
+            "deviceEnabled": true
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 3035,
+            "revision": 1794587595047,
+            "reads": {
+              "imei": {
+                "value": "994129232915616",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": "996006861295718",
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "value": "994129232915616",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": "288dae0fffc680",
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "value": null,
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "value": null,
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "value": null,
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "sim_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+              },
+              "sim_state_slot0": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+              },
+              "sim_state_slot1": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+              },
+              "sim_card_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+              },
+              "sim_application_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+              },
+              "has_sim": {
+                "value": false,
+                "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+              },
+              "sim_operator": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+              },
+              "sim_operator_name": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+              },
+              "sim_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+              },
+              "network_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+              },
+              "network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+              },
+              "voice_network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+              },
+              "data_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+              },
+              "roaming": {
+                "value": false,
+                "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+              },
+              "subscription_count": {
+                "value": 0,
+                "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+              },
+              "default_subscription": {
+                "value": -1,
+                "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+              },
+              "subscriptions": {
+                "value": [],
+                "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+              },
+              "service_state": {
+                "value": {
+                  "state": 1,
+                  "roaming": false,
+                  "registrations": [
+                    {
+                      "domain": 1,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    }
+                  ]
+                },
+                "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+              },
+              "cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+              },
+              "async_cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+              },
+              "lac": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "vivo",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "vivo",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "V2419A",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "PD2419",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "PD2419",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "k6991v1_64",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "mt6991",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "compiler261012170621",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "value": "3163E5659D98584E",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "3163E5659D98584E",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "f5e89138fc32a901",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "f5e89138fc32a901",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "value": "994129232915616",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": "996006861295718",
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "value": "994129232915616",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": "288dae0fffc680",
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "value": null,
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "value": null,
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "value": null,
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "value": null,
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "value": null,
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "sim_state": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+            },
+            "sim_state_slot0": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+            },
+            "sim_state_slot1": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+            },
+            "sim_card_state": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+            },
+            "sim_application_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+            },
+            "has_sim": {
+              "value": false,
+              "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+            },
+            "sim_operator": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+            },
+            "sim_operator_name": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+            },
+            "sim_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+            },
+            "network_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+            },
+            "network_type": {
+              "value": 0,
+              "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+            },
+            "voice_network_type": {
+              "value": 0,
+              "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+            },
+            "data_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+            },
+            "roaming": {
+              "value": false,
+              "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+            },
+            "subscription_count": {
+              "value": 0,
+              "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+            },
+            "default_subscription": {
+              "value": -1,
+              "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+            },
+            "subscriptions": {
+              "value": [],
+              "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+            },
+            "service_state": {
+              "value": {
+                "state": 1,
+                "roaming": false,
+                "registrations": [
+                  {
+                    "domain": 1,
+                    "registered": false,
+                    "technology": 0
+                  },
+                  {
+                    "domain": 2,
+                    "registered": false,
+                    "technology": 0
+                  },
+                  {
+                    "domain": 2,
+                    "registered": false,
+                    "technology": 0
+                  }
+                ]
+              },
+              "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+            },
+            "cells": {
+              "value": [],
+              "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+            },
+            "async_cells": {
+              "value": [],
+              "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:11:03:6e:70:3d",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "\"Home-0d25af\"",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:57:b3:62:a4:c3",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:11:03:6e:70:3d"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "value": "02:3b:e9:dd:98:3e",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-14 00:32:56.708 I No hidl drm factories found\n  11-14 00:32:56.708 W Failed to find passthrough drm factories\n  11-14 00:32:56.719 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:15.640 I No hidl drm factories found\n  11-14 00:33:15.645 W Failed to find passthrough drm factories\n  11-14 00:33:15.673 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:15.915 I No hidl drm factories found\n  11-14 00:33:15.915 W Failed to find passthrough drm factories\n  11-14 00:33:15.922 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1080,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2344,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 480,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1080 × 2344",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1080 × 2344",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1080 × 2344 / 480",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "en-US",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "V2419A",
+                "ro.product.brand": "vivo",
+                "ro.product.manufacturer": "vivo",
+                "ro.build.fingerprint": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                "ro.product.device": "PD2419",
+                "ro.product.name": "PD2419",
+                "ro.product.board": "k6991v1_64",
+                "ro.product.vendor.device": "PD2415",
+                "ro.product.odm.name": "PD2415",
+                "ro.product.system_ext.manufacturer": "vivo",
+                "ro.vendor.build.fingerprint": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                "ro.vendor.build.version.release": "15",
+                "ro.serialno": "3163E5659D98584E",
+                "ro.hardware": "mt6991",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "V2419A",
+                    "read": "V2419A",
+                    "callback": "V2419A"
+                  },
+                  "ro.product.brand": {
+                    "get": "vivo",
+                    "read": "vivo",
+                    "callback": "vivo"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "vivo",
+                    "read": "vivo",
+                    "callback": "vivo"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                    "read": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                    "callback": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys"
+                  },
+                  "ro.product.device": {
+                    "get": "PD2419",
+                    "read": "PD2419",
+                    "callback": "PD2419"
+                  },
+                  "ro.product.name": {
+                    "get": "PD2419",
+                    "read": "PD2419",
+                    "callback": "PD2419"
+                  },
+                  "ro.product.board": {
+                    "get": "k6991v1_64",
+                    "read": "k6991v1_64",
+                    "callback": "k6991v1_64"
+                  },
+                  "ro.product.vendor.device": {
+                    "get": "PD2415",
+                    "read": "PD2415",
+                    "callback": "PD2415"
+                  },
+                  "ro.product.odm.name": {
+                    "get": "PD2415",
+                    "read": "PD2415",
+                    "callback": "PD2415"
+                  },
+                  "ro.product.system_ext.manufacturer": {
+                    "get": "vivo",
+                    "read": "unknown",
+                    "callback": "vivo"
+                  },
+                  "ro.vendor.build.fingerprint": {
+                    "get": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                    "read": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                    "callback": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys"
+                  },
+                  "ro.vendor.build.version.release": {
+                    "get": "15",
+                    "read": "15",
+                    "callback": "15"
+                  },
+                  "ro.serialno": {
+                    "get": "3163E5659D98584E",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "mt6991",
+                    "read": "mt6991",
+                    "callback": "mt6991"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9450045440,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "samePid": 2535,
+        "groupsDefaultCollapsed": true,
+        "modelFields": 10,
+        "properties": 13,
+        "javaAndNativeCallbackFullValues": true,
+        "legacyNativeValueLimit": [],
+        "legacyNativeReadVerifiedForShortKeys": true,
+        "legacyNativeLongKeyLimit": [
+          "ro.product.system_ext.manufacturer"
+        ]
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:32:56.778179+00:00",
+      "durationSeconds": 19.255,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "D18-restored": {
+      "status": "passed",
+      "evidence": {
+        "settings": true,
+        "scopes": true,
+        "originalPackages": true,
+        "mode": "Enforcing"
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:35:57.352082+00:00",
+      "durationSeconds": 0.0,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "P02-xiaomi-switch-refresh-live-read": {
+      "status": "passed",
+      "evidence": {
+        "profile": {
+          "schema": 1,
+          "enabled": true,
+          "revision": 1794587619593,
+          "preset": "xiaomi-14",
+          "values": {
+            "imei": "999754614171101",
+            "imei2": "992825851497164",
+            "meid": "29ee66d6c02695",
+            "serial": "EAE5511205D27BE6",
+            "android_id": "3446268cba882c81",
+            "oaid": "882d1ff5-6887-4073-93f2-5faf69455fa8",
+            "vaid": "fa8d445e-9112-4b43-a048-f7e43031432c",
+            "aaid": "9e4ec010-82ff-4f97-b0a7-48b73fe36b15",
+            "gaid": "57c656c1-d617-46b1-adde-b0640f8691d2",
+            "drm_id": "2a9338f406c40679fd9246e13ca6e96f0cda18d40783bacbe158b3023ac001a6",
+            "wifi_mac": "02:11:03:6e:70:3d",
+            "bt_mac": "02:3b:e9:dd:98:3e",
+            "ssid": "Home-0d25af",
+            "bssid": "02:57:b3:62:a4:c3",
+            "imsi": "460006669658614",
+            "iccid": "8986002343985875792",
+            "phone": "13844205245",
+            "lac": "45530",
+            "cid": "182533025",
+            "tac": "35700",
+            "pci": "437",
+            "width": "1200",
+            "height": "2670",
+            "density": "480",
+            "total_ram": "12",
+            "storage": "256",
+            "operator": "中国移动",
+            "mcc": "460",
+            "mnc": "00",
+            "signal": "-87",
+            "latitude": "31.2304",
+            "longitude": "121.4737",
+            "accuracy": "30",
+            "timezone": "Asia/Shanghai",
+            "language": "zh-CN",
+            "hide_sensors": "true",
+            "brand": "Xiaomi",
+            "manufacturer": "Xiaomi",
+            "model": "23127PN0CG",
+            "device": "houji",
+            "product": "houji_global",
+            "board": "houji",
+            "hardware": "qcom",
+            "fingerprint": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+            "release": "15",
+            "incremental": "OS2.0.201.0.VNCMIXM"
+          },
+          "selected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "width",
+            "height",
+            "density",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "fingerprint",
+            "release",
+            "incremental"
+          ],
+          "locationEnabled": false,
+          "regionId": "",
+          "regionName": "",
+          "regionOverrides": [],
+          "networkMode": "no_sim"
+        },
+        "observed": {
+          "timestamp": 1794587620379,
+          "elapsed": 88933,
+          "pid": 2535,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "no_sim",
+            "locationEnabled": false,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 291,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "deviceRevision": 1794587619593,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei",
+              "imei2",
+              "meid",
+              "serial",
+              "android_id",
+              "oaid",
+              "vaid",
+              "aaid",
+              "gaid",
+              "wifi_mac",
+              "bt_mac",
+              "ssid",
+              "bssid",
+              "imsi",
+              "iccid",
+              "phone",
+              "lac",
+              "cid",
+              "tac",
+              "pci",
+              "width",
+              "height",
+              "density",
+              "operator",
+              "mcc",
+              "mnc",
+              "signal",
+              "latitude",
+              "longitude",
+              "accuracy",
+              "brand",
+              "manufacturer",
+              "model",
+              "device",
+              "product",
+              "board",
+              "hardware",
+              "fingerprint",
+              "release",
+              "incremental"
+            ],
+            "deviceEnabled": true
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587575755,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 3721,
+            "revision": 1794587619593,
+            "reads": {
+              "imei": {
+                "value": "999754614171101",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": "992825851497164",
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "value": "999754614171101",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": "29ee66d6c02695",
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "value": null,
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "value": null,
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "value": null,
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "sim_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+              },
+              "sim_state_slot0": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+              },
+              "sim_state_slot1": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+              },
+              "sim_card_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+              },
+              "sim_application_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+              },
+              "has_sim": {
+                "value": false,
+                "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+              },
+              "sim_operator": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+              },
+              "sim_operator_name": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+              },
+              "sim_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+              },
+              "network_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+              },
+              "network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+              },
+              "voice_network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+              },
+              "data_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+              },
+              "roaming": {
+                "value": false,
+                "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+              },
+              "subscription_count": {
+                "value": 0,
+                "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+              },
+              "default_subscription": {
+                "value": -1,
+                "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+              },
+              "subscriptions": {
+                "value": [],
+                "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+              },
+              "service_state": {
+                "value": {
+                  "state": 1,
+                  "roaming": false,
+                  "registrations": [
+                    {
+                      "domain": 1,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    }
+                  ]
+                },
+                "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+              },
+              "cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+              },
+              "async_cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+              },
+              "lac": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Xiaomi",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "Xiaomi",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "23127PN0CG",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "houji",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "houji_global",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "houji",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "qcom",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "15",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "OS2.0.201.0.VNCMIXM",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "value": "EAE5511205D27BE6",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "EAE5511205D27BE6",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "3446268cba882c81",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "3446268cba882c81",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "value": "999754614171101",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": "992825851497164",
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "value": "999754614171101",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": "29ee66d6c02695",
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "value": null,
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "value": null,
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "value": null,
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "value": null,
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "value": null,
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "value": null,
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "sim_state": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+            },
+            "sim_state_slot0": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+            },
+            "sim_state_slot1": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+            },
+            "sim_card_state": {
+              "value": 1,
+              "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+            },
+            "sim_application_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+            },
+            "has_sim": {
+              "value": false,
+              "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+            },
+            "sim_operator": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+            },
+            "sim_operator_name": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+            },
+            "sim_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+            },
+            "network_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+            },
+            "network_type": {
+              "value": 0,
+              "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+            },
+            "voice_network_type": {
+              "value": 0,
+              "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+            },
+            "data_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+            },
+            "roaming": {
+              "value": false,
+              "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+            },
+            "subscription_count": {
+              "value": 0,
+              "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+            },
+            "default_subscription": {
+              "value": -1,
+              "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+            },
+            "subscriptions": {
+              "value": [],
+              "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+            },
+            "service_state": {
+              "value": {
+                "state": 1,
+                "roaming": false,
+                "registrations": [
+                  {
+                    "domain": 1,
+                    "registered": false,
+                    "technology": 0
+                  },
+                  {
+                    "domain": 2,
+                    "registered": false,
+                    "technology": 0
+                  },
+                  {
+                    "domain": 2,
+                    "registered": false,
+                    "technology": 0
+                  }
+                ]
+              },
+              "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+            },
+            "cells": {
+              "value": [],
+              "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+            },
+            "async_cells": {
+              "value": [],
+              "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:11:03:6e:70:3d",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "\"Home-0d25af\"",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:57:b3:62:a4:c3",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:11:03:6e:70:3d"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "value": "02:3b:e9:dd:98:3e",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-14 00:32:56.708 I No hidl drm factories found\n  11-14 00:32:56.708 W Failed to find passthrough drm factories\n  11-14 00:32:56.719 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:15.640 I No hidl drm factories found\n  11-14 00:33:15.645 W Failed to find passthrough drm factories\n  11-14 00:33:15.673 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:15.915 I No hidl drm factories found\n  11-14 00:33:15.915 W Failed to find passthrough drm factories\n  11-14 00:33:15.922 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:28.860 I No hidl drm factories found\n  11-14 00:33:28.860 W Failed to find passthrough drm factories\n  11-14 00:33:28.915 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:29.198 I No hidl drm factories found\n  11-14 00:33:29.198 W Failed to find passthrough drm factories\n  11-14 00:33:29.202 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:40.339 I No hidl drm factories found\n  11-14 00:33:40.340 W Failed to find passthrough drm factories\n  11-14 00:33:40.370 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:33:40.660 I No hidl drm factories found\n  11-14 00:33:40.661 W Failed to find passthrough drm factories\n  11-14 00:33:40.662 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1200,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2670,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 480,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1200 × 2670",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1200 × 2670",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1200 × 2670 / 480",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "en-US",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "23127PN0CG",
+                "ro.product.brand": "Xiaomi",
+                "ro.product.manufacturer": "Xiaomi",
+                "ro.build.fingerprint": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+                "ro.product.device": "houji",
+                "ro.product.name": "houji_global",
+                "ro.product.board": "houji",
+                "ro.product.vendor.device": "mivendor",
+                "ro.product.odm.name": "houji_global",
+                "ro.product.system_ext.manufacturer": "QUALCOMM",
+                "ro.vendor.build.fingerprint": "Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-keys",
+                "ro.vendor.build.version.release": "14",
+                "ro.serialno": "EAE5511205D27BE6",
+                "ro.hardware": "qcom",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "23127PN0CG",
+                    "read": "23127PN0CG",
+                    "callback": "23127PN0CG"
+                  },
+                  "ro.product.brand": {
+                    "get": "Xiaomi",
+                    "read": "Xiaomi",
+                    "callback": "Xiaomi"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "Xiaomi",
+                    "read": "Xiaomi",
+                    "callback": "Xiaomi"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+                    "read": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys",
+                    "callback": "Xiaomi/houji_global/houji:15/AQ3A.240627.003/OS2.0.201.0.VNCMIXM:user/release-keys"
+                  },
+                  "ro.product.device": {
+                    "get": "houji",
+                    "read": "houji",
+                    "callback": "houji"
+                  },
+                  "ro.product.name": {
+                    "get": "houji_global",
+                    "read": "houji_global",
+                    "callback": "houji_global"
+                  },
+                  "ro.product.board": {
+                    "get": "houji",
+                    "read": "houji",
+                    "callback": "houji"
+                  },
+                  "ro.product.vendor.device": {
+                    "get": "mivendor",
+                    "read": "mivendor",
+                    "callback": "mivendor"
+                  },
+                  "ro.product.odm.name": {
+                    "get": "houji_global",
+                    "read": "houji_global",
+                    "callback": "houji_global"
+                  },
+                  "ro.product.system_ext.manufacturer": {
+                    "get": "QUALCOMM",
+                    "read": "unknown",
+                    "callback": "QUALCOMM"
+                  },
+                  "ro.vendor.build.fingerprint": {
+                    "get": "Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-",
+                    "read": "Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-",
+                    "callback": "Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-keys"
+                  },
+                  "ro.vendor.build.version.release": {
+                    "get": "14",
+                    "read": "14",
+                    "callback": "14"
+                  },
+                  "ro.serialno": {
+                    "get": "EAE5511205D27BE6",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "qcom",
+                    "read": "qcom",
+                    "callback": "qcom"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9450426368,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        },
+        "samePid": 2535,
+        "fixedRefresh": true,
+        "modelFields": 10,
+        "properties": 13,
+        "javaAndNativeCallbackFullValues": true,
+        "legacyNativeValueLimit": [
+          "ro.vendor.build.fingerprint"
+        ],
+        "legacyNativeReadVerifiedForShortKeys": true,
+        "legacyNativeLongKeyLimit": [
+          "ro.product.system_ext.manufacturer"
+        ]
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:33:16.036093+00:00",
+      "durationSeconds": 24.732,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "P03-preset-draft-discard": {
+      "status": "passed",
+      "evidence": {
+        "changedPresetDraftDiscarded": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:33:40.771537+00:00",
+      "durationSeconds": 14.362,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "P04-manual-device-override": {
+      "status": "passed",
+      "evidence": {
+        "customValueWinsInJavaAndNative": true,
+        "samePid": 2512
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:35:45.561447+00:00",
+      "durationSeconds": 2.043,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "P05-oppo-retirement-save": {
+      "status": "passed",
+      "evidence": {
+        "oldOppoBecomesCustom": true,
+        "onlyKnownPlaceholdersRemoved": true,
+        "idsAndUnknownValuesRetained": true
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:35:47.606932+00:00",
+      "durationSeconds": 4.814,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "P06-disable-restores-original": {
+      "status": "passed",
+      "evidence": {
+        "originalBuildAndPropertiesRestored": true,
+        "samePid": 2512,
+        "observed": {
+          "timestamp": 1794587754013,
+          "elapsed": 65558,
+          "pid": 2512,
+          "package": "io.github.lwtdzh.screenshotdetector",
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "no_sim",
+            "locationEnabled": false,
+            "enabled": [
+              "screenshot",
+              "vpn",
+              "proxy",
+              "developer",
+              "debug",
+              "selinux"
+            ],
+            "deviceHooks": 291,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "deviceRevision": 1794587752545,
+            "futureMethodEnabled": true,
+            "injected": true,
+            "deviceSelected": [
+              "imei",
+              "imei2",
+              "meid",
+              "serial",
+              "android_id",
+              "oaid",
+              "vaid",
+              "aaid",
+              "gaid",
+              "wifi_mac",
+              "bt_mac",
+              "ssid",
+              "bssid",
+              "imsi",
+              "iccid",
+              "phone",
+              "lac",
+              "cid",
+              "tac",
+              "pci",
+              "width",
+              "height",
+              "density",
+              "operator",
+              "mcc",
+              "mnc",
+              "signal",
+              "latitude",
+              "longitude",
+              "accuracy",
+              "brand",
+              "manufacturer",
+              "model",
+              "device",
+              "product",
+              "board",
+              "hardware",
+              "fingerprint",
+              "release",
+              "incremental"
+            ],
+            "deviceEnabled": false
+          },
+          "early": {
+            "attachBaseContext": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587741450,
+              "selinux": true
+            },
+            "providerOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587741450,
+              "selinux": true
+            },
+            "applicationOnCreate": {
+              "injected": true,
+              "developer": 0,
+              "debug": 0,
+              "model": "Android SDK built for arm64",
+              "androidId": "b7a012c685f55dce",
+              "deviceRevision": 1794587741450,
+              "selinux": true
+            }
+          },
+          "phoneWorker": {
+            "pid": 3630,
+            "revision": 1794587752545,
+            "reads": {
+              "imei": {
+                "error": "SecurityException",
+                "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": null,
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "error": "SecurityException",
+                "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": null,
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "error": "SecurityException",
+                "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "error": "SecurityException",
+                "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "error": "SecurityException",
+                "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "sim_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+              },
+              "sim_state_slot0": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+              },
+              "sim_state_slot1": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+              },
+              "sim_card_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+              },
+              "sim_application_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+              },
+              "has_sim": {
+                "value": false,
+                "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+              },
+              "sim_operator": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+              },
+              "sim_operator_name": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+              },
+              "sim_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+              },
+              "network_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+              },
+              "network_type": {
+                "error": "SecurityException",
+                "detail": "getDataNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+                "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+              },
+              "voice_network_type": {
+                "error": "SecurityException",
+                "detail": "getVoiceNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+                "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+              },
+              "data_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+              },
+              "roaming": {
+                "value": false,
+                "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+              },
+              "subscription_count": {
+                "error": "SecurityException",
+                "detail": "Need READ_PHONE_STATE, READ_PRIVILEGED_PHONE_STATE, or carrier privilege",
+                "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+              },
+              "default_subscription": {
+                "value": -1,
+                "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+              },
+              "subscriptions": {
+                "value": [],
+                "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+              },
+              "service_state": {
+                "value": null,
+                "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+              },
+              "cells": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+              },
+              "async_cells": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+              },
+              "lac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell location",
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "error": "SecurityException",
+                "detail": "Not allowed to access cell info",
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              }
+            }
+          },
+          "reads": {
+            "brand": {
+              "value": "Android",
+              "source": "Build.BRAND"
+            },
+            "manufacturer": {
+              "value": "unknown",
+              "source": "Build.MANUFACTURER"
+            },
+            "model": {
+              "value": "Android SDK built for arm64",
+              "source": "Build.MODEL"
+            },
+            "device": {
+              "value": "emu64a",
+              "source": "Build.DEVICE"
+            },
+            "product": {
+              "value": "sdk_phone64_arm64",
+              "source": "Build.PRODUCT"
+            },
+            "board": {
+              "value": "goldfish_arm64",
+              "source": "Build.BOARD"
+            },
+            "hardware": {
+              "value": "ranchu",
+              "source": "Build.HARDWARE"
+            },
+            "fingerprint": {
+              "value": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+              "source": "Build.FINGERPRINT"
+            },
+            "release": {
+              "value": "16",
+              "source": "Build.VERSION.RELEASE"
+            },
+            "incremental": {
+              "value": "13818094",
+              "source": "Build.VERSION.INCREMENTAL"
+            },
+            "serial": {
+              "error": "SecurityException",
+              "detail": "getSerial: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "Build.getSerial"
+            },
+            "serial_static": {
+              "value": "unknown",
+              "source": "Build.SERIAL"
+            },
+            "android_id": {
+              "value": "b7a012c685f55dce",
+              "source": "Settings.Secure.getString"
+            },
+            "android_id_cursor": {
+              "value": "b7a012c685f55dce",
+              "source": "settings secure value-only cursor"
+            },
+            "oaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "vaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "aaid": {
+              "value": null,
+              "source": "vivo IdProvider query"
+            },
+            "xiaomi_oaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.android.id.impl.IdProviderImpl",
+              "source": "Xiaomi IdProviderImpl.getOAID"
+            },
+            "gaid": {
+              "error": "ClassNotFoundException",
+              "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+              "source": "Google AdvertisingIdClient (if SDK is present)"
+            },
+            "imei": {
+              "error": "SecurityException",
+              "detail": "getImeiForSlot: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+            },
+            "imei2": {
+              "value": null,
+              "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+            },
+            "device_id": {
+              "error": "SecurityException",
+              "detail": "getDeviceId: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+            },
+            "meid": {
+              "value": null,
+              "source": "TelephonyManager.getMeid (same-UID phone worker)"
+            },
+            "imsi": {
+              "error": "SecurityException",
+              "detail": "getSubscriberIdForSubscriber: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+            },
+            "iccid": {
+              "error": "SecurityException",
+              "detail": "getIccSerialNumber: The uid 10159 does not meet the requirements to access device identifiers.",
+              "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+            },
+            "phone": {
+              "error": "SecurityException",
+              "detail": "getLine1NumberForDisplay: Neither user 10159 nor current process has android.permission.READ_PHONE_STATE, android.permission.READ_SMS, or android.permission.READ_PHONE_NUMBERS",
+              "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+            },
+            "operator": {
+              "value": "",
+              "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+            },
+            "mcc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+            },
+            "mnc": {
+              "value": null,
+              "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+            },
+            "lac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+            },
+            "cid": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell location",
+              "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+            },
+            "tac": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "pci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_ci": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mcc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "lte_mnc": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "signal": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+            },
+            "sim_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+            },
+            "sim_state_slot0": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+            },
+            "sim_state_slot1": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+            },
+            "sim_card_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+            },
+            "sim_application_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+            },
+            "has_sim": {
+              "value": false,
+              "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+            },
+            "sim_operator": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+            },
+            "sim_operator_name": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+            },
+            "sim_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+            },
+            "network_country": {
+              "value": "",
+              "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+            },
+            "network_type": {
+              "error": "SecurityException",
+              "detail": "getDataNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+              "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+            },
+            "voice_network_type": {
+              "error": "SecurityException",
+              "detail": "getVoiceNetworkTypeForSubscriber: uid 10159 does not have android.permission.READ_PHONE_STATE.",
+              "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+            },
+            "data_state": {
+              "value": 0,
+              "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+            },
+            "roaming": {
+              "value": false,
+              "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+            },
+            "subscription_count": {
+              "error": "SecurityException",
+              "detail": "Need READ_PHONE_STATE, READ_PRIVILEGED_PHONE_STATE, or carrier privilege",
+              "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+            },
+            "default_subscription": {
+              "value": -1,
+              "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+            },
+            "subscriptions": {
+              "value": [],
+              "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+            },
+            "service_state": {
+              "value": null,
+              "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+            },
+            "cells": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+            },
+            "async_cells": {
+              "error": "SecurityException",
+              "detail": "Not allowed to access cell info",
+              "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+            },
+            "wifi_mac": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getMacAddress"
+            },
+            "ssid": {
+              "value": "<unknown ssid>",
+              "source": "WifiInfo.getSSID"
+            },
+            "bssid": {
+              "value": "02:00:00:00:00:00",
+              "source": "WifiInfo.getBSSID"
+            },
+            "java_macs": {
+              "value": {
+                "dummy0": "02:00:00:00:00:00",
+                "wlan0": "02:00:00:00:00:00"
+              },
+              "source": "NetworkInterface.getHardwareAddress"
+            },
+            "bt_mac": {
+              "error": "SecurityException",
+              "detail": "Need android.permission.BLUETOOTH_CONNECT permission for AttributionSource { uid = 1000, packageName = android, attributionTag = null, token = android.os.Binder@aa7ab1a, deviceId = 0, next = AttributionSource { uid = 10159, packageName = io.github.lwtdzh.screenshotdetector, attributionTag = null, token = android.os.BinderProxy@bd5de0a, deviceId = 0, next = null } }: getAddress",
+              "source": "BluetoothAdapter.getAddress"
+            },
+            "latitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "longitude": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "accuracy": {
+              "error": "SecurityException",
+              "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+              "source": "LocationManager.getLastKnownLocation(gps)"
+            },
+            "drm_id": {
+              "error": "UnsupportedSchemeException",
+              "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-14 00:35:42.280 I No hidl drm factories found\n  11-14 00:35:42.280 W Failed to find passthrough drm factories\n  11-14 00:35:42.294 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:43.299 I No hidl drm factories found\n  11-14 00:35:43.300 W Failed to find passthrough drm factories\n  11-14 00:35:43.301 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:44.170 I No hidl drm factories found\n  11-14 00:35:44.171 W Failed to find passthrough drm factories\n  11-14 00:35:44.189 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:45.037 I No hidl drm factories found\n  11-14 00:35:45.039 W Failed to find passthrough drm factories\n  11-14 00:35:45.040 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:45.986 I No hidl drm factories found\n  11-14 00:35:45.989 W Failed to find passthrough drm factories\n  11-14 00:35:45.991 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:46.778 I No hidl drm factories found\n  11-14 00:35:46.779 W Failed to find passthrough drm factories\n  11-14 00:35:46.782 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:52.113 I No hidl drm factories found\n  11-14 00:35:52.113 W Failed to find passthrough drm factories\n  11-14 00:35:52.125 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:52.911 I No hidl drm factories found\n  11-14 00:35:52.911 W Failed to find passthrough drm factories\n  11-14 00:35:52.912 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:53.784 I No hidl drm factories found\n  11-14 00:35:53.787 W Failed to find passthrough drm factories\n  11-14 00:35:53.789 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:35:54.680 I No hidl drm factories found\n  11-14 00:35:54.681 W Failed to find passthrough drm factories\n  11-14 00:35:54.697 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+              "source": "MediaDrm Widevine deviceUniqueId"
+            },
+            "width": {
+              "value": 1080,
+              "source": "Display.getRealMetrics"
+            },
+            "height": {
+              "value": 2400,
+              "source": "Display.getRealMetrics"
+            },
+            "density": {
+              "value": 420,
+              "source": "Display.getRealMetrics"
+            },
+            "display_size": {
+              "value": "1080 × 2138",
+              "source": "Display.getSize"
+            },
+            "mode": {
+              "value": "1080 × 2400",
+              "source": "Display.Mode physical dimensions"
+            },
+            "resource_metrics": {
+              "value": "1080 × 2138 / 420",
+              "source": "Resources.getDisplayMetrics"
+            },
+            "total_ram": {
+              "value": 2592632832,
+              "source": "ActivityManager.MemoryInfo.totalMem bytes"
+            },
+            "storage": {
+              "value": 10411143168,
+              "source": "StatFs.getTotalBytes bytes"
+            },
+            "timezone": {
+              "value": "Asia/Taipei",
+              "source": "TimeZone.getDefault"
+            },
+            "language": {
+              "value": "en-US",
+              "source": "Locale.getDefault"
+            },
+            "hide_sensors": {
+              "value": 18,
+              "source": "SensorManager.getSensorList count"
+            },
+            "java_properties": {
+              "value": {
+                "ro.product.model": "Android SDK built for arm64",
+                "ro.product.brand": "Android",
+                "ro.product.manufacturer": "unknown",
+                "ro.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                "ro.product.device": "emu64a",
+                "ro.product.name": "sdk_phone64_arm64",
+                "ro.product.board": "goldfish_arm64",
+                "ro.product.vendor.device": "emu64a",
+                "ro.product.odm.name": "sdk_phone64_arm64",
+                "ro.product.system_ext.manufacturer": "unknown",
+                "ro.vendor.build.fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                "ro.vendor.build.version.release": "16",
+                "ro.serialno": "",
+                "ro.hardware": "ranchu",
+                "ro.boot.selinux": "",
+                "sys.usb.config": "none"
+              },
+              "source": "SystemProperties.get"
+            },
+            "native": {
+              "value": {
+                "properties": {
+                  "ro.product.model": {
+                    "get": "Android SDK built for arm64",
+                    "read": "Android SDK built for arm64",
+                    "callback": "Android SDK built for arm64"
+                  },
+                  "ro.product.brand": {
+                    "get": "Android",
+                    "read": "Android",
+                    "callback": "Android"
+                  },
+                  "ro.product.manufacturer": {
+                    "get": "unknown",
+                    "read": "unknown",
+                    "callback": "unknown"
+                  },
+                  "ro.build.fingerprint": {
+                    "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+                  },
+                  "ro.product.device": {
+                    "get": "emu64a",
+                    "read": "emu64a",
+                    "callback": "emu64a"
+                  },
+                  "ro.product.name": {
+                    "get": "sdk_phone64_arm64",
+                    "read": "sdk_phone64_arm64",
+                    "callback": "sdk_phone64_arm64"
+                  },
+                  "ro.product.board": {
+                    "get": "goldfish_arm64",
+                    "read": "goldfish_arm64",
+                    "callback": "goldfish_arm64"
+                  },
+                  "ro.product.vendor.device": {
+                    "get": "emu64a",
+                    "read": "emu64a",
+                    "callback": "emu64a"
+                  },
+                  "ro.product.odm.name": {
+                    "get": "sdk_phone64_arm64",
+                    "read": "sdk_phone64_arm64",
+                    "callback": "sdk_phone64_arm64"
+                  },
+                  "ro.product.system_ext.manufacturer": {
+                    "get": "unknown",
+                    "read": "unknown",
+                    "callback": "unknown"
+                  },
+                  "ro.vendor.build.fingerprint": {
+                    "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+                    "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+                  },
+                  "ro.vendor.build.version.release": {
+                    "get": "16",
+                    "read": "16",
+                    "callback": "16"
+                  },
+                  "ro.serialno": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "ro.hardware": {
+                    "get": "ranchu",
+                    "read": "ranchu",
+                    "callback": "ranchu"
+                  },
+                  "ro.boot.selinux": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  },
+                  "sys.usb.config": {
+                    "get": "none",
+                    "read": "none",
+                    "callback": "none"
+                  },
+                  "appstate.probe.absent": {
+                    "get": "",
+                    "read": null,
+                    "callback": null
+                  }
+                },
+                "interfaces": {},
+                "interfaceFreeControl": true,
+                "propertyCallbackLifetimeControl": true
+              },
+              "source": "Bionic property get / read / callback and getifaddrs"
+            },
+            "ordinary": {
+              "value": {
+                "brightness": 102,
+                "propertyMissing": "",
+                "localeExplicit": "en-US",
+                "timezoneExplicit": "UTC",
+                "availableBytes": 9449955328,
+                "file": "ordinary-device-control"
+              },
+              "source": "Unrelated settings, files, property defaults"
+            }
+          }
+        }
+      },
+      "artifacts": {
+        "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+        "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+      },
+      "startedAtUTC": "2026-11-13T16:35:52.423554+00:00",
+      "durationSeconds": 2.791,
+      "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+      "apkPayloads": {
+        "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+        "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+        "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+        "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "artifacts": {
+    "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+    "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+  },
+  "restoration": {
+    "originalAPKBytes": true,
+    "completeDataSnapshotRestored": true,
+    "modulesAndScopes": true,
+    "settings": true,
+    "mode": "Enforcing",
+    "adbdUnrooted": true,
+    "emulatorShutdown": true
+  },
+  "previousRuns": {
+    "P01-vivo-preset-save-live-read": [
+      {
+        "status": "failed",
+        "error": "AssertionError(('ro.product.system_ext.manufacturer', {'get': 'vivo', 'read': 'unknown', 'callback': 'vivo'}, 'vivo'))",
+        "startedAtUTC": "2026-11-13T16:28:17.442952+00:00",
+        "durationSeconds": 19.164
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "profile": {
+            "schema": 1,
+            "enabled": true,
+            "revision": 1794587451409,
+            "preset": "vivo-x200-pro-mini",
+            "values": {
+              "imei": "998325379841252",
+              "imei2": "998527242610257",
+              "meid": "36853eab758e7b",
+              "serial": "8000ECFEC9EF3911",
+              "android_id": "576c0844b9485983",
+              "oaid": "e01f3325-6c37-415d-a955-50f087fa68c2",
+              "vaid": "99febd8e-d086-417d-8b7f-7ca033fd267a",
+              "aaid": "3913b6d0-862b-4928-b67d-239731c716a1",
+              "gaid": "61deba14-4f4c-49fe-a68c-ce65c9cd9503",
+              "drm_id": "9413612f78c89339de81acd5fd3b31d60d6f96c1364b8fed29a5de80cc36c8d6",
+              "wifi_mac": "02:71:a7:f6:4e:2a",
+              "bt_mac": "02:71:6f:44:a5:83",
+              "ssid": "Home-a3dc6d",
+              "bssid": "02:84:d1:d1:62:42",
+              "imsi": "460001883767752",
+              "iccid": "8986009521448934271",
+              "phone": "13809041368",
+              "lac": "21491",
+              "cid": "174187346",
+              "tac": "40138",
+              "pci": "479",
+              "brand": "vivo",
+              "manufacturer": "vivo",
+              "model": "V2419A",
+              "device": "PD2419",
+              "product": "PD2419",
+              "board": "k6991v1_64",
+              "hardware": "mt6991",
+              "release": "16",
+              "incremental": "compiler261012170621",
+              "fingerprint": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+              "width": "1080",
+              "height": "2344",
+              "density": "480",
+              "operator": "中国移动",
+              "mcc": "460",
+              "mnc": "00",
+              "signal": "-88",
+              "latitude": "31.2304",
+              "longitude": "121.4737",
+              "accuracy": "30",
+              "timezone": "Asia/Shanghai",
+              "language": "zh-CN",
+              "hide_sensors": "true"
+            },
+            "selected": [
+              "imei",
+              "imei2",
+              "meid",
+              "serial",
+              "android_id",
+              "oaid",
+              "vaid",
+              "aaid",
+              "gaid",
+              "wifi_mac",
+              "bt_mac",
+              "ssid",
+              "bssid",
+              "imsi",
+              "iccid",
+              "phone",
+              "lac",
+              "cid",
+              "tac",
+              "pci",
+              "brand",
+              "manufacturer",
+              "model",
+              "device",
+              "product",
+              "board",
+              "hardware",
+              "release",
+              "incremental",
+              "fingerprint",
+              "width",
+              "height",
+              "density",
+              "operator",
+              "mcc",
+              "mnc",
+              "signal",
+              "latitude",
+              "longitude",
+              "accuracy"
+            ],
+            "locationEnabled": false,
+            "regionId": "",
+            "regionName": "",
+            "regionOverrides": [],
+            "networkMode": "no_sim"
+          },
+          "observed": {
+            "timestamp": 1794587451886,
+            "elapsed": 101431,
+            "pid": 2679,
+            "package": "io.github.lwtdzh.screenshotdetector",
+            "module": {
+              "policyLoaded": true,
+              "networkMode": "no_sim",
+              "locationEnabled": false,
+              "enabled": [
+                "screenshot",
+                "vpn",
+                "proxy",
+                "developer",
+                "debug",
+                "selinux"
+              ],
+              "deviceHooks": 291,
+              "deviceNative": true,
+              "deviceRegion": "",
+              "deviceRevision": 1794587451409,
+              "futureMethodEnabled": true,
+              "injected": true,
+              "deviceSelected": [
+                "imei",
+                "imei2",
+                "meid",
+                "serial",
+                "android_id",
+                "oaid",
+                "vaid",
+                "aaid",
+                "gaid",
+                "wifi_mac",
+                "bt_mac",
+                "ssid",
+                "bssid",
+                "imsi",
+                "iccid",
+                "phone",
+                "lac",
+                "cid",
+                "tac",
+                "pci",
+                "brand",
+                "manufacturer",
+                "model",
+                "device",
+                "product",
+                "board",
+                "hardware",
+                "release",
+                "incremental",
+                "fingerprint",
+                "width",
+                "height",
+                "density",
+                "operator",
+                "mcc",
+                "mnc",
+                "signal",
+                "latitude",
+                "longitude",
+                "accuracy"
+              ],
+              "deviceEnabled": true
+            },
+            "early": {
+              "attachBaseContext": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0,
+                "model": "Android SDK built for arm64",
+                "androidId": "b7a012c685f55dce",
+                "deviceRevision": 1794587431571,
+                "selinux": true
+              },
+              "providerOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0,
+                "model": "Android SDK built for arm64",
+                "androidId": "b7a012c685f55dce",
+                "deviceRevision": 1794587431571,
+                "selinux": true
+              },
+              "applicationOnCreate": {
+                "injected": true,
+                "developer": 0,
+                "debug": 0,
+                "model": "Android SDK built for arm64",
+                "androidId": "b7a012c685f55dce",
+                "deviceRevision": 1794587431571,
+                "selinux": true
+              }
+            },
+            "phoneWorker": {
+              "pid": 3158,
+              "revision": 1794587451409,
+              "reads": {
+                "imei": {
+                  "value": "998325379841252",
+                  "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+                },
+                "imei2": {
+                  "value": "998527242610257",
+                  "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+                },
+                "device_id": {
+                  "value": "998325379841252",
+                  "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+                },
+                "meid": {
+                  "value": "36853eab758e7b",
+                  "source": "TelephonyManager.getMeid (same-UID phone worker)"
+                },
+                "imsi": {
+                  "value": null,
+                  "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+                },
+                "iccid": {
+                  "value": null,
+                  "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+                },
+                "phone": {
+                  "value": null,
+                  "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+                },
+                "operator": {
+                  "value": "",
+                  "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+                },
+                "mcc": {
+                  "value": null,
+                  "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+                },
+                "mnc": {
+                  "value": null,
+                  "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+                },
+                "sim_state": {
+                  "value": 1,
+                  "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+                },
+                "sim_state_slot0": {
+                  "value": 1,
+                  "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+                },
+                "sim_state_slot1": {
+                  "value": 1,
+                  "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+                },
+                "sim_card_state": {
+                  "value": 1,
+                  "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+                },
+                "sim_application_state": {
+                  "value": 0,
+                  "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+                },
+                "has_sim": {
+                  "value": false,
+                  "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+                },
+                "sim_operator": {
+                  "value": "",
+                  "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+                },
+                "sim_operator_name": {
+                  "value": "",
+                  "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+                },
+                "sim_country": {
+                  "value": "",
+                  "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+                },
+                "network_country": {
+                  "value": "",
+                  "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+                },
+                "network_type": {
+                  "value": 0,
+                  "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+                },
+                "voice_network_type": {
+                  "value": 0,
+                  "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+                },
+                "data_state": {
+                  "value": 0,
+                  "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+                },
+                "roaming": {
+                  "value": false,
+                  "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+                },
+                "subscription_count": {
+                  "value": 0,
+                  "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+                },
+                "default_subscription": {
+                  "value": -1,
+                  "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+                },
+                "subscriptions": {
+                  "value": [],
+                  "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+                },
+                "service_state": {
+                  "value": {
+                    "state": 1,
+                    "roaming": false,
+                    "registrations": [
+                      {
+                        "domain": 1,
+                        "registered": false,
+                        "technology": 0
+                      },
+                      {
+                        "domain": 2,
+                        "registered": false,
+                        "technology": 0
+                      },
+                      {
+                        "domain": 2,
+                        "registered": false,
+                        "technology": 0
+                      }
+                    ]
+                  },
+                  "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+                },
+                "cells": {
+                  "value": [],
+                  "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+                },
+                "async_cells": {
+                  "value": [],
+                  "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+                },
+                "lac": {
+                  "value": null,
+                  "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+                },
+                "cid": {
+                  "value": null,
+                  "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+                },
+                "tac": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                },
+                "pci": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                },
+                "lte_ci": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                },
+                "lte_mcc": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                },
+                "lte_mnc": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                },
+                "signal": {
+                  "value": null,
+                  "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+                }
+              }
+            },
+            "reads": {
+              "brand": {
+                "value": "vivo",
+                "source": "Build.BRAND"
+              },
+              "manufacturer": {
+                "value": "vivo",
+                "source": "Build.MANUFACTURER"
+              },
+              "model": {
+                "value": "V2419A",
+                "source": "Build.MODEL"
+              },
+              "device": {
+                "value": "PD2419",
+                "source": "Build.DEVICE"
+              },
+              "product": {
+                "value": "PD2419",
+                "source": "Build.PRODUCT"
+              },
+              "board": {
+                "value": "k6991v1_64",
+                "source": "Build.BOARD"
+              },
+              "hardware": {
+                "value": "mt6991",
+                "source": "Build.HARDWARE"
+              },
+              "fingerprint": {
+                "value": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                "source": "Build.FINGERPRINT"
+              },
+              "release": {
+                "value": "16",
+                "source": "Build.VERSION.RELEASE"
+              },
+              "incremental": {
+                "value": "compiler261012170621",
+                "source": "Build.VERSION.INCREMENTAL"
+              },
+              "serial": {
+                "value": "8000ECFEC9EF3911",
+                "source": "Build.getSerial"
+              },
+              "serial_static": {
+                "value": "8000ECFEC9EF3911",
+                "source": "Build.SERIAL"
+              },
+              "android_id": {
+                "value": "576c0844b9485983",
+                "source": "Settings.Secure.getString"
+              },
+              "android_id_cursor": {
+                "value": "576c0844b9485983",
+                "source": "settings secure value-only cursor"
+              },
+              "oaid": {
+                "value": null,
+                "source": "vivo IdProvider query"
+              },
+              "vaid": {
+                "value": null,
+                "source": "vivo IdProvider query"
+              },
+              "aaid": {
+                "value": null,
+                "source": "vivo IdProvider query"
+              },
+              "xiaomi_oaid": {
+                "error": "ClassNotFoundException",
+                "detail": "com.android.id.impl.IdProviderImpl",
+                "source": "Xiaomi IdProviderImpl.getOAID"
+              },
+              "gaid": {
+                "error": "ClassNotFoundException",
+                "detail": "com.google.android.gms.ads.identifier.AdvertisingIdClient",
+                "source": "Google AdvertisingIdClient (if SDK is present)"
+              },
+              "imei": {
+                "value": "998325379841252",
+                "source": "TelephonyManager.getImei(0) (same-UID phone worker)"
+              },
+              "imei2": {
+                "value": "998527242610257",
+                "source": "TelephonyManager.getImei(1) (same-UID phone worker)"
+              },
+              "device_id": {
+                "value": "998325379841252",
+                "source": "TelephonyManager.getDeviceId (same-UID phone worker)"
+              },
+              "meid": {
+                "value": "36853eab758e7b",
+                "source": "TelephonyManager.getMeid (same-UID phone worker)"
+              },
+              "imsi": {
+                "value": null,
+                "source": "TelephonyManager.getSubscriberId (same-UID phone worker)"
+              },
+              "iccid": {
+                "value": null,
+                "source": "TelephonyManager.getSimSerialNumber (same-UID phone worker)"
+              },
+              "phone": {
+                "value": null,
+                "source": "TelephonyManager.getLine1Number (same-UID phone worker)"
+              },
+              "operator": {
+                "value": "",
+                "source": "TelephonyManager.getNetworkOperatorName (same-UID phone worker)"
+              },
+              "mcc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MCC (same-UID phone worker)"
+              },
+              "mnc": {
+                "value": null,
+                "source": "TelephonyManager.getNetworkOperator / MNC (same-UID phone worker)"
+              },
+              "lac": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getLac (same-UID phone worker)"
+              },
+              "cid": {
+                "value": null,
+                "source": "TelephonyManager.getCellLocation.getCid (same-UID phone worker)"
+              },
+              "tac": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "pci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_ci": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mcc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "lte_mnc": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "signal": {
+                "value": null,
+                "source": "TelephonyManager.getAllCellInfo / LTE (same-UID phone worker)"
+              },
+              "sim_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state (same-UID phone worker)"
+              },
+              "sim_state_slot0": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot0 (same-UID phone worker)"
+              },
+              "sim_state_slot1": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_state_slot1 (same-UID phone worker)"
+              },
+              "sim_card_state": {
+                "value": 1,
+                "source": "Android telephony / subscription API · sim_card_state (same-UID phone worker)"
+              },
+              "sim_application_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · sim_application_state (same-UID phone worker)"
+              },
+              "has_sim": {
+                "value": false,
+                "source": "Android telephony / subscription API · has_sim (same-UID phone worker)"
+              },
+              "sim_operator": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator (same-UID phone worker)"
+              },
+              "sim_operator_name": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_operator_name (same-UID phone worker)"
+              },
+              "sim_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · sim_country (same-UID phone worker)"
+              },
+              "network_country": {
+                "value": "",
+                "source": "Android telephony / subscription API · network_country (same-UID phone worker)"
+              },
+              "network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · network_type (same-UID phone worker)"
+              },
+              "voice_network_type": {
+                "value": 0,
+                "source": "Android telephony / subscription API · voice_network_type (same-UID phone worker)"
+              },
+              "data_state": {
+                "value": 0,
+                "source": "Android telephony / subscription API · data_state (same-UID phone worker)"
+              },
+              "roaming": {
+                "value": false,
+                "source": "Android telephony / subscription API · roaming (same-UID phone worker)"
+              },
+              "subscription_count": {
+                "value": 0,
+                "source": "Android telephony / subscription API · subscription_count (same-UID phone worker)"
+              },
+              "default_subscription": {
+                "value": -1,
+                "source": "Android telephony / subscription API · default_subscription (same-UID phone worker)"
+              },
+              "subscriptions": {
+                "value": [],
+                "source": "Android telephony / subscription API · subscriptions (same-UID phone worker)"
+              },
+              "service_state": {
+                "value": {
+                  "state": 1,
+                  "roaming": false,
+                  "registrations": [
+                    {
+                      "domain": 1,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    },
+                    {
+                      "domain": 2,
+                      "registered": false,
+                      "technology": 0
+                    }
+                  ]
+                },
+                "source": "Android telephony / subscription API · service_state (same-UID phone worker)"
+              },
+              "cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · cells (same-UID phone worker)"
+              },
+              "async_cells": {
+                "value": [],
+                "source": "Android telephony / subscription API · async_cells (same-UID phone worker)"
+              },
+              "wifi_mac": {
+                "value": "02:71:a7:f6:4e:2a",
+                "source": "WifiInfo.getMacAddress"
+              },
+              "ssid": {
+                "value": "\"Home-a3dc6d\"",
+                "source": "WifiInfo.getSSID"
+              },
+              "bssid": {
+                "value": "02:84:d1:d1:62:42",
+                "source": "WifiInfo.getBSSID"
+              },
+              "java_macs": {
+                "value": {
+                  "dummy0": "02:00:00:00:00:00",
+                  "wlan0": "02:71:a7:f6:4e:2a"
+                },
+                "source": "NetworkInterface.getHardwareAddress"
+              },
+              "bt_mac": {
+                "value": "02:71:6f:44:a5:83",
+                "source": "BluetoothAdapter.getAddress"
+              },
+              "latitude": {
+                "error": "SecurityException",
+                "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+                "source": "LocationManager.getLastKnownLocation(gps)"
+              },
+              "longitude": {
+                "error": "SecurityException",
+                "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+                "source": "LocationManager.getLastKnownLocation(gps)"
+              },
+              "accuracy": {
+                "error": "SecurityException",
+                "detail": "uid 10159 does not have android.permission.ACCESS_COARSE_LOCATION or android.permission.ACCESS_FINE_LOCATION.",
+                "source": "LocationManager.getLastKnownLocation(gps)"
+              },
+              "drm_id": {
+                "error": "UnsupportedSchemeException",
+                "detail": "Failed to instantiate drm object: NO_INIT\ncdm err: 0, oem err: 0, ctx: 0\n============================== Beginning of DRM Plugin Log ==============================\n  11-14 00:30:32.972 I No hidl drm factories found\n  11-14 00:30:32.973 W Failed to find passthrough drm factories\n  11-14 00:30:32.987 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:30:51.857 I No hidl drm factories found\n  11-14 00:30:51.857 W Failed to find passthrough drm factories\n  11-14 00:30:51.879 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n  11-14 00:30:52.113 I No hidl drm factories found\n  11-14 00:30:52.122 W Failed to find passthrough drm factories\n  11-14 00:30:52.124 E uuid=[edef8ba979d64ace a3c827dcd51d21ed] No supported hal instance found\n============================== End of DRM Plugin Log ==============================",
+                "source": "MediaDrm Widevine deviceUniqueId"
+              },
+              "width": {
+                "value": 1080,
+                "source": "Display.getRealMetrics"
+              },
+              "height": {
+                "value": 2344,
+                "source": "Display.getRealMetrics"
+              },
+              "density": {
+                "value": 480,
+                "source": "Display.getRealMetrics"
+              },
+              "display_size": {
+                "value": "1080 × 2344",
+                "source": "Display.getSize"
+              },
+              "mode": {
+                "value": "1080 × 2344",
+                "source": "Display.Mode physical dimensions"
+              },
+              "resource_metrics": {
+                "value": "1080 × 2344 / 480",
+                "source": "Resources.getDisplayMetrics"
+              },
+              "total_ram": {
+                "value": 2592632832,
+                "source": "ActivityManager.MemoryInfo.totalMem bytes"
+              },
+              "storage": {
+                "value": 10411143168,
+                "source": "StatFs.getTotalBytes bytes"
+              },
+              "timezone": {
+                "value": "Asia/Taipei",
+                "source": "TimeZone.getDefault"
+              },
+              "language": {
+                "value": "en-US",
+                "source": "Locale.getDefault"
+              },
+              "hide_sensors": {
+                "value": 18,
+                "source": "SensorManager.getSensorList count"
+              },
+              "java_properties": {
+                "value": {
+                  "ro.product.model": "V2419A",
+                  "ro.product.brand": "vivo",
+                  "ro.product.manufacturer": "vivo",
+                  "ro.build.fingerprint": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                  "ro.product.device": "PD2419",
+                  "ro.product.name": "PD2419",
+                  "ro.product.board": "k6991v1_64",
+                  "ro.product.vendor.device": "PD2415",
+                  "ro.product.odm.name": "PD2415",
+                  "ro.product.system_ext.manufacturer": "vivo",
+                  "ro.vendor.build.fingerprint": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                  "ro.vendor.build.version.release": "15",
+                  "ro.serialno": "8000ECFEC9EF3911",
+                  "ro.hardware": "mt6991",
+                  "ro.boot.selinux": "",
+                  "sys.usb.config": "none"
+                },
+                "source": "SystemProperties.get"
+              },
+              "native": {
+                "value": {
+                  "properties": {
+                    "ro.product.model": {
+                      "get": "V2419A",
+                      "read": "V2419A",
+                      "callback": "V2419A"
+                    },
+                    "ro.product.brand": {
+                      "get": "vivo",
+                      "read": "vivo",
+                      "callback": "vivo"
+                    },
+                    "ro.product.manufacturer": {
+                      "get": "vivo",
+                      "read": "vivo",
+                      "callback": "vivo"
+                    },
+                    "ro.build.fingerprint": {
+                      "get": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                      "read": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys",
+                      "callback": "vivo/PD2419/PD2419:16/BP2A.250605.031.A3_V000L1/compiler261012170621:user/release-keys"
+                    },
+                    "ro.product.device": {
+                      "get": "PD2419",
+                      "read": "PD2419",
+                      "callback": "PD2419"
+                    },
+                    "ro.product.name": {
+                      "get": "PD2419",
+                      "read": "PD2419",
+                      "callback": "PD2419"
+                    },
+                    "ro.product.board": {
+                      "get": "k6991v1_64",
+                      "read": "k6991v1_64",
+                      "callback": "k6991v1_64"
+                    },
+                    "ro.product.vendor.device": {
+                      "get": "PD2415",
+                      "read": "PD2415",
+                      "callback": "PD2415"
+                    },
+                    "ro.product.odm.name": {
+                      "get": "PD2415",
+                      "read": "PD2415",
+                      "callback": "PD2415"
+                    },
+                    "ro.product.system_ext.manufacturer": {
+                      "get": "vivo",
+                      "read": "unknown",
+                      "callback": "vivo"
+                    },
+                    "ro.vendor.build.fingerprint": {
+                      "get": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                      "read": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys",
+                      "callback": "vivo/PD2415/PD2415:15/AP3A.240905.015.A2/compiler261012170621:user/release-keys"
+                    },
+                    "ro.vendor.build.version.release": {
+                      "get": "15",
+                      "read": "15",
+                      "callback": "15"
+                    },
+                    "ro.serialno": {
+                      "get": "8000ECFEC9EF3911",
+                      "read": null,
+                      "callback": null
+                    },
+                    "ro.hardware": {
+                      "get": "mt6991",
+                      "read": "mt6991",
+                      "callback": "mt6991"
+                    },
+                    "ro.boot.selinux": {
+                      "get": "",
+                      "read": null,
+                      "callback": null
+                    },
+                    "sys.usb.config": {
+                      "get": "none",
+                      "read": "none",
+                      "callback": "none"
+                    },
+                    "appstate.probe.absent": {
+                      "get": "",
+                      "read": null,
+                      "callback": null
+                    }
+                  },
+                  "interfaces": {},
+                  "interfaceFreeControl": true,
+                  "propertyCallbackLifetimeControl": true
+                },
+                "source": "Bionic property get / read / callback and getifaddrs"
+              },
+              "ordinary": {
+                "value": {
+                  "brightness": 102,
+                  "propertyMissing": "",
+                  "localeExplicit": "en-US",
+                  "timezoneExplicit": "UTC",
+                  "availableBytes": 9449410560,
+                  "file": "ordinary-device-control"
+                },
+                "source": "Unrelated settings, files, property defaults"
+              }
+            }
+          },
+          "samePid": 2679,
+          "groupsDefaultCollapsed": true,
+          "modelFields": 10,
+          "properties": 13,
+          "javaGetAndNativeGetCallback": true,
+          "legacyNativeReadVerifiedForShortKeys": true,
+          "legacyNativeLongKeyLimit": [
+            "ro.product.system_ext.manufacturer"
+          ]
+        },
+        "artifacts": {
+          "AppStateShield-0.4.3.apk": "1f750e35ebe1d6b9e3a4b10146f894f84d33ce5c836d269d665b17dbf5a4062e",
+          "AppStateVerifier-0.4.3.apk": "4fb2e428c37906ab87083ef3d2ca85b9ba3600adc173d9ff1036712b1a0211ea"
+        },
+        "startedAtUTC": "2026-11-13T16:30:32.823063+00:00",
+        "durationSeconds": 19.074,
+        "buildInputsSHA256": "fd0fc661010164cd98d0e9dff360dd8a15c23c063204ba6189f74f94179d52de",
+        "apkPayloads": {
+          "AppStateShield": "2d56e767c2f78e8270a552329a40c6b935ae825231b7cd088689b2ebbe5e252b",
+          "AppStateVerifier": "e2a32ee6b55cd622610d96fc0af4478c5b00e0f73bea5b436a8cdc9b5ab805e2",
+          "Verifier-A": "719623fba0dfa2e320713a33176a51c30c1464bc85c4e9e3de3b8db0db3d25b6",
+          "Verifier-B": "49489c5ff57cc9d85bab1291a753dbd5a64ccbef5522b036c17fb019c49acce2"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      }
+    ],
+    "D18-restored": [
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.3.apk": "1f750e35ebe1d6b9e3a4b10146f894f84d33ce5c836d269d665b17dbf5a4062e",
+          "AppStateVerifier-0.4.3.apk": "4fb2e428c37906ab87083ef3d2ca85b9ba3600adc173d9ff1036712b1a0211ea"
+        },
+        "startedAtUTC": "2026-11-13T16:28:38.613100+00:00",
+        "durationSeconds": 0.0
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.3.apk": "1f750e35ebe1d6b9e3a4b10146f894f84d33ce5c836d269d665b17dbf5a4062e",
+          "AppStateVerifier-0.4.3.apk": "4fb2e428c37906ab87083ef3d2ca85b9ba3600adc173d9ff1036712b1a0211ea"
+        },
+        "startedAtUTC": "2026-11-13T16:31:07.349144+00:00",
+        "durationSeconds": 0.0,
+        "buildInputsSHA256": "fd0fc661010164cd98d0e9dff360dd8a15c23c063204ba6189f74f94179d52de",
+        "apkPayloads": {
+          "AppStateShield": "2d56e767c2f78e8270a552329a40c6b935ae825231b7cd088689b2ebbe5e252b",
+          "AppStateVerifier": "e2a32ee6b55cd622610d96fc0af4478c5b00e0f73bea5b436a8cdc9b5ab805e2",
+          "Verifier-A": "719623fba0dfa2e320713a33176a51c30c1464bc85c4e9e3de3b8db0db3d25b6",
+          "Verifier-B": "49489c5ff57cc9d85bab1291a753dbd5a64ccbef5522b036c17fb019c49acce2"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      },
+      {
+        "status": "passed",
+        "evidence": {
+          "settings": true,
+          "scopes": true,
+          "originalPackages": true,
+          "mode": "Enforcing"
+        },
+        "artifacts": {
+          "AppStateShield-0.4.3.apk": "ac144a4909f6f2a7f81490f5c8d31ecc598829182967d35a951417ffb10e3529",
+          "AppStateVerifier-0.4.3.apk": "906c82674faecf182e553ca8edb8c0706d959276082d0da797ddae7b313bac60"
+        },
+        "startedAtUTC": "2026-11-13T16:34:10.144269+00:00",
+        "durationSeconds": 0.0,
+        "buildInputsSHA256": "22d1139f9aceb112bd573f2ebd9a1c7b3128c810962557ea6468c735ab612290",
+        "apkPayloads": {
+          "AppStateShield": "5d54baf3874f611fd2bf52aeea9a7f4ba45f0151ba9291660359e190619f570e",
+          "AppStateVerifier": "618184aa7e61e105c01daf27df803096effca83644159a3b2a90e7406ea83423",
+          "Verifier-A": "cbb411dc8ad21d7ad56f69f058eebcf9a40301a974f18d0eb06816ca5c841918",
+          "Verifier-B": "504fe23bfddcf1cb73b18be5f8bcb3a7ea71e9d2a208e497ac17d11588e3c0a3"
+        },
+        "environment": {
+          "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+          "abi": "arm64-v8a",
+          "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+        }
+      }
+    ],
+    "P02-xiaomi-switch-refresh-live-read": [
+      {
+        "status": "failed",
+        "error": "AssertionError(('ro.vendor.build.fingerprint', {'get': 'Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-', 'read': 'Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-', 'callback': 'Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-keys'}, 'Xiaomi/mivendor_sm8650_global/mivendor:14/UKQ1.240523.001/OS2.0.201.0.VNCMIXM:user/release-keys'))",
+        "startedAtUTC": "2026-11-13T16:30:51.897922+00:00",
+        "durationSeconds": 13.236
+      }
+    ],
+    "P04-manual-device-override": [
+      {
+        "status": "failed",
+        "error": "AssertionError('Reader did not receive saved revision')",
+        "startedAtUTC": "2026-11-13T16:33:55.137591+00:00",
+        "durationSeconds": 12.845
+      }
+    ]
+  }
+}

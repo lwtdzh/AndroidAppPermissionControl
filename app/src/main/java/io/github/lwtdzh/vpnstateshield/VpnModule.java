@@ -88,7 +88,21 @@ public final class VpnModule implements IXposedHookLoadPackage {
             if (p.hasThrowable()) return;
             if (p.getResult() instanceof NetworkInfo) {
                 NetworkInfo info = (NetworkInfo) p.getResult();
-                if (info.getType() == ConnectivityManager.TYPE_VPN) p.setResult(null);
+                if (info.getType() == ConnectivityManager.TYPE_VPN) {
+                    if (p.method.getName().equals("getNetworkInfo")) {
+                        try {
+                            // Android can expose supported TYPE_VPN as disconnected.
+                            // Keep that shape: Ruru treats a missing result as suspicious.
+                            NetworkInfo copy = (NetworkInfo) XposedHelpers.newInstance(NetworkInfo.class, info);
+                            XposedHelpers.callMethod(copy, "setDetailedState",
+                                NetworkInfo.DetailedState.DISCONNECTED, null, null);
+                            p.setResult(copy);
+                        } catch (Throwable error) {
+                            Log.w(TAG, "disconnected network info unavailable");
+                            p.setResult(null);
+                        }
+                    } else p.setResult(null);
+                }
             } else if (p.getResult() instanceof NetworkInfo[]) {
                 List<NetworkInfo> kept = new ArrayList<>();
                 for (NetworkInfo info : (NetworkInfo[]) p.getResult())
@@ -173,7 +187,7 @@ public final class VpnModule implements IXposedHookLoadPackage {
                 p.setResult(kept);
             }
         });
-        try { System.loadLibrary("vpnstate"); }
+        try { io.github.lwtdzh.appstateshield.NativeLibraries.load("vpnstate"); }
         catch (Throwable error) { Log.e(TAG, "native layer unavailable", error); }
         Log.i(TAG, "Java hooks installed");
     }

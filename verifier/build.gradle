@@ -9,8 +9,8 @@ android {
         // Diagnostic APK keeps legacy file access for JNI/NIO controls.
         // Production module targets 36. API 34 capture registration is guarded.
         targetSdk 28
-        versionCode 8
-        versionName "0.3.1"
+        versionCode 18
+        versionName "0.4.12"
         ndk { abiFilters "arm64-v8a", "armeabi-v7a", "x86_64", "x86" }
         externalNativeBuild { cmake { cppFlags "-std=c++17" } }
     }
@@ -18,6 +18,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    sourceSets { main.java.srcDirs += ["../shared/java"] }
+    buildFeatures { buildConfig true }
     buildTypes { release { minifyEnabled false } }
     // This sideloaded diagnostic app intentionally checks legacy filesystem paths.
     // It is not published to Play; all other lint checks remain active.
@@ -29,6 +31,8 @@ android {
         // Screenshot services recognize trusted sender names ending in .screenshot.
         // This temporary flavor can post real notifications through that same route.
         sampleB { dimension "target"; applicationIdSuffix ".sampleb.screenshot" }
+        // Negative identity fixture: same status class, a package outside the allowlist.
+        foreignProbe { dimension "target"; applicationIdSuffix ".foreignprobe" }
     }
     externalNativeBuild { cmake { path "src/main/cpp/CMakeLists.txt"; version "3.22.1" } }
 }

@@ -161,7 +161,7 @@ public final class DeveloperModule implements IXposedHookLoadPackage {
             });
         try {
             if (io.github.lwtdzh.appstateshield.RuntimePolicy.enabled("debug"))
-                System.loadLibrary("developerstate");
+                io.github.lwtdzh.appstateshield.NativeLibraries.load("developerstate");
         }
         catch (Throwable error) { Log.e(TAG, "native layer unavailable", error); }
         Log.i(TAG, "Java hooks installed");
