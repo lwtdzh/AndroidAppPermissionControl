@@ -30,7 +30,8 @@ public final class RegionProfileTest {
         for(boolean machine:new boolean[]{false,true})for(boolean location:new boolean[]{false,true})
             for(boolean field:new boolean[]{false,true}){
                 Set<String> s=new LinkedHashSet<>(selected);if(!field)s.remove("latitude");
-                DeviceProfile p=new DeviceProfile(machine,10,"custom",values,s,location,"110101","北京市 / 北京市 / 东城区",Set.of("latitude"));
+                DeviceProfile p=new DeviceProfile(machine,10,"custom",values,s,location,"110101","北京市 / 北京市 / 东城区",Set.of("latitude"))
+                    .withGroup("ids",true);
                 check((p.get("latitude")!=null)==(machine&&location&&field),"Three gates");
                 check((p.get("imei")!=null)==machine,"Identifier independent of location");
                 DeviceProfile parsed=DeviceProfile.parse(p.json());
@@ -40,7 +41,8 @@ public final class RegionProfileTest {
             }
         String legacy=preset.json().replace("\"locationEnabled\":false,","");
         DeviceProfile migrated=DeviceProfile.parse(legacy);
-        check(migrated.enabled&&!migrated.locationEnabled&&migrated.get("imei")!=null&&migrated.get("latitude")==null,"Legacy opts out of location");
+        check(migrated.enabled&&!migrated.locationEnabled&&migrated.get("imei")==null&&migrated.get("latitude")==null,
+            "Legacy defaults remain opted out");
         check(DeviceProfile.parse("{\"schema\":99}").get("latitude")==null,"Unknown schema off");
         for(String mode:new String[]{DeviceProfile.NETWORK_OFF,DeviceProfile.NETWORK_SIMULATE,DeviceProfile.NETWORK_NO_SIM})
             for(boolean on:new boolean[]{false,true}){
@@ -53,7 +55,8 @@ public final class RegionProfileTest {
                 check(DeviceProfile.parse(p.json()).networkMode.equals(mode),"Mode round-trip");
             }
         DeviceProfile sparse=new DeviceProfile(true,0,"custom",values,Set.of(),false,"","",Set.of(),DeviceProfile.NETWORK_SIMULATE);
-        check(sparse.get("imsi")!=null&&sparse.get("mnc")!=null&&sparse.get("wifi_mac")==null,"Cellular applies atomically");
+        check(sparse.get("imsi")==null&&sparse.get("mnc")==null&&sparse.get("wifi_mac")==null,
+            "SIM mode never bypasses individual field gates");
         for(int n=0;n<30;n++){
             Map<String,String> network=DevicePackets.network();
             check(network.size()==15,"Whole network category");

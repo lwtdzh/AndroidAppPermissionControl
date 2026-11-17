@@ -1,0 +1,60 @@
+{
+  "AppStateShield": {
+    "sha256": "21020c4c2a8d2c7ef405b35a38e05ef4fede9a34f94d7dbda9ba6b3aa96db854",
+    "package": "package: name='io.github.lwtdzh.appstateshield' versionCode='23' versionName='0.4.13' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "nativeLibraries": {
+      "lib/arm64-v8a/libdeveloperstate.so": "31c25bfa8b6e5906cbd96cc68d020b08526ecc7f55234a52e0900555962a6492",
+      "lib/arm64-v8a/libdevicestate.so": "59baaee6f649fa7d7f114180893243cd2526e08e899d73a6d40efc55932e784b",
+      "lib/arm64-v8a/libselinuxstate.so": "64064b907f2d9816eae12de6d9205eb0ed1b0e83341c70f20167aebe36586bcc",
+      "lib/arm64-v8a/libshield.so": "3d56c64fc0f0f6094185286d6ebd3ad3a3f085d66490fcb847a497dac76d0a51",
+      "lib/arm64-v8a/libvpnstate.so": "3a045470f36f9f83b5ce7ae824ae1312aed9fb40c3fa22f37a64732823f9f42b",
+      "lib/armeabi-v7a/libdeveloperstate.so": "2ca5cfc35d8f5a29eeda5ad8fd46294353d2d2ca77119c5cba3952b45be7eb44",
+      "lib/armeabi-v7a/libdevicestate.so": "9223178dcf22c364bca8c055e507c1850044ecb9a3b3229f872cb579b05f224b",
+      "lib/armeabi-v7a/libselinuxstate.so": "bafc46c863609c434b9540c3cd1947998c937d6fed9c462d5baaa14305a311c7",
+      "lib/armeabi-v7a/libshield.so": "d747f1303c17ffe07e26181a4b2f6c4e673f88b110afaa4431077962c3014384",
+      "lib/armeabi-v7a/libvpnstate.so": "1cd767912d0cbcb0cf9d8ca5d5d396171549f61adfb762e51701dbaf1bae0bb5",
+      "lib/x86/libdeveloperstate.so": "11d74fa3ee6c2686326598fa2d27a917d7ffbe7facadc62269bfbbb4de82320c",
+      "lib/x86/libdevicestate.so": "ce5d30caf01f6452a954e4e6708b901ed06f8ad8c82c0d113657aa5a1d9ec29b",
+      "lib/x86/libselinuxstate.so": "c1735acca672cbff5a74c4004fa2b08f81f8383623fa02d4c8269d9e77ffc53d",
+      "lib/x86/libshield.so": "eec72f89451068ed1bf2a8103bf182debf94f7c9514596cd322c3355a199dace",
+      "lib/x86/libvpnstate.so": "ce312781b3442d5b406ed52d99c7cc0f1514cd08952f6de20ed0048cbc9316aa",
+      "lib/x86_64/libdeveloperstate.so": "674f0cffe2f889f63674fd366667c4902459425815716de93a8a7fe03bede0b6",
+      "lib/x86_64/libdevicestate.so": "3725b8af032239a4944dcc49b742533f82163cbd3efec9eba0f14981534d9bd8",
+      "lib/x86_64/libselinuxstate.so": "cef76fcfb7d8674cb2a4bc24d827103483b58ec30642db00028af2ede203c826",
+      "lib/x86_64/libshield.so": "9ce0064e038a1500feb3ae1a464ad63befdcf08fcaf75e37427c66e6dd580834",
+      "lib/x86_64/libvpnstate.so": "0f877eb2ee5178fbee2e6a6f8643a0548e2423ae839bd071e5ad356081e6b4c4"
+    },
+    "nativeIdenticalTo0412": true,
+    "signingIdentityPreserved": true,
+    "debugFixturesExcluded": true
+  },
+  "AppStateVerifier": {
+    "sha256": "662bf5cb56eca5c6e2e0301c6dd0e81331b0a2d3770061054b4eec87b1afdfca",
+    "package": "package: name='io.github.lwtdzh.screenshotdetector' versionCode='19' versionName='0.4.13' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "nativeLibraries": {
+      "lib/arm64-v8a/libdetector.so": "6e1c07a53ca494d913917cad5d9d50efd6a7870af2e077404e3a05a6e161521d",
+      "lib/arm64-v8a/libenvironmentprobe.so": "a367d90cdfd8936a57f27a3531aba41ec05fce323d26982322ebb5d34adce6e7",
+      "lib/arm64-v8a/libmachineprobe.so": "0aa5edba7a1e2115797bd050f05a4173a07713e58147e01591f358bce8362879",
+      "lib/arm64-v8a/libprobe.so": "30017f169ea9dc430fa7357eebd031dd2caa0405a4c57ff74f9e69cd2a8f941f",
+      "lib/arm64-v8a/libstateprobe.so": "a460c8f60a2f608d5b260a33ff2771d1746f7fe7397b0752e88409d92d5b6bfa",
+      "lib/armeabi-v7a/libdetector.so": "5de01074dc077661ee88eafd6231e1f67a0b762ea6c1d273edd9766651c86d49",
+      "lib/armeabi-v7a/libenvironmentprobe.so": "b1284b163299acfc1424296609e1bc9d5d8013839d3222bb8b76bb50dd5797b2",
+      "lib/armeabi-v7a/libmachineprobe.so": "5fc609acd300d1c8b0db76ac9a5ed3a8ce17a4dd8f18d2faaebbf0f6e99f7dee",
+      "lib/armeabi-v7a/libprobe.so": "af95b04be1d7adc8194dc60b8119b942b8bf900f0a009383db82c52345cb8d0b",
+      "lib/armeabi-v7a/libstateprobe.so": "ab4acef423e41d3143c14fc2defa600d2bddc4e8f44e6ec1065daedce7641c0a",
+      "lib/x86/libdetector.so": "8bac5cd991a56a463d653cac6b628b2a51f123a633d3fe9a38e2251cc7c5a44f",
+      "lib/x86/libenvironmentprobe.so": "6234529241df36273e8a6a6d882488ae271dc189f0e60d42d2549a006fc70a23",
+      "lib/x86/libmachineprobe.so": "a27af733091c50bb91a0e0f6178579fce26c34b97eeaf029abf5d496df02bb91",
+      "lib/x86/libprobe.so": "741a7364028f165d23a0f759aa0ea1d358f0a03dfd74cb6e6dab4fb1174ddc9c",
+      "lib/x86/libstateprobe.so": "d1a4151876fe4ac5159de5ebff64dd8dd10455ca1d4380c48603cd0638660176",
+      "lib/x86_64/libdetector.so": "ffcbdcffe21e630e0ad7ab34517bee2716e3bfa0412ecfa7bc3962bb73c66a1e",
+      "lib/x86_64/libenvironmentprobe.so": "699bfb22c5e93df95283c4e0d24c233bab1dccc9029f1fdd411ae0ba612fd350",
+      "lib/x86_64/libmachineprobe.so": "ee94d4be3808faf4d792b1cce932d40cf0d47af3f2239d3709ce0b402c02dbd2",
+      "lib/x86_64/libprobe.so": "515fda66b84261af4486716ac3f519b74b037f2059a0821c3f819c7d7365f033",
+      "lib/x86_64/libstateprobe.so": "0f036bb75c44b225b3c3fce37379356b428a96f9028fa03e149567045cb9e54d"
+    },
+    "nativeIdenticalTo0412": true,
+    "signingIdentityPreserved": true,
+    "debugFixturesExcluded": true
+  }
+}

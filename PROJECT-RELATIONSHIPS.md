@@ -1,5 +1,7 @@
 # 工程与能力关系
 
+0.4.13 的分类控制由 DeviceProfile.groupEnabled/get 统一计算，新增 idsEnabled 和 environmentEnabled，保留既有机型/位置控制，网络使用三档。DeviceSettingsActivity 统一渲染分类开关、状态标题及单项开关，去除模拟 SIM 的强制字段选择。DeviceHooks 的虚拟 SIM/基站构造器只填入实际允许的参数；DeviceRuntime/ModuleStatus/DeviceActivity 展示分类状态。CategoryGateTest 验证每个字段的三层条件与文档迁移，scripts/category-gates-test.py 验证保存、取消、重建及同进程读数与还原。新默认和模式语义详见 docs/CATEGORY-GATES-0.4.13.md。
+
 0.4.12 的 EnvironmentOverview 接入新版首页与旧状态页，EnvironmentProbe 负责只读检查、私有 JSON 和逐项日志，environmentprobe.cpp 负责原生观测，AttestationRecord 负责受限 DER 解析。shared/test/AttestationRecordTest.java 测试正常/畸形证明扩展；scripts/verifier-environment-test.py 在专用 AVD 验证自动检查、刷新、未注入/注入和后台返回，并保存/恢复完整停止状态的模拟器。主模块只更新版本号，沿用 0.4.11 的 Hook。Google 证明根公钥指纹及来源保存在验证器 assets。README/AGENTS 链接 [不可修复的具体原因](docs/DETECTOR-LIMITATIONS-0.4.11.md)，不能将软件模拟器证明或局部库匹配当作真机结论、硬件能力或其他工具的全部算法。
 
 0.4.11 的 NativeLibraries 统一五个原生库的注册与加载，移除提前注册的 assets/native_init。库仅在对应功能实际开启时经 Vector NativeAPI.recordNativeEntrypoint 注册，原生 Hook 实现不变。scripts/detector-matrix.py 仅允许专用模拟器及 Native Detector、Ruru、Key Attestation 三个包，保存截图、结果、日志、配置与模块哈希；Key Attestation 每次使用自身 Reset 重新生成证明。第三方检测结果不等同于模块自带验证器的六项屏蔽断言。

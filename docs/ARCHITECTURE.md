@@ -1,6 +1,8 @@
 # 应用状态屏蔽 · 整合设计
 
-本次整合名称为“应用状态屏蔽”，英文名 AppStateShield，当前版本 0.4.12。目标是让 Vector 作用域内的应用读不到指定系统状态，并可为单个应用替换设备信息读数。
+本次整合名称为“应用状态屏蔽”，英文名 AppStateShield，当前版本 0.4.13。目标是让 Vector 作用域内的应用读不到指定系统状态，并可为单个应用替换设备信息读数。
+
+0.4.13 的 DeviceProfile 增加 idsEnabled/environmentEnabled，沿用 modelEnabled/locationEnabled；新档案和缺失的网络模式默认 off。get() 先按 DeviceField 目录确认分类，再统一检查机器、分类与单项选择。with()/json()/parse()、设置草稿和恢复保留全部控制。DeviceSettingsActivity 为所有分类和字段提供开关；网络保持三档。标题显示分类状态，顶部只汇总已选/实际生效字段数量。DeviceRuntime/ModuleStatus 上报分类控制，DeviceActivity 的分类标题显示实际生效状态。模拟 SIM 构造器仅填入 get() 实际允许的字段，其他字段保留类型默认值，取消强制蜂窝选择。[具体语义](CATEGORY-GATES-0.4.13.md)。
 
 0.4.12 在验证器的 MainActivity 和旧 ProbeActivity 中增加 EnvironmentOverview。进入前台后请求一次后台串行检查，手动刷新重新请求；后台、销毁和页面切换丢弃过期 UI 更新，正在进行的证明调用完成后清理本次密钥。EnvironmentProbe 读取固定文件、进程库、模块列表、普通状态和 AndroidKeyStore 证明；environmentprobe.cpp 提供 libc/syscall、maps/dl_iterate_phdr、属性和 enforce 读取。AttestationRecord 为无 Android 依赖、有长度与深度限制的 DER 解析器。结果经 AtomicFile 写入私有 environment-result.json，并按项打印到 Logcat/首页日志；不会调用包含主动测试夹具的 SelinuxProbe.snapshot。只新增检测器原生库，模块的 Hook/策略不变。[能力与解释](VERIFIER-ENVIRONMENT.md) 及 [原环境的不可修复原因](DETECTOR-LIMITATIONS-0.4.11.md) 为后续 Agent 的判断依据。
 
@@ -22,7 +24,7 @@ VpnModule.INFO 对 getNetworkInfo 返回的 TYPE_VPN 对象制作副本，将 De
 
 ModelPresets 保存小米 14 国际固件和本机 vivo X200 Pro mini 实测数据，区分根属性与分区属性。DeviceRuntime 的 Java 属性读取和 nativeUpdate 共用同一属性转换；字段被手工修改时尊重自定义值，字段或机器关闭时恢复原值。旧小米占位数据按已知模式定向迁移，移除的 OPPO 档案转为自定义；未知字段、个人标识和位置/网络选项保留。
 
-DeviceProfile schema 1 增加 locationEnabled（缺省 false）、regionId、regionName、regionOverrides 和 networkMode（缺省 no_sim）。位置三项经过机器、位置、字段三层开关；MCC/MNC、SIM 和基站全部归入 network。有卡模式的关联蜂窝字段作为一组生效，避免混用真实和模拟字段，Wi-Fi/蓝牙仍按字段选择。所有参数保存后供读取使用，getter 不生成随机值。
+DeviceProfile schema 1 保存 locationEnabled、regionId、regionName、regionOverrides 和 networkMode。0.4.13 的新/缺失网络模式为 off，四个布尔分类控制缺省 false。位置、标识、机型、其他环境及网络参数均经过机器、分类、字段三层条件；MCC/MNC、SIM 和基站归入 network。有卡模式不再绕过蜂窝字段选择；未选参数不填入虚拟对象，Wi-Fi/蓝牙同样按字段选择。所有参数保存后供读取使用，getter 不生成随机值。
 
 DeviceHooks 为 simulate 构造一个 slot 0 订阅、READY/PRESENT/LOADED 卡状态、已注册的 CS/PS LTE ServiceState 和包含一条注册小区的 CellInfo。同步读取、异步回调与 Parcel 使用同一保存参数。no_sim 返回无卡、空订阅、未知移动网络、无服务和空小区；off 委托系统原实现。各档由机器总开关统一约束。四 ABI 构建与 API 36 模拟器实测分别记录，真实厂商服务兼容性不能从 AOSP 推断。
 

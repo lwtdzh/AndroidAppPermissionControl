@@ -9,7 +9,9 @@ public final class ModuleStatus {
         value.putBoolean("policyLoaded", false);value.putBoolean("futureMethodEnabled", false);
         value.putBoolean("deviceEnabled", false);value.putLong("deviceRevision",0);
         value.putBoolean("locationEnabled",false);
-        value.putString("networkMode","no_sim");
+        value.putBoolean("modelEnabled",false);value.putBoolean("idsEnabled",false);
+        value.putBoolean("environmentEnabled",false);
+        value.putString("networkMode","off");
         value.putStringArray("enabled", new String[0]); return value;
     }
     public static JSONObject json() {

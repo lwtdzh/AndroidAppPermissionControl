@@ -47,6 +47,8 @@ public final class DeviceRuntime {
     public static Bundle status() {
         Bundle b=new Bundle();
         b.putBoolean("deviceEnabled",profile.enabled);b.putLong("deviceRevision",profile.revision);
+        b.putBoolean("idsEnabled",profile.idsEnabled);
+        b.putBoolean("environmentEnabled",profile.environmentEnabled);
         b.putBoolean("modelEnabled",profile.modelEnabled);
         b.putBoolean("locationEnabled",profile.locationEnabled);
         b.putString("deviceRegion",profile.regionName);

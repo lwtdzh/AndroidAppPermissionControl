@@ -19,6 +19,7 @@ public class DeviceActivity extends Activity {
     private DeviceSampler sampler;
     private final Map<String,TextView> rows=new LinkedHashMap<>();
     private final Map<String,View> fieldViews=new LinkedHashMap<>(),groupViews=new LinkedHashMap<>();
+    private final Map<String,TextView> groupTitles=new LinkedHashMap<>();
     private final Map<String,String> previous=new HashMap<>();
     private TextView summary,details;
     private boolean zh;
@@ -80,7 +81,8 @@ public class DeviceActivity extends Activity {
             GradientDrawable bg=new GradientDrawable();bg.setColor(Color.WHITE);bg.setCornerRadius(dp(16));card.setBackground(bg);
             LinearLayout.LayoutParams layout=new LinearLayout.LayoutParams(-1,-2);layout.setMargins(0,dp(7),0,dp(7));body.addView(card,layout);
             groupViews.put(group,card);
-            card.addView(text(DeviceField.groupName(group,zh),19,0xff182331));
+            TextView title=text(DeviceField.groupName(group,zh),19,0xff182331);
+            title.setContentDescription("machine-group:"+group);groupTitles.put(group,title);card.addView(title);
             for(DeviceField field:DeviceField.ALL)if(field.group.equals(group)){
                 LinearLayout fieldView=column();card.addView(fieldView);fieldViews.put(field.id,fieldView);
                 fieldView.addView(text(t(field.zh,field.en),14,0xff182331));
@@ -140,11 +142,21 @@ public class DeviceActivity extends Activity {
         }
         String time=new SimpleDateFormat("HH:mm:ss",Locale.getDefault()).format(new Date(result.optLong("timestamp")));
         boolean injected=module!=null&&module.optBoolean("injected"),enabled=module!=null&&module.optBoolean("deviceEnabled");
+        for(String group:GROUPS) {
+            String state;
+            if(group.equals("network"))
+                state=io.github.lwtdzh.deviceprofile.DeviceProfile.networkModeName(
+                    injected&&enabled?module.optString("networkMode","off"):"off",zh);
+            else state=injected&&enabled&&module.optBoolean(group+"Enabled")?t("已开启","on"):t("已关闭","off");
+            groupTitles.get(group).setText(DeviceField.groupName(group,zh)+" · "+state);
+        }
         summary.setText(time+" · PID "+result.optInt("pid")+" · "+t("机器伪装 ","Device spoofing ")+
             (injected?(enabled?t("已开启","on"):t("已关闭","off")):t("未注入","not injected"))+
+            " · "+t("设备标识 ","Identifiers ")+(injected&&enabled&&module.optBoolean("idsEnabled")?t("已开启","on"):t("已关闭","off"))+
             " · "+t("位置 ","Location ")+(injected?(enabled&&module.optBoolean("locationEnabled")?t("已开启","on"):t("已关闭","off")):t("未注入","not injected"))+
             " · "+t("网络 ","Network ")+(injected&&enabled?("simulate".equals(module.optString("networkMode"))?t("有 SIM","SIM"):
                 "no_sim".equals(module.optString("networkMode"))?t("无 SIM","no SIM"):t("真实读数","real")):t("真实读数","real"))+
+            " · "+t("其他环境 ","Environment ")+(injected&&enabled&&module.optBoolean("environmentEnabled")?t("已开启","on"):t("已关闭","off"))+
             " · "+changed+t(" 项变化"," changed"));
         try{details.setText(result.toString(2));}catch(JSONException ignored){}
     }

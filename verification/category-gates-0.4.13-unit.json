@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "tests": {
+    "CategoryGateTest": {
+      "passed": true,
+      "seconds": 0.198,
+      "output": "PASS 1332 category, three-gate, network-mode and migration assertions"
+    },
+    "ModelGateTest": {
+      "passed": true,
+      "seconds": 0.092,
+      "output": "PASS 130 new model master, merged display and default-selection assertions"
+    },
+    "RegionProfileTest": {
+      "passed": true,
+      "seconds": 0.143,
+      "output": "PASS 18178 region/profile assertions; 3209 districts, 358 explicit missing points"
+    },
+    "EnvironmentProfileTest": {
+      "passed": true,
+      "seconds": 0.089,
+      "output": "PASS 241 metadata, gates, warnings and capacity assertions"
+    },
+    "ModelPresetTest": {
+      "passed": true,
+      "seconds": 0.105,
+      "output": "PASS 249 stock-preset, partition-property and legacy-migration assertions"
+    },
+    "DeviceFieldTest": {
+      "passed": true,
+      "seconds": 0.146,
+      "output": "PASS 26121 device field assertions",
+      "reuseReason": "Field formats and generators unchanged by category controls"
+    }
+  }
+}

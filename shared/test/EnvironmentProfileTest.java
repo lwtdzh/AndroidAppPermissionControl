@@ -6,7 +6,7 @@ public final class EnvironmentProfileTest {
     private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);checks++;}
     public static void main(String[] args){
         for(String name:new String[]{"xiaomi-14","vivo-x200-pro-mini"}){
-            DeviceProfile p=DeviceProfile.preset(name);
+            DeviceProfile p=DeviceProfile.preset(name).withGroup("model",true);
             BuildFingerprint f=BuildFingerprint.parse(p.get("fingerprint"));
             check(f!=null,"Stock format");
             check(ModelPresets.build(p,"ID","fingerprint").equals(f.id),"Root Build ID");
@@ -42,7 +42,9 @@ public final class EnvironmentProfileTest {
         for(String bad:new String[]{"","X/P/D:16/I/N:user", "X/P/D:16/I/N:user/tags/extra",
             "X/P/D:16/I /N:user/tags","\nX/P/D:16/I/N:user/tags"})
             check(BuildFingerprint.parse(bad)==null,"Reject ambiguous format");
-        DeviceProfile x=DeviceProfile.preset("xiaomi-14");
+        DeviceProfile base=DeviceProfile.preset("xiaomi-14").withGroup("model",true);
+        DeviceProfile x=new DeviceProfile(true,0,base.preset,base.values,base.selected,false,"","",Set.of(),
+            DeviceProfile.NETWORK_NO_SIM,true);
         List<String> warnings=ProfileWarnings.messages(x,"16",true);
         check(warnings.stream().anyMatch(w->w.contains("实际 API")),"Cross-release warning");
         check(warnings.stream().anyMatch(w->w.contains("一键登录")),"No-SIM carrier warning");

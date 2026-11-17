@@ -5,7 +5,8 @@ public final class ModelPresetTest {
     private static int checks;
     private static void check(boolean ok,String reason){if(!ok)throw new AssertionError(reason);checks++;}
     public static void main(String[] args)throws Exception{
-        DeviceProfile x=DeviceProfile.preset("xiaomi-14"),v=DeviceProfile.preset("vivo-x200-pro-mini");
+        DeviceProfile x=DeviceProfile.preset("xiaomi-14").withGroup("model",true),
+            v=DeviceProfile.preset("vivo-x200-pro-mini").withGroup("model",true);
         check(x.values.get("device").equals("houji")&&x.values.get("product").equals("houji_global"),"Stock Xiaomi names differ");
         check(x.values.get("board").equals("houji")&&x.values.get("release").equals("15"),"Stock Xiaomi board/release");
         check(x.values.get("hardware").equals("qcom"),"Xiaomi hardware verified in official OTA bootconfig");
@@ -21,7 +22,7 @@ public final class ModelPresetTest {
         check(ModelPresets.values("oppo-x9s").isEmpty(),"OPPO preset removed");
         for(String name:new String[]{"xiaomi-14","vivo-x200-pro-mini"}){
             DeviceProfile p=DeviceProfile.preset(name);
-            check(!p.locationEnabled&&p.networkMode.equals("no_sim"),"Existing default gates");
+            check(!p.locationEnabled&&p.networkMode.equals("off")&&!p.idsEnabled&&!p.environmentEnabled,"Default category gates");
             for(Map.Entry<String,String> e:p.values.entrySet()){
                 check(!e.getValue().contains("privacy_")&&!e.getValue().contains("PRIVATE.")&&!e.getValue().startsWith("Private-"),"No obvious placeholders");
                 check(DeviceField.find(e.getKey()).validate(e.getValue())==null,"Valid preset "+e.getKey());
@@ -85,7 +86,7 @@ public final class ModelPresetTest {
         for(int length:new int[]{92,128,256}){
             Map<String,String> longValues=new LinkedHashMap<>(x.values);
             longValues.put("fingerprint","T".repeat(length));
-            DeviceProfile full=new DeviceProfile(true,88,"custom",longValues,x.selected);
+            DeviceProfile full=new DeviceProfile(true,88,"custom",longValues,x.selected).withGroup("model",true);
             DeviceProfile parsed=DeviceProfile.parse(full.json());
             check(parsed.enabled&&parsed.revision==88,"Long fingerprint does not disable profile");
             check(parsed.get("fingerprint").equals(longValues.get("fingerprint")),"Full fingerprint survives parsing");

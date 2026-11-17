@@ -9,20 +9,23 @@ public final class ModelGateTest {
     public static void main(String[] args)throws Exception {
         for(String preset:new String[]{"xiaomi-14","vivo-x200-pro-mini"}) {
             DeviceProfile defaults=DeviceProfile.preset(preset);
-            check(!defaults.modelEnabled&&!defaults.locationEnabled&&defaults.noSim(),"Default masters");
+            check(!defaults.modelEnabled&&!defaults.locationEnabled&&!defaults.idsEnabled&&!defaults.environmentEnabled&&
+                defaults.networkMode.equals(DeviceProfile.NETWORK_OFF),"Default masters");
             for(DeviceField field:DeviceField.ALL) {
                 if(field.group.equals("model"))check(defaults.get(field.id)==null,"Model and screen off "+field.id);
                 if(field.group.equals("network")||field.group.equals("environment")||field.group.equals("location"))
                     check(defaults.get(field.id)==null,"Only IDs and no SIM default "+field.id);
             }
-            check(defaults.get("android_id")!=null&&defaults.get("imei")!=null,"Identifiers remain on");
+            check(defaults.get("android_id")==null&&defaults.get("imei")==null,"Identifiers default off");
+            DeviceProfile idsOn=defaults.withGroup("ids",true);
+            check(idsOn.get("android_id")!=null&&idsOn.get("imei")!=null,"Identifiers require their category gate");
             for(String id:new String[]{"width","height","density"})
                 check(DeviceField.find(id).group.equals("model"),"Display joins model");
             JSONObject document=new JSONObject(defaults.json());document.remove("modelEnabled");
             DeviceProfile legacy=DeviceProfile.parse(document.toString());
             check(!legacy.modelEnabled&&legacy.values.equals(defaults.values)&&legacy.selected.equals(defaults.selected),
                 "Existing profiles default off and retain values");
-            document.put("modelEnabled",true);
+            document.put("modelEnabled",true).put("idsEnabled",true);
             DeviceProfile on=DeviceProfile.parse(document.toString());
             for(DeviceField field:DeviceField.ALL)if(field.group.equals("model"))
                 check(Objects.equals(on.get(field.id),on.values.get(field.id)),"Model master applies "+field.id);
@@ -30,7 +33,8 @@ public final class ModelGateTest {
             check(ModelPresets.property(defaults,"ro.build.id","fingerprint")==null,"Metadata stays original when off");
             check(AttestationPrivacy.remove(0x900002cd,on)&&!AttestationPrivacy.remove(0x900002cd,defaults),
                 "Attestation respects model master");
-            check(AttestationPrivacy.remove(0x900002c9,defaults),"Identifier privacy independent");
+            check(AttestationPrivacy.remove(0x900002c9,idsOn)&&!AttestationPrivacy.remove(0x900002c9,defaults),
+                "Identifier privacy requires IDs category");
             check(on.with(true,123,on.values,on.selected,on.preset).modelEnabled,"Save/update retains model flag");
             document.put("modelEnabled",false);
             DeviceProfile off=DeviceProfile.parse(document.toString());

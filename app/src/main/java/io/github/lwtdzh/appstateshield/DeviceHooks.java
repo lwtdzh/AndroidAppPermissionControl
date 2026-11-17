@@ -182,9 +182,8 @@ final class DeviceHooks {
         integer(SignalStrength.class,"getDbm","signal");signalLevel(SignalStrength.class);
         hook(TelephonyManager.class,"getAllCellInfo",new XC_MethodHook(){
             @Override protected void beforeHookedMethod(MethodHookParam p) {
-                // Full LTE selection uses a coherent synthetic object without querying the real modem.
-                if(DeviceRuntime.value("cid")==null || DeviceRuntime.value("tac")==null
-                    || DeviceRuntime.value("pci")==null || DeviceRuntime.value("mcc")==null || DeviceRuntime.value("mnc")==null)return;
+                // SIM mode owns object presence; each field still uses get() and keeps unknown defaults when off.
+                if(!DeviceRuntime.snapshot().simulatedSim())return;
                 p.setResult(simulatedCells());
             }
         });
@@ -203,16 +202,19 @@ final class DeviceHooks {
     private static CellInfoLte simulatedCell(){
         CellInfoLte cell=(CellInfoLte)XposedHelpers.newInstance(CellInfoLte.class);
         CellIdentityLte identity=(CellIdentityLte)XposedHelpers.newInstance(CellIdentityLte.class);
-        XposedHelpers.setObjectField(identity,"mMccStr",DeviceRuntime.value("mcc"));
-        XposedHelpers.setObjectField(identity,"mMncStr",DeviceRuntime.value("mnc"));
-        XposedHelpers.setObjectField(identity,"mAlphaLong",DeviceRuntime.value("operator"));
-        XposedHelpers.setObjectField(identity,"mAlphaShort",DeviceRuntime.value("operator"));
-        XposedHelpers.setIntField(identity,"mCi",DeviceRuntime.number("cid",1));
-        XposedHelpers.setIntField(identity,"mTac",DeviceRuntime.number("tac",1));
-        XposedHelpers.setIntField(identity,"mPci",DeviceRuntime.number("pci",1));
+        for(String[] pair:new String[][]{{"mMccStr","mcc"},{"mMncStr","mnc"},
+            {"mAlphaLong","operator"},{"mAlphaShort","operator"}}) {
+            String value=DeviceRuntime.value(pair[1]);
+            if(value!=null)XposedHelpers.setObjectField(identity,pair[0],value);
+        }
+        for(String[] pair:new String[][]{{"mCi","cid"},{"mTac","tac"},{"mPci","pci"}}) {
+            String value=DeviceRuntime.value(pair[1]);
+            if(value!=null)XposedHelpers.setIntField(identity,pair[0],Integer.parseInt(value));
+        }
         XposedHelpers.setObjectField(cell,"mCellIdentityLte",identity);
         Object signal=XposedHelpers.newInstance(CellSignalStrengthLte.class);
-        XposedHelpers.setIntField(signal,"mRsrp",DeviceRuntime.number("signal",-85));
+        String dbm=DeviceRuntime.value("signal");
+        if(dbm!=null)XposedHelpers.setIntField(signal,"mRsrp",Integer.parseInt(dbm));
         XposedHelpers.callMethod(signal,"updateLevel",new Object[]{null,null});
         XposedHelpers.setObjectField(cell,"mCellSignalStrengthLte",signal);
         XposedHelpers.callMethod(cell,"setRegistered",true);
@@ -225,13 +227,12 @@ final class DeviceHooks {
         Object builder=XposedHelpers.newInstance(optional("android.telephony.SubscriptionInfo$Builder"));
         XposedHelpers.callMethod(builder,"setId",VIRTUAL_SUBSCRIPTION);
         XposedHelpers.callMethod(builder,"setSimSlotIndex",0);
-        XposedHelpers.callMethod(builder,"setIccId",DeviceRuntime.value("iccid"));
-        XposedHelpers.callMethod(builder,"setCardString",DeviceRuntime.value("iccid"));
-        XposedHelpers.callMethod(builder,"setDisplayName",DeviceRuntime.value("operator"));
-        XposedHelpers.callMethod(builder,"setCarrierName",DeviceRuntime.value("operator"));
-        XposedHelpers.callMethod(builder,"setNumber",DeviceRuntime.value("phone"));
-        XposedHelpers.callMethod(builder,"setMcc",DeviceRuntime.value("mcc"));
-        XposedHelpers.callMethod(builder,"setMnc",DeviceRuntime.value("mnc"));
+        for(String[] pair:new String[][]{{"setIccId","iccid"},{"setCardString","iccid"},
+            {"setDisplayName","operator"},{"setCarrierName","operator"},{"setNumber","phone"},
+            {"setMcc","mcc"},{"setMnc","mnc"}}) {
+            String value=DeviceRuntime.value(pair[1]);
+            if(value!=null)XposedHelpers.callMethod(builder,pair[0],value);
+        }
         XposedHelpers.callMethod(builder,"setCountryIso",country());
         return (SubscriptionInfo)XposedHelpers.callMethod(builder,"build");
     }
@@ -241,8 +242,8 @@ final class DeviceHooks {
     }
     private static ServiceState simulatedService(){
         ServiceState state=new ServiceState();state.setState(ServiceState.STATE_IN_SERVICE);
-        state.setOperatorName(DeviceRuntime.value("operator"),DeviceRuntime.value("operator"),
-            DeviceRuntime.value("mcc")+DeviceRuntime.value("mnc"));
+        String operator=DeviceRuntime.value("operator"),mcc=DeviceRuntime.value("mcc"),mnc=DeviceRuntime.value("mnc");
+        state.setOperatorName(operator,operator,mcc!=null&&mnc!=null?mcc+mnc:null);
         state.setRoaming(false);
         XposedHelpers.callMethod(state,"setDataRegState",ServiceState.STATE_IN_SERVICE);
         for(int domain:new int[]{NetworkRegistrationInfo.DOMAIN_CS,NetworkRegistrationInfo.DOMAIN_PS}){

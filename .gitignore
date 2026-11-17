@@ -30,3 +30,6 @@ verification/ruru-*-disassembly.txt
 verification/property-object-executor-before-*.py
 # Raw physical-device observations can contain identifiers; preset sources retain only public model parameters.
 verification/model-observed-*.json
+# Full probe samples and physical-device installation metadata stay local.
+verification/category-gates-*-results.json
+verification/vivo-category-gates-*-installed.json

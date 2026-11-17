@@ -15,10 +15,10 @@ import java.util.*;
 public final class DeviceSettingsActivity extends Activity {
     private DeviceStore store;
     private DeviceProfile original;
-    private boolean enabled, modelEnabled, locationEnabled, zh;
+    private boolean enabled, idsEnabled, environmentEnabled, modelEnabled, locationEnabled, zh;
     private String pkg, preset, query="";
     private String regionId="",regionName="";
-    private String networkMode=DeviceProfile.NETWORK_NO_SIM;
+    private String networkMode=DeviceProfile.NETWORK_OFF;
     private final Set<String> regionOverrides=new LinkedHashSet<>();
     private ChinaRegions regions;
     private final Map<String,String> values=new LinkedHashMap<>();
@@ -29,7 +29,8 @@ public final class DeviceSettingsActivity extends Activity {
     private String t(String a,String b) { return zh?a:b; }
     private int dp(int n) { return Math.round(n*getResources().getDisplayMetrics().density); }
     private DeviceProfile draft() {
-        return new DeviceProfile(enabled,original.revision,preset,values,selected,locationEnabled,regionId,regionName,regionOverrides,networkMode,modelEnabled);
+        return new DeviceProfile(enabled,original.revision,preset,values,selected,locationEnabled,regionId,regionName,regionOverrides,
+            networkMode,modelEnabled,idsEnabled,environmentEnabled);
     }
     @Override public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -47,6 +48,7 @@ public final class DeviceSettingsActivity extends Activity {
     }
     private void load(DeviceProfile p) {
         enabled=p.enabled;modelEnabled=p.modelEnabled;locationEnabled=p.locationEnabled;preset=p.preset;networkMode=p.networkMode;
+        idsEnabled=p.idsEnabled;environmentEnabled=p.environmentEnabled;
         regionId=p.regionId;regionName=p.regionName;regionOverrides.clear();regionOverrides.addAll(p.regionOverrides);
         values.clear();values.putAll(p.values);selected.clear();selected.addAll(p.selected);
     }
@@ -131,8 +133,8 @@ public final class DeviceSettingsActivity extends Activity {
         fields.removeAllViews();
         if(!enabled) {
             LinearLayout empty=card(fields);empty.addView(text(t("机器伪装已关闭","Device spoofing is off"),20,0xff182331));
-            empty.addView(text(t(values.isEmpty()?"开启后默认伪装设备标识、模拟无 SIM 卡。机型与屏幕保持本机读数。":"原档案已保留，再次开启可继续使用。",
-                values.isEmpty()?"Defaults to device identifiers and no SIM. Model and display keep their original readings.":"Your saved profile is retained for next time."),15,0xff667085));
+            empty.addView(text(t(values.isEmpty()?"开启机器伪装后，各分类默认关闭。需要时开启分类，再选择字段。":"原档案和分类开关已保留，再次开启可继续使用。",
+                values.isEmpty()?"All categories start off. Enable a category, then choose its fields.":"Your saved profile and category choices are retained for next time."),15,0xff667085));
             return;
         }
         LinearLayout p=card(fields);p.setBackground(background(0xffe8f0ff,16));
@@ -140,8 +142,8 @@ public final class DeviceSettingsActivity extends Activity {
         consistencyHint=text("",13,0xff805600);
         consistencyHint.setContentDescription("device-consistency-hint");
         consistencyHint.setLineSpacing(dp(3),1);p.addView(consistencyHint);
-        p.addView(text(t("默认只伪装设备标识、模拟无 SIM 卡。需要改机型与屏幕时，再开启这一节。",
-            "Defaults to device identifiers and no SIM. Enable Model & system to change model and display readings."),13,0xff667085));
+        p.addView(text(t("各分类默认关闭。机器伪装、分类和字段都开启，已选参数才生效。网络与基站使用三档选择。",
+            "Categories start off. The app master, category and field must all be enabled. Network & cell has three modes."),13,0xff667085));
         EditText search=new EditText(this);search.setSingleLine(true);search.setHint(t("搜索字段，如 IMEI、位置","Search fields, e.g. IMEI, location"));
         search.setText(query);search.setContentDescription("device-field-search");fields.addView(search);
         LinearLayout groups=column();fields.addView(groups);renderGroups(groups);
@@ -161,6 +163,7 @@ public final class DeviceSettingsActivity extends Activity {
     }
     private void renderGroups(LinearLayout groups) {
         groups.removeAllViews();String q=query.trim().toLowerCase(Locale.ROOT);int found=0;
+        DeviceProfile current=draft();
         for(String group:Arrays.asList("ids","network","model","location","environment")) {
             List<DeviceField> list=new ArrayList<>();
             for(DeviceField f:DeviceField.ALL) if(f.group.equals(group)&&(q.isEmpty()||
@@ -168,16 +171,16 @@ public final class DeviceSettingsActivity extends Activity {
             if(list.isEmpty())continue;found+=list.size();
             LinearLayout card=card(groups);boolean open=!q.isEmpty()||expanded.contains(group);
             long count=list.stream().filter(f->selected.contains(f.id)).count();
-            String gateState=group.equals("model")?t(modelEnabled?" · 已开启":" · 已关闭",modelEnabled?" · on":" · off"):"";
+            String gateState=" · "+current.groupState(group,zh);
             Button title=button(DeviceField.groupName(group,zh)+gateState+"  "+count+"/"+list.size()+"  "+(open?"⌃":"⌄"),"device-group:"+group,()->{
                 if(!expanded.remove(group))expanded.add(group);renderGroups(groups);
             });title.setGravity(Gravity.START|Gravity.CENTER_VERTICAL);title.setTextColor(0xff182331);
             title.setBackground(background(Color.WHITE,8));title.setTextSize(17);card.addView(title);
             if(!open)continue;
+            if(!group.equals("network"))renderGroupGate(card,groups,group);
             if(group.equals("location"))renderLocation(card,groups);
             if(group.equals("network"))renderNetwork(card,groups);
             if(group.equals("model")){
-                renderModelGate(card,groups);
                 card.addView(button(t("按预设机型填写参数\n当前：","Fill values from a model preset\nCurrent: ")+presetTitle(),
                     "device-preset",this::choosePreset));
                 renderModelSource(card);
@@ -190,14 +193,11 @@ public final class DeviceSettingsActivity extends Activity {
                 if(f.id.equals("width"))card.addView(text(t("屏幕参数","Display values"),16,0xff175bc1));
                 LinearLayout row=new LinearLayout(this);row.setGravity(Gravity.CENTER_VERTICAL);row.setPadding(0,dp(6),0,dp(6));
                 LinearLayout label=column();label.setContentDescription("device-field:"+f.id);
-                boolean gated=f.group.equals("model")&&!modelEnabled || f.group.equals("location")&&!locationEnabled ||
-                    f.group.equals("network")&&(DeviceProfile.NETWORK_OFF.equals(networkMode)||
-                        DeviceProfile.NETWORK_NO_SIM.equals(networkMode)&&DevicePackets.CELLULAR.contains(f.id));
-                String state=!selected.contains(f.id)?t(" · 原始值"," · original"):
-                    gated?(f.group.equals("model")?t(" · 待开启机型与系统"," · model off"):
-                        f.group.equals("location")?t(" · 待开启位置"," · location off"):
-                        DeviceProfile.NETWORK_NO_SIM.equals(networkMode)?t(" · 无 SIM 卡"," · no SIM"):t(" · 不模拟"," · off")):
-                    t(" · 已选"," · selected");
+                boolean noSimField=f.group.equals("network")&&DeviceProfile.NETWORK_NO_SIM.equals(networkMode)&&DevicePackets.CELLULAR.contains(f.id);
+                boolean gated=!current.groupEnabled(f.group)||noSimField;
+                String state=!selected.contains(f.id)?t(" · 已关闭"," · off"):
+                    gated?(noSimField?t(" · 已选，此模式不使用参数"," · selected; unused in this mode"):
+                        t(" · 已选，分类已关闭"," · selected; category off")):t(" · 已开启"," · on");
                 label.addView(text(t(f.zh,f.en)+state,15,
                     selected.contains(f.id)?0xff182331:0xff667085));
                 String value=values.get(f.id);
@@ -206,11 +206,9 @@ public final class DeviceSettingsActivity extends Activity {
                 TextView shown=text(value==null?(unverified?t("尚未核实，请手工填写","Not verified; enter manually"):t("未填写","Not set")):value,13,0xff667085);
                 shown.setMaxLines(2);shown.setEllipsize(TextUtils.TruncateAt.END);shown.setContentDescription("device-value:"+f.id);label.addView(shown);
                 label.setOnClickListener(v->edit(f));row.addView(label,new LinearLayout.LayoutParams(0,-2,1));
-                if(f.group.equals("location")||f.group.equals("network")){
+                {
                     Switch use=new Switch(this);use.setChecked(selected.contains(f.id));
                     use.setContentDescription("device-field-enabled:"+f.id);use.setEnabled(!gated);
-                    boolean cellular=f.group.equals("network")&&DevicePackets.CELLULAR.contains(f.id);
-                    if(cellular&&DeviceProfile.NETWORK_SIMULATE.equals(networkMode)){use.setChecked(true);use.setEnabled(false);}
                     use.setOnCheckedChangeListener((b,on)->{
                         if(on&&f.validate(values.get(f.id))!=null){use.setChecked(false);edit(f);return;}
                         if(on)selected.add(f.id);else selected.remove(f.id);
@@ -271,23 +269,24 @@ public final class DeviceSettingsActivity extends Activity {
     private void markOverride(DeviceField f){
         if(f.group.equals("location")&&!regionId.isEmpty())regionOverrides.add(f.id);
     }
-    private void renderModelGate(LinearLayout card,LinearLayout groups) {
-        Switch gate=new Switch(this);gate.setText(t("开启机型与系统伪装","Enable model & system spoofing"));
-        gate.setContentDescription("device-model-enabled");gate.setChecked(modelEnabled);card.addView(gate);
-        gate.setOnCheckedChangeListener((b,on)->{modelEnabled=on;renderGroups(groups);dirty();});
-        card.addView(text(t("默认关闭。机型、系统与屏幕参数一起生效；关闭时保留参数，恢复本机读数。",
-            "Off by default. Model, system and display values apply together. Turning it off retains values and restores original readings."),13,0xff667085));
+    private void renderGroupGate(LinearLayout card,LinearLayout groups,String group) {
+        Switch gate=new Switch(this);gate.setText(t("开启"+DeviceField.groupName(group,true)+"伪装",
+            "Enable "+DeviceField.groupName(group,false)+" spoofing"));
+        gate.setContentDescription("device-"+group+"-enabled");gate.setChecked(draft().groupEnabled(group));card.addView(gate);
+        gate.setOnCheckedChangeListener((b,on)->{
+            DeviceProfile next=draft().withGroup(group,on);
+            idsEnabled=next.idsEnabled;environmentEnabled=next.environmentEnabled;
+            modelEnabled=next.modelEnabled;locationEnabled=next.locationEnabled;
+            renderGroups(groups);dirty();
+        });
+        card.addView(text(t("默认关闭。开启分类后，再选择字段。关闭时保留参数与单项选择，已选参数不再覆盖读数。",
+            "Off by default. Enable this category, then choose fields. Turning it off retains values and selections without applying them."),13,0xff667085));
     }
     private ChinaRegions regions()throws java.io.IOException {
         if(regions==null)regions=new ChinaRegions(getAssets().open("china-regions.tsv"));
         return regions;
     }
     private void renderLocation(LinearLayout card,LinearLayout groups){
-        Switch gate=new Switch(this);gate.setText(t("开启位置伪装","Enable location spoofing"));
-        gate.setContentDescription("device-location-enabled");gate.setChecked(locationEnabled);card.addView(gate);
-        gate.setOnCheckedChangeListener((b,on)->{locationEnabled=on;renderGroups(groups);dirty();});
-        card.addView(text(t("默认关闭。开启后，再选择需要伪装的位置项目。",
-            "Off by default. Enable it, then choose which location values to spoof."),13,0xff667085));
         Button region=button(t("选择省 / 市 / 区","Choose province / city / district"),"device-region-picker",this::chooseRegion);
         region.setGravity(Gravity.START|Gravity.CENTER_VERTICAL);card.addView(region);
         TextView regionStatus=text(regionName.isEmpty()?t("尚未选择地区","No region selected"):
@@ -307,7 +306,7 @@ public final class DeviceSettingsActivity extends Activity {
             t("保存后，只影响当前应用看到的网络信息。",
               "After saving, this changes the network information seen by this app."));
         String[] ids={DeviceProfile.NETWORK_OFF,DeviceProfile.NETWORK_SIMULATE,DeviceProfile.NETWORK_NO_SIM};
-        String[] labels={t("不模拟","Off"),t("打开模拟","Simulate network & cell"),t("模拟无 SIM 卡（默认）","Simulate no SIM (default)")};
+        String[] labels={t("已关闭（默认）","Off (default)"),t("模拟 SIM 卡","Simulate SIM"),t("模拟无 SIM 卡","Simulate no SIM")};
         String[] descriptions={
             t("让应用读取真实的网络和 SIM 卡信息。","Let the app read real network and SIM information."),
             t("让应用看到一张已插入的 SIM 卡，以及匹配的运营商和基站信息。","Show one inserted SIM with matching carrier and cell information."),
@@ -331,8 +330,8 @@ public final class DeviceSettingsActivity extends Activity {
             t("一起换：点“统一刷新网络参数”，生成相互匹配的一组信息。\n单独改：点下面的“编辑”或 ↻，只修改这一项。",
               "Change the set: tap Refresh network values to generate matching information.\nChange one value: use Edit or ↻ beside it."));
         moreExplanation(card,"device-help:network",t("使用须知","Things to know"),
-            t("• 单独修改可能让运营商和基站对不上，统一刷新可重新匹配。\n• “打开模拟”时，SIM 卡、运营商和基站信息一起生效。\n• Wi-Fi 和蓝牙可以分别设置；“不模拟”时也会恢复真实信息。\n• 切换模式会保留已填写的参数，改完需要保存。\n• 基站信息是生成的模拟数据，不能对应到真实基站位置。\n• 不会断开手机网络，也不会改变实际 SIM 卡或公网 IP。",
-              "• Editing one value may cause mismatches; refreshing the set aligns them again.\n• SIM, carrier and cell information apply together in SIM mode.\n• Wi-Fi and Bluetooth have individual settings; Off restores their real values too.\n• Switching modes preserves values. Save to apply changes.\n• Generated cell information does not identify a real tower location.\n• Your connection, physical SIM and public IP remain unchanged."));
+            t("• 单独修改可能让运营商和基站对不上，统一刷新可重新匹配。\n• 三档控制有卡/无卡状态；保存的参数还需要对应字段开关开启。\n• “模拟 SIM 卡”不再强制开启蜂窝字段。未选字段不使用已保存值。\n• Wi-Fi 和蓝牙也有独立开关；分类关闭时恢复真实信息。\n• 切换模式保留参数和单项选择，改完需要保存。\n• 基站信息是生成的模拟数据，不能对应到真实基站位置。\n• 不会断开手机网络，也不会改变实际 SIM 卡或公网 IP。",
+              "• Editing one value may cause mismatches; refreshing the set aligns them again.\n• Modes control SIM presence; saved values also require their individual field switches.\n• Simulate SIM no longer forces cellular fields on. Unselected saved values are not applied.\n• Wi-Fi and Bluetooth also have individual switches; Off restores real information.\n• Switching modes preserves values and selections. Save to apply changes.\n• Generated cell information does not identify a real tower location.\n• Your connection, physical SIM and public IP remain unchanged."));
     }
     private void refreshGroup(String group){
         String hint=group.equals("network")?t("重新生成网络、SIM 卡和基站参数，让运营商信息相互匹配。","Generate new network, SIM and cell values with matching carrier information."):
@@ -401,9 +400,6 @@ public final class DeviceSettingsActivity extends Activity {
     private void edit(DeviceField f) {
         LinearLayout content=column();content.setPadding(dp(22),dp(10),dp(22),0);
         Switch use=new Switch(this);use.setText(t("伪装这个字段","Spoof this field"));use.setChecked(selected.contains(f.id));
-        if(DevicePackets.CELLULAR.contains(f.id)&&DeviceProfile.NETWORK_SIMULATE.equals(networkMode)){
-            use.setChecked(true);use.setEnabled(false);
-        }
         use.setContentDescription("device-use:"+f.id);content.addView(use);
         content.addView(text(f.hint,13,0xff667085));
         EditText input=new EditText(this);input.setText(values.getOrDefault(f.id,""));input.setSingleLine(true);
@@ -445,9 +441,13 @@ public final class DeviceSettingsActivity extends Activity {
         }));dialog.show();
     }
     private void updateStatus() {
-        if(status!=null)status.setText(t("已选择 ","Selected ")+selected.size()+"/"+DeviceField.ALL.size()+
-            t(" 个字段 · 机型与系统"+(modelEnabled?"已开启":"已关闭")," fields · model "+(modelEnabled?"on":"off"))+
-            t(" · 位置"+(locationEnabled?"已开启":"已关闭")," · location "+(locationEnabled?"on":"off")));
+        if(status!=null){
+            DeviceProfile current=draft();
+            long chosen=DeviceField.ALL.stream().filter(f->selected.contains(f.id)).count();
+            long effective=DeviceField.ALL.stream().filter(f->current.get(f.id)!=null).count();
+            status.setText(t("已选择 ","Selected ")+chosen+"/"+DeviceField.ALL.size()+
+                t(" 个字段 · 当前生效 "," fields · active ")+effective);
+        }
         if(consistencyHint!=null){
             List<String> warnings=ProfileWarnings.messages(draft(),Build.VERSION.RELEASE,zh);
             consistencyHint.setText(String.join("\n",warnings));
