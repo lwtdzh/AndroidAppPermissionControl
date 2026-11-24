@@ -140,10 +140,9 @@ public final class DeviceProfile {
         v.put("latitude","31.2304");v.put("longitude","121.4737");v.put("accuracy","30");
         v.put("timezone","Asia/Shanghai");v.put("language","zh-CN");v.put("hide_sensors","true");
         v.put("hide_module_apps","true");
-        Set<String> selected=new LinkedHashSet<>();
-        // Prepare values and field selections while every category stays opted out.
-        for(DeviceField field:DeviceField.ALL)
-            if((field.group.equals("ids")||field.group.equals("model"))&&v.containsKey(field.id))selected.add(field.id);
+        Set<String> selected=new LinkedHashSet<>(v.keySet());
+        // New profiles prepare every catalog field while every category stays opted out.
+        // MediaDrm remains the historical identifier exception: 9/10 IDs are selected.
         selected.remove("drm_id");
         return new DeviceProfile(true,0,name,v,selected);
     }

@@ -1,6 +1,10 @@
 # 应用状态屏蔽 · AppStateShield
 
-一个 Vector 模块，按应用屏蔽截图、VPN、网络代理、开发者选项、USB/无线调试及 SELinux 状态，并为指定应用伪装设备信息。当前模块与验证器版本为 **0.4.13**。保留一个“应用状态验证器”，用来观察应用实际读取结果。
+一个 Vector 模块，按应用屏蔽截图、VPN、网络代理、开发者选项、USB/无线调试及 SELinux 状态，并为指定应用伪装设备信息。当前模块与验证器版本为 **0.4.14**。保留一个“应用状态验证器”，用来观察应用实际读取结果。
+
+0.4.14 处理第三方加固应用的首次初始化与原生入口读取。安全加固 SDK 在初始化锁内反复经过模块的文件读取时，代理线程和 libc 缓冲路径会叠加等待；现版本让已接管的 read/`__read_chk` 在调用线程直接读取真实 FD，再应用同一机器快照与 SELinux 过滤；SELinux 已覆盖 Bionic FILE refill 时不再重复包装 fread/fgets；代理线程也不再接收 Bionic 保留的栈采集信号 33。同版加入 nativecompat 与 ARM64 原子入口 Hook：读取已确认的框架注入入口时还原磁盘原始指令，实际执行页保持 Hook，对应银行类应用的 ART 入口比较路径。新档案默认预选除 `drm_id` 外的 46 个字段，分类总开关仍默认关闭，已有档案不迁移。详见 [首次启动读取修复](verification/XIANYU-CALLER-READ-FIX-20261120.md) 与 [银行应用原生入口分析](verification/BANK-APP-REANALYSIS-20261119.md)。
+
+0.4.14 的行为证据来自同源码的 0.4.13 候选：闲鱼分身四步在 vivo V2419A 通过，64 组合、81 项 SELinux 与策略检查、同 PID 开关恢复、12 项代理契约及四 ABI 与签名核对均完成。发布构建只改版本号，另外重新核对了新 APK 的安装、注入、开关恢复与普通读取，见[交付物核对](verification/release-0.4.14-artifacts.json)与[模拟器检查](verification/release-0.4.14-emulator-check.json)。下载见 [v0.4.14 Release](https://github.com/lwtdzh/AndroidAppPermissionControl/releases/tag/v0.4.14)。
 
 0.4.13 为设备标识、机型与系统、位置、其他环境统一提供分类总开关，分类标题显示“已开启 / 已关闭”。网络与基站使用“已关闭 / 模拟 SIM 卡 / 模拟无 SIM 卡”三档，标题显示当前档位。新档案各分类默认关闭；字段必须经过机器总开关、分类控制和自己的开关才能使用保存值。所有分类的字段都有行内独立开关，模拟 SIM 不再强制选中蜂窝字段。关闭分类保留参数和单项选择，刷新及填写预设不会自动打开分类。详见 [分类开关说明](docs/CATEGORY-GATES-0.4.13.md)。
 

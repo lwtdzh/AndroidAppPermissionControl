@@ -1,0 +1,252 @@
+{
+  "status": "NOT_REPRODUCED_ON_EMULATOR; ROOT_CAUSE_UNCONFIRMED; NO_PRODUCTION_PATCH",
+  "serial": "emulator-5584",
+  "avd": "ScreenshotShield_API36",
+  "api": 36,
+  "abi": "arm64-v8a",
+  "moduleSHA256": "57c1a94c24c1c366f47f68671f720497405e3a278b5e976490abbb9e8b6c72ea",
+  "idlefishVersion": "7.28.86.1",
+  "idlefishVersionCode": 529,
+  "originalApks": [
+    {
+      "name": "base.apk",
+      "sha256": "e62a6cb4cc5ad05e81a7fe1fd261c992efcf80408c9cb89a969246da8a68875e",
+      "bytes": 122337065
+    },
+    {
+      "name": "split_config.arm64_v8a.apk",
+      "sha256": "9a5bf399ce09b472cd59adf09db8757cb76f2db656e65c49e06d09aba6d6ed58",
+      "bytes": 327229367
+    },
+    {
+      "name": "split_config.xxxhdpi.apk",
+      "sha256": "bb916d71d933849bdbe5642fc182b588dca6e88edb1901ca497f52c5a9119010",
+      "bytes": 388290
+    },
+    {
+      "name": "split_config.zh.apk",
+      "sha256": "80043f307f34d6abf593fda83a3ac93cfdc984b14451bb60ed219c9fe4c8996b",
+      "bytes": 94617
+    }
+  ],
+  "signatureVerified": true,
+  "tests": [
+    {
+      "case": "unscoped",
+      "user": 0,
+      "observedAt": "2026-11-19T18:04:57.318055+08:00",
+      "policyMessages": [],
+      "nativeReady": false,
+      "compatReady": false,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "six-off",
+      "user": 0,
+      "observedAt": "2026-11-19T18:05:37.706802+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[]"
+      ],
+      "nativeReady": false,
+      "compatReady": false,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "six-on",
+      "user": 0,
+      "observedAt": "2026-11-19T18:05:51.127627+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "six-on-clean",
+      "user": 0,
+      "observedAt": "2026-11-19T18:09:32.353621+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "phone-profile",
+      "user": 0,
+      "observedAt": "2026-11-19T18:10:04.631906+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 3,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "network-off",
+      "user": 0,
+      "observedAt": "2026-11-19T18:12:37.222974+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 3,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "clone-unscoped",
+      "user": 10,
+      "observedAt": "2026-11-19T18:16:26.737401+08:00",
+      "policyMessages": [],
+      "nativeReady": false,
+      "compatReady": false,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "clone-six-on",
+      "user": 10,
+      "observedAt": "2026-11-19T18:18:25.343392+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [
+        "native ready hooks=3 objects=1"
+      ],
+      "visiblePriceNodes": 2,
+      "loginPage": false,
+      "result": "PUBLIC_FEED_VISIBLE"
+    },
+    {
+      "case": "six-on-detail",
+      "user": 0,
+      "observedAt": "2026-11-19T18:06:49.860858+08:00",
+      "policyMessages": [
+        "Policy loaded=true enabled=[]",
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ],
+      "nativeReady": true,
+      "compatReady": true,
+      "deviceNativeReady": [],
+      "visiblePriceNodes": 0,
+      "loginPage": true,
+      "result": "LOGIN_REQUIRED"
+    }
+  ],
+  "phoneReadOnly": {
+    "modules": [
+      {
+        "package": "io.github.lwtdzh.appstateshield",
+        "status": "enabled",
+        "idlefishScope": [
+          {
+            "APP_PACKAGE": "com.taobao.idlefish",
+            "USER_ID": 999
+          }
+        ]
+      },
+      {
+        "package": "io.github.lwtdzh.appstateshield",
+        "status": "enabled",
+        "idlefishScope": [
+          {
+            "APP_PACKAGE": "com.taobao.idlefish",
+            "USER_ID": 999
+          }
+        ]
+      }
+    ],
+    "0": {
+      "policies": {
+        "owner": "10469:10469:660",
+        "disabled": null
+      },
+      "device_profiles": {
+        "owner": "0:0:640",
+        "controls": {},
+        "existsForIdlefish": false
+      }
+    },
+    "999": {
+      "policies": {
+        "owner": "99910469:99910469:660",
+        "disabled": []
+      },
+      "device_profiles": {
+        "owner": "99910469:99910469:660",
+        "controls": {
+          "enabled": true,
+          "modelEnabled": false,
+          "idsEnabled": true,
+          "environmentEnabled": false,
+          "locationEnabled": false,
+          "networkMode": "no_sim"
+        },
+        "existsForIdlefish": true
+      }
+    }
+  },
+  "phoneExistingBuffer": {
+    "processes": [
+      {
+        "pid": "11824",
+        "uid": "10400",
+        "name": "com.taobao.idlefish"
+      },
+      {
+        "pid": "12358",
+        "uid": "10400",
+        "name": "com.taobao.idlefish:channel"
+      },
+      {
+        "pid": "12957",
+        "uid": "10400",
+        "name": "com.taobao.idlefish:windowChannel"
+      }
+    ],
+    "errorCodes": {},
+    "securityExceptions": [],
+    "policies": [],
+    "source": "existing buffer; no app launch"
+  },
+  "limitations": [
+    "Anonymous public feed only; authenticated MTOP and protected detail requests not validated.",
+    "AOSP clone user 10 is not vivo clone user 999.",
+    "No current failing injected vivo process or server error code captured.",
+    "Earlier error-symbol arrays include unrelated processes; not used to establish causality.",
+    "Libraries can map from APK pages; absent libdevicestate filename is not a load-failure test.",
+    "Only observation timestamps retained; individual operation durations were not measured."
+  ],
+  "restoration": {
+    "stopped": true,
+    "avdManifestMatches": true,
+    "ramdiskMatches": true,
+    "originalModuleSettingsScopesAppsGrantsRestoredByDisk": true
+  },
+  "privateEvidence": "/Users/bytedance/Library/Application Support/ScreenshotShield/xianyu-network-20261119",
+  "completedAt": "2026-11-19T18:20:06.423706+08:00"
+}

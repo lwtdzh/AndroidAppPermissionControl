@@ -1,0 +1,155 @@
+{
+  "recordedAt": "2026-11-20T14:55:40.604144+08:00",
+  "status": "four-step-first-launch-home-and-navigation-passed",
+  "serial": "redacted",
+  "model": "V2419A",
+  "user": 999,
+  "uid": 99910400,
+  "firstPid": "27337",
+  "moduleSHA256": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+  "consentClickedAt": "2026-11-20T14:52:36.123816+08:00",
+  "homeEvidenceAt": "2026-11-20T14:53:03.533448+08:00",
+  "homeActivity": [
+    "topResumedActivity=ActivityRecord{195136517 u999 com.taobao.idlefish/.maincontainer.activity.MainActivity t2418 d0}"
+  ],
+  "navigation": "Tapped same-city on formal homepage; actual location permission prompt appeared",
+  "searchAttempt": "Recorded home search tap, but a search page was not observed; not counted as proof",
+  "ptrace": false,
+  "firstPidRetained": true,
+  "firstPidHasExitRecord": false,
+  "profile": {
+    "schema": 1,
+    "enabled": true,
+    "revision": 1795157526515,
+    "modelEnabled": false,
+    "idsEnabled": true,
+    "environmentEnabled": false,
+    "preset": "xiaomi-14",
+    "selected": [
+      "imei",
+      "imei2",
+      "meid",
+      "serial",
+      "android_id",
+      "oaid",
+      "vaid",
+      "aaid",
+      "gaid",
+      "wifi_mac",
+      "bt_mac",
+      "ssid",
+      "bssid",
+      "imsi",
+      "iccid",
+      "phone",
+      "lac",
+      "cid",
+      "tac",
+      "pci",
+      "brand",
+      "manufacturer",
+      "model",
+      "device",
+      "product",
+      "board",
+      "hardware",
+      "release",
+      "incremental",
+      "fingerprint",
+      "width",
+      "height",
+      "density",
+      "total_ram",
+      "storage",
+      "operator",
+      "mcc",
+      "mnc",
+      "signal",
+      "latitude",
+      "longitude",
+      "accuracy",
+      "timezone",
+      "language",
+      "hide_sensors",
+      "hide_module_apps"
+    ],
+    "locationEnabled": false,
+    "regionId": "",
+    "regionName": "",
+    "regionOverrides": [],
+    "networkMode": "no_sim"
+  },
+  "disabledMethods": [],
+  "moduleEvents": [
+    {
+      "time": "11-20 14:52:30.475",
+      "events": [
+        "ART code views=8"
+      ]
+    },
+    {
+      "time": "11-20 14:52:30.475",
+      "events": [
+        "native compatibility ready=1"
+      ]
+    },
+    {
+      "time": "11-20 14:52:30.492",
+      "events": [
+        "native adapter restored=1"
+      ]
+    },
+    {
+      "time": "11-20 14:52:30.883",
+      "events": [
+        "native ready hooks=3 objects=1"
+      ]
+    },
+    {
+      "time": "11-20 14:52:31.075",
+      "events": [
+        "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+      ]
+    }
+  ],
+  "scopesPreserved": true,
+  "settings": {
+    "0/policies": {
+      "unrelatedEntriesPreserved": true,
+      "owner": "10469:10469:660"
+    },
+    "0/device_profiles": {
+      "unrelatedEntriesPreserved": true,
+      "owner": "10469:10469:660"
+    },
+    "999/policies": {
+      "unrelatedEntriesPreserved": true,
+      "owner": "99910469:99910469:660"
+    },
+    "999/device_profiles": {
+      "unrelatedEntriesPreserved": true,
+      "owner": "99910469:99910469:660"
+    }
+  },
+  "evidenceSHA256": {
+    "acceptance-caller1-clear.json": "cc5b0bf4384f0d717193c52014b0c795e2e9227d293874ce76613c30a9581a1d",
+    "acceptance-caller1-scope-on.json": "8667779bac9cd3f05a6714493cbac455271bbcd45e1f29519c698cd81f56d60c",
+    "acceptance-caller1-ui-login-guide-closed.json": "2c25fdaed4ae3a8b656231652b87ea7c6233b15e5764b4056013bb919b772a8a",
+    "acceptance-caller1-before.json": "96cfc9b2bc5997e450ab344d36cc8bebd4d0ee4c8eb54364a78bd8d4247ab44a",
+    "acceptance-caller1-scope-off.json": "19e03497a44311ce136ad2b3b1ea945ebe652f1f2df13828077b9a4ba238a774",
+    "acceptance-caller1-rebuilt.json": "aef046fd7d1acfa32624dfe5e1dbae282c908092c7b025293185a42d1f3fc443",
+    "acceptance-caller1-consent.json": "0174d864fa3895389014cef9ee1ed5cb544fc86986c2eeedb3b14aca950206e7",
+    "acceptance-caller1-ui-notification-denied.json": "d3564bb4effc10135172cf91599a2d9b4a8fb29522d2fb6f2d4709c1c0e1f7f3",
+    "acceptance-caller1-deleted.json": "929178b3de5794db902966f2be3f3806562f70ce3c6d3167597a776d96f10505",
+    "acceptance-caller1-ui-navigation-current.json": "2d8c7761574a4eeb250e612d66ffc3ca9e8eaf8057506e9e9f8d64016b251b62",
+    "acceptance-caller1-ui-local-denied.json": "6776e35e1fe40485532b379c8504758edb804d32fdcb2877d2a64464aee974f6",
+    "acceptance-caller1-ui-search-settled.json": "4705630930a8c10826308e69f08de4fb42048d0abf124e8baedfbc8405383d2d",
+    "acceptance-caller1-launch.json": "07f25bc8045bd492a546bda67dffee29ff95902dd706bc1e86c7252abb4346ed",
+    "acceptance-caller1-ui-search-opened.json": "c164e9c5bdacc05382b98b93f2d5d554758a89a1902f41e5a382f970adb6774f",
+    "acceptance-caller1-ui-local-tab.json": "b9a8c5bd6d3baff8350f3b6f1c7c9e844ceab89c1824ab958827125a4ab14ca7"
+  },
+  "limits": [
+    "Module events prove loading; per-API behavior is validated separately in emulator integration",
+    "No claim about untested ROMs or indefinite future stability"
+  ]
+}

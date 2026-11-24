@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "completeAVD": true,
+  "exactFileTreeAndSHA256": true,
+  "originalFileModesMatched": true,
+  "ramdiskMatched": true,
+  "emulatorStopped": true,
+  "serial": "emulator-5584",
+  "originalSnapshotSHA256": "6c2e8bbf1a8c595d2f505581f468e5e9fb142d5711d8e8f1891b54b1f7615c31",
+  "atUTC": "2026-11-18T07:47:01.416502+00:00",
+  "durationSeconds": 3.016
+}

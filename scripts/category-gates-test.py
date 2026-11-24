@@ -147,17 +147,29 @@ class Checks:
         assert self.d.find("device-enabled").get("checked") == "false"
         self.d.click("device-enabled")
         headers = {}
+        expected_counts = {
+            "ids": "9/10",
+            "network": "15/15",
+            "model": "13/13",
+            "location": "3/3",
+            "environment": "6/6",
+        }
         for group in GROUPS:
             node = self.d.find("device-group:" + group, scroll=True)
-            assert "已关闭" in node.get("text", ""), node.attrib
-            headers[group] = node.get("text")
+            text = node.get("text", "")
+            assert "已关闭" in text, node.attrib
+            assert expected_counts[group] in text, (group, text)
+            headers[group] = text
         self.d.screenshot(STATE / "default-off.png")
         self.group("ids")
         assert self.d.find("device-field-enabled:android_id", scroll=True).get("enabled") == "false"
         p = self.commit()
         assert p["enabled"] and all(not p[k] for k in FLAGS[:-1]) and p["networkMode"] == "off"
+        assert len(p["selected"]) == 46 and "drm_id" not in p["selected"]
+        assert set(p["selected"]) == set(p["values"]) - {"drm_id"}
         self.report["preparedProfile"] = p
-        return {"headers": headers, "saved": p, "offDisablesChildControl": True}
+        return {"headers": headers, "saved": p, "offDisablesChildControl": True,
+                "defaultFieldSelection": expected_counts}
 
     def ui_gates(self):
         self.editor()

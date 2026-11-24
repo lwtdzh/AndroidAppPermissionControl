@@ -1,0 +1,30 @@
+{
+  "at": "2026-11-20T15:01:01.284985+08:00",
+  "readOnly": true,
+  "noUIInteraction": true,
+  "installedModuleMatchesAcceptedAPK": true,
+  "scopeMatchesAcceptance": true,
+  "preferences": {
+    "0/policies": {
+      "matchesAcceptedState": true,
+      "ownerPreserved": true
+    },
+    "0/device_profiles": {
+      "matchesAcceptedState": true,
+      "ownerPreserved": true
+    },
+    "999/policies": {
+      "matchesAcceptedState": true,
+      "ownerPreserved": true
+    },
+    "999/device_profiles": {
+      "matchesAcceptedState": true,
+      "ownerPreserved": true
+    }
+  },
+  "acceptedFirstPid": "27337",
+  "firstPidHasExitRecordAtFinalCheck": false,
+  "acceptanceReportSHA256": "e09c3ef95bf3339f90119c9e2101eaf4863811af8f5e2d3851d36e2b0638cb59",
+  "oldPhoneSnapshotNotRestored": true,
+  "acceptanceReportIdentifierRedacted": true
+}

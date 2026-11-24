@@ -50,7 +50,7 @@ Vector 统一控制注入范围。定制列表不改变 Vector 的作用域。�
 
 ## 配置传递与隔离
 
-机器伪装另存 DeviceStore，默认关闭；不加入 Methods 的默认开启集合。DeviceField/DeviceProfile 是模块和验证器共用的字段目录与档案格式。Provider 只返回调用 UID 自己的设备档案。档案包含 enabled、selected、values、preset 和单调递增 revision；格式错误的已选字段导致档案关闭。
+机器伪装另存 DeviceStore，默认关闭；不加入 Methods 的默认开启集合。DeviceField/DeviceProfile 是模块和验证器共用的字段目录与档案格式。Provider 只返回调用 UID 自己的设备档案。档案包含 enabled、selected、values、preset 和单调递增 revision；格式错误的已选字段导致档案关闭。2026-11-19 起，`DeviceProfile.preset()` 创建的新档案默认选中除 `drm_id` 外的全部 46 个字段（设备标识 9/10、网络与基站 15/15、机型与系统 13/13、位置 3/3、其他环境 6/6），但所有分类总开关仍关闭，默认生效字段为 0；解析已有档案时不迁移或补选字段。
 
 DeviceRuntime 同样在 Application.attach 前启动，Java 适配器以本地不可变档案判断字段是否选中。开启时加载 devicestate，关闭时清除它的替换表并还原最初捕获的 Build 字段。设置保存原子提交后通知当前包的 URI；有可见 Activity 时独立线程每两秒查询，最后一个 Activity 停止后取消周期查询，重新显示时立即刷新。后台服务保留配置通知，服务新进程仍在 attach 前读取配置。只在成功读到新版本后替换档案。Getter 本身不调用 Provider。旧六项屏蔽仍只在冷启动读取策略。
 
@@ -68,13 +68,19 @@ DeviceRead 用后台任务逐项实际读取。电话 API 在同包、同 UID、
 
 SELinux 在同一 Application.attach 前安装。Java 的 android.os.SELinux.isSELinuxEnabled/isSELinuxEnforced 返回 true；native 的 security_getenforce/is_selinux_enabled 返回 1。已存在的 ro.boot.selinux 文本返回 enforcing，缺失的属性和调用方默认值保持原样；这个启动属性不能替代真实运行时模式。新库通过 RTLD_DEFAULT 和 Vector 的库加载回调取得符号；系统私有 libselinux 已由 zygote 加载但应用 namespace 不允许 dlopen 时，从该库实际加载的 ELF 动态符号表定位已定义函数。共用解析代码在 shared/native/loaded-symbol.h，不加载或复制系统库。
 
-native read、__read_chk、pread/pread64、readv、fread、fgets 先使用真实 FD 读取，只对 /sys/fs/selinux/enforce 或 /selinux/enforce 的实际返回字节将 0 改为 1。通过 /proc/self/fd 识别目的文件，不缓存 FD 编号；dup、关闭后复用、相对路径和符号链接沿用真实文件语义。失败、EOF、偏移和 errno 保留；普通同名文件不改。fread 使用真实字节数处理不完整的末项，不把它误算成完整项。系统模式、安全上下文、写入权限都不修改。
+native read、__read_chk、pread/pread64、readv 先使用真实 FD 读取，只对 /sys/fs/selinux/enforce 或 /selinux/enforce 的实际返回字节将 0 改为 1。通过 /proc/self/fd 识别目的文件，不缓存 FD 编号；dup、关闭后复用、相对路径和符号链接沿用真实文件语义。失败、EOF、偏移和 errno 保留；普通同名文件不改。Bionic 的 FILE refill 经过已覆盖的 read 时，fread/fgets 直接消费已经过滤的缓冲字节，避免每次缓冲读取重复解析 FD；read 未能覆盖时保留原 fread/fgets 包装。不完整末项仍按真实字节过滤，不把它误算成完整项。系统模式、安全上下文、写入权限都不修改。
 
 Vector 不允许重复 Hook 同一个函数。截图库与开发者库提供两个内部过滤器注册入口，仅接受各自已安装的原生符号；SELinux 使用这些入口追加读取/属性过滤。截图关闭或调试关闭时，相应入口不存在或未安装，SELinux 自己安装该组 Hook。注册使用原子函数指针，不改截图 syscall 汇编、clone 分派或原有内存释放逻辑。
 
 SELinux 的 native 入口使用与 0.2.1 相同的两类 ARM64 跳转识别，保留加固库的外部跳转。直接 syscall / 内联汇编、未注入子进程、其他挂载路径、未 Hook 的读取函数以及保留入口不属于已验证的保护路径。
 
 模块 0.2.1 在 ARM64 安装截图 native Hook 前检查现有入口。对于已跳到其他库或匿名代码的 `B`，以及 `LDR Xn, [PC+8]; BR Xn; .quad target`，保留应用已有跳转；跳转仍位于同一库的普通包装函数继续处理。跳过的符号名写入日志，供兼容检查使用。此处理不使用应用包名名单，不改变配置或安装时机，也不改 syscall 汇编。只识别这两种 ARM64 入口；其他跳转形式及其他 ABI 的加固兼容尚未验证。保留入口的原生读取没有完整保护，不能以应用正常启动或 Hook 数量代替截图屏蔽证据。
+
+2026-11-19 的原生兼容修复由 NativeLibraries 在首次需要原生方法时加载 nativecompat。ARM64 入口使用 shared/native/entry-hook.h：原位只发布一条 B 指令，但备份并重定位完整 16 字节，保留正阻塞在 syscall 的线程返回指令。首次原生库加载期间临时适配 DobbyHook，覆盖 recordNativeEntrypoint 和随后执行 native_init 的 loadLibrary，库加载完成后恢复该入口；加载器 Hook 的备份仍保持有效。截图、VPN、debug、SELinux 的原生方法继续按策略安装，不按银行包名豁免。
+
+nativecompat 从已经加载且导出 DobbyHook 的框架 ELF 确认可执行段，再读取当前 libart.so 的磁盘 ELF。elf-code-view.h 按符号表和 PT_LOAD 做长度检查，只记录明确跳往框架可执行段的 ARM64 B、LDR/BR 或 ADRP/ADD/BR 入口及磁盘原始 16 字节。无法读取、没有本地符号表或无法确认所有者时不猜原指令。实际执行页保留 Hook；libc process_vm_readv 和 libc syscall 的 process_vm_readv 读取自身进程后，按两组 iovec 的实际字节顺序还原已记录的代码视图，保留返回长度、错误、普通内存和其他进程的读取。只有读取结果仍匹配已记录的改写指令时才替换，不覆盖后来第三方修改。其余 syscall 用汇编直接跳回备份，保持 clone 的调用栈和六个参数。机器伪装的 seccomp 代理仍只随机器档案启用，本兼容层不启用它。
+
+该视图不能隐藏真实 maps 中的框架注入，也不处理应用内联 svc 或任意直接代码读取。它针对建行已确认的 ART 入口比较路径；原生夹具验证与银行实际启动须分别报告。夹具把本地 .symtab 函数改为 Vector 形状的跳转，加载正式构建的 nativecompat，通过 scripts/native-compat-test.py 运行；不能把夹具当作 vivo ROM 上的运行验证。
 
 验证应用提供“是否注入/实际安装的方法”标记，与“存储的配置”分开显示。标记不是实际状态屏蔽的替代证据，仍需真实系统状态和普通操作对照。
 
@@ -103,6 +109,12 @@ ScreenshotSession 与传统来源信号计数分开。相同文件路径和相�
 0.4.8 的机型预设只由 DeviceSettingsActivity 的 model 分类显示。选择小米/vivo 时，通过现有字段目录和 DevicePackets.group("model", preset) 更新机型、系统和屏幕字段；不再创建整份随机档案替换当前草稿。设备标识、网络、位置、其他环境、未知字段及各总开关保持原选择。0.4.9 删除顶部随机标识操作，顶部卡片只显示整体状态；统一刷新位于设备标识、网络与基站、机型与系统各自分类中，只处理对应分类。
 
 0.4.7 增加进程内属性文件视图。property-area 按 Bionic 的 trie、prop_info、serial 与长值偏移布局生成只读快照，清除被替换的旧值。读取保留应用原 FD，仅覆盖变化字节；只读 mmap 使用密封模块文件的私有映射。原始 read/pread/readv/preadv2/mmap 由 seccomp user-notification 代理适配，通过 TSYNC 同步已存在的线程。代理回调只使用准备好的快照和 raw syscall helper；raw 指令地址允许代理执行自身 I/O。该过滤器不能卸载，关闭档案后代理继续放行；no_new_privs 和 seccomp 状态可被同进程观察。
+
+2026-11-19 的首次启动排查发现，代理在每次普通读取前读取 /proc/&lt;tid&gt;/status，叠加 FD 路径解析，给 SecurityGuard 初始化增加了大量文件操作。代理现用 /proc/self/task/&lt;tid&gt; 的内核目录成员关系验证线程，使用预先保存的 device/inode 识别属性文件和本进程 mem，不缓存可复用的 FD 编号。libc 读取和直接 syscall 共用 BrokerSnapshot；普通文件经 fstat 后立即返回，属性区和代码视图使用已准备的快照。向量描述符复制走 raw process_vm_readv，不进入包含分配和动态符号解析的公共包装器。自身 mem 的代码视图按安装相反顺序还原，并接入 nativecompat 已确认的 ART 入口视图；后续第三方改写仍保留。NativeBrokerTest 使用实际 seccomp 代理验证线程/子进程、readv/preadv、原错误、dup/EOF、普通管道和关闭后原值。
+
+2026-11-20 的 vivo 原生采样确认，libunwindstack 使用 Bionic 保留信号 33 暂停代理线程后，Signal Catcher 对自身内存的读取又等待该代理，导致栈采集循环等待。awaitListener 在发布 ready 之前，只为这个不受 ART 管理的代理线程用 raw rt_sigprocmask 屏蔽信号 33；pthread_sigmask 会移除保留信号，不能用于此处。应用线程的信号掩码保持原样。该信号无法再采集代理线程的栈，采集方需按原超时处理；不能据此认定应用没有其他启动等待。NativeBrokerTest 对代理发送信号后继续检查读取，并确认调用线程仍可收到同一信号。vivo 闲鱼是否能完成首次初始化仍须完整四步实测。
+
+同日的自然 ART 栈确认，许可协议回调等待 SecurityGuard 的初始化节点，持锁线程在 FILE 读取路径中。设备层与 screenshot 的 appstateshield_set_device_file_views 增加 KernelRead 回调：已由 screenshot 包装器接管的 read/__read_chk，先完成截图 FD 检查，再从设备层的 raw 指令读取原 FD，在调用线程上应用同一 BrokerSnapshot 与 SELinux 过滤，避免再等待一次 seccomp 代理。__read_chk 超出容量时仍调用原 fortify 函数。应用直接发出的系统调用、未接管的入口及 mmap 仍沿用代理；没有按 libc 地址或 FD 编号放宽过滤。
 
 已经缓存的属性区仅重映射可安全隔离的只读页，避开全局 serial、dirty backup 和共享可变属性所在页。旧映射被读取前不一定经过任何 Hook，因此保留页仍可读到真实值；检查结果必须列出 remappedPages/retainedPages，不能将新 FD/mmap 通过推成旧 CPU 缓存页也通过。
 

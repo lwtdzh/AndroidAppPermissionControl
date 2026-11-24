@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-20T11:59:27.587890+08:00",
+  "originalDiskManifestMatched": true,
+  "originalRamdiskMatched": true,
+  "originalPackagesPreferencesScopesGrantsServicesRestoredByDisk": true,
+  "dedicatedEmulatorStopped": true,
+  "unrelatedEmulator5594NotOperated": true,
+  "interruptedTestDiskRetainedOutsideRepository": true,
+  "phoneAcceptance": false
+}

@@ -1,0 +1,10 @@
+{
+  "file": "/data/user/0/io.github.lwtdzh.appstateshield/shared_prefs/device_profiles.xml",
+  "before": "0:0:640",
+  "after": "10469:10469:660",
+  "contentsSHA256Unchanged": true,
+  "reason": "Restore original metadata after earlier authorized vivo settings verification",
+  "appsStarted": false,
+  "scopeChanged": false,
+  "profileValuesChanged": false
+}

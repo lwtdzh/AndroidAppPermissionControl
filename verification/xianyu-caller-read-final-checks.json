@@ -1,0 +1,34 @@
+{
+  "at": "2026-11-20T15:12:26.334379+08:00",
+  "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+  "reports": {
+    "selinux-xianyu-caller-read-results.json": {
+      "sha256": "1b7d417408548bce79867744b813fdf2a3a02f3a322600dd6611a173c9ef4c6e",
+      "passedCases": 81,
+      "everyCurrentCaseBoundToBuild": true
+    },
+    "xianyu-caller-read-integration-20261120.json": {
+      "sha256": "61997883e7b82c75d901ed4f0a2e4500c45f47eec06fbd08ba8b13a1d21d6137",
+      "passedCases": 4,
+      "everyCurrentCaseBoundToBuild": true
+    },
+    "xianyu-caller-read-apk-results.json": {
+      "sha256": "4ce40c187ae657111d79a6d55d4fc21adcbea5803a2785b162835b5da410b2a7",
+      "passedCases": 6,
+      "everyCurrentCaseBoundToBuild": true
+    }
+  },
+  "failedCurrentCases": 0,
+  "matrix": {
+    "passed": 64,
+    "machineIdsNoSimBrokerEnabled": true,
+    "sameProfileRevision": true,
+    "noCrossAPKReuse": true
+  },
+  "phoneFourStepPassed": true,
+  "acceptedAPKMatchesDelivery": true,
+  "originalEmulatorDiskRestored": true,
+  "nativeContractsPassed": 12,
+  "historicalFailuresPreserved": true,
+  "currentReportFileLinksExist": true
+}

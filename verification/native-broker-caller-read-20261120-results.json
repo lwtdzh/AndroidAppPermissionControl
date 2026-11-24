@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "seconds": 0.075,
+  "serial": "emulator-5584",
+  "abi": "arm64-v8a",
+  "contracts": [
+    "raw-copy-valid-and-EFAULT",
+    "readv",
+    "preadv",
+    "worker-ownership",
+    "fork-child-real-bytes",
+    "dup-offset-and-EOF",
+    "EBADF",
+    "ordinary-pipe",
+    "reused-FD-selected",
+    "broker-backtrace-signal-isolation",
+    "caller-backtrace-signal-preserved",
+    "disable-real-bytes"
+  ],
+  "fixture": "standalone seccomp broker using production header, not OEM runtime",
+  "sourceSHA256": {
+    "shared/test/NativeBrokerTest.cpp": "703ffc8a72b78d5ac08056e6de99dd19c6603c8da0fbe97241f64eeef9635b47",
+    "app/src/main/cpp/device-syscall-view.h": "a16358057ad449a8ca0d9ae8e11640c4a0c911e619712e5911491a9dcd3acc30",
+    "app/src/main/cpp/device-raw-io.h": "a737d47731d1fa2b3d2561e1220f405c572eac8eaed265bd1175c768425c14b8"
+  },
+  "temporaryExecutableRemoved": true
+}

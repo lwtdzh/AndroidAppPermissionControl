@@ -1,0 +1,353 @@
+{
+  "recordedAt": "2026-11-19T21:17:49.070985+08:00",
+  "progressStatus": "inconclusive-root-cause",
+  "productionCodeChangedForThisIssue": false,
+  "apkSHA256": "57c1a94c24c1c366f47f68671f720497405e3a278b5e976490abbb9e8b6c72ea",
+  "cloneUser": 999,
+  "cloneUID": 99910400,
+  "historicalANRExits": [
+    {
+      "timestamp": "2026-11-19 20:25:29.505",
+      "pid": "17180",
+      "realUid": "99910400",
+      "packageUid": "99910400",
+      "definingUid": "99910400",
+      "reason": "6",
+      "subreason": "0",
+      "status": "0",
+      "importance": "400",
+      "pss": "0.00",
+      "rss": "0.00",
+      "process": "com.taobao.idlefish:channel",
+      "causeSymbols": [
+        "ANR"
+      ]
+    },
+    {
+      "timestamp": "2026-11-19 20:25:18.422",
+      "pid": "16854",
+      "realUid": "99910400",
+      "packageUid": "99910400",
+      "definingUid": "99910400",
+      "reason": "6",
+      "subreason": "0",
+      "status": "0",
+      "importance": "100",
+      "pss": "0.00",
+      "rss": "460",
+      "process": "com.taobao.idlefish",
+      "causeSymbols": [
+        "ANR"
+      ]
+    },
+    {
+      "timestamp": "2026-11-19 20:34:29.672",
+      "pid": "19673",
+      "realUid": "99910400",
+      "packageUid": "99910400",
+      "definingUid": "99910400",
+      "reason": "6",
+      "subreason": "0",
+      "status": "0",
+      "importance": "400",
+      "pss": "0.00",
+      "rss": "0.00",
+      "process": "com.taobao.idlefish:channel",
+      "causeSymbols": [
+        "ANR"
+      ]
+    },
+    {
+      "timestamp": "2026-11-19 20:34:18.227",
+      "pid": "18852",
+      "realUid": "99910400",
+      "packageUid": "99910400",
+      "definingUid": "99910400",
+      "reason": "6",
+      "subreason": "0",
+      "status": "0",
+      "importance": "100",
+      "pss": "0.00",
+      "rss": "497",
+      "process": "com.taobao.idlefish",
+      "causeSymbols": [
+        "ANR"
+      ]
+    }
+  ],
+  "historicalTraceLimitations": {
+    "paths": [
+      "/data/anr/anr_2026-11-19-20-25-02-271",
+      "/data/anr/anr_2026-11-19-20-34-02-449"
+    ],
+    "targetARTStackAvailable": false,
+    "observedTargetWait": "futex_wait_queue",
+    "debuggerd18852": {
+      "boundedSeconds": 15,
+      "succeeded": false,
+      "limitation": "The 20:33 run included a failed debuggerd capture; it is not an untouched startup control."
+    }
+  },
+  "comparisons": [
+    {
+      "label": "machine-off-six-on",
+      "controls": {
+        "enabled": false,
+        "idsEnabled": true,
+        "networkMode": "no_sim"
+      },
+      "startedAt": "2026-11-19T20:41:23.809790+08:00",
+      "pid": "27261",
+      "sampleCount": 1,
+      "sampleWindowSeconds": 0.1,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [],
+      "desktopIntent": false,
+      "limitations": [
+        "Existing-process observation after collector errors; not a complete cold-start case."
+      ],
+      "privateEvidenceSHA256": "a4afc09b87e0e762f10d2a47c0c8d4c14e83c819a434a229d7cc56d5b7528786"
+    },
+    {
+      "label": "machine-on-categories-off",
+      "controls": {
+        "enabled": true,
+        "idsEnabled": false,
+        "networkMode": "off"
+      },
+      "startedAt": "2026-11-19T20:53:47.873216+08:00",
+      "pid": "15958",
+      "sampleCount": 13,
+      "sampleWindowSeconds": 65.42,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [],
+      "desktopIntent": false,
+      "limitations": [],
+      "privateEvidenceSHA256": "1645ee2d374ef442868f6851d143de7057a5e33d150520c76847f67d60e716b0"
+    },
+    {
+      "label": "ids-only",
+      "controls": {
+        "enabled": true,
+        "idsEnabled": true,
+        "networkMode": "off"
+      },
+      "startedAt": "2026-11-19T20:57:48.491923+08:00",
+      "pid": "20711",
+      "sampleCount": 13,
+      "sampleWindowSeconds": 65.71,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [],
+      "desktopIntent": false,
+      "limitations": [],
+      "privateEvidenceSHA256": "b764b5ee11d468122cbc72aaface6de1bae21e9d83994f2cbf99c47b24b50702"
+    },
+    {
+      "label": "network-only",
+      "controls": {
+        "enabled": true,
+        "idsEnabled": false,
+        "networkMode": "no_sim"
+      },
+      "startedAt": "2026-11-19T21:00:23.008968+08:00",
+      "pid": "29421",
+      "sampleCount": 13,
+      "sampleWindowSeconds": 65.62,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [],
+      "desktopIntent": false,
+      "limitations": [],
+      "privateEvidenceSHA256": "9616c9915acef38bbb4ba5a4bda2b0fb9ea021dd6eb902fb0bc862a348d39aef"
+    },
+    {
+      "label": "original-restored",
+      "controls": {
+        "enabled": true,
+        "idsEnabled": true,
+        "networkMode": "no_sim"
+      },
+      "startedAt": "2026-11-19T21:03:55.023856+08:00",
+      "pid": "2657",
+      "sampleCount": 13,
+      "sampleWindowSeconds": 65.86,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [],
+      "desktopIntent": false,
+      "limitations": [],
+      "privateEvidenceSHA256": "7145b0f07d573ca99dde6243d2ef804eef54f729c57e37a3050e8533996e8f61"
+    },
+    {
+      "label": "desktop-original-restored",
+      "controls": {
+        "enabled": true,
+        "idsEnabled": true,
+        "networkMode": "no_sim"
+      },
+      "startedAt": "2026-11-19T21:12:39.205384+08:00",
+      "pid": "9556",
+      "sampleCount": 13,
+      "sampleWindowSeconds": 66.29,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [
+        {
+          "time": "11-19 21:12:42.081",
+          "tag": "AppStateShield",
+          "events": [
+            "ART code views=8"
+          ]
+        },
+        {
+          "time": "11-19 21:12:42.082",
+          "tag": "AppStateShield",
+          "events": [
+            "native compatibility ready=1"
+          ]
+        },
+        {
+          "time": "11-19 21:12:42.099",
+          "tag": "ScreenshotShield",
+          "events": [
+            "native ready api=2"
+          ]
+        },
+        {
+          "time": "11-19 21:12:42.099",
+          "tag": "AppStateShield",
+          "events": [
+            "native adapter restored=1"
+          ]
+        },
+        {
+          "time": "11-19 21:12:42.481",
+          "tag": "DeviceProfile",
+          "events": [
+            "native ready hooks=3 objects=1"
+          ]
+        },
+        {
+          "time": "11-19 21:12:42.701",
+          "tag": "AppStateShield",
+          "events": [
+            "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+          ]
+        }
+      ],
+      "desktopIntent": true,
+      "limitations": [],
+      "privateEvidenceSHA256": "c301054daabf56af873ced942d44163500a264ae6996cda2ce46d89d529afe5d"
+    }
+  ],
+  "finalUI": {
+    "original-restored": {
+      "observedAt": "2026-11-19T21:09:26.146284+08:00",
+      "resumedUser": "999",
+      "resumedComponent": "com.taobao.idlefish/.maincontainer.activity.MainActivity",
+      "uiDumpCompleted": true,
+      "visibleStandardLabels": [
+        "我的",
+        "消息",
+        "闲鱼"
+      ],
+      "resourceIds": [
+        "com.taobao.idlefish:id/icon_entry",
+        "com.taobao.idlefish:id/icon_entry_wrapper",
+        "com.taobao.idlefish:id/id_pager",
+        "com.taobao.idlefish:id/inner_nested_scroll_view",
+        "com.taobao.idlefish:id/login_guide_bar",
+        "com.taobao.idlefish:id/msg_tag_debug_text_id",
+        "com.taobao.idlefish:id/nested_recycler_view",
+        "com.taobao.idlefish:id/outer_nested_scroll_view",
+        "com.taobao.idlefish:id/photo_search",
+        "com.taobao.idlefish:id/scan_wrapper",
+        "com.taobao.idlefish:id/search_bar_layout",
+        "com.taobao.idlefish:id/search_btn",
+        "com.taobao.idlefish:id/tab_title",
+        "com.taobao.idlefish:id/title",
+        "com.taobao.idlefish:id/view_pager",
+        "com.taobao.idlefish:id/viewpager"
+      ]
+    },
+    "desktop-original-restored": {
+      "observedAt": "2026-11-19T21:13:51.987166+08:00",
+      "resumedUser": "999",
+      "resumedComponent": "com.taobao.idlefish/.maincontainer.activity.MainActivity",
+      "uiDumpCompleted": true,
+      "visibleStandardLabels": [
+        "我的",
+        "消息",
+        "闲鱼"
+      ],
+      "resourceIds": [
+        "com.taobao.idlefish:id/icon_entry",
+        "com.taobao.idlefish:id/icon_entry_wrapper",
+        "com.taobao.idlefish:id/id_pager",
+        "com.taobao.idlefish:id/inner_nested_scroll_view",
+        "com.taobao.idlefish:id/login_guide_bar",
+        "com.taobao.idlefish:id/msg_tag_debug_text_id",
+        "com.taobao.idlefish:id/nested_recycler_view",
+        "com.taobao.idlefish:id/outer_nested_scroll_view",
+        "com.taobao.idlefish:id/photo_search",
+        "com.taobao.idlefish:id/scan_wrapper",
+        "com.taobao.idlefish:id/search_bar_layout",
+        "com.taobao.idlefish:id/search_btn",
+        "com.taobao.idlefish:id/tab_title",
+        "com.taobao.idlefish:id/title",
+        "com.taobao.idlefish:id/view_pager",
+        "com.taobao.idlefish:id/viewpager"
+      ]
+    }
+  },
+  "restoration": {
+    "profileMatchesOriginalExceptRevision": true,
+    "otherProfilePreferencesMatchOriginal": true,
+    "originalRevision": 1795091031495,
+    "currentRevision": 1795093434427,
+    "owner": "99910469:99910469:660",
+    "disabledMethods": [],
+    "scope": [
+      {
+        "APP_PACKAGE": "com.taobao.idlefish",
+        "USER_ID": 999
+      }
+    ],
+    "apkUnchanged": true,
+    "emulator5584StartedAgain": false
+  },
+  "hypotheses": [
+    {
+      "hypothesis": "The recorded clone exits were ANR rather than an observed MTOP/network error.",
+      "status": "CONFIRMED",
+      "evidence": "Four preserved exit-info records have reason 6 and clone UID 99910400."
+    },
+    {
+      "hypothesis": "Enabling all six state methods always prevents this clone from starting.",
+      "status": "REJECTED",
+      "evidence": "Final desktop-intent cold start loaded all six methods and reached MainActivity."
+    },
+    {
+      "hypothesis": "Enabled identifier and no-SIM categories always cause startup ANR.",
+      "status": "REJECTED",
+      "evidence": "Each category and the restored combination survived the observed cold starts."
+    },
+    {
+      "hypothesis": "A timing-dependent broker, OEM class-loading or SDK state interaction caused the earlier ANR.",
+      "status": "INCONCLUSIVE",
+      "evidence": "No target ART/native userspace stack from the failure; later controls did not reproduce it."
+    }
+  ],
+  "collectorErrors": [
+    "First ps parser did not skip malformed rows; corrected before subsequent cases.",
+    "A task disappearing while sampling caused a shell exit failure; corrected.",
+    "Fast scrolls skipped network radio controls; corrected with shorter, slower scrolls. Failed draft edits were not saved."
+  ],
+  "unverified": [
+    "Logged-in requests and server error codes.",
+    "The exact lock or userspace caller responsible for the historical ANR."
+  ]
+}

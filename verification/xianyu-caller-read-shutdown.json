@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-20T15:09:49.857445+08:00",
+  "originalModeRestoredBeforeShutdown": true,
+  "mode": "Enforcing",
+  "passedResultsRetained": true,
+  "fullDiskRestorationPending": true,
+  "killResult": "OK: killing emulator, bye bye\nOK"
+}

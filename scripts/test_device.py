@@ -178,7 +178,7 @@ class Device:
         tree = ET.fromstring(raw) if raw else ET.Element("map")
         result = change(tree)
         uid = re.search(r"^package:" + re.escape(MODULE) + r" uid:(\d+)$",
-                        self.shell("pm", "list", "packages", "-U", MODULE), re.M).group(1)
+                        self.shell("pm", "list", "packages", "--user", "0", "-U", MODULE), re.M).group(1)
         mode = self.shell("stat", "-c", "%a", path) if raw else "600"
         temporary = path + ".appstate-fixture"
         command = ("mkdir -p " + folder + " && cat > " + temporary +

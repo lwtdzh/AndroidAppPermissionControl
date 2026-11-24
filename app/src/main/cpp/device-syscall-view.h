@@ -6,6 +6,7 @@
 #include <sys/prctl.h>
 #include <sys/uio.h>
 #include <pthread.h>
+#include <signal.h>
 #include <atomic>
 #include <cstddef>
 #include <poll.h>
@@ -24,18 +25,18 @@ inline ReadView readView=nullptr;
 inline Active active=nullptr;
 inline bool copy(const void *source,void *out,size_t n) {
     iovec local{out,n},remote{const_cast<void *>(source),n};
-    return process_vm_readv(getpid(),&local,1,&remote,1,0)==static_cast<ssize_t>(n);
+    // Descriptor copies are not code reads. Bypass libc wrappers that allocate
+    // and resolve loaded libraries on the broker thread.
+    return device_io::call(__NR_process_vm_readv,getpid(),reinterpret_cast<long>(&local),1,
+        reinterpret_cast<long>(&remote),1,0)==static_cast<ssize_t>(n);
 }
 inline bool sameProcess(pid_t tid) {
     if(tid==getpid())return true;
-    char path[64],bytes[4096];
-    snprintf(path,sizeof(path),"/proc/%d/status",tid);
-    int fd=device_io::open(path,O_RDONLY|O_CLOEXEC);
-    if(fd<0)return false;
-    ssize_t n=device_io::call(__NR_read,fd,reinterpret_cast<long>(bytes),sizeof(bytes)-1);
-    device_io::close(fd);if(n<=0)return false;bytes[n]=0;
-    const char *p=strstr(bytes,"Tgid:");
-    return p && strtol(p+5,nullptr,10)==getpid();
+    // The kernel exposes only this process's live threads in this directory.
+    // Avoid opening, reading and closing status for every ordinary read/mmap.
+    char path[64];
+    snprintf(path,sizeof(path),"/proc/self/task/%d",tid);
+    return device_io::call(__NR_faccessat,AT_FDCWD,reinterpret_cast<long>(path),F_OK)==0;
 }
 inline void vectorView(int fd,const iovec *source,int count,ssize_t result,off64_t start) {
     if(count<=0 || count>1024 || result<=0)return;
@@ -152,6 +153,17 @@ inline void *awaitListener(void *raw) {
     auto argument=*static_cast<Start *>(raw);
     delete static_cast<Start *>(raw);
     int readEnd=argument.readEnd,value=-1;uint64_t ready=1;
+    // Bionic reserves signal 33 for libunwindstack's remote thread backtrace.
+    // Its handler parks the sampled thread until the unwinder has read memory.
+    // Parking this broker would strand that very read in SECCOMP_USER_NOTIF.
+    // pthread_sigmask deliberately removes reserved signals, so use the kernel
+    // mask on this unmanaged worker only; app/ART threads keep their own masks.
+    uint64_t backtraceSignal=uint64_t{1}<<32;
+    if(device_io::call(__NR_rt_sigprocmask,SIG_BLOCK,
+            reinterpret_cast<long>(&backtraceSignal),0,sizeof(backtraceSignal))) {
+        device_io::close(argument.readyEnd);device_io::close(readEnd);
+        return nullptr;
+    }
     // pthread initialization may itself perform libc I/O. Do not synchronize
     // the filter until this thread has reached its raw, allocation-free loop.
     device_io::call(__NR_write,argument.readyEnd,reinterpret_cast<long>(&ready),sizeof(ready));

@@ -16,6 +16,7 @@
 #include <unordered_set>
 #include <vector>
 #include "code-view.h"
+#include "entry-hook.h"
 using Hook = int (*)(void *, void *, void **);
 using OnLoad = void (*)(const char *, void *);
 struct NativeAPIEntries { uint32_t version; Hook hookFunc; int (*unhookFunc)(void *); };
@@ -124,7 +125,12 @@ bool install(const NativeAPIEntries *api, const char *name, R replacement, O *or
     if (!symbol || symbolSize(symbol, name) < 16 || !hookedSymbols.insert(symbol).second) return false;
     uint8_t before[64];size_t captured=std::min(symbolSize(symbol,name),sizeof(before));
     memcpy(before,symbol,captured);
-    if (api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
+    int hookResult = -1;
+#if defined(__aarch64__)
+    hookResult = shield_entry::install(symbol, reinterpret_cast<void *>(replacement),
+        reinterpret_cast<void **>(original));
+#endif
+    if (hookResult != 0 && api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
         reinterpret_cast<void **>(original)) != 0) return false;
     codeViews.remember(reinterpret_cast<uintptr_t>(symbol),before,symbol,captured);
     ++hookCount;

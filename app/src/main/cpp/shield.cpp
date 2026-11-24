@@ -28,6 +28,9 @@
 #include <unordered_set>
 #include <vector>
 #include "code-view.h"
+#include "entry-hook.h"
+#include "device-raw-io.h"
+#include "loaded-symbol.h"
 
 // Public Vector ABI, checked against Vector v2.2/native/include/core/native_api.h.
 using Hook = int (*)(void *, void *, void **);
@@ -60,8 +63,10 @@ std::atomic<ReadFilter> extraReadFilter{nullptr};
 shield_code::Views codeViews;
 using OpenView = int (*)(int);
 using MemoryView = void (*)(int,void *,ssize_t,off64_t);
+using KernelRead = ssize_t (*)(int,void *,size_t);
 std::atomic<OpenView> deviceOpenView{nullptr};
 std::atomic<MemoryView> deviceMemoryView{nullptr};
+std::atomic<KernelRead> deviceKernelRead{nullptr};
 int openedView(int fd) {
     auto view=deviceOpenView.load();return view && !internal ? view(fd) : fd;
 }
@@ -153,7 +158,23 @@ bool shared(const std::string &path) {
     return false;
 }
 // Resolve relative openat paths using the descriptor rather than process cwd.
-// Use the original readlink: resolving our own hooks must never recurse.
+// Resolve with a module-owned syscall, independently of later libc detours.
+ssize_t pathLink(const char *path, char *out, size_t n) {
+    return device_io::link(path, out, n);
+}
+bool canonicalPath(const char *path, char *out, size_t n) {
+    int saved = errno;
+    int fd = device_io::open(path, O_PATH | O_CLOEXEC);
+    ssize_t count = -1;
+    if (fd >= 0) {
+        std::string link = "/proc/self/fd/" + std::to_string(fd);
+        count = pathLink(link.c_str(), out, n - 1);
+        device_io::close(fd);
+    }
+    if (count >= 0) out[count] = 0;
+    errno = saved;
+    return count >= 0;
+}
 std::string resolve(int dir, const char *path) {
     InternalGuard guard;
     if (!path) return {};
@@ -161,10 +182,10 @@ std::string resolve(int dir, const char *path) {
     char buffer[4096];
     std::string base;
     if (dir == AT_FDCWD) {
-        if (getcwd(buffer, sizeof(buffer))) base = buffer;
-    } else if (real_readlink) {
+        if (device_io::call(SYS_getcwd, reinterpret_cast<long>(buffer), sizeof(buffer)) >= 0) base = buffer;
+    } else {
         std::string fd = "/proc/self/fd/" + std::to_string(dir);
-        ssize_t n = real_readlink(fd.c_str(), buffer, sizeof(buffer) - 1);
+        ssize_t n = pathLink(fd.c_str(), buffer, sizeof(buffer) - 1);
         if (n >= 0) base.assign(buffer, static_cast<size_t>(n));
     }
     return base.empty() ? std::string(path) : base + "/" + path;
@@ -174,24 +195,22 @@ bool hidden(int dir, const char *path) {
     InternalGuard guard;
     std::string full = resolve(dir, path);
     // If caller accesses an already-open fd through /proc, classify the destination too.
-    if (full.rfind("/proc/", 0) == 0 && real_readlink) {
+    if (full.rfind("/proc/", 0) == 0) {
         char target[4096];
-        ssize_t n = real_readlink(full.c_str(), target, sizeof(target));
+        ssize_t n = pathLink(full.c_str(), target, sizeof(target));
         if (n > 0) full.assign(target, static_cast<size_t>(n));
     }
     if (shared(full) && marker(full)) return true;
-    if (real_realpath) {
-        char canonical[PATH_MAX];
-        if (real_realpath(full.c_str(), canonical)) return shared(canonical) && marker(canonical);
-    }
+    char canonical[PATH_MAX];
+    if (canonicalPath(full.c_str(), canonical, sizeof(canonical))) return shared(canonical) && marker(canonical);
     return false;
 }
 bool hiddenFd(int fd) {
-    if (internal || fd < 0 || !real_readlink) return false;
+    if (internal || fd < 0) return false;
     InternalGuard guard;
     char path[4096];
     const std::string link = "/proc/self/fd/" + std::to_string(fd);
-    ssize_t count = real_readlink(link.c_str(), path, sizeof(path));
+    ssize_t count = pathLink(link.c_str(), path, sizeof(path));
     if (count <= 0) return false;
     std::string full(path, static_cast<size_t>(count));
     return shared(full) && marker(full);
@@ -426,7 +445,10 @@ template <class Reader> ssize_t filteredRead(int fd, void *buffer, size_t size, 
 }
 ssize_t h_read(int fd, void *buffer, size_t size) {
     if (hiddenFd(fd)) return missing();
-    ssize_t n=filteredRead(fd, buffer, size, [&] { return real_read(fd, buffer, size); });
+    ssize_t n=filteredRead(fd, buffer, size, [&] {
+        auto read=deviceKernelRead.load();
+        return read && !internal ? read(fd,buffer,size) : real_read(fd,buffer,size);
+    });
     if(n>0 && deviceMemoryView.load() && !internal){
         int saved=errno;off64_t end=lseek64(fd,0,SEEK_CUR);errno=saved;memoryView(fd,buffer,n,end-n);
     }
@@ -435,7 +457,15 @@ ssize_t h_read(int fd, void *buffer, size_t size) {
 ssize_t h_read_chk(int fd, void *buffer, size_t size, size_t capacity) {
     if (size <= capacity && hiddenFd(fd)) return missing();
     // Preserve libc's fortify abort on invalid lengths.
-    return afterRead(fd, buffer, filteredRead(fd, buffer, size, [&] { return real_read_chk(fd, buffer, size, capacity); }));
+    ssize_t n=filteredRead(fd, buffer, size, [&] {
+        auto read=deviceKernelRead.load();
+        return read && !internal && size<=capacity ? read(fd,buffer,size) :
+            real_read_chk(fd,buffer,size,capacity);
+    });
+    if(n>0 && deviceMemoryView.load() && !internal) {
+        int saved=errno;off64_t end=lseek64(fd,0,SEEK_CUR);errno=saved;memoryView(fd,buffer,n,end-n);
+    }
+    return afterRead(fd,buffer,n);
 }
 ssize_t h_readv(int fd, const struct iovec *iov, int count) {
     if (hiddenFd(fd)) return missing();
@@ -743,6 +773,9 @@ size_t symbolSize(void *address, const char *name) {
 }
 bool existingExternalRedirect(void *symbol) {
 #if defined(__aarch64__)
+    using Owns = bool (*)(const void *);
+    auto owned = reinterpret_cast<Owns>(loadedSymbol("libnativecompat.so", "appstateshield_owns_entry"));
+    if (owned && owned(symbol)) return false;
     uint32_t words[2];
     memcpy(words, symbol, sizeof(words));
     uintptr_t target = 0;
@@ -790,8 +823,24 @@ template <class R, class O> void install(const NativeAPIEntries *api, void *lib,
     if (!hookedSymbols.insert(symbol).second) return;
     uint8_t before[64];size_t captured=std::min(symbolSize(symbol,name),sizeof(before));
     memcpy(before,symbol,captured);
-    if (api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
+int hookResult = -1;
+    shield_entry::Attempt attempt;
+#if defined(__aarch64__)
+    hookResult = shield_entry::install(symbol, reinterpret_cast<void *>(replacement),
+        reinterpret_cast<void **>(original), nullptr, &attempt);
+#endif
+    if (hookResult == 0 || api->hookFunc(symbol, reinterpret_cast<void *>(replacement),
         reinterpret_cast<void **>(original)) == 0) {
+        if (!strcmp(name, "mmap") || !strcmp(name, "syscall")) {
+            uint32_t words[4];
+            memcpy(words, symbol, sizeof(words));
+            __android_log_print(ANDROID_LOG_INFO, "ScreenshotShield",
+                "entry diagnostic symbol=%s atomic=%d before=%08x/%08x/%08x/%08x after=%08x/%08x/%08x/%08x far=%d reloc=%d protect=%d",
+                name, hookResult == 0, reinterpret_cast<uint32_t *>(before)[0],
+                reinterpret_cast<uint32_t *>(before)[1], reinterpret_cast<uint32_t *>(before)[2],
+                reinterpret_cast<uint32_t *>(before)[3], words[0], words[1], words[2], words[3],
+                attempt.distant, attempt.relocation, attempt.protection);
+        }
         codeViews.remember(reinterpret_cast<uintptr_t>(symbol),before,symbol,captured);
         successfulHooks.insert(symbol);
         hookCount++;
@@ -808,9 +857,12 @@ appstateshield_set_selinux_read_filter(void *symbol, ReadFilter filter) {
 extern "C" __attribute__((visibility("default"))) void
 appstateshield_overlay_own_code(uintptr_t at,void *buffer,size_t n) {codeViews.overlay(at,buffer,n);}
 extern "C" __attribute__((visibility("default"))) bool
-appstateshield_set_device_file_views(void *symbol,int kind,OpenView opened,MemoryView memory) {
+appstateshield_set_device_file_views(void *symbol,int kind,OpenView opened,MemoryView memory,KernelRead read) {
     if(!successfulHooks.count(symbol))return false;
-    if(kind==0)deviceOpenView.store(opened);else deviceMemoryView.store(memory);
+    if(kind==0)deviceOpenView.store(opened);else {
+        deviceMemoryView.store(memory);
+        deviceKernelRead.store(read);
+    }
     return true;
 }
 
@@ -849,13 +901,7 @@ extern "C" __attribute__((visibility("default"))) OnLoad native_init(const Nativ
     INSTALL("fstatat64", h_fstatat64, real_fstatat64);
     INSTALL("fstat", h_fstat, real_fstat);
     INSTALL("fstat64", h_fstat64, real_fstat64);
-    INSTALL("pread", h_pread, real_pread);
-    INSTALL("pread64", h_pread64, real_pread64);
-    INSTALL("preadv", h_preadv, real_preadv);
-    INSTALL("preadv64", h_preadv64, real_preadv64);
     INSTALL("statx", h_statx, real_statx);
-    INSTALL("mmap", h_mmap, real_mmap);
-    INSTALL("mmap64", h_mmap64, real_mmap64);
     INSTALL("fopen", h_fopen, real_fopen);
     INSTALL("fopen64", h_fopen, real_fopen);
     INSTALL("freopen", h_freopen, real_freopen);
@@ -867,6 +913,12 @@ extern "C" __attribute__((visibility("default"))) OnLoad native_init(const Nativ
     INSTALL("inotify_init1", h_inotify_init1, real_inotify_init1);
     INSTALL("inotify_add_watch", h_add_watch, real_add_watch);
     INSTALL("inotify_rm_watch", h_rm_watch, real_rm_watch);
+    INSTALL("pread", h_pread, real_pread);
+    INSTALL("pread64", h_pread64, real_pread64);
+    INSTALL("preadv", h_preadv, real_preadv);
+    INSTALL("preadv64", h_preadv64, real_preadv64);
+    INSTALL("mmap", h_mmap, real_mmap);
+    INSTALL("mmap64", h_mmap64, real_mmap64);
     INSTALL("read", h_read, real_read);
     INSTALL("__read_chk", h_read_chk, real_read_chk);
     INSTALL("readv", h_readv, real_readv);

@@ -8,8 +8,32 @@ public final class CategoryGateTest {
     private static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
     public static void main(String[] args)throws Exception {
         DeviceProfile base=DeviceProfile.preset("xiaomi-14");
-        for(String group:List.of("ids","model","location","network","environment"))
+        Map<String,Integer> expectedTotal=new LinkedHashMap<>();
+        expectedTotal.put("ids",10);
+        expectedTotal.put("network",15);
+        expectedTotal.put("model",13);
+        expectedTotal.put("location",3);
+        expectedTotal.put("environment",6);
+        Map<String,Integer> expectedSelected=new LinkedHashMap<>();
+        expectedSelected.put("ids",9);
+        expectedSelected.put("network",15);
+        expectedSelected.put("model",13);
+        expectedSelected.put("location",3);
+        expectedSelected.put("environment",6);
+        check(base.values.size()==DeviceField.ALL.size()&&base.selected.size()==DeviceField.ALL.size()-1,
+            "New profile preselects every catalog field except MediaDrm");
+        check(!base.selected.contains("drm_id"),"MediaDrm keeps the historical identifier opt-out");
+        for(String group:List.of("ids","model","location","network","environment")) {
             check(!base.groupEnabled(group)&&base.groupState(group,true).equals("已关闭"),"Default off "+group);
+            int total=0,selected=0;
+            for(DeviceField field:DeviceField.ALL)if(field.group.equals(group)){
+                total++;
+                if(base.selected.contains(field.id))selected++;
+                check(base.values.containsKey(field.id),"Prepared value "+field.id);
+            }
+            check(total==expectedTotal.get(group),"Catalog count changed for "+group);
+            check(selected==expectedSelected.get(group),"Default field selection "+group);
+        }
         Set<String> all=new LinkedHashSet<>(base.values.keySet());
         for(DeviceField field:DeviceField.ALL) {
             check(base.values.containsKey(field.id),"Fixture value "+field.id);

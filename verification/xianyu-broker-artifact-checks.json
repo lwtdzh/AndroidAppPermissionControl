@@ -1,0 +1,50 @@
+{
+  "allCasesPassed": 83,
+  "matrixCasesPassed": 64,
+  "matrixMachineAndBrokerEnabled": true,
+  "buildInputsSHA256": "85cebd823689b4cfc76f93d2af0ccffceef1351858ca693c068bfa7809c69c50",
+  "artifacts": {
+    "AppStateShield-xianyu-broker.apk": {
+      "sha256": "57c09d81ecd464541a58a9d782d180c0d04804b26fc8e9dd2e9d4c9f69e8305c",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "AppStateVerifier-xianyu-broker.apk": {
+      "sha256": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "Verifier-A-xianyu-broker.apk": {
+      "sha256": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "Verifier-B-xianyu-broker.apk": {
+      "sha256": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    }
+  },
+  "releaseDebugFixturesExcluded": true,
+  "packagingCheckCorrection": "FixtureActivity is an existing production diagnostic control. The initial check incorrectly classified it as debug-only; the corrected check uses actual src/debug class descriptors and JNI libraries."
+}

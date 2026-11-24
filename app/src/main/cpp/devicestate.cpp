@@ -57,7 +57,12 @@ struct MappedSnapshot{uintptr_t start;size_t size;size_t file;};
 struct BrokerSnapshot {
     std::vector<FileSnapshot> files;
     std::vector<MappedSnapshot> mappings;
+    uint64_t memoryDevice=0,memoryInode=0;
+    bool memoryKnown=false;
     ~BrokerSnapshot(){for(auto &file:files)device_io::close(file.descriptor);}
+    bool ownMemory(const struct stat &st) const {
+        return memoryKnown && st.st_dev==memoryDevice && st.st_ino==memoryInode;
+    }
 };
 std::shared_ptr<const BrokerSnapshot> brokerSnapshot=std::make_shared<const BrokerSnapshot>();
 // This callback consumes a duplicate and returns -1 when unselected. It never
@@ -74,12 +79,7 @@ int brokerOpened(int fd) {
             int next=device_io::duplicate(file.descriptor);
             device_io::close(fd);return next;
         }
-    char path[64],name[128];snprintf(path,sizeof(path),"/proc/self/fd/%d",fd);
-    ssize_t n=device_io::link(path,name,sizeof(name)-1);
-    if(n>0) {
-        name[n]=0;char own[64];snprintf(own,sizeof(own),"/proc/%d/mem",getpid());
-        if(!strcmp(name,own) || !strcmp(name,"/proc/self/mem"))return fd;
-    }
+    if(snapshot->ownMemory(st))return fd;
     device_io::close(fd);return -1;
 }
 void brokerReadView(int fd,void *buffer,ssize_t count,off64_t offset) {
@@ -93,13 +93,16 @@ void brokerReadView(int fd,void *buffer,ssize_t count,off64_t offset) {
             if(begin<end)memcpy(static_cast<char *>(out)+begin-from,file.bytes.data()+begin,end-begin);
         }
     };
-    for(const auto &file:snapshot->files)if(st.st_dev==file.device && st.st_ino==file.inode) {
+    for(const auto &file:snapshot->files)if(
+        (st.st_dev==file.device && st.st_ino==file.inode) ||
+        (st.st_dev==file.shadowDevice && st.st_ino==file.shadowInode)) {
         if(static_cast<uint64_t>(offset)<file.bytes.size()) {
             size_t n=std::min(static_cast<size_t>(count),file.bytes.size()-static_cast<size_t>(offset));
             overlay(file,offset,n,buffer);
         }
         return;
     }
+    if(!snapshot->ownMemory(st))return;
     uintptr_t begin=static_cast<uintptr_t>(offset);
     if(static_cast<size_t>(count)>UINTPTR_MAX-begin)return;
     for(const auto &mapping:snapshot->mappings) {
@@ -116,6 +119,15 @@ void brokerReadView(int fd,void *buffer,ssize_t count,off64_t offset) {
 void prepareBrokerSnapshot(const std::shared_ptr<const Values> &values) {
     auto next=std::make_shared<BrokerSnapshot>();
     if(!values->empty()) {
+        // O_PATH observes identity only; it does not acquire memory-read access.
+        int memory=device_io::open("/proc/self/mem",O_PATH|O_CLOEXEC);
+        struct stat st{};
+        if(memory>=0) {
+            if(!device_io::stat(memory,&st)) {
+                next->memoryDevice=st.st_dev;next->memoryInode=st.st_ino;next->memoryKnown=true;
+            }
+            device_io::close(memory);
+        }
         std::unordered_set<std::string> paths;
         for(const auto &mapping:propertyMappings)paths.insert(mapping.path);
         DIR *directory=opendir("/dev/__properties__");
@@ -155,41 +167,15 @@ int opened(int fd) {
 void readView(int fd,void *buffer,ssize_t count,off64_t offset) {
     if(device_files::internal || count<=0 || offset<0)return;
     int saved=errno;device_files::Guard guard;
-    auto snapshot=std::atomic_load(&values);
-    if(snapshot->empty()){errno=saved;return;}
-    auto name=device_files::path(fd);
-    if(device_files::ownMemory(name)) {
-        {
-            std::lock_guard<std::mutex> lock(mappingsMutex);
-            uintptr_t begin=static_cast<uintptr_t>(offset);
-            if(static_cast<size_t>(count)<=UINTPTR_MAX-begin)
-                for(const auto &mapping:propertyMappings) {
-                    uintptr_t from=std::max(begin,mapping.start);
-                    uintptr_t end=std::min(begin+count,mapping.start+mapping.size);
-                    if(from>=end)continue;
-                    int source=device_io::open(mapping.path.c_str(),O_RDONLY|O_CLOEXEC);if(source<0)continue;
-                    shield_properties::Area area;
-                    bool valid=device_files::load(source,area);close(source);
-                    if(valid && area.replace(*snapshot) && end-mapping.start<=area.bytes().size())
-                        memcpy(static_cast<char *>(buffer)+from-begin,
-                            area.bytes().data()+from-mapping.start,end-from);
-                }
-        }
-        using Overlay=void (*)(uintptr_t,void *,size_t);
-        codeViews.overlay(static_cast<uintptr_t>(offset),buffer,count);
-        for(const char *library:{"libshield.so","libdeveloperstate.so","libselinuxstate.so","libvpnstate.so"}) {
-            auto overlay=reinterpret_cast<Overlay>(loadedSymbol(library,"appstateshield_overlay_own_code"));
-            if(overlay)overlay(static_cast<uintptr_t>(offset),buffer,count);
-        }
-    } else if(device_files::propertyPath(name)) {
-        shield_properties::Area area;
-        if(device_files::load(fd,area) && area.replace(*snapshot) &&
-           static_cast<uint64_t>(offset)<area.bytes().size()) {
-            size_t n=std::min(static_cast<size_t>(count),area.bytes().size()-static_cast<size_t>(offset));
-            memcpy(buffer,area.bytes().data()+offset,n);
-        }
-    }
+    // Both libc and direct syscalls consume the same prepared snapshot. The
+    // common ordinary-file path needs only fstat, without file reloads/dlsym.
+    brokerReadView(fd,buffer,count,offset);
     errno=saved;
+}
+ssize_t kernelRead(int fd,void *buffer,size_t count) {
+    // Called after the owning wrapper's policy checks. Its output still passes
+    // through readView and the composed SELinux filter on the caller thread.
+    return device_io::call(__NR_read,fd,reinterpret_cast<long>(buffer),count);
 }
 bool modeRequired(int flags){return (flags&O_CREAT) || ((flags&O_TMPFILE)==O_TMPFILE);}
 int h_openfd(const char *name,int flags,...) {
@@ -454,10 +440,11 @@ template<class R,class O> void addProperty(const char *name,R replacement,O *ori
     add(name,replacement,original);
 }
 template<class R,class O> void addFile(const char *name,R replacement,O *original,int kind) {
-    using Register=bool (*)(void *,int,int (*)(int),void (*)(int,void *,ssize_t,off64_t));
+    using Register=bool (*)(void *,int,int (*)(int),void (*)(int,void *,ssize_t,off64_t),
+                           ssize_t (*)(int,void *,size_t));
     auto registration=reinterpret_cast<Register>(
         loadedSymbol("libshield.so","appstateshield_set_device_file_views"));
-    if(registration && registration(dlsym(RTLD_DEFAULT,name),kind,opened,readView))return;
+    if(registration && registration(dlsym(RTLD_DEFAULT,name),kind,opened,readView,kernelRead))return;
     add(name,replacement,original);
 }
 bool verifyLayout() {
@@ -515,7 +502,8 @@ extern "C" __attribute__((visibility("default"))) OnLoad native_init(const Nativ
     addFile("pread64",h_preadfd,&real_pread64,1);
     addFile("read",h_readfd,&real_readfd,1);
     addFile("readv",h_readvfd,&real_readvfd,1);
-    for(const char *library:{"libshield.so","libdeveloperstate.so","libselinuxstate.so","libvpnstate.so"}) {
+    for(const char *library:{"libselinuxstate.so","libdeveloperstate.so","libvpnstate.so",
+                            "libshield.so","libnativecompat.so"}) {
         auto overlay=reinterpret_cast<CodeOverlay>(loadedSymbol(library,"appstateshield_overlay_own_code"));
         if(overlay)brokerOverlays.push_back(overlay);
     }

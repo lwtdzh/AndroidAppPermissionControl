@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "name": "native-compat-test",
+      "exitCode": 0,
+      "seconds": 0.022
+    },
+    {
+      "name": "entry-hook-test",
+      "exitCode": 0,
+      "seconds": 0.021
+    }
+  ],
+  "serial": "emulator-5584",
+  "abi": "arm64-v8a",
+  "restored": true,
+  "nativecompatSHA256": "671ff920ce7139990a7e46bab53fe96d235e0f9f0e91fc4234cb24271d0d28a8",
+  "unsignedApkSHA256": "eacd14dae8f3a918730591c39bf6daa8e1be860726b7b3465dd5b2b8e9309110",
+  "fixture": "local ART symbol + Vector-shaped redirect, not OEM ART runtime"
+}

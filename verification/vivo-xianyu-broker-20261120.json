@@ -1,0 +1,130 @@
+{
+  "recordedAt": "2026-11-20T10:42:11.640583+08:00",
+  "status": "installed-and-active-profile-cold-start-passed",
+  "device": {
+    "model": "vivo V2419A",
+    "appUser": 999,
+    "appUID": 99910400
+  },
+  "installedModuleSHA256": "57c09d81ecd464541a58a9d782d180c0d04804b26fc8e9dd2e9d4c9f69e8305c",
+  "mappedModuleAPKMatchesInstalledCandidate": true,
+  "earlierRejectedInstallPreservedIn": "vivo-xianyu-broker-install-20261119.json",
+  "firstPostInstallStartup": {
+    "pid": "22823",
+    "policyLoaded": false,
+    "notUsedAsActiveMachineVerification": true,
+    "reason": "After package replacement the module was stopped and policy reads raised IllegalArgumentException."
+  },
+  "visibilityRecovery": {
+    "clonedSettingsOpenedWithoutSaving": true,
+    "mechanism": "SettingsActivity.onCreate -> PolicyVisibility.restore",
+    "collectorCorrection": "The initial immediate resumed-activity check raced the clone selector; the same launch subsequently reached SettingsActivity. A bounded readiness wait was added."
+  },
+  "activeColdStart": {
+    "pid": "31554",
+    "desktopIntent": true,
+    "sampleCount": 13,
+    "windowSeconds": 67.18,
+    "mainPresentInAllSamples": true,
+    "exitInfo": [],
+    "module": [
+      {
+        "time": "11-20 10:39:48.904",
+        "tag": "AppStateShield",
+        "events": [
+          "ART code views=8"
+        ]
+      },
+      {
+        "time": "11-20 10:39:48.905",
+        "tag": "AppStateShield",
+        "events": [
+          "native compatibility ready=1"
+        ]
+      },
+      {
+        "time": "11-20 10:39:48.924",
+        "tag": "ScreenshotShield",
+        "events": [
+          "native ready api=2"
+        ]
+      },
+      {
+        "time": "11-20 10:39:48.924",
+        "tag": "AppStateShield",
+        "events": [
+          "native adapter restored=1"
+        ]
+      },
+      {
+        "time": "11-20 10:39:49.183",
+        "tag": "DeviceProfile",
+        "events": [
+          "native ready hooks=3 objects=1"
+        ]
+      },
+      {
+        "time": "11-20 10:39:49.415",
+        "tag": "AppStateShield",
+        "events": [
+          "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+        ]
+      }
+    ],
+    "ui": {
+      "observedAt": "2026-11-20T10:40:55.592607+08:00",
+      "resumedUser": "999",
+      "resumedComponent": "com.taobao.idlefish/.maincontainer.activity.MainActivity",
+      "uiDumpCompleted": true,
+      "visibleStandardLabels": [
+        "我的",
+        "消息",
+        "闲鱼"
+      ],
+      "resourceIds": [
+        "com.taobao.idlefish:id/icon_entry",
+        "com.taobao.idlefish:id/icon_entry_wrapper",
+        "com.taobao.idlefish:id/id_pager",
+        "com.taobao.idlefish:id/inner_nested_scroll_view",
+        "com.taobao.idlefish:id/login_guide_bar",
+        "com.taobao.idlefish:id/msg_tag_debug_text_id",
+        "com.taobao.idlefish:id/nested_recycler_view",
+        "com.taobao.idlefish:id/outer_nested_scroll_view",
+        "com.taobao.idlefish:id/photo_search",
+        "com.taobao.idlefish:id/scan_wrapper",
+        "com.taobao.idlefish:id/search_bar_layout",
+        "com.taobao.idlefish:id/search_btn",
+        "com.taobao.idlefish:id/tab_title",
+        "com.taobao.idlefish:id/title",
+        "com.taobao.idlefish:id/view_pager",
+        "com.taobao.idlefish:id/viewpager"
+      ]
+    },
+    "privateStartupEvidenceSHA256": "e78d64962e74a4a297a9fcb9581da79bfaee57cb4ed195223854f948ebb9ad64",
+    "privateUIEvidenceSHA256": "2fc9ad1c6dc4baa46484184c7d56cb4baed25c600847d8d8101f561395e53bb1"
+  },
+  "controls": {
+    "enabled": true,
+    "idsEnabled": true,
+    "networkMode": "no_sim",
+    "modelEnabled": false,
+    "environmentEnabled": false,
+    "locationEnabled": false
+  },
+  "selectedCount": 46,
+  "preservation": {
+    "allModulePreferencesAndOtherProfilesUnchanged": true,
+    "fileOwnershipAndPermissionsUnchanged": true,
+    "allVectorModulesAndScopesUnchanged": true,
+    "phoneAppDataCleared": false,
+    "savedParametersChanged": false,
+    "profileRevisionUnchanged": true
+  },
+  "limitations": [
+    "One valid active-profile cold start; long-term failure frequency is unmeasured.",
+    "No logged-in request or response validation.",
+    "No physical-device data reset was performed."
+  ],
+  "emulatorRetested": false,
+  "committedOrPushed": false
+}

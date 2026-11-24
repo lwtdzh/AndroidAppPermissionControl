@@ -1,0 +1,44 @@
+{
+  "at": "2026-11-24T15:39:56.022252+08:00",
+  "device": "emulator-5584",
+  "abi": "arm64-v8a",
+  "installedSha256": {
+    "io.github.lwtdzh.appstateshield": "8aecb5b8272f59cbe19b5415385655bbe353a6a2db88473ea0636aae2087f103",
+    "io.github.lwtdzh.screenshotdetector": "d261a2463e94b88fc0ae0cea34186c17fc515b6e981c342e97567e5fdb364dac"
+  },
+  "installedVersions": {
+    "io.github.lwtdzh.appstateshield": "0.4.14",
+    "io.github.lwtdzh.screenshotdetector": "0.4.14"
+  },
+  "injection": true,
+  "baselineDeviceDisabled": true,
+  "samePid": 4765,
+  "enabledUpdatedDisabled": true,
+  "ordinaryHttps": 204,
+  "nativeLifetime": true,
+  "serialObservations": {
+    "baseline": {
+      "value": null,
+      "error": "TimeoutException"
+    },
+    "enabled": {
+      "value": "RELEASE0140001",
+      "error": null
+    },
+    "updated": {
+      "value": "RELEASE0140002",
+      "error": null
+    },
+    "disabled": {
+      "value": null,
+      "error": "TimeoutException"
+    }
+  },
+  "cases": {
+    "baseline": 4765,
+    "enabled": 1795505983044,
+    "updated": 1795505985662
+  },
+  "buildInputsSHA256": "c278a8e47b3cf5bebbc4cf03d37e20f72188a5afe7c1de20fe7e4df818b40cdc",
+  "note": "Build.getSerial returns TimeoutException on this emulator with the profile disabled; the disabled sample matches the baseline error exactly."
+}

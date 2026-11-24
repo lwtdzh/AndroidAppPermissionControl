@@ -1,0 +1,19 @@
+{
+  "at": "2026-11-20T17:36:54.874684+08:00",
+  "status": "requested-reinstallation-completed",
+  "device": "vivo V2419A",
+  "package": "io.github.lwtdzh.appstateshield",
+  "version": "0.4.13",
+  "moduleSHA256": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+  "lastUpdateTime": "2026-11-20 17:33:47",
+  "installSession": 848079097,
+  "sessionFinalStatus": 1,
+  "mainAndCloneInstalledBytesMatch": true,
+  "policiesProfilesAndOwnersPreserved": true,
+  "allVectorModulesAndScopesPreserved": true,
+  "appDataCleared": false,
+  "fourStepAcceptanceRepeated": false,
+  "reinstallPromptConfirmedForExactModule": true,
+  "adbClientTimedOutBeforeManualConfirmation": true,
+  "existingSessionCompletedWithoutResubmittingAPK": true
+}

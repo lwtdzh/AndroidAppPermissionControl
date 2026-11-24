@@ -1,0 +1,10 @@
+{
+  "installationAttempt": "INSTALL_FAILED_ABORTED: User rejected permissions",
+  "candidateInstalled": false,
+  "originalModuleSHA256": "57c1a94c24c1c366f47f68671f720497405e3a278b5e976490abbb9e8b6c72ea",
+  "modulePreferencesUnchanged": true,
+  "ownershipUnchanged": true,
+  "moduleStatesAndAllScopesUnchanged": true,
+  "phoneDataCleared": false,
+  "candidateColdStartExecuted": false
+}

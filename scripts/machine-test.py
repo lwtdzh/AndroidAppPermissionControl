@@ -175,7 +175,7 @@ class Run:
             d.shell("input","keyevent","KEYCODE_MOVE_END")
             if text:d.shell("input","keyevent",*(["KEYCODE_DEL"]*len(text)))
             d.shell("input","text",value.replace(" ","%s"));d.back()
-        d.click("更新草稿","text")
+        d.click("android:id/button1","resource-id")
     def smoke(self):
         d=self.d;self.open_editor()
         if d.find("device-enabled").get("checked")!="true":d.click("device-enabled")

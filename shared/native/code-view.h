@@ -11,6 +11,13 @@ class Views {
     std::mutex lock_;
     std::vector<Entry> entries_;
 public:
+    bool owns(const void *address) {
+        std::lock_guard<std::mutex> guard(lock_);
+        for (const auto &entry : entries_)
+            if (entry.address == reinterpret_cast<uintptr_t>(address)
+                && !memcmp(address, entry.installed.data(), entry.installed.size())) return true;
+        return false;
+    }
     void remember(uintptr_t at, const void *before, const void *after, size_t n) {
         if (!at || !n || n > 256) return;
         std::lock_guard<std::mutex> guard(lock_);

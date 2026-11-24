@@ -1,0 +1,581 @@
+{
+  "cases": {
+    "I00-existing-worker-baseline": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "properties": [
+            {
+              "name": "ro.build.fingerprint",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 324
+            },
+            {
+              "name": "ro.product.model",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 13156
+            }
+          ],
+          "code": {
+            "available": true,
+            "apiMatchesDisk": true,
+            "inlineMatchesDisk": true,
+            "executableRemainsHooked": false
+          },
+          "ordinary": {
+            "rawRead": true,
+            "rawEOF": true,
+            "rawBadFd": true
+          },
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 0,
+            "deviceNative": false,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158546166,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": false,
+            "injected": true,
+            "deviceSelected": [
+              "model",
+              "fingerprint",
+              "brand",
+              "manufacturer",
+              "device",
+              "product"
+            ],
+            "deviceEnabled": false
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 3961,
+          "workerTid": 3992
+        }
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:06.358803+00:00",
+      "durationSeconds": 1.084,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "I-enabled": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "properties": [
+            {
+              "name": "ro.build.fingerprint",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": false,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 324
+            },
+            {
+              "name": "ro.product.model",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 13156
+            }
+          ],
+          "code": {
+            "available": true,
+            "apiMatchesDisk": true,
+            "inlineMatchesDisk": true,
+            "executableRemainsHooked": true
+          },
+          "ordinary": {
+            "rawRead": true,
+            "rawEOF": true,
+            "rawBadFd": true
+          },
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 314,
+            "deviceRemappedPages": 4,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158547547,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceRetainedPages": 4,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": true,
+            "injected": true,
+            "deviceSyscallView": 1,
+            "deviceSelected": [
+              "model",
+              "fingerprint",
+              "brand",
+              "manufacturer",
+              "device",
+              "product"
+            ],
+            "deviceSyscallErrno": 0,
+            "deviceEnabled": true,
+            "deviceFileViews": 142
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 3961,
+          "workerTid": 3992
+        },
+        "sameProcessAndPreexistingThread": true
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:07.445506+00:00",
+      "durationSeconds": 1.758,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "I-short": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "properties": [
+            {
+              "name": "ro.build.fingerprint",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": false,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 324
+            },
+            {
+              "name": "ro.product.model",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 13156
+            }
+          ],
+          "code": {
+            "available": true,
+            "apiMatchesDisk": true,
+            "inlineMatchesDisk": true,
+            "executableRemainsHooked": true
+          },
+          "ordinary": {
+            "rawRead": true,
+            "rawEOF": true,
+            "rawBadFd": true
+          },
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 314,
+            "deviceRemappedPages": 4,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158549276,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceRetainedPages": 5,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": true,
+            "injected": true,
+            "deviceSyscallView": 1,
+            "deviceSelected": [
+              "model",
+              "fingerprint",
+              "brand",
+              "manufacturer",
+              "device",
+              "product"
+            ],
+            "deviceSyscallErrno": 0,
+            "deviceEnabled": true,
+            "deviceFileViews": 284
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 3961,
+          "workerTid": 3992
+        },
+        "sameProcessAndPreexistingThread": true
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:09.204186+00:00",
+      "durationSeconds": 2.033,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "I-deselected": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "properties": [
+            {
+              "name": "ro.build.fingerprint",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 324
+            },
+            {
+              "name": "ro.product.model",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 13156
+            }
+          ],
+          "code": {
+            "available": true,
+            "apiMatchesDisk": false,
+            "inlineMatchesDisk": false,
+            "executableRemainsHooked": true
+          },
+          "ordinary": {
+            "rawRead": true,
+            "rawEOF": true,
+            "rawBadFd": true
+          },
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 314,
+            "deviceRemappedPages": 0,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158551308,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceRetainedPages": 0,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": true,
+            "injected": true,
+            "deviceSyscallView": 1,
+            "deviceSelected": [],
+            "deviceSyscallErrno": 0,
+            "deviceEnabled": true,
+            "deviceFileViews": 284
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 3961,
+          "workerTid": 3992
+        },
+        "sameProcessAndPreexistingThread": true
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:11.238466+00:00",
+      "durationSeconds": 2.01,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "I-off": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "properties": [
+            {
+              "name": "ro.build.fingerprint",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 324
+            },
+            {
+              "name": "ro.product.model",
+              "libcRead": true,
+              "libcMmap": true,
+              "inlineRead": true,
+              "inlineMmap": true,
+              "cachedAreaSubstituted": true,
+              "cachedFdInlineRead": true,
+              "cachedFdInlineMmap": true,
+              "infoOffset": 13156
+            }
+          ],
+          "code": {
+            "available": true,
+            "apiMatchesDisk": false,
+            "inlineMatchesDisk": false,
+            "executableRemainsHooked": true
+          },
+          "ordinary": {
+            "rawRead": true,
+            "rawEOF": true,
+            "rawBadFd": true
+          },
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 314,
+            "deviceRemappedPages": 0,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158553316,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceRetainedPages": 0,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": true,
+            "injected": true,
+            "deviceSyscallView": 1,
+            "deviceSelected": [
+              "model",
+              "fingerprint",
+              "brand",
+              "manufacturer",
+              "device",
+              "product"
+            ],
+            "deviceSyscallErrno": 0,
+            "deviceEnabled": false,
+            "deviceFileViews": 284
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 3961,
+          "workerTid": 3992
+        },
+        "sameProcessAndPreexistingThread": true
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:13.249589+00:00",
+      "durationSeconds": 2.042,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "I07-new-vector-and-error-edges": {
+      "status": "passed",
+      "evidence": {
+        "observation": {
+          "rawReadvSelected": true,
+          "rawPreadv2Selected": true,
+          "rawPreadv2CurrentOffset": true,
+          "preadvKeepsPosition": true,
+          "independentOpenPosition": true,
+          "invalidBufferPreservesErrorAndOffset": true,
+          "oPathReadError": true,
+          "writeSharedMapDenied": true,
+          "iovLimitError": true,
+          "vectorEOF": true,
+          "module": {
+            "policyLoaded": true,
+            "networkMode": "off",
+            "modelEnabled": true,
+            "locationEnabled": false,
+            "enabled": [],
+            "deviceHooks": 314,
+            "deviceRemappedPages": 4,
+            "deviceNative": true,
+            "deviceRegion": "",
+            "idsEnabled": false,
+            "deviceRevision": 1795158555401,
+            "environmentEnabled": false,
+            "futureMethodEnabled": true,
+            "deviceRetainedPages": 5,
+            "deviceAttestationIdsRemoved": 0,
+            "deviceNativeObjects": true,
+            "injected": true,
+            "deviceSyscallView": 1,
+            "deviceSelected": [
+              "model",
+              "fingerprint",
+              "brand",
+              "manufacturer",
+              "device",
+              "product"
+            ],
+            "deviceSyscallErrno": 0,
+            "deviceEnabled": true,
+            "deviceFileViews": 133
+          },
+          "display": {
+            "width": 1080,
+            "height": 2400,
+            "density": 420
+          },
+          "pid": 4492,
+          "workerTid": 4523
+        },
+        "newAssertions": 10,
+        "oldNativeChecksSkipped": true
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+        "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+      },
+      "startedAtUTC": "2026-11-20T07:09:16.701420+00:00",
+      "durationSeconds": 0.0,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "attestationExecuted": false,
+  "artifacts": {
+    "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+    "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+    "Verifier-A-xianyu-caller-read.apk": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+    "Verifier-B-xianyu-caller-read.apk": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049"
+  },
+  "passed": true
+}

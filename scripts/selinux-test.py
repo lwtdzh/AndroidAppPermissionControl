@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import pathlib
+import shlex
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -366,7 +367,7 @@ class Run:
                 check(d.shell("sha256sum", installed).split()[0] ==
                       hashlib.sha256(pathlib.Path(original["packages"][pkg]).read_bytes()).hexdigest(),
                       "Original APK hash differs: " + pkg)
-            else:
+            elif d.shell("sh", "-c", "pm path " + shlex.quote(pkg) + " 2>/dev/null || true"):
                 d.adb("uninstall", pkg)
         for m in original["modules"]:
             d.cli("modules", "enable" if m["STATUS"] == "enabled" else "disable", m["PACKAGE"])
@@ -392,7 +393,7 @@ class Run:
         scale = original.get("fontScale", "1.0")
         d.shell("settings", "delete", "system", "font_scale") if scale == "null" else d.shell("settings", "put", "system", "font_scale", scale)
         check(d.shell("settings", "get", "system", "font_scale") == scale, "Original font scale differs")
-        if not original.get("storageGranted", False):
+        if not original.get("storageGranted", False) and PRIMARY in original["packages"]:
             for permission in ("READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"):
                 d.shell("pm", "revoke", PRIMARY, "android.permission." + permission)
                 check("android.permission." + permission + ": granted=true" not in d.shell("dumpsys", "package", PRIMARY),

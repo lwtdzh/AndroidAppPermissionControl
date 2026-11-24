@@ -1,0 +1,1300 @@
+{
+  "cases": {
+    "baseline": {
+      "status": "passed",
+      "evidence": {
+        "pid": 20703,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795157899042,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceEnabled": false
+        },
+        "serial": {
+          "value": "unknown",
+          "source": "Build.getSerial"
+        },
+        "serialStatic": {
+          "value": "unknown",
+          "source": "Build.SERIAL"
+        },
+        "nativeProperties": {
+          "ro.product.model": {
+            "get": "Android SDK built for arm64",
+            "read": "Android SDK built for arm64",
+            "callback": "Android SDK built for arm64"
+          },
+          "ro.product.brand": {
+            "get": "Android",
+            "read": "Android",
+            "callback": "Android"
+          },
+          "ro.product.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.board": {
+            "get": "goldfish_arm64",
+            "read": "goldfish_arm64",
+            "callback": "goldfish_arm64"
+          },
+          "ro.product.vendor.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.odm.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.system_ext.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.product.system_ext.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.system_ext.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.system.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.system_ext.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.odm.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.version.release": {
+            "get": "16",
+            "read": "16",
+            "callback": "16"
+          },
+          "ro.serialno": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.hardware": {
+            "get": "ranchu",
+            "read": "ranchu",
+            "callback": "ranchu"
+          },
+          "ro.boot.selinux": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "sys.usb.config": {
+            "get": "none",
+            "read": "none",
+            "callback": "none"
+          },
+          "appstate.probe.absent": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.sf.lcd_density": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system_ext.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system_ext.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system_ext.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.vendor.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.vendor.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.vendor.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.product.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.product.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.product.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.odm.build.id": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.type": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.tags": {
+            "get": "",
+            "read": null,
+            "callback": null
+          }
+        },
+        "privateEvidenceSHA256": "7e9f2531ffef5a443b6900313017d4331843d11d2d3c3f41394ab5c202a2e3fd"
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:58:19.163710+00:00",
+      "durationSeconds": 1.653,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "enabled": {
+      "status": "passed",
+      "evidence": {
+        "pid": 20703,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 308,
+          "deviceRemappedPages": 0,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795157922074,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 0,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "serial": {
+          "value": "CALLERREAD000001",
+          "source": "Build.getSerial"
+        },
+        "serialStatic": {
+          "value": "CALLERREAD000001",
+          "source": "Build.SERIAL"
+        },
+        "nativeProperties": {
+          "ro.product.model": {
+            "get": "Android SDK built for arm64",
+            "read": "Android SDK built for arm64",
+            "callback": "Android SDK built for arm64"
+          },
+          "ro.product.brand": {
+            "get": "Android",
+            "read": "Android",
+            "callback": "Android"
+          },
+          "ro.product.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.board": {
+            "get": "goldfish_arm64",
+            "read": "goldfish_arm64",
+            "callback": "goldfish_arm64"
+          },
+          "ro.product.vendor.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.odm.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.system_ext.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.product.system_ext.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.system_ext.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.system.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.system_ext.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.odm.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.version.release": {
+            "get": "16",
+            "read": "16",
+            "callback": "16"
+          },
+          "ro.serialno": {
+            "get": "CALLERREAD000001",
+            "read": "CALLERREAD000001",
+            "callback": "CALLERREAD000001"
+          },
+          "ro.hardware": {
+            "get": "ranchu",
+            "read": "ranchu",
+            "callback": "ranchu"
+          },
+          "ro.boot.selinux": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "sys.usb.config": {
+            "get": "none",
+            "read": "none",
+            "callback": "none"
+          },
+          "appstate.probe.absent": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.sf.lcd_density": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system_ext.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system_ext.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system_ext.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.vendor.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.vendor.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.vendor.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.product.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.product.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.product.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.odm.build.id": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.type": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.tags": {
+            "get": "",
+            "read": null,
+            "callback": null
+          }
+        },
+        "privateEvidenceSHA256": "07979e73917f3c6a0991f5d37b6d3296da240bed9c88c9100a258e8c0e2b4ae4"
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:58:41.952329+00:00",
+      "durationSeconds": 0.833,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "updated": {
+      "status": "passed",
+      "evidence": {
+        "pid": 20703,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 308,
+          "deviceRemappedPages": 0,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795157922897,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 0,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": true,
+          "deviceFileViews": 0
+        },
+        "serial": {
+          "value": "CALLERREAD000002",
+          "source": "Build.getSerial"
+        },
+        "serialStatic": {
+          "value": "CALLERREAD000002",
+          "source": "Build.SERIAL"
+        },
+        "nativeProperties": {
+          "ro.product.model": {
+            "get": "Android SDK built for arm64",
+            "read": "Android SDK built for arm64",
+            "callback": "Android SDK built for arm64"
+          },
+          "ro.product.brand": {
+            "get": "Android",
+            "read": "Android",
+            "callback": "Android"
+          },
+          "ro.product.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.board": {
+            "get": "goldfish_arm64",
+            "read": "goldfish_arm64",
+            "callback": "goldfish_arm64"
+          },
+          "ro.product.vendor.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.odm.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.system_ext.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.product.system_ext.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.system_ext.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.system.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.system_ext.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.odm.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.version.release": {
+            "get": "16",
+            "read": "16",
+            "callback": "16"
+          },
+          "ro.serialno": {
+            "get": "CALLERREAD000002",
+            "read": "CALLERREAD000002",
+            "callback": "CALLERREAD000002"
+          },
+          "ro.hardware": {
+            "get": "ranchu",
+            "read": "ranchu",
+            "callback": "ranchu"
+          },
+          "ro.boot.selinux": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "sys.usb.config": {
+            "get": "none",
+            "read": "none",
+            "callback": "none"
+          },
+          "appstate.probe.absent": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.sf.lcd_density": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system_ext.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system_ext.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system_ext.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.vendor.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.vendor.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.vendor.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.product.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.product.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.product.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.odm.build.id": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.type": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.tags": {
+            "get": "",
+            "read": null,
+            "callback": null
+          }
+        },
+        "privateEvidenceSHA256": "62043e442edf6be7e664007f0410e9166608daa96316d3aad31058cd6e29c018"
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:58:43.025732+00:00",
+      "durationSeconds": 2.388,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "disabled": {
+      "status": "passed",
+      "evidence": {
+        "pid": 20703,
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "no_sim",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 308,
+          "deviceRemappedPages": 0,
+          "deviceNative": true,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795157925510,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceRetainedPages": 0,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": true,
+          "injected": true,
+          "deviceSyscallView": 1,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceSyscallErrno": 0,
+          "deviceEnabled": false,
+          "deviceFileViews": 0
+        },
+        "serial": {
+          "value": "unknown",
+          "source": "Build.getSerial"
+        },
+        "serialStatic": {
+          "value": "unknown",
+          "source": "Build.SERIAL"
+        },
+        "nativeProperties": {
+          "ro.product.model": {
+            "get": "Android SDK built for arm64",
+            "read": "Android SDK built for arm64",
+            "callback": "Android SDK built for arm64"
+          },
+          "ro.product.brand": {
+            "get": "Android",
+            "read": "Android",
+            "callback": "Android"
+          },
+          "ro.product.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.board": {
+            "get": "goldfish_arm64",
+            "read": "goldfish_arm64",
+            "callback": "goldfish_arm64"
+          },
+          "ro.product.vendor.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.odm.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.product.system_ext.manufacturer": {
+            "get": "unknown",
+            "read": "unknown",
+            "callback": "unknown"
+          },
+          "ro.product.system_ext.device": {
+            "get": "emu64a",
+            "read": "emu64a",
+            "callback": "emu64a"
+          },
+          "ro.product.system_ext.name": {
+            "get": "sdk_phone64_arm64",
+            "read": "sdk_phone64_arm64",
+            "callback": "sdk_phone64_arm64"
+          },
+          "ro.system.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.system_ext.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.product.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.odm.build.fingerprint": {
+            "get": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "read": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+            "callback": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys"
+          },
+          "ro.vendor.build.version.release": {
+            "get": "16",
+            "read": "16",
+            "callback": "16"
+          },
+          "ro.serialno": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.hardware": {
+            "get": "ranchu",
+            "read": "ranchu",
+            "callback": "ranchu"
+          },
+          "ro.boot.selinux": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "sys.usb.config": {
+            "get": "none",
+            "read": "none",
+            "callback": "none"
+          },
+          "appstate.probe.absent": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.sf.lcd_density": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.system_ext.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.system_ext.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.system_ext.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.vendor.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.vendor.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.vendor.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.product.build.id": {
+            "get": "BE2A.250530.026.D1",
+            "read": "BE2A.250530.026.D1",
+            "callback": "BE2A.250530.026.D1"
+          },
+          "ro.product.build.type": {
+            "get": "userdebug",
+            "read": "userdebug",
+            "callback": "userdebug"
+          },
+          "ro.product.build.tags": {
+            "get": "test-keys",
+            "read": "test-keys",
+            "callback": "test-keys"
+          },
+          "ro.odm.build.id": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.type": {
+            "get": "",
+            "read": null,
+            "callback": null
+          },
+          "ro.odm.build.tags": {
+            "get": "",
+            "read": null,
+            "callback": null
+          }
+        },
+        "privateEvidenceSHA256": "22ec88182e4f224413da9f40c33e319d8271e4b73c21668a70f81d49e43ded36"
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+        "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:58:45.637706+00:00",
+      "durationSeconds": 2.804,
+      "buildInputsSHA256": "ccb3ed98c158319d45090ba027ccb35b3b362941b42ae638676b395acdafbf0d",
+      "apkPayloads": {
+        "AppStateShield": "c2c9b472fe1a2021e8bfeb0b4b644432bf289ba24897c31dbc529b9e979980c7",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "serial": "emulator-5584",
+  "phoneAcceptance": false,
+  "artifacts": {
+    "AppStateShield-xianyu-caller-read.apk": "5bffe4dbae6becf2c49f5918eb495c6b9123d5c88fadce0d02c49160733493e5",
+    "AppStateVerifier-xianyu-caller-read.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+  },
+  "passed": true,
+  "originalProfileRestoredWithNewRevision": 1795157928511,
+  "seconds": 30.063
+}

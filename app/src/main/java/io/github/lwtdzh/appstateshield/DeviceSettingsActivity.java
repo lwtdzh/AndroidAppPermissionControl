@@ -133,8 +133,8 @@ public final class DeviceSettingsActivity extends Activity {
         fields.removeAllViews();
         if(!enabled) {
             LinearLayout empty=card(fields);empty.addView(text(t("机器伪装已关闭","Device spoofing is off"),20,0xff182331));
-            empty.addView(text(t(values.isEmpty()?"开启机器伪装后，各分类默认关闭。需要时开启分类，再选择字段。":"原档案和分类开关已保留，再次开启可继续使用。",
-                values.isEmpty()?"All categories start off. Enable a category, then choose its fields.":"Your saved profile and category choices are retained for next time."),15,0xff667085));
+            empty.addView(text(t(values.isEmpty()?"开启机器伪装后，各分类默认关闭；字段已默认选中，开启分类即生效。":"原档案和分类开关已保留，再次开启可继续使用。",
+                values.isEmpty()?"Categories start off. Their fields are selected by default and apply once you enable a category.":"Your saved profile and category choices are retained for next time."),15,0xff667085));
             return;
         }
         LinearLayout p=card(fields);p.setBackground(background(0xffe8f0ff,16));
@@ -142,8 +142,8 @@ public final class DeviceSettingsActivity extends Activity {
         consistencyHint=text("",13,0xff805600);
         consistencyHint.setContentDescription("device-consistency-hint");
         consistencyHint.setLineSpacing(dp(3),1);p.addView(consistencyHint);
-        p.addView(text(t("各分类默认关闭。机器伪装、分类和字段都开启，已选参数才生效。网络与基站使用三档选择。",
-            "Categories start off. The app master, category and field must all be enabled. Network & cell has three modes."),13,0xff667085));
+        p.addView(text(t("各分类默认关闭，新档案字段默认选中；机器伪装、分类和字段都开启，已选参数才生效。网络与基站使用三档选择。",
+            "Categories start off and new-profile fields are selected by default. The app master, category and field must all be enabled. Network & cell has three modes."),13,0xff667085));
         EditText search=new EditText(this);search.setSingleLine(true);search.setHint(t("搜索字段，如 IMEI、位置","Search fields, e.g. IMEI, location"));
         search.setText(query);search.setContentDescription("device-field-search");fields.addView(search);
         LinearLayout groups=column();fields.addView(groups);renderGroups(groups);
@@ -279,8 +279,8 @@ public final class DeviceSettingsActivity extends Activity {
             modelEnabled=next.modelEnabled;locationEnabled=next.locationEnabled;
             renderGroups(groups);dirty();
         });
-        card.addView(text(t("默认关闭。开启分类后，再选择字段。关闭时保留参数与单项选择，已选参数不再覆盖读数。",
-            "Off by default. Enable this category, then choose fields. Turning it off retains values and selections without applying them."),13,0xff667085));
+        card.addView(text(t("默认关闭。新档案字段已预先选中，开启分类后即可生效。关闭时保留参数与单项选择，已选参数不再覆盖读数。",
+            "Off by default. New-profile fields are preselected and apply after enabling this category. Turning it off retains values and selections without applying them."),13,0xff667085));
     }
     private ChinaRegions regions()throws java.io.IOException {
         if(regions==null)regions=new ChinaRegions(getAssets().open("china-regions.tsv"));

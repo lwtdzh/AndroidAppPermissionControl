@@ -6,6 +6,10 @@
 
 0.4.11 的 NativeLibraries 统一五个原生库的注册与加载，移除提前注册的 assets/native_init。库仅在对应功能实际开启时经 Vector NativeAPI.recordNativeEntrypoint 注册，原生 Hook 实现不变。scripts/detector-matrix.py 仅允许专用模拟器及 Native Detector、Ruru、Key Attestation 三个包，保存截图、结果、日志、配置与模块哈希；Key Attestation 每次使用自身 Reset 重新生成证明。第三方检测结果不等同于模块自带验证器的六项屏蔽断言。
 
+2026-11-19 增加 app/src/main/cpp/nativecompat.cpp 和 nativecompat-dispatch.S，由同一 NativeLibraries 在首次注册前加载，按需与原有五个库协作。shared/native/elf-code-view.h、process-code-view.h 提供已确认框架代码的读取视图；shared/native/entry-hook.h 提供 ARM64 原子入口及完整备份。shared/test/CompatArtFixture.cpp、CompatVectorFixture.cpp、NativeCompatTest.cpp 和 EntryHookTest.cpp 是专用模拟器命令行夹具，不加入正式模块或验证器 APK；scripts/native-compat-test.py 直接加载正式构建的兼容库。scripts/bank-codeview-test.py 保存两个银行的启动观察并还原 APK、配置与作用域。同一候选另在用户授权的 V2419A 真机完成建行、动卡空间六项全开冷启动，脱敏证据为 verification/vivo-bank-codeview-20261119.json。没有独立子项目、额外应用写接口或银行包名豁免，机器伪装开关语义不变。
+
+同日调整 DeviceProfile.preset() 的新档案默认字段选择：设备标识仍为 9/10（drm_id 不选），网络与基站、机型与系统、位置和其他环境的可用字段全部预选，共 46/47；所有分类总开关仍默认关闭，已有档案的 selected 不迁移。
+
 同版增加 PolicyVisibility/Receiver，为已配置包提供读取其自身 Provider 的可见性；只读服务的 UID 鉴权不变。DeviceField 增加默认未选中的 hide_module_apps，DeviceRuntime 仅在它实际生效时安装 ModuleListHooks。验证器升至 0.4.11，ModuleListProbe 与 DeviceRead 提供实际 PackageManager 模块列表、数量与普通查询对照。app/src/vectorApiStub 仅生成 compileOnly 签名 JAR，不进入正式 APK。
 
 DeviceHooks 同版补充三个 DLKM 分区的 build.id/type/tags，统一使用选中指纹派生的值和现有 Java/native 属性适配器；不改原生读取实现。实际 Native Detector 的 Custom ROM Details 命中 vendor_dlkm 的 test-keys，修复及机型关闭对照另存最终 APK 证据。
@@ -58,5 +62,11 @@ Java/JNI 内部包名保留，减少 native 符号迁移。已发布模块的旧
 0.4.6 的设备 native 层补充只读属性对象，developerstate/selinuxstate 通过 HandleAdapter 共用本进程对象映射。它们仍属于同一个主 APK，不增加外部依赖。verifier 的 machineprobe 通过系统属性接口检查原始对象、serial、枚举与缓存；debug 的能力原型只用于权限和布局研究，正式验证器排除该原型。详见 docs/PROPERTY-OBJECTS-0.4.6.md。
 
 0.4.7 继续在当前主 APK 内实现。共享 property-area/code-view 处理属性区布局和模块自身 Hook 的代码读取；devicestate 的原始系统调用代理通过 TSYNC 同步本进程线程，使用预先准备的快照和隐藏 raw helper 避免代理递归。shield 文件适配器和设备层继续组合，截图开关独立。AttestationPrivacy 与 AttestationHooks 在既有 Keystore/KeyMint 请求中移除已选择的标识标签，保留 challenge、密钥和证书链。设备档案增加 modelEnabled，屏幕字段移入 model 分类，预设切换保留总开关。增量 JNI/Activity 均放在 verifier/src/debug，正式交付只有模块和原包名验证器；不增加外挂模块或写入系统属性。[实现与限制](docs/PROCESS-PRIVACY-0.4.7.md)。
+
+首次启动读取优化仍位于主 APK 的 devicestate/device-syscall-view；libc 与 syscall 复用相同不可变快照，线程和文件身份由内核元数据核对。scripts/native-broker-test.py 使用 shared/test/NativeBrokerTest.cpp 和正式代理头文件，在专用模拟器执行真实 seccomp 对照；该独立测试可执行文件只在测试期间部署，不进入 APK。闲鱼原始 APK、档案与故障现场保存在仓库外。
+
+2026-11-20 的代理线程调整仍只在 device-syscall-view.h：awaitListener 在 ready 之前使用 raw rt_sigprocmask 屏蔽 Bionic 原生栈采集信号 33，避免代理暂停后又被要求处理采集器的内存读取。NativeBrokerTest 补充代理可继续读取及调用线程信号不变的对照，结果通过 --report 单独保存。scripts/machine-test.py 的字段对话框确认使用 android:id/button1，兼容中文与英文；Provider、档案控制及正式 APK 接口不变。
+
+后续首次初始化读取调整在同一主 APK 的 shield/devicestate/selinuxstate：设备文件视图注册增加 KernelRead 回调，仅在已接管的 screenshot read/__read_chk 路径上读真实 FD，并在调用线程应用原快照和组合过滤；直接 syscall 仍由 seccomp 代理处理。SELinux read 已覆盖 Bionic FILE refill 时不重复包装 fread/fgets。NativeBrokerTest 增加普通管道 FD 被 dup2 复用为目标文件后的实际读数，SELinux 专项保留不完整 fread、EOF、原错误和普通文件断言；无独立生产模块、导出写接口或系统模式修改。
 
 [人工手册](docs/TEST-MANUAL.md) 是本次整合的验收步骤，含 UI、默认/将来方法、64 组合、跨应用和真实事件。SELinux 专项由 scripts/selinux-test.py 执行，记录到 verification/selinux-0.3.0-results.json，原始恢复快照保存在仓库外。旧覆盖清单和验证结果保留；不能把旧 APK 的报告当 0.3.0 的验证证据。

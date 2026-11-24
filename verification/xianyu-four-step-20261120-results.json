@@ -1,0 +1,629 @@
+{
+  "recordedAt": "2026-11-20T11:15:17.532116+08:00",
+  "status": "emulator-first-init-responsive-vivo-workflow-still-unaccepted",
+  "completeRequiredWorkflowPassed": false,
+  "productionCodeChangedThisRound": false,
+  "newApkBuiltThisRound": false,
+  "device": {
+    "serial": "emulator-5584",
+    "user": 10,
+    "uid": 1010161,
+    "userType": "android.os.usertype.profile.CLONE",
+    "sdk": 36,
+    "abi": "arm64-v8a"
+  },
+  "scope": {
+    "off": [
+      {
+        "APP_PACKAGE": "com.chinamworld.main",
+        "USER_ID": 0
+      },
+      {
+        "APP_PACKAGE": "com.citiccard.mobilebank",
+        "USER_ID": 0
+      },
+      {
+        "APP_PACKAGE": "com.taobao.idlefish",
+        "USER_ID": 0
+      }
+    ],
+    "on": [
+      {
+        "APP_PACKAGE": "com.chinamworld.main",
+        "USER_ID": 0
+      },
+      {
+        "APP_PACKAGE": "com.citiccard.mobilebank",
+        "USER_ID": 0
+      },
+      {
+        "APP_PACKAGE": "com.taobao.idlefish",
+        "USER_ID": 0
+      },
+      {
+        "APP_PACKAGE": "com.taobao.idlefish",
+        "USER_ID": 10
+      }
+    ],
+    "managerUser": 0,
+    "selectedModuleUser": 10,
+    "uiAppliedBoth": true
+  },
+  "profileWithoutIdentifiers": {
+    "policies": [],
+    "device_profiles": {
+      "schema": 1,
+      "enabled": true,
+      "revision": 1795144163081,
+      "modelEnabled": false,
+      "idsEnabled": true,
+      "environmentEnabled": false,
+      "preset": "xiaomi-14",
+      "selected": [
+        "imei",
+        "imei2",
+        "meid",
+        "serial",
+        "android_id",
+        "oaid",
+        "vaid",
+        "aaid",
+        "gaid",
+        "wifi_mac",
+        "bt_mac",
+        "ssid",
+        "bssid",
+        "imsi",
+        "iccid",
+        "phone",
+        "lac",
+        "cid",
+        "tac",
+        "pci",
+        "brand",
+        "manufacturer",
+        "model",
+        "device",
+        "product",
+        "board",
+        "hardware",
+        "release",
+        "incremental",
+        "fingerprint",
+        "width",
+        "height",
+        "density",
+        "total_ram",
+        "storage",
+        "operator",
+        "mcc",
+        "mnc",
+        "signal",
+        "latitude",
+        "longitude",
+        "accuracy",
+        "timezone",
+        "language",
+        "hide_sensors",
+        "hide_module_apps"
+      ],
+      "locationEnabled": false,
+      "regionId": "",
+      "regionName": "",
+      "regionOverrides": [],
+      "networkMode": "no_sim"
+    }
+  },
+  "runtime": {
+    "sameMainPid": "4856",
+    "uid": "1010161",
+    "idlefishApks": [
+      {
+        "name": "base.apk",
+        "sha256": "e62a6cb4cc5ad05e81a7fe1fd261c992efcf80408c9cb89a969246da8a68875e"
+      },
+      {
+        "name": "split_config.arm64_v8a.apk",
+        "sha256": "9a5bf399ce09b472cd59adf09db8757cb76f2db656e65c49e06d09aba6d6ed58"
+      },
+      {
+        "name": "split_config.xxxhdpi.apk",
+        "sha256": "bb916d71d933849bdbe5642fc182b588dca6e88edb1901ca497f52c5a9119010"
+      },
+      {
+        "name": "split_config.zh.apk",
+        "sha256": "80043f307f34d6abf593fda83a3ac93cfdc984b14451bb60ed219c9fe4c8996b"
+      }
+    ],
+    "mappedModuleSHA256": [
+      "57c09d81ecd464541a58a9d782d180c0d04804b26fc8e9dd2e9d4c9f69e8305c"
+    ],
+    "exitRecordForMainPid": false,
+    "searchPageOpened": true,
+    "cityTabTriggeredLocationDialog": true,
+    "returnedHome": true
+  },
+  "observation": {
+    "label": "after-consent",
+    "startedAt": "2026-11-20T11:10:01.628426+08:00",
+    "samples": [
+      {
+        "elapsed": 0.05,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{112215226 u10 com.taobao.idlefish/com.taobao.fleamarket.home.activity.InitActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 5.13,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 10.2,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 15.29,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 20.36,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 25.44,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 30.51,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 35.59,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 40.65,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      },
+      {
+        "elapsed": 45.72,
+        "processes": [
+          {
+            "pid": "4856",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish"
+          },
+          {
+            "pid": "5786",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:channel"
+          },
+          {
+            "pid": "5946",
+            "uid": "1010161",
+            "name": "com.taobao.idlefish:windowChannel"
+          }
+        ],
+        "resumed": [
+          "topResumedActivity=ActivityRecord{20858077 u10 com.android.permissioncontroller/.permission.ui.GrantPermissionsActivity t256}"
+        ]
+      }
+    ],
+    "moduleEvents": [
+      {
+        "time": "11-20 11:09:35.534",
+        "pid": "4856",
+        "events": [
+          "ART code views=2"
+        ]
+      },
+      {
+        "time": "11-20 11:09:35.534",
+        "pid": "4856",
+        "events": [
+          "native compatibility ready=1"
+        ]
+      },
+      {
+        "time": "11-20 11:09:35.543",
+        "pid": "4856",
+        "events": [
+          "native ready api=2"
+        ]
+      },
+      {
+        "time": "11-20 11:09:35.543",
+        "pid": "4856",
+        "events": [
+          "native adapter restored=1"
+        ]
+      },
+      {
+        "time": "11-20 11:09:35.614",
+        "pid": "4856",
+        "events": [
+          "native ready hooks=3 objects=1"
+        ]
+      },
+      {
+        "time": "11-20 11:09:35.630",
+        "pid": "4856",
+        "events": [
+          "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.357",
+        "pid": "5786",
+        "events": [
+          "ART code views=2"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.359",
+        "pid": "5786",
+        "events": [
+          "native compatibility ready=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.369",
+        "pid": "5786",
+        "events": [
+          "native ready api=2"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.369",
+        "pid": "5786",
+        "events": [
+          "native adapter restored=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.488",
+        "pid": "5786",
+        "events": [
+          "native ready hooks=3 objects=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:10.505",
+        "pid": "5786",
+        "events": [
+          "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.118",
+        "pid": "5946",
+        "events": [
+          "ART code views=2"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.118",
+        "pid": "5946",
+        "events": [
+          "native compatibility ready=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.143",
+        "pid": "5946",
+        "events": [
+          "native ready api=2"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.143",
+        "pid": "5946",
+        "events": [
+          "native adapter restored=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.266",
+        "pid": "5946",
+        "events": [
+          "native ready hooks=3 objects=1"
+        ]
+      },
+      {
+        "time": "11-20 11:10:11.302",
+        "pid": "5946",
+        "events": [
+          "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+        ]
+      }
+    ]
+  },
+  "postConsentToLastHomeCheckSeconds": 206.5,
+  "phone": {
+    "available": false,
+    "adbError": "device '<serial redacted>' not found",
+    "dataCleared": false,
+    "stateChanged": false,
+    "currentFailureCaptured": false
+  },
+  "limitations": [
+    "Scope UI used owner Vector with clone module user selected; clone Vector itself was not activated.",
+    "AOSP clone behavior does not establish vivo clone behavior.",
+    "Module initialization logs do not verify every API return inside Xianyu.",
+    "Permissions and UI observation time are not application initialization latency.",
+    "No logged-in requests were tested."
+  ],
+  "interventions": {
+    "ptrace": false,
+    "debuggerd": false,
+    "applicationMemoryRead": false,
+    "perThreadSyscallSampling": false
+  },
+  "emulatorRestoration": {
+    "recordedAt": "2026-11-20T11:14:08.617834+08:00",
+    "originalDiskManifestMatched": true,
+    "originalRamdiskMatched": true,
+    "originalPackagesPreferencesScopesGrantsServicesRestoredByDisk": true,
+    "dedicatedEmulatorStopped": true,
+    "unrelatedEmulator5594NotOperated": true,
+    "testDiskRetainedOutsideRepository": true,
+    "originalManifestSHA256": "b4d38f252cbca12eabd9cb24377bd360f44216d6006af503919ce81629521bd8"
+  },
+  "privateEvidence": {
+    "four-step-after-consent.json": {
+      "sha256": "777fa927768c55e64cfc4a59540e3187d2d106d695c80b643fba2d0e67cde9f8"
+    },
+    "four-step-after-notification.json": {
+      "sha256": "5a7e5cfdba0cdc9f70fb7fb213fb59339ba9668bfe4ef9ed4f8fba053544e216"
+    },
+    "four-step-city-after-denial.json": {
+      "sha256": "8890d58a65167457dabc5fdfafaa78fd70f78fb5b3c3f6026d8938aecf08121b"
+    },
+    "four-step-city-tab-interactive.json": {
+      "sha256": "470358dcd8e380a60f3cc116cc0b0c638d91ffde97e1b2d11708eb3ecb64ca0f"
+    },
+    "four-step-clone-module-scope.json": {
+      "sha256": "8bf0038cc875397800e1e46a75f8e4cedf6480ecd022c3469f3e85bf6c1dd09c"
+    },
+    "four-step-customization-saved.json": {
+      "sha256": "8b502ad3d4276dc92b3edb87b76ab930e83cd3280a474ae21de3a771c37aa7d3"
+    },
+    "four-step-device-saved.json": {
+      "sha256": "8c3724f31ac741f729522946214b32fcd8b94a02ebfa7220097a691d6ac31d9b"
+    },
+    "four-step-final-home.json": {
+      "sha256": "36bc255af17a6542c1a08eb8192a23a7b70a3a825fa8b6625b8ed8d105f403a4"
+    },
+    "four-step-first-consent.json": {
+      "sha256": "f58baec0b1c564abe4be86b9f040da5c817de281a4a7d3bfa74527d7d37bbf69"
+    },
+    "four-step-first-home.json": {
+      "sha256": "858efb82a3ed83028328d9736a463a1b0d6cd5b6cd0d276464bbd108b5b668dd"
+    },
+    "four-step-home-returned.json": {
+      "sha256": "f7e4570cdb58170d6c517be5bb906fd81cc16ba2edd0f32cafebae7d33473238"
+    },
+    "four-step-ids-enabled.json": {
+      "sha256": "13d386bcfcd528d39d82689d23e63f8b4e97024918dd90d512d4da4e53c48c09"
+    },
+    "four-step-login-ready.json": {
+      "sha256": "8313ba19eca762ba6e88922b499ef7aae83b54b5bf1d1d229f70d190c51ab9a5"
+    },
+    "four-step-module-home.json": {
+      "sha256": "3758832859e2daf4ef31f2ad4f81fb5ee6538a63ebb0b03d9ec73a0d8f8fc494"
+    },
+    "four-step-network-controls.json": {
+      "sha256": "037a645cd98c43c279deb60791f2a18cdba2ac3065c710ab470fbcfcda589306"
+    },
+    "four-step-new-policy.json": {
+      "sha256": "bdce51835a76f1b0c79bf4dc882d3088f9cca5ccc824d202733ef3e9fa850a14"
+    },
+    "four-step-no-sim-draft.json": {
+      "sha256": "41e49fc35bc106fedafd7e31ad7a5de517dafb779d73c32e32a2fe8c53cee6ce"
+    },
+    "four-step-observation-after-consent.json": {
+      "sha256": "48526d310c66d28708126800b3032de448594ccc5752decc98146759f9c96e0b"
+    },
+    "four-step-picker.json": {
+      "sha256": "7a8714b09d0f4f17866a20d8cbbcab4d45f5fc6b566f73bf18a4cb28e60b17c5"
+    },
+    "four-step-profile-readback.json": {
+      "sha256": "8d6d32bd62629f04f71d75291e232d9ece0e722fa25cc8d80e070b399c0b60f8"
+    },
+    "four-step-remove-confirm.json": {
+      "sha256": "4bfcc9ccc53416959c5abf08ff1e1498cc61182b98967d4c300fc9cb30351470"
+    },
+    "four-step-removed-home.json": {
+      "sha256": "19d73198b760aa01e7e26e62a0b1ae63e78bfb2efeadbceebf97d6dc047ed84d"
+    },
+    "four-step-runtime-checks.json": {
+      "sha256": "5ad6f0380c7a34fd4e559552e9dce4c33f7b8e83851b0c85f5d291c006702ceb"
+    },
+    "four-step-scope-off-draft.json": {
+      "sha256": "1436979a5665a830e8e08e826e845ec276e0cc6fa7fed8726e67ca5cbc919a49"
+    },
+    "four-step-scope-off-saved.json": {
+      "sha256": "a5003f2b8e98f857e2e332ee62ee4af9b8660b4352c0e5e4135ce8019796796e"
+    },
+    "four-step-scope-on-draft.json": {
+      "sha256": "3c4adbece83791d47852b7e4d442b4fe0b766455b77d8fe19e0221e679eec374"
+    },
+    "four-step-scope-on-saved.json": {
+      "sha256": "f7782149a0ba3286810110418c0a4c489be51c8b922e4d2ac78880ec9792e0b1"
+    },
+    "four-step-scope-readback.json": {
+      "sha256": "263f2ad3a42c0b6d6e58594b7a47d0f8b1f218039a7bcf5b6705c073d3248d0e"
+    },
+    "four-step-search-interactive.json": {
+      "sha256": "ac71d9e33577717d141311ea953ef35016ba60a7bbcb513ef4e9cfef5791ad76"
+    },
+    "four-step-search-opened.json": {
+      "sha256": "70c3f0450bf59046a54fb365f1b0957f42af43c7b8a9565f48a6dbaa0e219ebf"
+    },
+    "four-step-search-page-final.json": {
+      "sha256": "4f848d9bd56c3025d3aa8348a188eca4e45917d5f02904e38340021e46b35c8f"
+    },
+    "four-step-six-enabled.json": {
+      "sha256": "bb973cf6040c8bfe3dd0bac2be4c954de1b5991a8965643a03c114ead068fe41"
+    },
+    "four-step-vector-home.json": {
+      "sha256": "003caecbfc988a30a6718c2755626360ba70b06cbe3af9b71c36bfd6464d3170"
+    },
+    "four-step-vector-modules.json": {
+      "sha256": "378e197d9b2029681f49ecf04740638104448ba6a939038eae936f6eee416f99"
+    },
+    "four-step-vector-start.json": {
+      "sha256": "9cddc58e537c535584c28b4a76763e822cdfa63831afd27f0ace48908bc1da10"
+    }
+  },
+  "committedOrPushed": false
+}

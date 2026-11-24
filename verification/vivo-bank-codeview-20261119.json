@@ -1,0 +1,58 @@
+{
+  "model": "V2419A",
+  "sdk": "36",
+  "candidateSha256": "36500e260662238fc3962cc27c2404db685796b2653922995d06d74377a11490",
+  "originalSha256": "c5a43a2c36010a3b759f0d26ec42777f07becc2737a8cf03dec014f170d6103a",
+  "cases": [
+    {
+      "package": "com.chinamworld.main",
+      "pids": [
+        "6236 6273 6737",
+        "6236 6273",
+        "6236 6273"
+      ],
+      "stable": true,
+      "policyLoaded": true,
+      "nativeHooks": true,
+      "codeViewReady": true,
+      "atomicMmap": true,
+      "retainedMmapRedirect": false,
+      "atomicSyscall": true,
+      "fatal": [],
+      "uiPackage": "com.chinamworld.main",
+      "focusPackage": "com.chinamworld.main",
+      "seconds": 9,
+      "passed": true
+    },
+    {
+      "package": "com.citiccard.mobilebank",
+      "pids": [
+        "7403 7445",
+        "7403 7445",
+        "7403 7445"
+      ],
+      "stable": true,
+      "policyLoaded": true,
+      "nativeHooks": true,
+      "codeViewReady": true,
+      "atomicMmap": false,
+      "retainedMmapRedirect": true,
+      "atomicSyscall": true,
+      "fatal": [],
+      "uiPackage": "com.citiccard.mobilebank",
+      "focusPackage": "com.citiccard.mobilebank",
+      "seconds": 9,
+      "passed": true
+    }
+  ],
+  "allPassed": true,
+  "device": "authorized vivo V2419A physical device",
+  "restored": true,
+  "moduleHashRestored": true,
+  "policyRestored": true,
+  "vectorScopeRestored": true,
+  "selinuxModeAfterTest": "Enforcing",
+  "stayOnWhilePluggedIn": 0,
+  "bankProcessesStopped": true,
+  "privateEvidenceDir": "/Users/bytedance/Library/Application Support/ScreenshotShield/bank-codeview-vivo-20261119"
+}

@@ -17,6 +17,8 @@
 
 “隐藏模块应用列表”在“其他环境”默认不选中。通过实际 UI 选择字段并保存，检查 Ruru 的 Xposed Modules；验证器检查应用、包和 Intent 列表，以及直接模块查询。自身、普通 Settings 包及原异常保留。字段关闭和机器关闭后，同一 PID 的真实列表应恢复。只读 URI 授权后，跨包读取与所有写入仍须被拒绝。此选项不保证隐藏原生文件/子进程及 Vector 进程内痕迹。
 
+2026-11-19 调整新档案的字段默认选择：设备标识保持 9/10（`drm_id` 仍不选），网络与基站 15/15、机型与系统 13/13、位置 3/3、其他环境 6/6，共选中 46/47 个字段。所有分类总开关和网络三档仍默认关闭，因此未开启分类前实际生效字段仍为 0；已有档案的 `selected` 不做迁移或自动改写。
+
 Native Detector 在 Settings → App 打开 Experimental 和 Custom ROM，冷启动后展开每项 Details。对照原生 ro.vendor_dlkm.build.tags=test-keys，再分别使用 vivo/小米机型预设；补齐 DLKM 元数据后 Custom ROM 提示应消失，关闭机型总开关后恢复。Key Attestation 的设备属性证明选项要求真实 android.software.device_id_attestation 功能；缺少此功能且 UI 没有该选项时记录无法验证，不能伪造功能支持后宣称原环境通过。
 
 Ruru 的 VPN 对照须先由未注入的 C 建立真实 TUN。分别测试无作用域、全部关闭、仅 vpn、仅 debug、vpn/debug/developer 联开；展开 Setting Props，核对 Vpn Connected 与 vpn not connected 的实际状态。vpn 开启时旧 getNetworkInfo 对象仍可用，但 isConnectedOrConnecting 为 false，shell 中 TUN 仍存在；仅 debug 不应隐藏 VPN。采集保存页面位置和底部字段，文字相同不代表已滚动到底。六项组合增加旧对象的可用性与连接状态断言。最后展开 Native Detector 的 Found Injection 保存真实 Details，不把未知算法推测成事实。
@@ -72,10 +74,10 @@ Ruru 的 VPN 对照须先由未注入的 C 建立真实 TUN。分别测试无作
 
 ## P · 准备与安装
 
-1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate、selinuxstate、devicestate 五个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
+1. P01：从根目录构建 `:app:assembleRelease`、`:verifier:assemblePrimaryRelease`，以及 `sampleADebug`、`sampleBDebug`。确认生成一个主模块和一个正式验证器，主模块包含 shield、vpnstate、developerstate、selinuxstate、devicestate、nativecompat 六个 native 库的四 ABI。签名使用 `scripts/sign-apk.py` 和既有仓库外签名。
 2. P02：启动 `scripts/start-emulator.sh -no-window`，将输出重定向到本机私有文件。确认 AVD 名称和序列号。ADB 命令始终带 `-s emulator-5584`。必要时 `adb -s emulator-5584 root`，不要操作其他模拟器或 vivo。
 3. P03：安装测试 APK、修改任何设置前，执行 `python3 scripts/integration-test.py capture`。完整测试的目录为 verification/0.3.0，先建立该目录并放入本轮四个签名 APK（主包名带 0.3.0，临时包为 Verifier-A.apk / Verifier-B.apk）；原 0.2.0 快照和报告保持原样。它以只读方式备份模块启用状态、作用域、目标应用授权、开发者/USB/无线调试、飞行模式、隐藏 API 策略、无障碍和通知服务、自动旋转、模块定制与应用语言；两个本机快照文件权限为 600，已被 git 忽略。保存测试前的截图 MediaStore ID，结束时只删除新增测试图片。已有快照时拒绝覆盖；上一次清理完成后，先将快照移入本机归档再开始新一轮。已有 VPN 时停止测试，不覆盖它。仅跑 SELinux 专项时使用下方 L 节的独立备份和执行入口。
-4. P04：安装签名 APK。A 为主验证器 `io.github.lwtdzh.screenshotdetector`，B 为 `.samplea`，C 为 `.sampleb.screenshot`。C 的测试包名以 `.screenshot` 结尾，用于沿用截图服务的发送方判断，实际发布命名测试通知。B/C 是相同代码的临时测试目标，正式交付只有 A。
+4. P04：安装签名 APK。A 为主验证器 `io.github.lwtdzh.screenshotdetector`，B 为 `.samplea`，C 为 `.sampleb.screenshot`。正例的 A/B/C 均须通过 scripts/sign-apk.py 使用原外部签名；sampleADebug/sampleBDebug 构建默认使用 Android 调试证书，未经重签只适合签名反例，不能用于要求 ModuleStatus 注入标记的正例。C 的测试包名以 `.screenshot` 结尾，用于沿用截图服务的发送方判断，实际发布命名测试通知。B/C 是相同代码的临时测试目标，正式交付只有 A。
 5. P05：首次安装或从 0.3.0 / 0.3.1 升级时打开桌面应用列表。首次安装只出现验证器，应用状态屏蔽默认没有桌面图标；升级保留已保存的图标选择。Vector 模块列表能识别“应用状态屏蔽”，进入模块设置后标题、版本及默认说明正确。主动开启图标后应出现主模块，操作见 I 节。
 6. P06：旧截图/VPN/开发者模块对 A/B/C 均关闭或移除作用域，避免重复注入。不要覆盖其他应用的作用域。确认模块不作用于自身。
 7. P07：为 A/B/C 授予图片读取和所有文件访问；通知与无障碍测试另按相应步骤授权。记录实际权限，验证器显示无权限时该路径不能算通过。首次打开保护启用的验证页前，由未注入的 C 执行 `FixtureActivity` 的 `command=clipboard-save` 保存原剪贴板；备份只留在 C 的私有目录，不输出内容、不重复覆盖。清理阶段通过同入口的 `command=clipboard-restore` 恢复；自动 navigation 和 matrix 阶段会先完成备份。
@@ -295,6 +297,28 @@ X13：日志页按源筛选、全部源、重启监听、清空日志、授权�
 1. K01：目标应用加入整合模块作用域，恢复默认全开并冷启动。至少重复三次，每次确认真正进入首页，不能只看进程存在、原生加载成功或启动页。检查有无 ANR、崩溃，以及原有 VPN/代理提示；不要进行登录或金融业务。
 2. K02：通过真实设置页将截图关闭，保存并冷启动；再将截图开启，保存并冷启动。核对 `Policy loaded=true` 和实际启用方法，其他五项保持开启。结束时恢复测试前的定制条目和作用域。
 3. K03：如日志有 `existing native redirect retained`，记录符号名和最终安装数量。ARM64 的已有外部 `B` 或 16 字节 `LDR/BR` 跳转应保持原状；普通未改入口的截图、普通文件、已有 FD 和 syscall 检查仍按 X01–X08 执行。被保留入口的原生截图读取可能仍可见，要明确写入报告，不能把首页正常、Java 检查通过或原生库加载成功当成所有原生读取已屏蔽。
+
+4. K04：执行 scripts/native-compat-test.py。夹具保留本地 ART 形状的符号，安装指向 Vector 形状库的 ADRP/ADD/BR，再加载正式构建里的 nativecompat。核对 libc syscall 与 process_vm_readv 比较得到磁盘原字节，同时实际函数仍返回 Hook 的结果；内联 svc 和读取另一个进程必须保持真实改写字节。检查 iovec 分段不一致、空段、部分返回、普通内存、EFAULT、EINVAL 和第三方后续改写。EntryHookTest 另核对条件跳转、入口内分支、字面量、只读共享页、另一组件的 16 字节覆盖和阻塞 syscall 返回。只作 ARM64 夹具证据，不作为 vivo ART 实测。
+
+5. K05：执行 scripts/native-broker-test.py，在真实 seccomp 代理下检查 raw iovec 复制与 EFAULT、readv/preadv、本进程线程、fork 子进程的真实字节、dup 共享偏移、EOF、EBADF、普通管道及关闭后的原值。向代理发送 Bionic 保留的原生栈采集信号 33 后，读取必须仍能完成；调用线程在此之前和之后均应收到该信号，确认掩码只作用于代理。测试只创建自己的临时文件与可执行文件并删除；公共 process_vm_readv 的失败哨兵必须没有被代理调用。它验证正式代理头文件；启用代理前已存在的线程、APK 属性区和代码视图另走开启/更新/关闭检查。使用 --report 指定新结果路径，保留此前 APK 的证据。代理线程不能通过信号 33 采集栈；真机启动与完整四步验收另记。
+6. K06：闲鱼分身首次初始化验收须完整执行：清目标分身数据；在该用户侧 Vector 关闭闲鱼作用域并保存，再开启并保存；删除定制并确认策略和机器档案均删除，通过真实 UI 重建设备标识、模拟无 SIM 卡及六项全开；启动该分身并实际点击“同意”，进入可操作的正式首页，使用搜索入口或首页导航确认响应。记录首次 PID、用户、APK、配置与退出事件。通知或登录提示可以关闭；停在 splash screen、ANR 后自动重启、进程仍存活或经过固定时长均不算通过。诊断采样单独标记，不替代该自然启动。已接管 read 的调用线程路径须联测 FILE 的 fread/fgets、不完整项、EOF、错误、普通文件，以及机器档案同 PID 开启/更新/关闭和代码读取；直接 syscall 的原覆盖不减少。
+
+7. K07：第三方应用首次初始化问题应保留已有 ANR，再在专用模拟器中用同一份原始签名 APK、同一档案与六项策略对照。只清除本次创建的模拟器测试用户数据，完成隐私同意后核对实际 InitActivity → 登录/首页和同 PID 响应；按实际权限对话框选择，不自动登录。清除真机数据须有用户对实际目标的明确授权。读取 syscall 的统计应关闭缓冲区解码并只保留次数、耗时、固定文件类别；使用 ptrace 的样本单独标注，不能把增加的耗时直接当作正常启动时间。
+
+8. K08：执行 scripts/bank-codeview-test.py，在专用 emulator-5584 上测试建行、动卡空间的六项关闭/全部开启冷启动，核对实际策略、原生 Hook、三个时刻的 PID 和页面截图，结束逐字恢复 APK、配置与作用域。首次协议页只证明启动到了该页面，不等于登录、业务流程或完整原生防护通过。共享 Hook 修改稳定后，按执行规则完成一次 M6 64 组合、L13 原生对照及受影响的真实截图检查。2026-11-19 已在用户授权的 V2419A 真机上用同一候选 APK 完成两个银行六项全开冷启动，脱敏结果见 `verification/vivo-bank-codeview-20261119.json`；其他真机、ROM、登录和业务流程仍需单独授权验证。
+
+### 闲鱼分身清数据后的首次启动
+
+这是用户指定的复现和验收流程。执行前保存原配置、作用域与原 ANR；优先在专用模拟器的临时分身用户操作，使用闲鱼原始签名 APK。记录每一步实际用户、设置保存结果与所测模块 APK 哈希。
+
+1. 清除闲鱼分身数据。
+2. 在分身侧 Vector 中，关闭“分身应用状态屏蔽 → 分身闲鱼”的模块作用域并保存，再打开该作用域并保存。
+3. 在分身应用状态屏蔽中删除闲鱼定制化配置，再重新打开并创建配置：开启模拟无 SIM 卡、设备标识和所有状态屏蔽字段。走真实 UI 删除、重建和保存，读回核对新配置；只复制旧配置文件不算执行此步骤。
+4. 重新打开闲鱼并同意许可协议，检查是否完成首次初始化、进入可操作的首页，以及是否卡住后自动退出。可选通知提示、登录引导按实际页面处理，不自动登录。
+
+必须完整走完四步且闲鱼正常打开，才算此用例通过。还须确认目标是正确的分身用户、实际加载测试 APK、Policy loaded=true、六项屏蔽全开和机器伪装分类实际生效。已有数据的冷启动、保留旧配置的启动、仅进程存活或默认 fallback，均不能代替此流程。测试脚本不能在失败后自动关闭机器伪装，再把恢复的启动记为原配置通过。
+
+2026-11-20 用户反馈：此前交付包在这套完整流程下仍卡住并退出。此前 67.18 秒真机冷启动保留数据，只作历史局部观察。同日 14:52 的新候选已在用户授权的 vivo 上完整走完四步，同意后进入正式首页并触发同城位置权限请求，见 [完整真机记录](../verification/XIANYU-VIVO-FOUR-STEP-20261120.md)。模拟器结果和 vivo 结果分别记录，模拟器通过不直接代表 vivo 通过。真机数据清理按当前用户明确授权执行，不清理主用户或其他应用的数据。
 
 ## R · 清理与判定
 

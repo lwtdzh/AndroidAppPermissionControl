@@ -1,0 +1,42 @@
+{
+  "buildInputsSHA256": "c278a8e47b3cf5bebbc4cf03d37e20f72188a5afe7c1de20fe7e4df818b40cdc",
+  "currentSourcesMatchBuild": true,
+  "artifacts": {
+    "AppStateShield-0.4.14.apk": {
+      "sha256": "8aecb5b8272f59cbe19b5415385655bbe353a6a2db88473ea0636aae2087f103",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true,
+      "signatureVerified": true,
+      "signingCertificateSHA256": "e5e7f749fd8d02ccb8b19439bf0ac56800801ab544ef2b8d0968cca036956dfe",
+      "nativeLibraries": [
+        "libdeveloperstate.so",
+        "libdevicestate.so",
+        "libnativecompat.so",
+        "libselinuxstate.so",
+        "libshield.so",
+        "libvpnstate.so"
+      ]
+    },
+    "AppStateVerifier-0.4.14.apk": {
+      "sha256": "d261a2463e94b88fc0ae0cea34186c17fc515b6e981c342e97567e5fdb364dac",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true,
+      "signatureVerified": true,
+      "signingCertificateSHA256": "e5e7f749fd8d02ccb8b19439bf0ac56800801ab544ef2b8d0968cca036956dfe",
+      "nativeLibraries": null
+    }
+  },
+  "releaseDebugFixturesExcluded": true,
+  "runtimeABI": "arm64-v8a",
+  "fourABICompilationIsNotRuntimeValidation": true
+}

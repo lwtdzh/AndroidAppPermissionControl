@@ -1,0 +1,10 @@
+{
+  "at": "2026-11-20T15:11:07.158875+08:00",
+  "originalDiskManifestMatched": true,
+  "originalRamdiskMatched": true,
+  "originalPackagesPreferencesScopesGrantsServicesRestoredByDisk": true,
+  "dedicatedEmulatorStopped": true,
+  "unrelatedEmulator5594NotOperated": true,
+  "testDiskRetainedOutsideRepository": true,
+  "phoneFourStepAcceptanceReport": "vivo-xianyu-caller1-20261120.json"
+}

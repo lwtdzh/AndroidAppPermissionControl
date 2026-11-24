@@ -1,0 +1,441 @@
+{
+  "recordedAt": "2026-11-20T10:43:04.700744+08:00",
+  "status": "user-reported-full-four-step-reproduction-still-fails",
+  "acceptance": {
+    "completeRequiredWorkflowPassed": false,
+    "source": "User feedback on 2026-11-20",
+    "requiredSteps": [
+      "Clear Xianyu cloned app data",
+      "In cloned Vector, turn module scope off and save, then on and save",
+      "Delete and recreate Xianyu module customization through UI; enable no-SIM, identifiers and all state methods",
+      "Launch Xianyu, accept the privacy agreement, and reach a responsive home without hanging and exiting"
+    ],
+    "previousVivoColdStartIsPartialEvidenceOnly": true,
+    "reason": "The recorded vivo cold start preserved existing data and did not execute the entire reset/scope/delete/recreate/consent workflow."
+  },
+  "latestReproduction": {
+    "report": "xianyu-four-step-20261120-results.json",
+    "sha256": "88462a7b86fcc34da514da32e506fbf4c9ab1c8ec2c0e6d223234ecd6feb6fd1",
+    "emulatorDataClearedScopeUiSavedAndCustomizationUiRecreated": true,
+    "emulatorHomeAndSearchResponsive": true,
+    "scopeUiUsedOwnerManagerWithCloneModuleUserSelected": true,
+    "clonedManagerNotActivatedOnEmulator": true,
+    "vivoAvailable": false,
+    "completeRequiredWorkflowPassed": false,
+    "newProductionFix": false,
+    "originalEmulatorDiskRestored": true
+  },
+  "artifacts": {
+    "AppStateShield-xianyu-broker.apk": {
+      "sha256": "57c09d81ecd464541a58a9d782d180c0d04804b26fc8e9dd2e9d4c9f69e8305c",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "AppStateVerifier-xianyu-broker.apk": {
+      "sha256": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "Verifier-A-xianyu-broker.apk": {
+      "sha256": "40ad2178e7b4e7fe3067847043264364c0dcd4299a01e61c3dcaf0d9efd9452f",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    },
+    "Verifier-B-xianyu-broker.apk": {
+      "sha256": "0f0459834bd3096930c9e680deb49cce6ee1ce631b4e8e8a8ab56c9949186049",
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86",
+        "x86_64"
+      ],
+      "payloadMatchesBuild": true
+    }
+  },
+  "buildInputsSHA256": "85cebd823689b4cfc76f93d2af0ccffceef1351858ca693c068bfa7809c69c50",
+  "actualRuntime": {
+    "serial": "emulator-5584",
+    "sdk": 36,
+    "abi": "arm64-v8a",
+    "appUser": 10
+  },
+  "firstInitialization": [
+    {
+      "stage": "broker-fastpath",
+      "pid": "26984",
+      "startedAt": "2026-11-20T10:09:55.756350+08:00",
+      "sampleCount": 7,
+      "windowSeconds": 62.18,
+      "mainPresentInAllSamples": true,
+      "finalResumedUser": null,
+      "finalComponent": null,
+      "resourceIds": [],
+      "exitInfo": [],
+      "moduleEvents": [
+        {
+          "time": "11-19 22:19:34.098",
+          "events": [
+            "ART code views=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.099",
+          "events": [
+            "native compatibility ready=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native ready api=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native adapter restored=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.211",
+          "events": [
+            "native ready hooks=3 objects=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.225",
+          "events": [
+            "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+          ]
+        }
+      ],
+      "privateEvidenceSHA256": "90884235d449c6a38a7ad4774f4584888eb84f6b83f04fd7a565e35a2c5b61c6"
+    },
+    {
+      "stage": "broker-deny-notification",
+      "pid": "26984",
+      "startedAt": "2026-11-20T10:12:06.195939+08:00",
+      "sampleCount": 2,
+      "windowSeconds": 10.59,
+      "mainPresentInAllSamples": true,
+      "finalResumedUser": "10",
+      "finalComponent": "com.taobao.idlefish/com.ali.user.mobile.login.ui.HalfTransparentUserLoginActivity",
+      "resourceIds": [
+        "com.taobao.idlefish:id/ali_user_guide_close_layout",
+        "com.taobao.idlefish:id/aliuser_onekey_login_btn",
+        "com.taobao.idlefish:id/login_content",
+        "com.taobao.idlefish:id/login_ipv",
+        "com.taobao.idlefish:id/login_root_view"
+      ],
+      "exitInfo": [],
+      "moduleEvents": [
+        {
+          "time": "11-19 22:19:34.098",
+          "events": [
+            "ART code views=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.099",
+          "events": [
+            "native compatibility ready=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native ready api=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native adapter restored=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.211",
+          "events": [
+            "native ready hooks=3 objects=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.225",
+          "events": [
+            "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+          ]
+        }
+      ],
+      "privateEvidenceSHA256": "960bbbcd24d802eb9f6c93fdda521ecb7630d463814c6316143a981fe9e68681"
+    },
+    {
+      "stage": "broker-home",
+      "pid": "26984",
+      "startedAt": "2026-11-20T10:13:00.217371+08:00",
+      "sampleCount": 2,
+      "windowSeconds": 10.88,
+      "mainPresentInAllSamples": true,
+      "finalResumedUser": "10",
+      "finalComponent": "com.taobao.idlefish/.maincontainer.activity.MainActivity",
+      "resourceIds": [
+        "com.taobao.idlefish:id/icon_entry",
+        "com.taobao.idlefish:id/icon_entry_wrapper",
+        "com.taobao.idlefish:id/id_pager",
+        "com.taobao.idlefish:id/inner_nested_scroll_view",
+        "com.taobao.idlefish:id/login_guide_bar",
+        "com.taobao.idlefish:id/msg_tag_debug_text_id",
+        "com.taobao.idlefish:id/nested_recycler_view",
+        "com.taobao.idlefish:id/outer_nested_scroll_view",
+        "com.taobao.idlefish:id/photo_search",
+        "com.taobao.idlefish:id/scan_wrapper",
+        "com.taobao.idlefish:id/search_bar_layout",
+        "com.taobao.idlefish:id/search_btn",
+        "com.taobao.idlefish:id/tab_guide_btn",
+        "com.taobao.idlefish:id/tab_guide_container",
+        "com.taobao.idlefish:id/tab_title",
+        "com.taobao.idlefish:id/title",
+        "com.taobao.idlefish:id/view_pager",
+        "com.taobao.idlefish:id/viewpager"
+      ],
+      "exitInfo": [],
+      "moduleEvents": [
+        {
+          "time": "11-19 22:19:34.098",
+          "events": [
+            "ART code views=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.099",
+          "events": [
+            "native compatibility ready=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native ready api=2"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.114",
+          "events": [
+            "native adapter restored=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.211",
+          "events": [
+            "native ready hooks=3 objects=1"
+          ]
+        },
+        {
+          "time": "11-19 22:19:34.225",
+          "events": [
+            "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+          ]
+        }
+      ],
+      "privateEvidenceSHA256": "8721e78c08cc31f8472649afd122aa0299d678fdb37f92e2a6c6980cdc4759a2"
+    }
+  ],
+  "firstInitializationLimitations": [
+    "One fresh first-initialization case on the candidate, not a failure-frequency measurement.",
+    "Exact SecurityGuard internal loop/lock owner is still unidentified.",
+    "No logged-in request or response validation.",
+    "AOSP user10 is not vivo user999."
+  ],
+  "matrix": {
+    "passed": 64,
+    "machineProfileAndSyscallBrokerEnabledInEveryCase": true,
+    "wallSpanSeconds": 55.421
+  },
+  "reports": {
+    "xianyu-broker-apk-results.json": {
+      "sha256": "993f01b94e7905cf402dd74b4dfbbff5103ac4939fa101e59d36a94c2968e82a"
+    },
+    "native-broker-20261119-results.json": {
+      "sha256": "5f65ef67da200b60855c517ec3d75a7a373f08df0b540c0bedd20826d40f8854"
+    },
+    "selinux-xianyu-broker-results.json": {
+      "sha256": "c23cec0aa41132397d9b631e723a672a3cadbc53f0f72803c26919a1dc3d3dd6"
+    },
+    "xianyu-broker-artifact-checks.json": {
+      "sha256": "e3dd062eb7c3c1b383757b2f5c7fc00415970fd2cc8b22d2d285f443698e7e01"
+    },
+    "vivo-xianyu-broker-install-20261119.json": {
+      "sha256": "c03efe59c56749c30fcbcd039607902fd09dc1a7ecf06aa62e2b0129e4046926"
+    },
+    "xianyu-broker-emulator-restoration.json": {
+      "sha256": "12d788dd76422dd2062d4fbb2db345491921baf48a5baa10f15f4d911833ffc7"
+    },
+    "vivo-xianyu-broker-20261120.json": {
+      "sha256": "e043205b559a10cf25defd913e8ebe7b7f251af010a59ee881d915b02dd2b24e"
+    }
+  },
+  "phone": {
+    "recordedAt": "2026-11-20T10:42:11.640583+08:00",
+    "status": "installed-and-active-profile-cold-start-passed",
+    "device": {
+      "model": "vivo V2419A",
+      "appUser": 999,
+      "appUID": 99910400
+    },
+    "installedModuleSHA256": "57c09d81ecd464541a58a9d782d180c0d04804b26fc8e9dd2e9d4c9f69e8305c",
+    "mappedModuleAPKMatchesInstalledCandidate": true,
+    "earlierRejectedInstallPreservedIn": "vivo-xianyu-broker-install-20261119.json",
+    "firstPostInstallStartup": {
+      "pid": "22823",
+      "policyLoaded": false,
+      "notUsedAsActiveMachineVerification": true,
+      "reason": "After package replacement the module was stopped and policy reads raised IllegalArgumentException."
+    },
+    "visibilityRecovery": {
+      "clonedSettingsOpenedWithoutSaving": true,
+      "mechanism": "SettingsActivity.onCreate -> PolicyVisibility.restore",
+      "collectorCorrection": "The initial immediate resumed-activity check raced the clone selector; the same launch subsequently reached SettingsActivity. A bounded readiness wait was added."
+    },
+    "activeColdStart": {
+      "pid": "31554",
+      "desktopIntent": true,
+      "sampleCount": 13,
+      "windowSeconds": 67.18,
+      "mainPresentInAllSamples": true,
+      "exitInfo": [],
+      "module": [
+        {
+          "time": "11-20 10:39:48.904",
+          "tag": "AppStateShield",
+          "events": [
+            "ART code views=8"
+          ]
+        },
+        {
+          "time": "11-20 10:39:48.905",
+          "tag": "AppStateShield",
+          "events": [
+            "native compatibility ready=1"
+          ]
+        },
+        {
+          "time": "11-20 10:39:48.924",
+          "tag": "ScreenshotShield",
+          "events": [
+            "native ready api=2"
+          ]
+        },
+        {
+          "time": "11-20 10:39:48.924",
+          "tag": "AppStateShield",
+          "events": [
+            "native adapter restored=1"
+          ]
+        },
+        {
+          "time": "11-20 10:39:49.183",
+          "tag": "DeviceProfile",
+          "events": [
+            "native ready hooks=3 objects=1"
+          ]
+        },
+        {
+          "time": "11-20 10:39:49.415",
+          "tag": "AppStateShield",
+          "events": [
+            "Policy loaded=true enabled=[screenshot, vpn, proxy, developer, debug, selinux]"
+          ]
+        }
+      ],
+      "ui": {
+        "observedAt": "2026-11-20T10:40:55.592607+08:00",
+        "resumedUser": "999",
+        "resumedComponent": "com.taobao.idlefish/.maincontainer.activity.MainActivity",
+        "uiDumpCompleted": true,
+        "visibleStandardLabels": [
+          "\u6211\u7684",
+          "\u6d88\u606f",
+          "\u95f2\u9c7c"
+        ],
+        "resourceIds": [
+          "com.taobao.idlefish:id/icon_entry",
+          "com.taobao.idlefish:id/icon_entry_wrapper",
+          "com.taobao.idlefish:id/id_pager",
+          "com.taobao.idlefish:id/inner_nested_scroll_view",
+          "com.taobao.idlefish:id/login_guide_bar",
+          "com.taobao.idlefish:id/msg_tag_debug_text_id",
+          "com.taobao.idlefish:id/nested_recycler_view",
+          "com.taobao.idlefish:id/outer_nested_scroll_view",
+          "com.taobao.idlefish:id/photo_search",
+          "com.taobao.idlefish:id/scan_wrapper",
+          "com.taobao.idlefish:id/search_bar_layout",
+          "com.taobao.idlefish:id/search_btn",
+          "com.taobao.idlefish:id/tab_title",
+          "com.taobao.idlefish:id/title",
+          "com.taobao.idlefish:id/view_pager",
+          "com.taobao.idlefish:id/viewpager"
+        ]
+      },
+      "privateStartupEvidenceSHA256": "e78d64962e74a4a297a9fcb9581da79bfaee57cb4ed195223854f948ebb9ad64",
+      "privateUIEvidenceSHA256": "2fc9ad1c6dc4baa46484184c7d56cb4baed25c600847d8d8101f561395e53bb1"
+    },
+    "controls": {
+      "enabled": true,
+      "idsEnabled": true,
+      "networkMode": "no_sim",
+      "modelEnabled": false,
+      "environmentEnabled": false,
+      "locationEnabled": false
+    },
+    "selectedCount": 46,
+    "preservation": {
+      "allModulePreferencesAndOtherProfilesUnchanged": true,
+      "fileOwnershipAndPermissionsUnchanged": true,
+      "allVectorModulesAndScopesUnchanged": true,
+      "phoneAppDataCleared": false,
+      "savedParametersChanged": false,
+      "profileRevisionUnchanged": true
+    },
+    "limitations": [
+      "One valid active-profile cold start; long-term failure frequency is unmeasured.",
+      "No logged-in request or response validation.",
+      "No physical-device data reset was performed."
+    ],
+    "emulatorRetested": false,
+    "committedOrPushed": false
+  },
+  "phoneInitialRejectedInstall": {
+    "installationAttempt": "INSTALL_FAILED_ABORTED: User rejected permissions",
+    "candidateInstalled": false,
+    "originalModuleSHA256": "57c1a94c24c1c366f47f68671f720497405e3a278b5e976490abbb9e8b6c72ea",
+    "modulePreferencesUnchanged": true,
+    "ownershipUnchanged": true,
+    "moduleStatesAndAllScopesUnchanged": true,
+    "phoneDataCleared": false,
+    "candidateColdStartExecuted": false
+  },
+  "emulatorRestoration": {
+    "originalDiskManifestMatched": true,
+    "originalRamdiskMatched": true,
+    "originalPackagesPreferencesScopesGrantsServicesRestoredByDisk": true,
+    "dedicatedEmulatorStopped": true,
+    "unrelatedEmulator5594NotOperated": true,
+    "testDiskRetainedOutsideRepository": true,
+    "originalManifestSHA256": "b4d38f252cbca12eabd9cb24377bd360f44216d6006af503919ce81629521bd8"
+  },
+  "committedOrPushed": false
+}

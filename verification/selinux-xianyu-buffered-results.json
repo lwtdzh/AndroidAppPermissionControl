@@ -1,0 +1,1261 @@
+{
+  "cases": {
+    "L01-prepare": {
+      "status": "passed",
+      "evidence": {
+        "realVpn": true,
+        "realUsbDebug": true,
+        "fixture": "constructed file",
+        "installedSha256": {
+          "io.github.lwtdzh.appstateshield": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+          "io.github.lwtdzh.screenshotdetector": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+        }
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:43.007867+00:00",
+      "durationSeconds": 0.453,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L02-unscoped-permissive": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": false,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [],
+          "idsEnabled": false,
+          "deviceRevision": 0,
+          "environmentEnabled": false,
+          "futureMethodEnabled": false,
+          "injected": false,
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          },
+          "providerOnCreate": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          },
+          "applicationOnCreate": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          }
+        },
+        "javaEnforced": false,
+        "javaEnabled": true,
+        "fileInputStream": "0",
+        "randomAccessFile": "0",
+        "nio": "0",
+        "channel": "0",
+        "native": {
+          "read": "0",
+          "eof": "0",
+          "pread": "0",
+          "pread64": "0",
+          "readv": "0",
+          "dup": "0",
+          "directSyscall": "0",
+          "badFd": "EBADF",
+          "fread": "0",
+          "freadPartial": "0",
+          "freadPartialItems": "0",
+          "fgets": "0",
+          "security_getenforce": "0",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 1,
+        "debug": 1,
+        "adbd": "running",
+        "nativeState": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": []
+        },
+        "tunByName": true,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": true,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": true,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:44.313334+00:00",
+      "durationSeconds": 0.554,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L03-all-off": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795146906037,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": false
+          },
+          "providerOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": false
+          },
+          "applicationOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": false
+          }
+        },
+        "javaEnforced": false,
+        "javaEnabled": true,
+        "fileInputStream": "0",
+        "randomAccessFile": "0",
+        "nio": "0",
+        "channel": "0",
+        "native": {
+          "read": "0",
+          "eof": "0",
+          "pread": "0",
+          "pread64": "0",
+          "readv": "0",
+          "dup": "0",
+          "directSyscall": "0",
+          "badFd": "EBADF",
+          "fread": "0",
+          "freadPartial": "0",
+          "freadPartialItems": "0",
+          "fgets": "0",
+          "security_getenforce": "0",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 1,
+        "debug": 1,
+        "adbd": "running",
+        "nativeState": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": []
+        },
+        "tunByName": true,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": true,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": true,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:45.691132+00:00",
+      "durationSeconds": 0.6,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L04-selinux-only": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795146906037,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "providerOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "applicationOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          }
+        },
+        "javaEnforced": true,
+        "javaEnabled": true,
+        "fileInputStream": "1",
+        "randomAccessFile": "1",
+        "nio": "1",
+        "channel": "1",
+        "native": {
+          "read": "1",
+          "eof": "0",
+          "pread": "1",
+          "pread64": "1",
+          "readv": "1",
+          "dup": "1",
+          "directSyscall": "0",
+          "badFd": "EBADF",
+          "fread": "1",
+          "freadPartial": "1",
+          "freadPartialItems": "0",
+          "fgets": "1",
+          "security_getenforce": "1",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 1,
+        "debug": 1,
+        "adbd": "running",
+        "nativeState": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": [
+            "libselinuxstate.so"
+          ]
+        },
+        "tunByName": true,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": true,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": true,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:46.850085+00:00",
+      "durationSeconds": 0.495,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L05-all-on": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "screenshot",
+            "vpn",
+            "proxy",
+            "developer",
+            "debug",
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795146906037,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": true,
+            "developer": 0,
+            "debug": 0,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "providerOnCreate": {
+            "injected": true,
+            "developer": 0,
+            "debug": 0,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "applicationOnCreate": {
+            "injected": true,
+            "developer": 0,
+            "debug": 0,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          }
+        },
+        "javaEnforced": true,
+        "javaEnabled": true,
+        "fileInputStream": "1",
+        "randomAccessFile": "1",
+        "nio": "1",
+        "channel": "1",
+        "native": {
+          "read": "1",
+          "eof": "0",
+          "pread": "1",
+          "pread64": "1",
+          "readv": "1",
+          "dup": "1",
+          "directSyscall": "0",
+          "badFd": "EBADF",
+          "fread": "1",
+          "freadPartial": "1",
+          "freadPartialItems": "0",
+          "fgets": "1",
+          "security_getenforce": "1",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 0,
+        "debug": 0,
+        "adbd": "stopped",
+        "nativeState": {
+          "init.svc.adbd.get": "stopped",
+          "init.svc.adbd.read": "stopped",
+          "init.svc.adbd.callback": "stopped",
+          "sys.usb.config.get": "none",
+          "sys.usb.config.read": "none",
+          "sys.usb.config.callback": "none",
+          "sys.usb.state.get": "none",
+          "sys.usb.state.read": "none",
+          "sys.usb.state.callback": "none",
+          "service.adb.tcp.port.get": "-1",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": [
+            "libdeveloperstate.so",
+            "libselinuxstate.so",
+            "libshield.so",
+            "libvpnstate.so"
+          ]
+        },
+        "tunByName": false,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": false,
+        "proxyFixture": {
+          "hostVisible": false,
+          "portVisible": false,
+          "bulkHostVisible": false,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": false,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:47.940307+00:00",
+      "durationSeconds": 0.519,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L06-enforcing-baseline": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": false,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [],
+          "idsEnabled": false,
+          "deviceRevision": 0,
+          "environmentEnabled": false,
+          "futureMethodEnabled": false,
+          "injected": false,
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          },
+          "providerOnCreate": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          },
+          "applicationOnCreate": {
+            "injected": false,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 0,
+            "selinux": false
+          }
+        },
+        "javaEnforced": false,
+        "javaEnabled": true,
+        "fileInputStream": "ERROR:FileNotFoundException",
+        "randomAccessFile": "ERROR:FileNotFoundException",
+        "nio": "ERROR:AccessDeniedException",
+        "channel": "ERROR:AccessDeniedException",
+        "native": {
+          "read": "ERROR:9",
+          "eof": "-1",
+          "pread": "ERROR:9",
+          "pread64": "ERROR:9",
+          "readv": "ERROR:9",
+          "dup": "ERROR:9",
+          "directSyscall": "ERROR:9",
+          "badFd": "EBADF",
+          "fread": "ERROR",
+          "security_getenforce": "-1",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 1,
+        "debug": 1,
+        "adbd": "running",
+        "nativeState": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": []
+        },
+        "tunByName": true,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": true,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": true,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:48.868875+00:00",
+      "durationSeconds": 0.422,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    },
+    "L07-enforcing-selinux-only": {
+      "status": "passed",
+      "evidence": {
+        "module": {
+          "policyLoaded": true,
+          "networkMode": "off",
+          "modelEnabled": false,
+          "locationEnabled": false,
+          "enabled": [
+            "selinux"
+          ],
+          "deviceHooks": 0,
+          "deviceNative": false,
+          "deviceRegion": "",
+          "idsEnabled": true,
+          "deviceRevision": 1795146906037,
+          "environmentEnabled": false,
+          "futureMethodEnabled": true,
+          "deviceAttestationIdsRemoved": 0,
+          "deviceNativeObjects": false,
+          "injected": true,
+          "deviceSelected": [
+            "imei",
+            "imei2",
+            "meid",
+            "serial",
+            "android_id",
+            "oaid",
+            "vaid",
+            "aaid",
+            "gaid",
+            "wifi_mac",
+            "bt_mac",
+            "ssid",
+            "bssid",
+            "imsi",
+            "iccid",
+            "phone",
+            "lac",
+            "cid",
+            "tac",
+            "pci",
+            "brand",
+            "manufacturer",
+            "model",
+            "device",
+            "product",
+            "board",
+            "hardware",
+            "release",
+            "incremental",
+            "fingerprint",
+            "width",
+            "height",
+            "density",
+            "total_ram",
+            "storage",
+            "operator",
+            "mcc",
+            "mnc",
+            "signal",
+            "latitude",
+            "longitude",
+            "accuracy",
+            "timezone",
+            "language",
+            "hide_sensors",
+            "hide_module_apps"
+          ],
+          "deviceEnabled": false
+        },
+        "lifecycle": {
+          "attachBaseContext": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "providerOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          },
+          "applicationOnCreate": {
+            "injected": true,
+            "developer": 1,
+            "debug": 1,
+            "model": "Android SDK built for arm64",
+            "androidId": "b7a012c685f55dce",
+            "deviceRevision": 1795146906037,
+            "selinux": true
+          }
+        },
+        "javaEnforced": true,
+        "javaEnabled": true,
+        "fileInputStream": "ERROR:FileNotFoundException",
+        "randomAccessFile": "ERROR:FileNotFoundException",
+        "nio": "ERROR:AccessDeniedException",
+        "channel": "ERROR:AccessDeniedException",
+        "native": {
+          "read": "ERROR:9",
+          "eof": "-1",
+          "pread": "ERROR:9",
+          "pread64": "ERROR:9",
+          "readv": "ERROR:9",
+          "dup": "ERROR:9",
+          "directSyscall": "ERROR:9",
+          "badFd": "EBADF",
+          "fread": "ERROR",
+          "security_getenforce": "1",
+          "is_selinux_enabled": "1",
+          "contextAvailable": "true",
+          "ordinaryRead": "0",
+          "done": true
+        },
+        "developer": 1,
+        "debug": 1,
+        "adbd": "running",
+        "nativeState": {
+          "init.svc.adbd.get": "running",
+          "init.svc.adbd.read": "running",
+          "init.svc.adbd.callback": "running",
+          "sys.usb.config.get": "adb",
+          "sys.usb.config.read": "adb",
+          "sys.usb.config.callback": "adb",
+          "sys.usb.state.get": "adb",
+          "sys.usb.state.read": "adb",
+          "sys.usb.state.callback": "adb",
+          "service.adb.tcp.port.get": "",
+          "ro.build.version.sdk.get": "36",
+          "ro.build.version.sdk.read": "36",
+          "ro.build.version.sdk.callback": "36",
+          "interfaces": [
+            "dummy0",
+            "lo",
+            "tun0",
+            "wlan0"
+          ],
+          "listLifetimeOk": true,
+          "getpidOk": true,
+          "protectionLibraries": [
+            "libselinuxstate.so"
+          ]
+        },
+        "tunByName": true,
+        "legacyVpnAvailable": true,
+        "legacyVpnConnected": true,
+        "proxyFixture": {
+          "hostVisible": true,
+          "portVisible": true,
+          "bulkHostVisible": true,
+          "ordinaryProperty": "Dalvik",
+          "configurator": "setHttpProxyConfiguration",
+          "selectedProxyTypes": [
+            "HTTP"
+          ],
+          "response": 204,
+          "actualHttpProxyUsed": true
+        },
+        "screenshotFixture": true,
+        "ordinaryFixture": true,
+        "bootPropertyDefault": "absent-control",
+        "bootProperty": ""
+      },
+      "artifacts": {
+        "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+      },
+      "startedAtUTC": "2026-11-20T06:34:49.961482+00:00",
+      "durationSeconds": 0.557,
+      "buildInputsSHA256": "c91b76eae5eecf70f4bf9ff99fa0a1ae9f7ff7ca3095e918787e27b4ba061e77",
+      "apkPayloads": {
+        "AppStateShield": "af1ad72072539bb7c365f1e43e049cce96fb6189bb5715fe715ccf13b837047a",
+        "AppStateVerifier": "236d3ced2daf8ea036c166d2f276a9b5d59e911a3e7f76fbba14ac67eeb4acdc",
+        "Verifier-A": "897054cab157d1a7c05900daa08eb552882ae42d70d3d5de1dcecda389fbb670",
+        "Verifier-B": "069001f0f212aa19ebb7509e93710fdfab14aeaf9d781e2300c29a5465964cda"
+      },
+      "environment": {
+        "fingerprint": "Android/sdk_phone64_arm64/emu64a:16/BE2A.250530.026.D1/13818094:userdebug/test-keys",
+        "abi": "arm64-v8a",
+        "vectorModuleSHA256": "cb7e005d027e90baefd5e4ff0de39ded130036d0d571f7c3fcc6262861559ab5"
+      }
+    }
+  },
+  "artifacts": {
+    "AppStateShield-xianyu-buffered.apk": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+    "AppStateVerifier-xianyu-buffered.apk": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50"
+  },
+  "executions": [
+    {
+      "startedAtUTC": "2026-11-20T06:34:44.022555+00:00",
+      "resume": true,
+      "installedSha256": {
+        "io.github.lwtdzh.appstateshield": "e729c5ab272747830640a4137806878a496f5ee1d2d24e86fb19404b6d489a46",
+        "io.github.lwtdzh.screenshotdetector": "970112c6beaf4656eab0a867f7bb2f92cffec8bd50a46105ff6a16d4b743da50",
+        "io.github.lwtdzh.screenshotdetector.samplea": "19c513a41bf5deb7773072659c96aff69205d3bd29aa8e0ebec4e9b4885b843d",
+        "io.github.lwtdzh.screenshotdetector.sampleb.screenshot": "d8b717d3f43c113f54ecb3c5d74c0c2d0fb22f96dcb9ddebc5da496063d1d446"
+      },
+      "setupVerified": true
+    }
+  ],
+  "lastProbe": {
+    "module": {
+      "policyLoaded": true,
+      "networkMode": "off",
+      "modelEnabled": false,
+      "locationEnabled": false,
+      "enabled": [
+        "selinux"
+      ],
+      "deviceHooks": 0,
+      "deviceNative": false,
+      "deviceRegion": "",
+      "idsEnabled": true,
+      "deviceRevision": 1795146906037,
+      "environmentEnabled": false,
+      "futureMethodEnabled": true,
+      "deviceAttestationIdsRemoved": 0,
+      "deviceNativeObjects": false,
+      "injected": true,
+      "deviceSelected": [
+        "imei",
+        "imei2",
+        "meid",
+        "serial",
+        "android_id",
+        "oaid",
+        "vaid",
+        "aaid",
+        "gaid",
+        "wifi_mac",
+        "bt_mac",
+        "ssid",
+        "bssid",
+        "imsi",
+        "iccid",
+        "phone",
+        "lac",
+        "cid",
+        "tac",
+        "pci",
+        "brand",
+        "manufacturer",
+        "model",
+        "device",
+        "product",
+        "board",
+        "hardware",
+        "release",
+        "incremental",
+        "fingerprint",
+        "width",
+        "height",
+        "density",
+        "total_ram",
+        "storage",
+        "operator",
+        "mcc",
+        "mnc",
+        "signal",
+        "latitude",
+        "longitude",
+        "accuracy",
+        "timezone",
+        "language",
+        "hide_sensors",
+        "hide_module_apps"
+      ],
+      "deviceEnabled": false
+    },
+    "lifecycle": {
+      "attachBaseContext": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1795146906037,
+        "selinux": true
+      },
+      "providerOnCreate": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1795146906037,
+        "selinux": true
+      },
+      "applicationOnCreate": {
+        "injected": true,
+        "developer": 1,
+        "debug": 1,
+        "model": "Android SDK built for arm64",
+        "androidId": "b7a012c685f55dce",
+        "deviceRevision": 1795146906037,
+        "selinux": true
+      }
+    },
+    "javaEnforced": true,
+    "javaEnabled": true,
+    "fileInputStream": "ERROR:FileNotFoundException",
+    "randomAccessFile": "ERROR:FileNotFoundException",
+    "nio": "ERROR:AccessDeniedException",
+    "channel": "ERROR:AccessDeniedException",
+    "native": {
+      "read": "ERROR:9",
+      "eof": "-1",
+      "pread": "ERROR:9",
+      "pread64": "ERROR:9",
+      "readv": "ERROR:9",
+      "dup": "ERROR:9",
+      "directSyscall": "ERROR:9",
+      "badFd": "EBADF",
+      "fread": "ERROR",
+      "security_getenforce": "1",
+      "is_selinux_enabled": "1",
+      "contextAvailable": "true",
+      "ordinaryRead": "0",
+      "done": true
+    },
+    "developer": 1,
+    "debug": 1,
+    "adbd": "running",
+    "nativeState": {
+      "init.svc.adbd.get": "running",
+      "init.svc.adbd.read": "running",
+      "init.svc.adbd.callback": "running",
+      "sys.usb.config.get": "adb",
+      "sys.usb.config.read": "adb",
+      "sys.usb.config.callback": "adb",
+      "sys.usb.state.get": "adb",
+      "sys.usb.state.read": "adb",
+      "sys.usb.state.callback": "adb",
+      "service.adb.tcp.port.get": "",
+      "ro.build.version.sdk.get": "36",
+      "ro.build.version.sdk.read": "36",
+      "ro.build.version.sdk.callback": "36",
+      "interfaces": [
+        "dummy0",
+        "lo",
+        "tun0",
+        "wlan0"
+      ],
+      "listLifetimeOk": true,
+      "getpidOk": true,
+      "protectionLibraries": [
+        "libselinuxstate.so"
+      ]
+    },
+    "tunByName": true,
+    "legacyVpnAvailable": true,
+    "legacyVpnConnected": true,
+    "proxyFixture": {
+      "hostVisible": true,
+      "portVisible": true,
+      "bulkHostVisible": true,
+      "ordinaryProperty": "Dalvik",
+      "configurator": "setHttpProxyConfiguration",
+      "selectedProxyTypes": [
+        "HTTP"
+      ],
+      "response": 204,
+      "actualHttpProxyUsed": true
+    },
+    "screenshotFixture": true,
+    "ordinaryFixture": true,
+    "bootPropertyDefault": "absent-control",
+    "bootProperty": ""
+  }
+}

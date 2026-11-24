@@ -5,6 +5,8 @@
 #include <sys/system_properties.h>
 #include <cerrno>
 #include <string>
+#include <fcntl.h>
+#include "device-raw-io.h"
 
 namespace {
 NativeAPIEntries entries{};
@@ -29,7 +31,7 @@ bool enforceFd(int fd) {
     int saved = errno;
     char path[64], target[PATH_MAX];
     snprintf(path, sizeof(path), "/proc/self/fd/%d", fd);
-    ssize_t n = readlink(path, target, sizeof(target) - 1);
+    ssize_t n = device_io::link(path, target, sizeof(target) - 1);
     if (n >= 0) target[n] = 0;
     bool match = n >= 0 && (!strcmp(target, "/sys/fs/selinux/enforce")
         || !strcmp(target, "/selinux/enforce"));
@@ -170,9 +172,18 @@ void addSymbol(void *symbol, const char *name, R replacement, O *original) {
         __android_log_print(ANDROID_LOG_WARN, "SELinuxStateShield", "native entry retained: %s", name);
         return;
     }
-    if (entries.hookFunc(symbol, reinterpret_cast<void *>(replacement),
+    uint8_t before[64];
+    size_t captured = std::min(symbolSize(symbol, name), sizeof(before));
+    memcpy(before, symbol, captured);
+    int hookResult = -1;
+#if defined(__aarch64__)
+    hookResult = shield_entry::install(symbol, reinterpret_cast<void *>(replacement),
+        reinterpret_cast<void **>(original));
+#endif
+    if (hookResult == 0 || entries.hookFunc(symbol, reinterpret_cast<void *>(replacement),
         reinterpret_cast<void **>(original)) == 0) {
         hookedSymbols.insert(symbol);
+        codeViews.remember(reinterpret_cast<uintptr_t>(symbol), before, symbol, captured);
         ++hookCount;
     } else __android_log_print(ANDROID_LOG_WARN, "SELinuxStateShield", "native hook failed: %s", name);
 }
@@ -181,15 +192,16 @@ void add(void *handle, const char *name, R replacement, O *original) {
     addSymbol(dlsym(handle, name), name, replacement, original);
 }
 template <class R, class O>
-void addRead(const char *name, R replacement, O *original) {
+bool addRead(const char *name, R replacement, O *original) {
     void *symbol = dlsym(RTLD_DEFAULT, name);
     using Register = bool (*)(void *, ssize_t (*)(int, void *, ssize_t));
     auto registrar = reinterpret_cast<Register>(
         loadedSymbol("libshield.so", "appstateshield_set_selinux_read_filter"));
     // Vector rejects a second Hook on one address. Compose with our already
     // installed read wrappers, and only fall back when that entry is not owned.
-    if (registrar && registrar(symbol, filter)) return;
+    if (registrar && registrar(symbol, filter)) return true;
     addSymbol(symbol, name, replacement, original);
+    return hookedSymbols.count(symbol) != 0;
 }
 template <class R, class O>
 void addProperty(const char *name, R replacement, O *original) {
@@ -230,13 +242,19 @@ extern "C" __attribute__((visibility("default"))) OnLoad native_init(const Nativ
         dlsym(RTLD_DEFAULT,"__system_property_read_callback"));
     // Vector holds its loader locks: RTLD_DEFAULT and the supplied on-load handle only.
 #define ADD(name, replacement, original) add(RTLD_DEFAULT, name, replacement, &original)
-    addRead("read", h_read, &real_read);
+    bool bufferedReadCovered = addRead("read", h_read, &real_read);
     addRead("__read_chk", h_read_chk, &real_read_chk);
     addRead("pread", h_pread, &real_pread);
     addRead("pread64", h_pread64, &real_pread64);
     addRead("readv", h_readv, &real_readv);
-    ADD("fread", h_fread, real_fread);
-    ADD("fgets", h_fgets, real_fgets);
+    // Bionic's FILE refill calls read, which already filters every byte before
+    // buffering (including an incomplete fread item). Rechecking the descriptor
+    // for each buffered fread/fgets adds a readlink syscall to otherwise local
+    // reads; SecurityGuard performs these while holding its startup lock.
+    if (!bufferedReadCovered) {
+        ADD("fread", h_fread, real_fread);
+        ADD("fgets", h_fgets, real_fgets);
+    }
     addProperty("__system_property_get", h_property_get, &real_property_get);
     addProperty("__system_property_read", h_property_read, &real_property_read);
     addProperty("__system_property_read_callback", h_property_callback, &real_property_callback);

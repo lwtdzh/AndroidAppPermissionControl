@@ -1,0 +1,9 @@
+{
+  "originalDiskManifestMatched": true,
+  "originalRamdiskMatched": true,
+  "originalPackagesPreferencesScopesGrantsServicesRestoredByDisk": true,
+  "dedicatedEmulatorStopped": true,
+  "unrelatedEmulator5594NotOperated": true,
+  "testDiskRetainedOutsideRepository": true,
+  "originalManifestSHA256": "b4d38f252cbca12eabd9cb24377bd360f44216d6006af503919ce81629521bd8"
+}
